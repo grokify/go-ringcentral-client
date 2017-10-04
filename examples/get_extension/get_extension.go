@@ -25,6 +25,9 @@ func main() {
 			Username:  os.Getenv("RC_USER_USERNAME"),
 			Extension: os.Getenv("RC_USER_EXTENSION"),
 			Password:  os.Getenv("RC_USER_PASSWORD")})
+	if err != nil {
+		panic(err)
+	}
 
 	extApi := ringcentral.NewExtensionApiWithBasePath(os.Getenv("RC_SERVER_URL"))
 	extApi.Configuration.Transport = client.Transport

@@ -32,7 +32,7 @@ type Configuration struct {
 	UserAgent     string            `json:"userAgent,omitempty"`
 	APIClient     *APIClient
 	Transport     http.RoundTripper
-	//Transport     *http.Transport
+	//Transport	*http.Transport
 	Timeout *time.Duration `json:"timeout,omitempty"`
 }
 
