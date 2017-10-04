@@ -1,0 +1,11 @@
+$ unzip -p swagger-codegen-cli.jar META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+implementation-version: 2.2.3
+Built-By: tony
+Build-Jdk: 1.7.0_79
+package: io.swagger
+Created-By: Apache Maven 3.3.9
+Main-Class: io.swagger.codegen.SwaggerCodegen
+url: https://github.com/swagger-api/swagger-codegen/modules/swagger-co
+ degen-cli
+mode: development
