@@ -1,4 +1,8 @@
-# Go API client for ringcentral
+# RingCentral SDK for Go
+
+[![Go Report Card][goreport-svg]][goreport-link]
+[![Docs][docs-godoc-svg]][docs-godoc-link]
+[![License][license-svg]][license-link]
 
 RingCentral Connect Platform API
 
@@ -356,5 +360,13 @@ Class | Method | HTTP request | Description
 
 ## Author
 
+ [build-status-svg]: https://api.travis-ci.org/grokify/ringcentral-sdk-go-scg.svg?branch=master
+ [build-status-link]: https://travis-ci.org/grokify/ringcentral-sdk-go-scg
+ [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/ringcentral-sdk-go-scg
+ [goreport-link]: https://goreportcard.com/report/github.com/grokify/ringcentral-sdk-go-scg
+ [docs-godoc-svg]: https://img.shields.io/badge/docs-godoc-blue.svg
+ [docs-godoc-link]: https://godoc.org/github.com/grokify/ringcentral-sdk-go-scg
+ [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
+ [license-link]: https://github.com/grokify/ringcentral-sdk-go-scg/blob/master/LICENSE
 
 
