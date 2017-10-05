@@ -36,9 +36,8 @@ func main() {
 			ClientSecret: os.Getenv("RC_CLIENT_SECRET"),
 			ServerURL:    os.Getenv("RC_SERVER_URL")},
 		rcOAuth.UserCredentials{
-			Username:  os.Getenv("RC_USER_USERNAME"),
-			Extension: os.Getenv("RC_USER_EXTENSION"),
-			Password:  os.Getenv("RC_USER_PASSWORD")})
+			Username: os.Getenv("RC_USER_USERNAME"),
+			Password: os.Getenv("RC_USER_PASSWORD")})
 	if err != nil {
 		panic(err)
 	}
@@ -404,5 +403,3 @@ Class | Method | HTTP request | Description
  [docs-godoc-link]: https://godoc.org/github.com/grokify/ringcentral-sdk-go-scg
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
  [license-link]: https://github.com/grokify/ringcentral-sdk-go-scg/blob/master/LICENSE
-
-

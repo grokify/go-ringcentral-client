@@ -8,6 +8,7 @@ import (
 	"github.com/grokify/gotilla/fmt/fmtutil"
 	rcOAuth "github.com/grokify/oauth2util-go/services/ringcentral"
 	"github.com/grokify/ringcentral-sdk-go-scg"
+	"golang.org/x/oauth2"
 )
 
 func main() {
@@ -16,15 +17,14 @@ func main() {
 		panic(err)
 	}
 
-	client, err := rcOAuth.NewClientPassword(
-		rcOAuth.ApplicationCredentials{
+	client, err := rcOAuth.NewClientPasswordConf(
+		oauth2.Config{
 			ClientID:     os.Getenv("RC_CLIENT_ID"),
 			ClientSecret: os.Getenv("RC_CLIENT_SECRET"),
-			ServerURL:    os.Getenv("RC_SERVER_URL")},
-		rcOAuth.UserCredentials{
-			Username:  os.Getenv("RC_USER_USERNAME"),
-			Extension: os.Getenv("RC_USER_EXTENSION"),
-			Password:  os.Getenv("RC_USER_PASSWORD")})
+			Endpoint:     rcOAuth.NewEndpoint(os.Getenv("RC_SERVER_URL"))},
+		os.Getenv("RC_USER_USERNAME"),
+		os.Getenv("RC_USER_PASSWORD"))
+
 	if err != nil {
 		panic(err)
 	}
