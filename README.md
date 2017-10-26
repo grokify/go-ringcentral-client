@@ -25,7 +25,7 @@ $ go get github.com/grokify/ringcentral-sdk-go-scg
 import(
 	"os"
 
-	rcOAuth "github.com/grokify/oauth2util-go/services/ringcentral"
+	rcOAuth "github.com/grokify/oauth2util/ringcentral"
 	"github.com/grokify/ringcentral-sdk-go-scg"
 )
 

@@ -6,7 +6,8 @@ import (
 
 	"github.com/grokify/gotilla/config"
 	"github.com/grokify/gotilla/fmt/fmtutil"
-	rcOAuth "github.com/grokify/oauth2util-go/services/ringcentral"
+	ou "github.com/grokify/oauth2util"
+	rcOAuth "github.com/grokify/oauth2util/ringcentral"
 	"github.com/grokify/ringcentral-sdk-go-scg"
 	"golang.org/x/oauth2"
 )
@@ -17,7 +18,7 @@ func main() {
 		panic(err)
 	}
 
-	client, err := rcOAuth.NewClientPasswordConf(
+	client, err := ou.NewClientPasswordConf(
 		oauth2.Config{
 			ClientID:     os.Getenv("RC_CLIENT_ID"),
 			ClientSecret: os.Getenv("RC_CLIENT_SECRET"),
