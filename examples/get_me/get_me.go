@@ -25,14 +25,11 @@ func newApiClient() (*rc.APIClient, error) {
 		ro.ApplicationCredentials{
 			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
 			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
-			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET"),
-		},
+			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET")},
 		ro.UserCredentials{
 			Username:  os.Getenv("RINGCENTRAL_USERNAME"),
 			Extension: os.Getenv("RINGCENTRAL_EXTENSION"),
-			Password:  os.Getenv("RINGCENTRAL_PASSWORD"),
-		},
-	)
+			Password:  os.Getenv("RINGCENTRAL_PASSWORD")})
 	if err != nil {
 		return nil, err
 	}
@@ -48,12 +45,10 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
 	apiClient, err := newApiClient()
 	if err != nil {
 		panic(err)
 	}
-
 	info, resp, err := apiClient.UserSettingsApi.LoadExtensionInfo(context.Background(), "~", "~")
 	if err != nil {
 		panic(err)
