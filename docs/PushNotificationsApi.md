@@ -1,34 +1,87 @@
 # \PushNotificationsApi
 
-All URIs are relative to *https://platform.devtest.ringcentral.com*
+All URIs are relative to *https://api.ringcentral.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**RestapiV10SubscriptionGet**](PushNotificationsApi.md#RestapiV10SubscriptionGet) | **Get** /restapi/v1.0/subscription | 
-[**RestapiV10SubscriptionPost**](PushNotificationsApi.md#RestapiV10SubscriptionPost) | **Post** /restapi/v1.0/subscription | 
-[**RestapiV10SubscriptionSubscriptionIdDelete**](PushNotificationsApi.md#RestapiV10SubscriptionSubscriptionIdDelete) | **Delete** /restapi/v1.0/subscription/{subscriptionId} | 
-[**RestapiV10SubscriptionSubscriptionIdGet**](PushNotificationsApi.md#RestapiV10SubscriptionSubscriptionIdGet) | **Get** /restapi/v1.0/subscription/{subscriptionId} | 
-[**RestapiV10SubscriptionSubscriptionIdPut**](PushNotificationsApi.md#RestapiV10SubscriptionSubscriptionIdPut) | **Put** /restapi/v1.0/subscription/{subscriptionId} | 
+[**CreateSubscription**](PushNotificationsApi.md#CreateSubscription) | **Post** /restapi/v1.0/subscription | Create Subscription
+[**DeleteSubscription**](PushNotificationsApi.md#DeleteSubscription) | **Delete** /restapi/v1.0/subscription/{subscriptionId} | Cancel Subscription
+[**GetSubscriptions**](PushNotificationsApi.md#GetSubscriptions) | **Get** /restapi/v1.0/subscription | Get Subscriptions
+[**LoadSubscription**](PushNotificationsApi.md#LoadSubscription) | **Get** /restapi/v1.0/subscription/{subscriptionId} | Get Subscription
+[**RenewSubscription**](PushNotificationsApi.md#RenewSubscription) | **Get** /restapi/v1.0/subscription/{subscriptionId}/renew | Renew Subscription
+[**UpdateSubscription**](PushNotificationsApi.md#UpdateSubscription) | **Put** /restapi/v1.0/subscription/{subscriptionId} | Renew Subscription / Update Event Filters
 
 
-# **RestapiV10SubscriptionGet**
-> InlineResponseDefault37 RestapiV10SubscriptionGet()
+# **CreateSubscription**
+> SubscriptionInfo CreateSubscription(ctx, body)
+Create Subscription
 
+<p style='font-style:italic;'>Since 1.0.6 (Release 5.15)</p><p>Creates a new subscription.</p><h4>Usage Plan Group</h4><p>Medium</p>
 
+### Required Parameters
 
-Get Subscription List
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **body** | [**CreateSubscriptionRequest**](CreateSubscriptionRequest.md)| JSON body | 
 
+### Return type
 
-### Parameters
+[**SubscriptionInfo**](SubscriptionInfo.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DeleteSubscription**
+> DeleteSubscription(ctx, subscriptionId)
+Cancel Subscription
+
+<p style='font-style:italic;'></p><p>Cancels the existent subscription.</p><h4>Usage Plan Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **subscriptionId** | **string**| Internal identifier of a subscription | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetSubscriptions**
+> RecordsCollectionResourceSubscriptionResponse GetSubscriptions(ctx, )
+Get Subscriptions
+
+### Required Parameters
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponseDefault37**](inline_response_default_37.md)
+[**RecordsCollectionResourceSubscriptionResponse**](RecordsCollectionResourceSubscriptionResponse.md)
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+No authorization required
 
 ### HTTP request headers
 
@@ -37,19 +90,18 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RestapiV10SubscriptionPost**
-> SubscriptionInfo RestapiV10SubscriptionPost($body)
+# **LoadSubscription**
+> SubscriptionInfo LoadSubscription(ctx, subscriptionId)
+Get Subscription
 
+<p style='font-style:italic;'>Since 1.0.6 (Release 5.15)</p><p>Returns the requested subscription.</p><h4>Usage Plan Group</h4><p>Light</p>
 
-
-Create New Subscription
-
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Body20**](Body20.md)|  | [optional] 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **subscriptionId** | **int32**| Internal identifier of a subscription | 
 
 ### Return type
 
@@ -57,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+No authorization required
 
 ### HTTP request headers
 
@@ -66,48 +118,18 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RestapiV10SubscriptionSubscriptionIdDelete**
-> RestapiV10SubscriptionSubscriptionIdDelete($subscriptionId)
+# **RenewSubscription**
+> SubscriptionInfo RenewSubscription(ctx, subscriptionId)
+Renew Subscription
 
+<p style='font-style:italic;'>Since 1.0.26 (Release 8.12)</p><p>Renews an existent subscription by ID by posting request with an empty body..</p><h4>Usage Plan Group</h4><p>Medium</p>
 
-
-Cancel Subscription by ID
-
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscriptionId** | **string**| Internal identifier of a subscription | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[oauth](../README.md#oauth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10SubscriptionSubscriptionIdGet**
-> SubscriptionInfo RestapiV10SubscriptionSubscriptionIdGet($subscriptionId)
-
-
-
-Get Subscription by ID
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscriptionId** | **string**| Internal identifier of a subscription | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **subscriptionId** | **string**|  | 
 
 ### Return type
 
@@ -115,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+No authorization required
 
 ### HTTP request headers
 
@@ -124,20 +146,29 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RestapiV10SubscriptionSubscriptionIdPut**
-> SubscriptionInfo RestapiV10SubscriptionSubscriptionIdPut($subscriptionId, $body)
+# **UpdateSubscription**
+> SubscriptionInfo UpdateSubscription(ctx, subscriptionId, body, optional)
+Renew Subscription / Update Event Filters
 
+<p style='font-style:italic;'>Since 1.0.6 (Release 5.15)</p><p>Renews the existent subscription if the request body is empty. If event filters are specified, calling this method modifies the event filters for the existing subscription. The client application can extend or narrow the events for which it receives notifications in the frame of one subscription.</p><h4>Usage Plan Group</h4><p>Medium</p>
 
+### Required Parameters
 
-Update/Renew Subscription by ID
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **subscriptionId** | **string**| Internal identifier of a subscription | 
+  **body** | [**ModifySubscriptionRequest**](ModifySubscriptionRequest.md)| JSON body | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
-
-### Parameters
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **subscriptionId** | **string**| Internal identifier of a subscription | 
- **body** | [**Body21**](Body21.md)|  | [optional] 
+ **body** | [**ModifySubscriptionRequest**](ModifySubscriptionRequest.md)| JSON body | 
+ **aggregated** | **bool**| If &#39;True&#39; then aggregated presence status is returned in a notification payload | 
 
 ### Return type
 
@@ -145,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+No authorization required
 
 ### HTTP request headers
 

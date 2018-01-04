@@ -1,0 +1,655 @@
+# \UserSettingsApi
+
+All URIs are relative to *https://api.ringcentral.com*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**DeleteExtension**](UserSettingsApi.md#DeleteExtension) | **Delete** /restapi/v1.0/account/{accountId}/extension/{extensionId} | Delete Extension
+[**DownloadImage**](UserSettingsApi.md#DownloadImage) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image | Get User Profile Image
+[**GetSettings**](UserSettingsApi.md#GetSettings) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/notification-settings | Get Notification Settings
+[**ListExtensionGrants**](UserSettingsApi.md#ListExtensionGrants) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/grant | Get Extension Grants
+[**ListSecretQuestions**](UserSettingsApi.md#ListSecretQuestions) | **Get** /restapi/v1.0/dictionary/secret-question | Get Secret Questions
+[**LoadConferencingInfo**](UserSettingsApi.md#LoadConferencingInfo) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/conferencing | Get User Conferencing Settings
+[**LoadExtensionCallerId**](UserSettingsApi.md#LoadExtensionCallerId) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-id | Get Extension Caller ID
+[**LoadExtensionInfo**](UserSettingsApi.md#LoadExtensionInfo) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId} | Get Extension Info
+[**LoadExtensionProfileImage**](UserSettingsApi.md#LoadExtensionProfileImage) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image/{scaleSize} | Get Extension Profile Image (Scaled)
+[**LoadExtensionUserCredentials**](UserSettingsApi.md#LoadExtensionUserCredentials) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/credentials | Get User Credentials
+[**LoadSecretQuestion**](UserSettingsApi.md#LoadSecretQuestion) | **Get** /restapi/v1.0/dictionary/secret-question/{questionId} | Get Secret Question
+[**UpdateConferencingInfo**](UserSettingsApi.md#UpdateConferencingInfo) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/conferencing | Update User Conferencing Settings
+[**UpdateExtension**](UserSettingsApi.md#UpdateExtension) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId} | Update Extension
+[**UpdateExtensionCallerId**](UserSettingsApi.md#UpdateExtensionCallerId) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-id | Update Extension Caller ID
+[**UpdateExtensionUserCredentials**](UserSettingsApi.md#UpdateExtensionUserCredentials) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/credentials | Update User Credentials
+[**UpdateSettings**](UserSettingsApi.md#UpdateSettings) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/notification-settings | Update Notification Settings
+[**UploadImageByPostForm**](UserSettingsApi.md#UploadImageByPostForm) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image | Upload User Profile Image
+[**UploadImageByPutForm**](UserSettingsApi.md#UploadImageByPutForm) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image | Update User Profile Image
+[**ValidateExtensionUserCredentials**](UserSettingsApi.md#ValidateExtensionUserCredentials) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/credentials/validate | Validate User Credentials
+[**VerifyExtensionUserCredentials**](UserSettingsApi.md#VerifyExtensionUserCredentials) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/credentials/verify | Verify Extension User Credentials
+
+
+# **DeleteExtension**
+> DeleteExtension(ctx, extensionId, accountId)
+Delete Extension
+
+<p style='font-style:italic;'>Since 1.0.10 (Release 6.2)</p><p>Deletes extension(s) by ID(s).</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **extensionId** | **string**|  | 
+  **accountId** | **string**|  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DownloadImage**
+> Binary DownloadImage(ctx, extensionId, accountId)
+Get User Profile Image
+
+<p style='font-style:italic;'>Since 1.0.20 (Release 7.4)</p><p>Returns the extension profile image.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **extensionId** | **string**|  | 
+  **accountId** | **string**|  | 
+
+### Return type
+
+[**Binary**](Binary.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*, image/png, image/jpeg, image/gif
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetSettings**
+> NotificationSettings GetSettings(ctx, accountId, extensionId)
+Get Notification Settings
+
+<p style='font-style:italic;'>Since 1.0.26 (Release 8.2)</p><p>Returns notification settings for the current extension.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **int32**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+
+### Return type
+
+[**NotificationSettings**](NotificationSettings.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ListExtensionGrants**
+> GetExtensionGrantListResponse ListExtensionGrants(ctx, accountId, extensionId, optional)
+Get Extension Grants
+
+<p style='font-style:italic;'></p><p>Returns the list of extension grants.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+ **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+ **page** | **int32**| Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39; | 
+ **perPage** | **int32**| Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default | 
+
+### Return type
+
+[**GetExtensionGrantListResponse**](GetExtensionGrantListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ListSecretQuestions**
+> GetSecretQuestionListResponse ListSecretQuestions(ctx, optional)
+Get Secret Questions
+
+<p style='font-style:italic;'>Since 1.0.20 (Release 7.4)</p><p>Returns the list of secret questions for a specific language.</p><h4>Usage Plan Group</h4><p>Light</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **signupOnly** | **bool**|  | [default to false]
+ **page** | **string**|  | [default to 1]
+ **perPage** | **string**|  | [default to 100]
+
+### Return type
+
+[**GetSecretQuestionListResponse**](GetSecretQuestionListResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **LoadConferencingInfo**
+> GetConferencingInfoResponse LoadConferencingInfo(ctx, accountId, extensionId, optional)
+Get User Conferencing Settings
+
+<p style='font-style:italic;'>Since 1.0.4 (Release 5.13)</p><p>Returns the information on the Free Conference Calling (FCC) feature for a given extension.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+ **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+ **countryId** | **string**| Internal identifier of a country. If not specified, the response is returned for the brand country | 
+
+### Return type
+
+[**GetConferencingInfoResponse**](GetConferencingInfoResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **LoadExtensionCallerId**
+> ExtensionCallerIdInfo LoadExtensionCallerId(ctx, accountId, extensionId)
+Get Extension Caller ID
+
+<p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns information on an outbound caller ID of an extension.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+
+### Return type
+
+[**ExtensionCallerIdInfo**](ExtensionCallerIdInfo.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **LoadExtensionInfo**
+> GetExtensionInfoResponse LoadExtensionInfo(ctx, accountId, extensionId)
+Get Extension Info
+
+<p style='font-style:italic;'>Since 1.0.0</p><p>Returns basic information about a particular extension of an account.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+
+### Return type
+
+[**GetExtensionInfoResponse**](GetExtensionInfoResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **LoadExtensionProfileImage**
+> Binary LoadExtensionProfileImage(ctx, accountId, extensionId, scaleSize)
+Get Extension Profile Image (Scaled)
+
+<p style='font-style:italic;'></p><p>Returns the extension profile image.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+  **scaleSize** | **string**| Dimensions of a profile image which will be returned in response. If this path parameter is not specified in request URI then | 
+
+### Return type
+
+[**Binary**](Binary.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **LoadExtensionUserCredentials**
+> ExtensionUserCredentials LoadExtensionUserCredentials(ctx, accountId, extensionId)
+Get User Credentials
+
+<p style='font-style:italic;'>Since 1.0.27 (Release 8.3)</p><p>Returns extension user credentials.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+
+### Return type
+
+[**ExtensionUserCredentials**](ExtensionUserCredentials.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **LoadSecretQuestion**
+> SecretQuestionInfo LoadSecretQuestion(ctx, questionId)
+Get Secret Question
+
+<p style='font-style:italic;'>Since 1.0.20 (Release 7.4)</p><p>Returns a particular secret question in specific language by question ID.</p><h4>Usage Plan Group</h4><p>Light</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **questionId** | **int32**| Internal identifier of a question | 
+
+### Return type
+
+[**SecretQuestionInfo**](SecretQuestionInfo.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UpdateConferencingInfo**
+> GetConferencingInfoResponse UpdateConferencingInfo(ctx, accountId, extensionId, body)
+Update User Conferencing Settings
+
+<p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+  **body** | [**UpdateConferencingInfoRequest**](UpdateConferencingInfoRequest.md)| JSON body | 
+
+### Return type
+
+[**GetConferencingInfoResponse**](GetConferencingInfoResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UpdateExtension**
+> GetExtensionInfoResponse UpdateExtension(ctx, accountId, extensionId, body)
+Update Extension
+
+<p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+  **body** | [**ExtensionUpdateRequest**](ExtensionUpdateRequest.md)| JSON body | 
+
+### Return type
+
+[**GetExtensionInfoResponse**](GetExtensionInfoResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UpdateExtensionCallerId**
+> ExtensionCallerIdInfo UpdateExtensionCallerId(ctx, accountId, extensionId, body)
+Update Extension Caller ID
+
+<p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Updates outbound caller ID information of an extension.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+  **body** | [**ExtensionCallerIdInfo**](ExtensionCallerIdInfo.md)| JSON body | 
+
+### Return type
+
+[**ExtensionCallerIdInfo**](ExtensionCallerIdInfo.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UpdateExtensionUserCredentials**
+> ExtensionUserCredentials UpdateExtensionUserCredentials(ctx, accountId, extensionId, body)
+Update User Credentials
+
+<p style='font-style:italic;'>Since 1.0.27 (Release 8.3)</p><p>Updates extension user credentials.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+  **body** | [**ExtensionUserCredentailsRequest**](ExtensionUserCredentailsRequest.md)| JSON body | 
+
+### Return type
+
+[**ExtensionUserCredentials**](ExtensionUserCredentials.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UpdateSettings**
+> NotificationSettings UpdateSettings(ctx, accountId, extensionId, body)
+Update Notification Settings
+
+<p style='font-style:italic;'>Since 1.0.26 (Release 8.2)</p><p>Updates notification settings for the current extension.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **int32**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+  **body** | [**NotificationSettingsUpdateRequest**](NotificationSettingsUpdateRequest.md)|  | 
+
+### Return type
+
+[**NotificationSettings**](NotificationSettings.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UploadImageByPostForm**
+> Binary UploadImageByPostForm(ctx, image, extensionId, accountId)
+Upload User Profile Image
+
+<p style='font-style:italic;'>Since 1.0.26 (Release 8.2)</p><p>Returns the extension profile image.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **image** | ***os.File**|  | 
+  **extensionId** | **string**|  | 
+  **accountId** | **string**|  | 
+
+### Return type
+
+[**Binary**](Binary.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UploadImageByPutForm**
+> Binary UploadImageByPutForm(ctx, extensionId, accountId, optional)
+Update User Profile Image
+
+<p style='font-style:italic;'>Since 1.0.26 (Release 8.2)</p><p>Updates the extension profile image..</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **extensionId** | **string**|  | 
+  **accountId** | **string**|  | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **extensionId** | **string**|  | 
+ **accountId** | **string**|  | 
+ **image** | ***os.File**|  | 
+
+### Return type
+
+[**Binary**](Binary.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ValidateExtensionUserCredentials**
+> ValidateExtensionUserCredentials(ctx, accountId, extensionId, body)
+Validate User Credentials
+
+<p style='font-style:italic;'>Since 1.0.27 (Release 8.3)</p><p>Validates if extension user credentials specified can be applied.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+  **body** | [**ValidateExtensionUserCredentials**](ValidateExtensionUserCredentials.md)| JSON body | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **VerifyExtensionUserCredentials**
+> VerifyExtensionUserCredentials(ctx, accountId, extensionId, body)
+Verify Extension User Credentials
+
+<p style='font-style:italic;'>Since 1.0.27 (Release 8.3)</p><p>Verifies current extension user credentials.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+  **body** | [**VerifyExtensionUserCredentials**](VerifyExtensionUserCredentials.md)| JSON body | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

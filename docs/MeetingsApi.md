@@ -1,40 +1,47 @@
 # \MeetingsApi
 
-All URIs are relative to *https://platform.devtest.ringcentral.com*
+All URIs are relative to *https://api.ringcentral.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**RestapiV10AccountAccountIdExtensionExtensionIdMeetingGet**](MeetingsApi.md#RestapiV10AccountAccountIdExtensionExtensionIdMeetingGet) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting | 
-[**RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdDelete**](MeetingsApi.md#RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdDelete) | **Delete** /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId} | 
-[**RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdEndPost**](MeetingsApi.md#RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdEndPost) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId}/end | 
-[**RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdGet**](MeetingsApi.md#RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdGet) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId} | 
-[**RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdPut**](MeetingsApi.md#RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdPut) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId} | 
-[**RestapiV10AccountAccountIdExtensionExtensionIdMeetingPost**](MeetingsApi.md#RestapiV10AccountAccountIdExtensionExtensionIdMeetingPost) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting | 
-[**RestapiV10AccountAccountIdExtensionExtensionIdMeetingServiceInfoGet**](MeetingsApi.md#RestapiV10AccountAccountIdExtensionExtensionIdMeetingServiceInfoGet) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/service-info | 
+[**CreateMeeting**](MeetingsApi.md#CreateMeeting) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting | Create Meetings
+[**DeleteMeeting**](MeetingsApi.md#DeleteMeeting) | **Delete** /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId} | Delete Meeting
+[**EndMeeting**](MeetingsApi.md#EndMeeting) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId}/end | End Meeting
+[**GetLiveMeetings**](MeetingsApi.md#GetLiveMeetings) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting | Get Scheduled Meetings
+[**GetMeetingDetails**](MeetingsApi.md#GetMeetingDetails) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId} | Get Meeting Info
+[**GetMeetingServiceInfo**](MeetingsApi.md#GetMeetingServiceInfo) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/service-info | Get Meeting Service Info
+[**UpdateMeeting**](MeetingsApi.md#UpdateMeeting) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting/{meetingId} | Update Meeting
 
 
-# **RestapiV10AccountAccountIdExtensionExtensionIdMeetingGet**
-> InlineResponseDefault20 RestapiV10AccountAccountIdExtensionExtensionIdMeetingGet($accountId, $extensionId)
+# **CreateMeeting**
+> CreateMeeting(ctx, extensionId, accountId, optional)
+Create Meetings
 
-
-
-Get Meetings List
-
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
- **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **extensionId** | **string**|  | 
+  **accountId** | **string**|  | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **extensionId** | **string**|  | 
+ **accountId** | **string**|  | 
+ **body** | [**MeetingRequestResource**](MeetingRequestResource.md)|  | 
 
 ### Return type
 
-[**InlineResponseDefault20**](inline_response_default_20.md)
+ (empty response body)
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+No authorization required
 
 ### HTTP request headers
 
@@ -43,29 +50,26 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdDelete**
-> RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdDelete($accountId, $extensionId, $meetingId)
-
-
-
+# **DeleteMeeting**
+> DeleteMeeting(ctx, meetingId, extensionId, accountId)
 Delete Meeting
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
- **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
- **meetingId** | **string**| Internal identifier of a meeting | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **meetingId** | **string**|  | 
+  **extensionId** | **string**|  | 
+  **accountId** | **string**|  | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+No authorization required
 
 ### HTTP request headers
 
@@ -74,29 +78,26 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdEndPost**
-> RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdEndPost($accountId, $extensionId, $meetingId)
+# **EndMeeting**
+> EndMeeting(ctx, meetingId, extensionId, accountId)
+End Meeting
 
-
-
-End Current Meeting
-
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
- **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
- **meetingId** | **string**| Internal identifier of a meeting | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **meetingId** | **string**|  | 
+  **extensionId** | **string**|  | 
+  **accountId** | **string**|  | 
 
 ### Return type
 
-void (empty response body)
+ (empty response body)
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+No authorization required
 
 ### HTTP request headers
 
@@ -105,29 +106,25 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdGet**
-> MeetingInfo RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdGet($accountId, $extensionId, $meetingId)
+# **GetLiveMeetings**
+> MeetingsResource GetLiveMeetings(ctx, extensionId, accountId)
+Get Scheduled Meetings
 
-
-
-Get Meeting
-
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
- **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
- **meetingId** | **string**| Internal identifier of a meeting | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **extensionId** | **string**|  | 
+  **accountId** | **string**|  | 
 
 ### Return type
 
-[**MeetingInfo**](MeetingInfo.md)
+[**MeetingsResource**](MeetingsResource.md)
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+No authorization required
 
 ### HTTP request headers
 
@@ -136,30 +133,26 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdPut**
-> MeetingInfo RestapiV10AccountAccountIdExtensionExtensionIdMeetingMeetingIdPut($accountId, $extensionId, $meetingId, $body)
+# **GetMeetingDetails**
+> MeetingResponseResource GetMeetingDetails(ctx, meetingId, extensionId, accountId)
+Get Meeting Info
 
-
-
-Update Meeting
-
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
- **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
- **meetingId** | **string**| Internal identifier of a meeting | 
- **body** | [**Body12**](Body12.md)|  | [optional] 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **meetingId** | **string**|  | 
+  **extensionId** | **string**|  | 
+  **accountId** | **string**|  | 
 
 ### Return type
 
-[**MeetingInfo**](MeetingInfo.md)
+[**MeetingResponseResource**](MeetingResponseResource.md)
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+No authorization required
 
 ### HTTP request headers
 
@@ -168,59 +161,64 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RestapiV10AccountAccountIdExtensionExtensionIdMeetingPost**
-> MeetingInfo RestapiV10AccountAccountIdExtensionExtensionIdMeetingPost($accountId, $extensionId, $body)
-
-
-
-Create Meeting
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
- **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
- **body** | [**Body11**](Body11.md)|  | [optional] 
-
-### Return type
-
-[**MeetingInfo**](MeetingInfo.md)
-
-### Authorization
-
-[oauth](../README.md#oauth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdExtensionExtensionIdMeetingServiceInfoGet**
-> MeetingServiceInfo RestapiV10AccountAccountIdExtensionExtensionIdMeetingServiceInfoGet($accountId, $extensionId)
-
-
-
+# **GetMeetingServiceInfo**
+> MeetingServiceInfoResource GetMeetingServiceInfo(ctx, extensionId, accountId)
 Get Meeting Service Info
 
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
- **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **extensionId** | **string**|  | 
+  **accountId** | **string**|  | 
 
 ### Return type
 
-[**MeetingServiceInfo**](MeetingServiceInfo.md)
+[**MeetingServiceInfoResource**](MeetingServiceInfoResource.md)
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UpdateMeeting**
+> MeetingResponseResource UpdateMeeting(ctx, meetingId, extensionId, accountId, optional)
+Update Meeting
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **meetingId** | **string**|  | 
+  **extensionId** | **string**|  | 
+  **accountId** | **string**|  | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **meetingId** | **string**|  | 
+ **extensionId** | **string**|  | 
+ **accountId** | **string**|  | 
+ **body** | [**MeetingRequestResource**](MeetingRequestResource.md)|  | 
+
+### Return type
+
+[**MeetingResponseResource**](MeetingResponseResource.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

@@ -1,43 +1,249 @@
 # \MessagesApi
 
-All URIs are relative to *https://platform.devtest.ringcentral.com*
+All URIs are relative to *https://api.ringcentral.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**RestapiV10AccountAccountIdExtensionExtensionIdCompanyPagerPost**](MessagesApi.md#RestapiV10AccountAccountIdExtensionExtensionIdCompanyPagerPost) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/company-pager | 
-[**RestapiV10AccountAccountIdExtensionExtensionIdFaxPost**](MessagesApi.md#RestapiV10AccountAccountIdExtensionExtensionIdFaxPost) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/fax | 
-[**RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreGet**](MessagesApi.md#RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreGet) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store | 
-[**RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdContentAttachmentIdGet**](MessagesApi.md#RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdContentAttachmentIdGet) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}/content/{attachmentId} | 
-[**RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdDelete**](MessagesApi.md#RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdDelete) | **Delete** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId} | 
-[**RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdGet**](MessagesApi.md#RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdGet) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId} | 
-[**RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdPut**](MessagesApi.md#RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdPut) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId} | 
-[**RestapiV10AccountAccountIdExtensionExtensionIdMessageSyncGet**](MessagesApi.md#RestapiV10AccountAccountIdExtensionExtensionIdMessageSyncGet) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-sync | 
-[**RestapiV10AccountAccountIdExtensionExtensionIdSmsPost**](MessagesApi.md#RestapiV10AccountAccountIdExtensionExtensionIdSmsPost) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/sms | 
+[**DeleteMessage**](MessagesApi.md#DeleteMessage) | **Delete** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId} | Delete Message(s) by ID
+[**DeleteMessagesByFilter**](MessagesApi.md#DeleteMessagesByFilter) | **Delete** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store | Delete Conversations by ID&#39;s
+[**GetFaxCoverPages**](MessagesApi.md#GetFaxCoverPages) | **Get** /restapi/v1.0/dictionary/fax-cover-page | Get Fax Cover Pages
+[**ListMessages**](MessagesApi.md#ListMessages) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store | Get Message List
+[**LoadMessage**](MessagesApi.md#LoadMessage) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId} | Get Message(s) by ID
+[**LoadMessageAttachment**](MessagesApi.md#LoadMessageAttachment) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}/content/{attachmentId} | Get Message Attachment
+[**RestapiV10AccountAccountIdExtensionExtensionIdFaxPost**](MessagesApi.md#RestapiV10AccountAccountIdExtensionExtensionIdFaxPost) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/fax | Create Fax Message
+[**SendInternalMessage**](MessagesApi.md#SendInternalMessage) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/company-pager | Create Pager Message
+[**SendSMS**](MessagesApi.md#SendSMS) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/sms | Create SMS Message
+[**SyncMessages**](MessagesApi.md#SyncMessages) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-sync | Get Message Sync
+[**UpdateMessage**](MessagesApi.md#UpdateMessage) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId} | Update Message(s) by ID
 
 
-# **RestapiV10AccountAccountIdExtensionExtensionIdCompanyPagerPost**
-> MessageInfo RestapiV10AccountAccountIdExtensionExtensionIdCompanyPagerPost($accountId, $extensionId, $body)
+# **DeleteMessage**
+> DeleteMessage(ctx, accountId, extensionId, messageId, optional)
+Delete Message(s) by ID
 
+<p style='font-style:italic;'></p><p>Deletes message(s) by the given message ID(s). The first call of this method transfers the message to the 'Delete' status. The second call transfers the deleted message to the 'Purged' status. If it is required to make the message 'Purged' immediately (from the first call), then set the query parameter purge to 'True'.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditMessages</td><td>Viewing and updating user messages</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
 
+### Required Parameters
 
-Create and Send Pager Message
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+  **messageId** | **int32**| Internal identifier of a message | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
-
-### Parameters
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
- **body** | [**Body6**](Body6.md)|  | [optional] 
+ **messageId** | **int32**| Internal identifier of a message | 
+ **purge** | **bool**| If the value is &#39;True&#39;, then the message is purged immediately with all the attachments. The default value is &#39;False&#39; | 
+ **conversationId** | **int32**| Internal identifier of a message thread | 
 
 ### Return type
 
-[**MessageInfo**](MessageInfo.md)
+ (empty response body)
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DeleteMessagesByFilter**
+> DeleteMessagesByFilter(ctx, extensionId, accountId, optional)
+Delete Conversations by ID's
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **extensionId** | **string**|  | 
+  **accountId** | **string**|  | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **extensionId** | **string**|  | 
+ **accountId** | **string**|  | 
+ **conversationId** | [**[]string**](string.md)|  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetFaxCoverPages**
+> GetFaxCoverPages(ctx, optional)
+Get Fax Cover Pages
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int32**| Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39; | 
+ **perPage** | **int32**| Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ListMessages**
+> GetMessageList ListMessages(ctx, accountId, extensionId, optional)
+Get Message List
+
+<p style='font-style:italic;'>Since 1.0.2</p><p>Returns the list of messages from an extension mailbox.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+ **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+ **availability** | [**[]string**](string.md)| Specifies the availability status for the resulting messages. Default value is &#39;Alive&#39;. Multiple values are accepted | 
+ **conversationId** | **int32**| Specifies the conversation identifier for the resulting messages | 
+ **dateFrom** | **string**| The start datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours | 
+ **dateTo** | **string**| The end datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time | 
+ **direction** | [**[]string**](string.md)| The direction for the resulting messages. If not specified, both inbound and outbound messages are returned. Multiple values are accepted | 
+ **distinctConversations** | **bool**| If &#39;True&#39;, then the latest messages per every conversation ID are returned | 
+ **messageType** | [**[]string**](string.md)| The type of the resulting messages. If not specified, all messages without message type filtering are returned. Multiple values are accepted | 
+ **readStatus** | [**[]string**](string.md)| The read status for the resulting messages. Multiple values are accepted | 
+ **page** | **int32**| Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39; | 
+ **perPage** | **int32**| Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default | 
+ **phoneNumber** | **string**| The phone number. If specified, messages are returned for this particular phone number only | 
+
+### Return type
+
+[**GetMessageList**](GetMessageList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **LoadMessage**
+> GetMessageInfoResponse LoadMessage(ctx, accountId, extensionId, messageId)
+Get Message(s) by ID
+
+<p style='font-style:italic;'>Since 1.0.2</p><p>Returns individual message record(s) by the given message ID(s). The length of inbound messages is unlimited. Batch request is supported, see Batch Requests for details.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+  **messageId** | **int32**| Internal identifier of a message | 
+
+### Return type
+
+[**GetMessageInfoResponse**](GetMessageInfoResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **LoadMessageAttachment**
+> LoadMessageAttachment(ctx, accountId, extensionId, attachmentId, messageId, optional)
+Get Message Attachment
+
+<p style='font-style:italic;'>Since 1.0.4 (Release 5.13)</p><p>Returns particular message attachment data as a media stream.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+  **attachmentId** | **int32**| Internal identifier of a message attachment | 
+  **messageId** | **int32**| Internal identifier of a message | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+ **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+ **attachmentId** | **int32**| Internal identifier of a message attachment | 
+ **messageId** | **int32**| Internal identifier of a message | 
+ **range_** | **string**|  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -47,28 +253,56 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RestapiV10AccountAccountIdExtensionExtensionIdFaxPost**
-> MessageInfo RestapiV10AccountAccountIdExtensionExtensionIdFaxPost($accountId, $extensionId, $body)
+> FaxResponse RestapiV10AccountAccountIdExtensionExtensionIdFaxPost(ctx, accountId, extensionId)
+Create Fax Message
 
+<p style='font-style:italic;'>Since 1.0.2</p><p>Creates and sends/resends new fax message. Resend can be done if sending failed.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Faxes</td><td>Sending and receiving faxes</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
 
-
-Create and Send Fax Message
-
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
- **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
- **body** | [**Body8**](Body8.md)|  | [optional] 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account (integer) or tilde (~) to indicate the account which was logged-in within the current session. | 
+  **extensionId** | **string**| Internal identifier of an extension (integer) or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
 
 ### Return type
 
-[**MessageInfo**](MessageInfo.md)
+[**FaxResponse**](FaxResponse.md)
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/mixed; boundary=Boundary_1_14413901_1361871080888
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **SendInternalMessage**
+> GetMessageInfoResponse SendInternalMessage(ctx, accountId, extensionId, body)
+Create Pager Message
+
+<p style='font-style:italic;'>Since 1.0.2</p><p>Creates and sends a pager message.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>InternalMessages</td><td>Sending and receiving intra-company text messages</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+  **body** | [**CreatePagerMessageRequest**](CreatePagerMessageRequest.md)| JSON body | 
+
+### Return type
+
+[**GetMessageInfoResponse**](GetMessageInfoResponse.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -77,39 +311,28 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreGet**
-> InlineResponseDefault21 RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreGet($accountId, $extensionId, $availability, $conversationId, $dateFrom, $dateTo, $direction, $distinctConversations, $messageType, $readStatus, $page, $perPage, $phoneNumber)
+# **SendSMS**
+> GetMessageInfoResponse SendSMS(ctx, accountId, extensionId, body)
+Create SMS Message
 
+<p style='font-style:italic;'>Since 1.0.2</p><p>Creates and sends new SMS message. Sending SMS messages simultaneously to different recipients is limited up to 50 requests per minute; relevant for all client applications.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>SMS</td><td>Sending and receiving SMS (text) messages</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
 
-
-Get Message List
-
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
- **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
- **availability** | **string**| Specifies the availability status for the resulting messages. Default value is &#39;Alive&#39;. Multiple values are accepted | [optional] 
- **conversationId** | **int64**| Specifies the conversation identifier for the resulting messages | [optional] 
- **dateFrom** | **time.Time**| The start datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours | [optional] 
- **dateTo** | **time.Time**| The end datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time | [optional] 
- **direction** | **string**| The direction for the resulting messages. If not specified, both inbound and outbound messages are returned. Multiple values are accepted | [optional] 
- **distinctConversations** | **bool**| If &#39;True&#39;, then the latest messages per every conversation ID are returned | [optional] 
- **messageType** | **string**| The type of the resulting messages. If not specified, all messages without message type filtering are returned. Multiple values are accepted | [optional] 
- **readStatus** | **string**| The read status for the resulting messages. Multiple values are accepted | [optional] 
- **page** | **int32**| Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39; | [optional] 
- **perPage** | **int32**| Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default | [optional] 
- **phoneNumber** | **string**| The phone number. If specified, messages are returned for this particular phone number only | [optional] 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+  **body** | [**CreateSmsMessage**](CreateSmsMessage.md)| JSON body | 
 
 ### Return type
 
-[**InlineResponseDefault21**](inline_response_default_21.md)
+[**GetMessageInfoResponse**](GetMessageInfoResponse.md)
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+No authorization required
 
 ### HTTP request headers
 
@@ -118,30 +341,45 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdContentAttachmentIdGet**
-> Binary RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdContentAttachmentIdGet($accountId, $extensionId, $messageId, $attachmentId)
+# **SyncMessages**
+> GetMessageSyncResponse SyncMessages(ctx, accountId, extensionId, optional)
+Get Message Sync
 
+<p style='font-style:italic;'>Since 1.0.4 (Release 5.13)</p><p>Provides facilities to synchronize mailbox content stored externally with server state.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
 
+### Required Parameters
 
-Get Message Attachment
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
-
-### Parameters
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
- **messageId** | **string**| Internal identifier of a message | 
- **attachmentId** | **string**| Internal identifier of a message attachment | 
+ **conversationId** | **int32**| Conversation identifier for the resulting messages. Meaningful for SMS and Pager messages only. | 
+ **dateFrom** | **string**| The start datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours | 
+ **dateTo** | **string**| The end datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time | 
+ **direction** | [**[]string**](string.md)| Direction for the resulting messages. If not specified, both inbound and outbound messages are returned. Multiple values are accepted | 
+ **distinctConversations** | **bool**| If &#39;True&#39;, then the latest messages per every conversation ID are returned | 
+ **messageType** | [**[]string**](string.md)| Type for the resulting messages. If not specified, all types of messages are returned. Multiple values are accepted | 
+ **recordCount** | **int32**| Limits the number of records to be returned (works in combination with dateFrom and dateTo if specified) | 
+ **syncToken** | **string**| Value of syncToken property of last sync request response | 
+ **syncType** | [**[]string**](string.md)| Type of message synchronization | 
 
 ### Return type
 
-[**Binary**](Binary.md)
+[**GetMessageSyncResponse**](GetMessageSyncResponse.md)
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+No authorization required
 
 ### HTTP request headers
 
@@ -150,164 +388,29 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdDelete**
-> RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdDelete($accountId, $extensionId, $messageId, $purge, $conversationId)
+# **UpdateMessage**
+> GetMessageInfoResponse UpdateMessage(ctx, accountId, extensionId, messageId, body)
+Update Message(s) by ID
 
+<p style='font-style:italic;'>Since 1.0.2</p><p>Updates message(s) by ID(s). Batch request is supported, see Batch Requests for details. Currently, only the message read status updating is supported.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditMessages</td><td>Viewing and updating user messages</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
 
-
-Delete Message by ID
-
-
-### Parameters
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
- **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
- **messageId** | **string**| Internal identifier of a message | 
- **purge** | **bool**| If the value is &#39;True&#39;, then the message is purged immediately with all the attachments. The default value is &#39;False&#39; | [optional] 
- **conversationId** | **int64**| Internal identifier of a message thread | [optional] 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
+  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
+  **messageId** | **int32**| Internal identifier of a message | 
+  **body** | [**UpdateMessageRequest**](UpdateMessageRequest.md)| JSON body | 
 
 ### Return type
 
-void (empty response body)
+[**GetMessageInfoResponse**](GetMessageInfoResponse.md)
 
 ### Authorization
 
-[oauth](../README.md#oauth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdGet**
-> MessageInfo RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdGet($accountId, $extensionId, $messageId)
-
-
-
-Get Message by ID
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
- **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
- **messageId** | **string**| Internal identifier of a message | 
-
-### Return type
-
-[**MessageInfo**](MessageInfo.md)
-
-### Authorization
-
-[oauth](../README.md#oauth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdPut**
-> MessageInfo RestapiV10AccountAccountIdExtensionExtensionIdMessageStoreMessageIdPut($accountId, $extensionId, $messageId, $body)
-
-
-
-Update Message by ID
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
- **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
- **messageId** | **string**| Internal identifier of a message | 
- **body** | [**Body13**](Body13.md)|  | [optional] 
-
-### Return type
-
-[**MessageInfo**](MessageInfo.md)
-
-### Authorization
-
-[oauth](../README.md#oauth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdExtensionExtensionIdMessageSyncGet**
-> InlineResponseDefault22 RestapiV10AccountAccountIdExtensionExtensionIdMessageSyncGet($accountId, $extensionId, $conversationId, $dateFrom, $dateTo, $direction, $distinctConversations, $messageType, $recordCount, $syncToken, $syncType)
-
-
-
-Message Synchronization
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
- **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
- **conversationId** | **int64**| Conversation identifier for the resulting messages. Meaningful for SMS and Pager messages only. | [optional] 
- **dateFrom** | **time.Time**| The start datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours | [optional] 
- **dateTo** | **time.Time**| The end datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time | [optional] 
- **direction** | **string**| Direction for the resulting messages. If not specified, both inbound and outbound messages are returned. Multiple values are accepted | [optional] 
- **distinctConversations** | **bool**| If &#39;True&#39;, then the latest messages per every conversation ID are returned | [optional] 
- **messageType** | **string**| Type for the resulting messages. If not specified, all types of messages are returned. Multiple values are accepted | [optional] 
- **recordCount** | **int32**| Limits the number of records to be returned (works in combination with dateFrom and dateTo if specified) | [optional] 
- **syncToken** | **string**| Value of syncToken property of last sync request response | [optional] 
- **syncType** | **string**| Type of message synchronization | [optional] 
-
-### Return type
-
-[**InlineResponseDefault22**](inline_response_default_22.md)
-
-### Authorization
-
-[oauth](../README.md#oauth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdExtensionExtensionIdSmsPost**
-> MessageInfo RestapiV10AccountAccountIdExtensionExtensionIdSmsPost($accountId, $extensionId, $body)
-
-
-
-Create and Send SMS Message
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
- **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
- **body** | [**Body15**](Body15.md)|  | [optional] 
-
-### Return type
-
-[**MessageInfo**](MessageInfo.md)
-
-### Authorization
-
-[oauth](../README.md#oauth)
+No authorization required
 
 ### HTTP request headers
 
