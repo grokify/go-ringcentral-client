@@ -20,7 +20,7 @@ type PhoneNumberResource struct {
 	// Information on an extension to which the phone number is assigned
 	Extension *ExtensionResource `json:"extension,omitempty"`
 
-	// Custom user name of a phone number, if any. Supported for numbers assigned to Auto-Receptionist, with usage type 'CompanyNumber' 
+	// Custom user name of a phone number, if any. Supported for numbers assigned to Auto-Receptionist, with usage type 'CompanyNumber'
 	Label string `json:"label,omitempty"`
 
 	// Location (City, State). Filled for local US numbers

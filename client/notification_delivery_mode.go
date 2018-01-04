@@ -14,10 +14,10 @@ type NotificationDeliveryMode struct {
 	// Notifications transportation provider name. 'APNS' (Apple Push Notifications Service)
 	TransportType string `json:"transportType,omitempty"`
 
-	// Optional parameter. Specifies if the message will be encrypted or not. For APNS transport type the value is always  false 
+	// Optional parameter. Specifies if the message will be encrypted or not. For APNS transport type the value is always  false
 	Encryption bool `json:"encryption,omitempty"`
 
-	// PubNub channel name. For APNS transport type - internal identifier of a device  device_token 
+	// PubNub channel name. For APNS transport type - internal identifier of a device  device_token
 	Address string `json:"address,omitempty"`
 
 	// PubNub subscriber credentials required to subscribe to the channel

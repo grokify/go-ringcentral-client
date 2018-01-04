@@ -10,7 +10,6 @@
 package ringcentral
 
 type ExtensionWithRolesResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	ExtensionId string `json:"extensionId,omitempty"`

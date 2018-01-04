@@ -10,7 +10,6 @@
 package ringcentral
 
 type CfaSchedule struct {
-
 	ScheduleId string `json:"scheduleId,omitempty"`
 
 	Recurrence *CfaRecurrence `json:"recurrence,omitempty"`

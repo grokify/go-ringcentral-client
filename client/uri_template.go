@@ -10,7 +10,6 @@
 package ringcentral
 
 type UriTemplate struct {
-
 	Template string `json:"template,omitempty"`
 
 	Pattern *PatternWithGroups `json:"pattern,omitempty"`

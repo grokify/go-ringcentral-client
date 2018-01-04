@@ -10,7 +10,6 @@
 package ringcentral
 
 type SipFlags struct {
-
 	VoipFeatureEnabled bool `json:"voipFeatureEnabled,omitempty"`
 
 	VoipCountryBlocked bool `json:"voipCountryBlocked,omitempty"`

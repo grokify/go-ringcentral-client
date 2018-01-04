@@ -10,13 +10,13 @@
 package ringcentral
 
 import (
-	"io/ioutil"
-	"net/url"
-	"net/http"
-	"strings"
-	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
+	"golang.org/x/net/context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,25 +26,24 @@ var (
 
 type RegionalSettingsApiService service
 
-
 /* RegionalSettingsApiService Get Country List
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns all the countries available for calling.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "loginAllowed" (bool) Specifies whether login with the phone numbers of this country is enabled or not
-     @param "signupAllowed" (bool) Indicates whether signup/billing is allowed for a country. If not specified all countries are returned (according to other filters specified if any)
-     @param "numberSelling" (bool) Specifies if RingCentral sells phone numbers of this country
-     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-     @param "freeSoftphoneLine" (bool) Specifies if free phone line for softphone is available for a country or not
- @return GetCountryListResponse*/
-func (a *RegionalSettingsApiService) ListCountries(ctx context.Context, localVarOptionals map[string]interface{}) (GetCountryListResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns all the countries available for calling.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "loginAllowed" (bool) Specifies whether login with the phone numbers of this country is enabled or not
+    @param "signupAllowed" (bool) Indicates whether signup/billing is allowed for a country. If not specified all countries are returned (according to other filters specified if any)
+    @param "numberSelling" (bool) Specifies if RingCentral sells phone numbers of this country
+    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+    @param "freeSoftphoneLine" (bool) Specifies if free phone line for softphone is available for a country or not
+@return GetCountryListResponse*/
+func (a *RegionalSettingsApiService) ListCountries(ctx context.Context, localVarOptionals map[string]interface{}) (GetCountryListResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetCountryListResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetCountryListResponse
 	)
 
 	// create path and map variables
@@ -92,7 +91,7 @@ func (a *RegionalSettingsApiService) ListCountries(ctx context.Context, localVar
 		localVarQueryParams.Add("freeSoftphoneLine", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -103,7 +102,7 @@ func (a *RegionalSettingsApiService) ListCountries(ctx context.Context, localVar
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -129,21 +128,20 @@ func (a *RegionalSettingsApiService) ListCountries(ctx context.Context, localVar
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RegionalSettingsApiService Get Language List
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.14 (Release 6.6)&lt;/p&gt;&lt;p&gt;Returns the information about supported languages.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @return LanguageList*/
-func (a *RegionalSettingsApiService) ListLanguages(ctx context.Context) (LanguageList,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.14 (Release 6.6)&lt;/p&gt;&lt;p&gt;Returns the information about supported languages.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@return LanguageList*/
+func (a *RegionalSettingsApiService) ListLanguages(ctx context.Context) (LanguageList, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  LanguageList
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     LanguageList
 	)
 
 	// create path and map variables
@@ -153,9 +151,8 @@ func (a *RegionalSettingsApiService) ListLanguages(ctx context.Context) (Languag
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -166,7 +163,7 @@ func (a *RegionalSettingsApiService) ListLanguages(ctx context.Context) (Languag
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -192,27 +189,26 @@ func (a *RegionalSettingsApiService) ListLanguages(ctx context.Context) (Languag
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RegionalSettingsApiService Get Location List
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns all the available locations for the certain state.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "orderBy" ([]string) Sorts results by the specified property. The default value is &#39;City&#39;
-     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;.
-     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default.
-     @param "stateId" (string) Internal identifier of a state
-     @param "withNxx" (bool) Specifies if nxx codes are returned
- @return GetLocationListResponse*/
-func (a *RegionalSettingsApiService) ListLocations(ctx context.Context, localVarOptionals map[string]interface{}) (GetLocationListResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns all the available locations for the certain state.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "orderBy" ([]string) Sorts results by the specified property. The default value is &#39;City&#39;
+    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;.
+    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default.
+    @param "stateId" (string) Internal identifier of a state
+    @param "withNxx" (bool) Specifies if nxx codes are returned
+@return GetLocationListResponse*/
+func (a *RegionalSettingsApiService) ListLocations(ctx context.Context, localVarOptionals map[string]interface{}) (GetLocationListResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetLocationListResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetLocationListResponse
 	)
 
 	// create path and map variables
@@ -251,7 +247,7 @@ func (a *RegionalSettingsApiService) ListLocations(ctx context.Context, localVar
 		localVarQueryParams.Add("withNxx", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -262,7 +258,7 @@ func (a *RegionalSettingsApiService) ListLocations(ctx context.Context, localVar
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -288,24 +284,23 @@ func (a *RegionalSettingsApiService) ListLocations(ctx context.Context, localVar
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RegionalSettingsApiService Get Timezone List
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns all available timezones.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "page" (string) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-     @param "perPage" (string) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
- @return GetTimezoneListResponse*/
-func (a *RegionalSettingsApiService) ListTimezones(ctx context.Context, localVarOptionals map[string]interface{}) (GetTimezoneListResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns all available timezones.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "page" (string) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+    @param "perPage" (string) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+@return GetTimezoneListResponse*/
+func (a *RegionalSettingsApiService) ListTimezones(ctx context.Context, localVarOptionals map[string]interface{}) (GetTimezoneListResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetTimezoneListResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetTimezoneListResponse
 	)
 
 	// create path and map variables
@@ -329,7 +324,7 @@ func (a *RegionalSettingsApiService) ListTimezones(ctx context.Context, localVar
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -340,7 +335,7 @@ func (a *RegionalSettingsApiService) ListTimezones(ctx context.Context, localVar
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -366,22 +361,21 @@ func (a *RegionalSettingsApiService) ListTimezones(ctx context.Context, localVar
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RegionalSettingsApiService Get Country
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns the information on the required country.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param countryId Internal identifier of a country
- @return GetCountryInfoDictionaryResponse*/
-func (a *RegionalSettingsApiService) LoadCountry(ctx context.Context, countryId int32) (GetCountryInfoDictionaryResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns the information on the required country.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param countryId Internal identifier of a country
+@return GetCountryInfoDictionaryResponse*/
+func (a *RegionalSettingsApiService) LoadCountry(ctx context.Context, countryId int32) (GetCountryInfoDictionaryResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetCountryInfoDictionaryResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetCountryInfoDictionaryResponse
 	)
 
 	// create path and map variables
@@ -392,9 +386,8 @@ func (a *RegionalSettingsApiService) LoadCountry(ctx context.Context, countryId 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -405,7 +398,7 @@ func (a *RegionalSettingsApiService) LoadCountry(ctx context.Context, countryId 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -431,22 +424,21 @@ func (a *RegionalSettingsApiService) LoadCountry(ctx context.Context, countryId 
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RegionalSettingsApiService Get Language
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.14 (Release 6.6)&lt;/p&gt;&lt;p&gt;Returns language by its respective ID.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param languageId Internal identifier of a language
- @return LanguageInfo*/
-func (a *RegionalSettingsApiService) LoadLanguage(ctx context.Context, languageId int32) (LanguageInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.14 (Release 6.6)&lt;/p&gt;&lt;p&gt;Returns language by its respective ID.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param languageId Internal identifier of a language
+@return LanguageInfo*/
+func (a *RegionalSettingsApiService) LoadLanguage(ctx context.Context, languageId int32) (LanguageInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  LanguageInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     LanguageInfo
 	)
 
 	// create path and map variables
@@ -457,9 +449,8 @@ func (a *RegionalSettingsApiService) LoadLanguage(ctx context.Context, languageI
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -470,7 +461,7 @@ func (a *RegionalSettingsApiService) LoadLanguage(ctx context.Context, languageI
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -496,22 +487,21 @@ func (a *RegionalSettingsApiService) LoadLanguage(ctx context.Context, languageI
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RegionalSettingsApiService Get State
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns the information on the required state.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param stateId Internal identifier of a state
- @return GetStateInfoResponse*/
-func (a *RegionalSettingsApiService) LoadState(ctx context.Context, stateId int32) (GetStateInfoResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns the information on the required state.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param stateId Internal identifier of a state
+@return GetStateInfoResponse*/
+func (a *RegionalSettingsApiService) LoadState(ctx context.Context, stateId int32) (GetStateInfoResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetStateInfoResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetStateInfoResponse
 	)
 
 	// create path and map variables
@@ -522,9 +512,8 @@ func (a *RegionalSettingsApiService) LoadState(ctx context.Context, stateId int3
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -535,7 +524,7 @@ func (a *RegionalSettingsApiService) LoadState(ctx context.Context, stateId int3
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -561,25 +550,24 @@ func (a *RegionalSettingsApiService) LoadState(ctx context.Context, stateId int3
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RegionalSettingsApiService Get Timezone
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns the information on a certain timezone.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param timezoneId Internal identifier of a timezone
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
- @return GetTimezoneInfoResponse*/
-func (a *RegionalSettingsApiService) LoadTimezone(ctx context.Context, timezoneId int32, localVarOptionals map[string]interface{}) (GetTimezoneInfoResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns the information on a certain timezone.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param timezoneId Internal identifier of a timezone
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+@return GetTimezoneInfoResponse*/
+func (a *RegionalSettingsApiService) LoadTimezone(ctx context.Context, timezoneId int32, localVarOptionals map[string]interface{}) (GetTimezoneInfoResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetTimezoneInfoResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetTimezoneInfoResponse
 	)
 
 	// create path and map variables
@@ -604,7 +592,7 @@ func (a *RegionalSettingsApiService) LoadTimezone(ctx context.Context, timezoneI
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -615,7 +603,7 @@ func (a *RegionalSettingsApiService) LoadTimezone(ctx context.Context, timezoneI
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -641,26 +629,25 @@ func (a *RegionalSettingsApiService) LoadTimezone(ctx context.Context, timezoneI
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RegionalSettingsApiService Get State List
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns all the states for a certain country.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "countryId" (int32) Internal identifier of a country
-     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;.
-     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-     @param "withPhoneNumbers" (bool) If &#39;True&#39;, the list of states with phone numbers available for buying is returned. The default value is &#39;False&#39;
- @return GetStateListResponse*/
-func (a *RegionalSettingsApiService) LoadlistStates(ctx context.Context, localVarOptionals map[string]interface{}) (GetStateListResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns all the states for a certain country.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "countryId" (int32) Internal identifier of a country
+    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;.
+    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+    @param "withPhoneNumbers" (bool) If &#39;True&#39;, the list of states with phone numbers available for buying is returned. The default value is &#39;False&#39;
+@return GetStateListResponse*/
+func (a *RegionalSettingsApiService) LoadlistStates(ctx context.Context, localVarOptionals map[string]interface{}) (GetStateListResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetStateListResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetStateListResponse
 	)
 
 	// create path and map variables
@@ -696,7 +683,7 @@ func (a *RegionalSettingsApiService) LoadlistStates(ctx context.Context, localVa
 		localVarQueryParams.Add("withPhoneNumbers", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -707,7 +694,7 @@ func (a *RegionalSettingsApiService) LoadlistStates(ctx context.Context, localVa
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -733,7 +720,5 @@ func (a *RegionalSettingsApiService) LoadlistStates(ctx context.Context, localVa
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
-

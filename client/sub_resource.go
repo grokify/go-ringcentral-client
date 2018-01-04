@@ -10,7 +10,6 @@
 package ringcentral
 
 type SubResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	ResourceDescription string `json:"resourceDescription,omitempty"`

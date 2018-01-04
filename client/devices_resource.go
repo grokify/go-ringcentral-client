@@ -10,7 +10,6 @@
 package ringcentral
 
 type DevicesResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	Records []DeviceResource `json:"records,omitempty"`

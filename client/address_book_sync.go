@@ -10,7 +10,6 @@
 package ringcentral
 
 type AddressBookSync struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	Records []PersonalContactResource `json:"records,omitempty"`

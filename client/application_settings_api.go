@@ -10,13 +10,13 @@
 package ringcentral
 
 import (
-	"io/ioutil"
-	"net/url"
-	"net/http"
-	"strings"
-	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
+	"golang.org/x/net/context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,19 +26,18 @@ var (
 
 type ApplicationSettingsApiService service
 
-
 /* ApplicationSettingsApiService Register SIP Device
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.16 (Release 7.1)&lt;/p&gt;&lt;p&gt;Creates SIP registration of a device/application (WebPhone, Mobile, softphone)&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;VoipCalling&lt;/td&gt;&lt;td&gt;Registering as VoIP device and making VoIP calls&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param body JSON body
- @return CreateSipRegistrationResponse*/
-func (a *ApplicationSettingsApiService) CreateSipRegistration(ctx context.Context, body CreateSipRegistrationRequest) (CreateSipRegistrationResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.16 (Release 7.1)&lt;/p&gt;&lt;p&gt;Creates SIP registration of a device/application (WebPhone, Mobile, softphone)&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;VoipCalling&lt;/td&gt;&lt;td&gt;Registering as VoIP device and making VoIP calls&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param body JSON body
+@return CreateSipRegistrationResponse*/
+func (a *ApplicationSettingsApiService) CreateSipRegistration(ctx context.Context, body CreateSipRegistrationRequest) (CreateSipRegistrationResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  CreateSipRegistrationResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     CreateSipRegistrationResponse
 	)
 
 	// create path and map variables
@@ -48,9 +47,8 @@ func (a *ApplicationSettingsApiService) CreateSipRegistration(ctx context.Contex
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -61,7 +59,7 @@ func (a *ApplicationSettingsApiService) CreateSipRegistration(ctx context.Contex
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -89,21 +87,20 @@ func (a *ApplicationSettingsApiService) CreateSipRegistration(ctx context.Contex
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* ApplicationSettingsApiService Delete Custom Data
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.14 (Release 6.6)&lt;/p&gt;Deletes custom data by its ID.&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditCustomData&lt;/td&gt;&lt;td&gt;Viewing and updating client custom data (key-value)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param key Custom data access key. The number of unique custom data keys is limited to 100 keys per extension, summarized for all the applications. For example, if you have created 50 custom data keys under the Android mobile client application for the particular extension, then logged in the iOS application and created another 50 keys, the web client application won&#39;t be allowed to create any custom data key for that extension
- @return */
-func (a *ApplicationSettingsApiService) DeleteCustomData(ctx context.Context, key int32) ( *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.14 (Release 6.6)&lt;/p&gt;Deletes custom data by its ID.&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditCustomData&lt;/td&gt;&lt;td&gt;Viewing and updating client custom data (key-value)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param key Custom data access key. The number of unique custom data keys is limited to 100 keys per extension, summarized for all the applications. For example, if you have created 50 custom data keys under the Android mobile client application for the particular extension, then logged in the iOS application and created another 50 keys, the web client application won&#39;t be allowed to create any custom data key for that extension
+@return */
+func (a *ApplicationSettingsApiService) DeleteCustomData(ctx context.Context, key int32) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 	)
 
 	// create path and map variables
@@ -114,9 +111,8 @@ func (a *ApplicationSettingsApiService) DeleteCustomData(ctx context.Context, ke
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -127,7 +123,7 @@ func (a *ApplicationSettingsApiService) DeleteCustomData(ctx context.Context, ke
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -153,18 +149,18 @@ func (a *ApplicationSettingsApiService) DeleteCustomData(ctx context.Context, ke
 }
 
 /* ApplicationSettingsApiService Get Custom Data Attachment
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.14 (Release 6.6)&lt;/p&gt;Returns custom data attachment by ID.&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditCustomData&lt;/td&gt;&lt;td&gt;Viewing and updating client custom data (key-value)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param key 
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "range_" (string) 
- @return */
-func (a *ApplicationSettingsApiService) GetAttachment(ctx context.Context, key string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.14 (Release 6.6)&lt;/p&gt;Returns custom data attachment by ID.&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditCustomData&lt;/td&gt;&lt;td&gt;Viewing and updating client custom data (key-value)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param key
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "range_" (string)
+@return */
+func (a *ApplicationSettingsApiService) GetAttachment(ctx context.Context, key string, localVarOptionals map[string]interface{}) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 	)
 
 	// create path and map variables
@@ -180,7 +176,7 @@ func (a *ApplicationSettingsApiService) GetAttachment(ctx context.Context, key s
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -191,7 +187,7 @@ func (a *ApplicationSettingsApiService) GetAttachment(ctx context.Context, key s
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -220,17 +216,17 @@ func (a *ApplicationSettingsApiService) GetAttachment(ctx context.Context, key s
 }
 
 /* ApplicationSettingsApiService Get Custom Data
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.14 (Release 6.6)&lt;/p&gt;Returns custom data of a logged-in extension.&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditCustomData&lt;/td&gt;&lt;td&gt;Viewing and updating client custom data (key-value)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param key Custom data access key. The number of unique custom data keys is limited to 100 keys per extension, summarized for all the applications. For example, if you have created 50 custom data keys under the Android mobile client application for the particular extension, then logged in the iOS application and created another 50 keys, the web client application won&#39;t be allowed to create any custom data key for that extension
- @return CustomDataResource*/
-func (a *ApplicationSettingsApiService) GetCustomData(ctx context.Context, key int32) (CustomDataResource,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.14 (Release 6.6)&lt;/p&gt;Returns custom data of a logged-in extension.&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditCustomData&lt;/td&gt;&lt;td&gt;Viewing and updating client custom data (key-value)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param key Custom data access key. The number of unique custom data keys is limited to 100 keys per extension, summarized for all the applications. For example, if you have created 50 custom data keys under the Android mobile client application for the particular extension, then logged in the iOS application and created another 50 keys, the web client application won&#39;t be allowed to create any custom data key for that extension
+@return CustomDataResource*/
+func (a *ApplicationSettingsApiService) GetCustomData(ctx context.Context, key int32) (CustomDataResource, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  CustomDataResource
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     CustomDataResource
 	)
 
 	// create path and map variables
@@ -241,9 +237,8 @@ func (a *ApplicationSettingsApiService) GetCustomData(ctx context.Context, key i
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -254,7 +249,7 @@ func (a *ApplicationSettingsApiService) GetCustomData(ctx context.Context, key i
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -280,22 +275,21 @@ func (a *ApplicationSettingsApiService) GetCustomData(ctx context.Context, key i
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* ApplicationSettingsApiService Get In Product Message List
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns list of in-product messages: learderboards, announcements, etc. Please note: Banners are set on Marketing/Messages tab in Admin Web.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadClientInfo&lt;/td&gt;&lt;td&gt;Viewing of client application registered attributes and additional helper information (external URLs, hints, etc.)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param bannerType 
- @return InProductMessages*/
-func (a *ApplicationSettingsApiService) GetInProductMessage(ctx context.Context, bannerType string) (InProductMessages,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns list of in-product messages: learderboards, announcements, etc. Please note: Banners are set on Marketing/Messages tab in Admin Web.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadClientInfo&lt;/td&gt;&lt;td&gt;Viewing of client application registered attributes and additional helper information (external URLs, hints, etc.)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param bannerType
+@return InProductMessages*/
+func (a *ApplicationSettingsApiService) GetInProductMessage(ctx context.Context, bannerType string) (InProductMessages, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  InProductMessages
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     InProductMessages
 	)
 
 	// create path and map variables
@@ -305,10 +299,9 @@ func (a *ApplicationSettingsApiService) GetInProductMessage(ctx context.Context,
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	localVarQueryParams.Add("bannerType", parameterToString(bannerType, ""))
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -319,7 +312,7 @@ func (a *ApplicationSettingsApiService) GetInProductMessage(ctx context.Context,
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -345,21 +338,20 @@ func (a *ApplicationSettingsApiService) GetInProductMessage(ctx context.Context,
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* ApplicationSettingsApiService Get App Settings
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.11 (Release 6.3)&lt;/p&gt;&lt;p&gt;Returns client application data: general info, specific provisioning parameters, hints, etc.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadClientInfo&lt;/td&gt;&lt;td&gt;Viewing of client application registered attributes and additional helper information (external URLs, hints, etc.)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @return ClientApiResponse*/
-func (a *ApplicationSettingsApiService) LoadClientInfo(ctx context.Context) (ClientApiResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.11 (Release 6.3)&lt;/p&gt;&lt;p&gt;Returns client application data: general info, specific provisioning parameters, hints, etc.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadClientInfo&lt;/td&gt;&lt;td&gt;Viewing of client application registered attributes and additional helper information (external URLs, hints, etc.)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@return ClientApiResponse*/
+func (a *ApplicationSettingsApiService) LoadClientInfo(ctx context.Context) (ClientApiResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  ClientApiResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     ClientApiResponse
 	)
 
 	// create path and map variables
@@ -369,9 +361,8 @@ func (a *ApplicationSettingsApiService) LoadClientInfo(ctx context.Context) (Cli
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -382,7 +373,7 @@ func (a *ApplicationSettingsApiService) LoadClientInfo(ctx context.Context) (Cli
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -408,20 +399,19 @@ func (a *ApplicationSettingsApiService) LoadClientInfo(ctx context.Context) (Cli
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* ApplicationSettingsApiService Get Phonedata
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.12 (Release 6.4)&lt;/p&gt;&lt;p&gt;Returns configuration settings for phone number parser in a phonedata.xml file.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @return */
-func (a *ApplicationSettingsApiService) LoadPhoneData(ctx context.Context) ( *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.12 (Release 6.4)&lt;/p&gt;&lt;p&gt;Returns configuration settings for phone number parser in a phonedata.xml file.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@return */
+func (a *ApplicationSettingsApiService) LoadPhoneData(ctx context.Context) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 	)
 
 	// create path and map variables
@@ -431,9 +421,8 @@ func (a *ApplicationSettingsApiService) LoadPhoneData(ctx context.Context) ( *ht
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -444,7 +433,7 @@ func (a *ApplicationSettingsApiService) LoadPhoneData(ctx context.Context) ( *ht
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -470,18 +459,18 @@ func (a *ApplicationSettingsApiService) LoadPhoneData(ctx context.Context) ( *ht
 }
 
 /* ApplicationSettingsApiService Get Special Numbers Calling Limitation
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.12 (Release 6.4)&lt;/p&gt;&lt;p&gt;Returns available special numbers and rules of processing, depending on account brand and application type (mobile/softphone/web/other). A special number rule for each number includes limitations on the options: VoIP, RingOut, outgoing SMS and Fax. If the option is disallowed, the server returns the reason code and text description.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadClientInfo&lt;/td&gt;&lt;td&gt;Viewing of client application registered attributes and additional helper information (external URLs, hints, etc.)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "countryId" (int32) Internal identifier of a country. If not specified, the response is returned for the brand country
- @return NavigationInfo*/
-func (a *ApplicationSettingsApiService) RestapiV10ClientInfoSpecialNumberRuleGet(ctx context.Context, localVarOptionals map[string]interface{}) (NavigationInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.12 (Release 6.4)&lt;/p&gt;&lt;p&gt;Returns available special numbers and rules of processing, depending on account brand and application type (mobile/softphone/web/other). A special number rule for each number includes limitations on the options: VoIP, RingOut, outgoing SMS and Fax. If the option is disallowed, the server returns the reason code and text description.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadClientInfo&lt;/td&gt;&lt;td&gt;Viewing of client application registered attributes and additional helper information (external URLs, hints, etc.)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "countryId" (int32) Internal identifier of a country. If not specified, the response is returned for the brand country
+@return NavigationInfo*/
+func (a *ApplicationSettingsApiService) RestapiV10ClientInfoSpecialNumberRuleGet(ctx context.Context, localVarOptionals map[string]interface{}) (NavigationInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  NavigationInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     NavigationInfo
 	)
 
 	// create path and map variables
@@ -499,7 +488,7 @@ func (a *ApplicationSettingsApiService) RestapiV10ClientInfoSpecialNumberRuleGet
 		localVarQueryParams.Add("countryId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -510,7 +499,7 @@ func (a *ApplicationSettingsApiService) RestapiV10ClientInfoSpecialNumberRuleGet
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -536,23 +525,22 @@ func (a *ApplicationSettingsApiService) RestapiV10ClientInfoSpecialNumberRuleGet
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* ApplicationSettingsApiService Create/Update Custom Data
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.14 (Release 6.6)&lt;/p&gt;&lt;p&gt;Creates or updates custom data for the extension that is currently logged in.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditCustomData&lt;/td&gt;&lt;td&gt;Viewing and updating client custom data (key-value)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param key Custom data access key. The number of unique custom data keys is limited to 100 keys per extension, summarized for all the applications. For example, if you have created 50 custom data keys under the Android mobile client application for the particular extension, then logged in the iOS application and created another 50 keys, the web client application won&#39;t be allowed to create any custom data key for that extension
- @param body JSON body
- @return CustomDataApiResponse*/
-func (a *ApplicationSettingsApiService) UpdateCustomData(ctx context.Context, key int32, body CustomDataRequest) (CustomDataApiResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.14 (Release 6.6)&lt;/p&gt;&lt;p&gt;Creates or updates custom data for the extension that is currently logged in.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditCustomData&lt;/td&gt;&lt;td&gt;Viewing and updating client custom data (key-value)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param key Custom data access key. The number of unique custom data keys is limited to 100 keys per extension, summarized for all the applications. For example, if you have created 50 custom data keys under the Android mobile client application for the particular extension, then logged in the iOS application and created another 50 keys, the web client application won&#39;t be allowed to create any custom data key for that extension
+@param body JSON body
+@return CustomDataApiResponse*/
+func (a *ApplicationSettingsApiService) UpdateCustomData(ctx context.Context, key int32, body CustomDataRequest) (CustomDataApiResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  CustomDataApiResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     CustomDataApiResponse
 	)
 
 	// create path and map variables
@@ -563,9 +551,8 @@ func (a *ApplicationSettingsApiService) UpdateCustomData(ctx context.Context, ke
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -576,7 +563,7 @@ func (a *ApplicationSettingsApiService) UpdateCustomData(ctx context.Context, ke
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -604,7 +591,5 @@ func (a *ApplicationSettingsApiService) UpdateCustomData(ctx context.Context, ke
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
-

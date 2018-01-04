@@ -23,7 +23,7 @@ type GetDeviceInfoResponse struct {
 	// Device type. The default value is 'HardPhone'
 	Type_ string `json:"type,omitempty"`
 
-	// Device name. Mandatory if ordering  SoftPhone  or  OtherPhone . Optional for  HardPhone . If not specified for HardPhone, then device  model  name is used as device  name 
+	// Device name. Mandatory if ordering  SoftPhone  or  OtherPhone . Optional for  HardPhone . If not specified for HardPhone, then device  model  name is used as device  name
 	Name string `json:"name,omitempty"`
 
 	// Serial number for HardPhone (is returned only when the phone is shipped and provisioned); endpoint_id for softphone and mobile applications

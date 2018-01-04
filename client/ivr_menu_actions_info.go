@@ -11,7 +11,7 @@ package ringcentral
 
 type IvrMenuActionsInfo struct {
 
-	// Key. The following values are supported: numeric: '1' to '9' Star Hash NoInput 
+	// Key. The following values are supported: numeric: '1' to '9' Star Hash NoInput
 	Input string `json:"input,omitempty"`
 
 	// Internal identifier of an answering rule

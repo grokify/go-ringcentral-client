@@ -10,13 +10,13 @@
 package ringcentral
 
 import (
-	"io/ioutil"
-	"net/url"
-	"net/http"
-	"strings"
-	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
+	"golang.org/x/net/context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,20 +26,19 @@ var (
 
 type DefaultApiService service
 
-
 /* DefaultApiService Create IVR Menu
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Creates a company IVR menu&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId 
- @param body JSON body
- @return IvrMenuInfo*/
-func (a *DefaultApiService) RestapiV10AccountAccountIdIvrMenusPost(ctx context.Context, accountId string, body IvrMenuInfo) (IvrMenuInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Creates a company IVR menu&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId
+@param body JSON body
+@return IvrMenuInfo*/
+func (a *DefaultApiService) RestapiV10AccountAccountIdIvrMenusPost(ctx context.Context, accountId string, body IvrMenuInfo) (IvrMenuInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  IvrMenuInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     IvrMenuInfo
 	)
 
 	// create path and map variables
@@ -50,9 +49,8 @@ func (a *DefaultApiService) RestapiV10AccountAccountIdIvrMenusPost(ctx context.C
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -63,7 +61,7 @@ func (a *DefaultApiService) RestapiV10AccountAccountIdIvrMenusPost(ctx context.C
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -91,7 +89,5 @@ func (a *DefaultApiService) RestapiV10AccountAccountIdIvrMenusPost(ctx context.C
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
-

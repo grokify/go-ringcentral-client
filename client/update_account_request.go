@@ -20,7 +20,7 @@ type UpdateAccountRequest struct {
 	// Email notifications setting
 	TransitionInfo *TransitionInfo `json:"transitionInfo,omitempty"`
 
-	// Additional account identifier, developed and applied on the client side 
+	// Additional account identifier, developed and applied on the client side
 	PartnerId string `json:"partnerId,omitempty"`
 
 	// Account service information, including brand, service plan and billing plan

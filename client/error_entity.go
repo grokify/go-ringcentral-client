@@ -10,7 +10,6 @@
 package ringcentral
 
 type ErrorEntity struct {
-
 	ErrorCode string `json:"errorCode,omitempty"`
 
 	Message string `json:"message,omitempty"`

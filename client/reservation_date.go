@@ -14,7 +14,6 @@ import (
 )
 
 type ReservationDate struct {
-
 	Date time.Time `json:"date,omitempty"`
 
 	Max bool `json:"max,omitempty"`

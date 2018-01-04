@@ -14,7 +14,6 @@ import (
 )
 
 type FormDataContentDisposition struct {
-
 	Type_ string `json:"type,omitempty"`
 
 	FileName string `json:"fileName,omitempty"`

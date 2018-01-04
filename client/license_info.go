@@ -20,7 +20,7 @@ type LicenseInfo struct {
 	// License type data
 	Type_ *LicenseFeatureInfo `json:"type,omitempty"`
 
-	// Datetime when license was purchased in ISO 8601 format including timezone, for example 2017-03-10T18:07:52.534Z 
+	// Datetime when license was purchased in ISO 8601 format including timezone, for example 2017-03-10T18:07:52.534Z
 	CreationTime string `json:"creationTime,omitempty"`
 
 	// Information on extension to which a license can be assigned
