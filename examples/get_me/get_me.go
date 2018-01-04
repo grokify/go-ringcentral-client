@@ -8,8 +8,8 @@ import (
 	"github.com/grokify/gotilla/fmt/fmtutil"
 	"github.com/joho/godotenv"
 
+	rc "github.com/grokify/go-ringcentral/client"
 	ro "github.com/grokify/oauth2more/ringcentral"
-	rc "github.com/grokify/ringcentral-sdk-go-scg/client"
 )
 
 func loadEnv() error {
