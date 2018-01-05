@@ -11,14 +11,14 @@ package ringcentral
 
 type CompanyAnsweringRuleRequest struct {
 
+	// Name of an answering rule specified by user. Max number of symbols is 30. The default value is 'My Rule N' where 'N' is the first free number
+	Name string `json:"name,omitempty"`
+
 	// Specifies if the rule is active or inactive. The default value is 'True'
 	Enabled bool `json:"enabled,omitempty"`
 
 	// Type of an answering rule, the default value is 'Custom' = ['BusinessHours', 'AfterHours', 'Custom']
 	Type_ string `json:"type,omitempty"`
-
-	// Name of an answering rule specified by user. Max number of symbols is 30. The default value is 'My Rule N' where 'N' is the first free number
-	Name string `json:"name,omitempty"`
 
 	// Answering rule will be applied when calls are received from the specified caller(s)
 	Callers []CompanyAnsweringRuleCallersInfoRequest `json:"callers,omitempty"`

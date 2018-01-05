@@ -333,8 +333,8 @@ Name | Type | Description  | Notes
  **type_** | [**[]string**](string.md)| Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted | 
  **view** | [**[]string**](string.md)| The default value is &#39;Simple&#39; for both account and extension call log | 
  **withRecording** | **bool**| &#39;True&#39; if only recorded calls have to be returned | 
- **dateFrom** | **string**| The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours | 
- **dateTo** | **string**| The end datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time | 
+ **dateFrom** | **time.Time**| The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours | 
+ **dateTo** | **time.Time**| The end datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time | 
  **page** | **int32**| Indicates the page number to retrieve. Only positive number values are allowed. The default value is &#39;1&#39; | 
  **perPage** | **int32**| Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default. | 
  **sessionId** | **string**|  | 
@@ -414,8 +414,8 @@ Name | Type | Description  | Notes
  **transport** | [**[]string**](string.md)| Call transport type. &#39;PSTN&#39; specifies that a call leg is initiated from the PSTN network provider; &#39;VoIP&#39; - from an RC phone. By default this filter is disabled | 
  **view** | [**[]string**](string.md)| The default value is &#39;Simple&#39; for both account and extension call log | 
  **withRecording** | **bool**| &#39;True&#39; if only recorded calls have to be returned | 
- **dateTo** | **string**| The end datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time | 
- **dateFrom** | **string**| The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours | 
+ **dateTo** | **time.Time**| The end datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time | 
+ **dateFrom** | **time.Time**| The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours | 
  **page** | **int32**| Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39; | 
  **perPage** | **int32**| Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default | 
 
@@ -474,7 +474,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SyncExtensionCallLog**
-> SyncExtensionCallLog(ctx, accountId, extensionId, optional)
+> CallLogSync SyncExtensionCallLog(ctx, accountId, extensionId, optional)
 Call Log Synchronization
 
 <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadCallLog</td><td>Viewing user call logs</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
@@ -503,7 +503,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**CallLogSync**](CallLogSync.md)
 
 ### Authorization
 

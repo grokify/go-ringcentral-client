@@ -11,6 +11,18 @@ package ringcentral
 
 type ForwardingInfoCreateRuleRequest struct {
 
+	// Specifies if the first ring on desktop/mobile apps is enabled. The default value is 'True'
+	NotifyMySoftPhones bool `json:"notifyMySoftPhones,omitempty"`
+
+	// Specifies if the administrator's softphone (desktop application) is notified before forwarding the incoming call to desk phones and forwarding numbers. The default value is 'True'
+	NotifyAdminSoftPhones bool `json:"notifyAdminSoftPhones,omitempty"`
+
+	// Specifies delay between ring on apps and starting of a call forwarding. The default value is 1
+	SoftPhonesRingCount int32 `json:"softPhonesRingCount,omitempty"`
+
+	// Specifies the order in which forwarding numbers ring. 'Sequentially' means that forwarding numbers are ringing one at a time, in order of priority. 'Simultaneously' means that forwarding numbers are ringing all at the same time. The default value is 'Sequentially'
+	RingingMode string `json:"ringingMode,omitempty"`
+
 	// Information on a call forwarding rule
 	Rules []RuleInfoCreateRuleRequest `json:"rules,omitempty"`
 }

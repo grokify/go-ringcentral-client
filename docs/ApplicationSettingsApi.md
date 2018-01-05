@@ -9,9 +9,9 @@ Method | HTTP request | Description
 [**GetAttachment**](ApplicationSettingsApi.md#GetAttachment) | **Get** /restapi/v1.0/client-info/custom-data/{key}/content | Get Custom Data Attachment
 [**GetCustomData**](ApplicationSettingsApi.md#GetCustomData) | **Get** /restapi/v1.0/client-info/custom-data/{key} | Get Custom Data
 [**GetInProductMessage**](ApplicationSettingsApi.md#GetInProductMessage) | **Get** /restapi/v1.0/client-info/banners | Get In Product Message List
+[**GetSpecialNumberRules_**](ApplicationSettingsApi.md#GetSpecialNumberRules_) | **Get** /restapi/v1.0/client-info/special-number-rule | Get Special Numbers Calling Limitation
 [**LoadClientInfo**](ApplicationSettingsApi.md#LoadClientInfo) | **Get** /restapi/v1.0/client-info | Get App Settings
 [**LoadPhoneData**](ApplicationSettingsApi.md#LoadPhoneData) | **Get** /restapi/v1.0/number-parser/phonedata.xml | Get Phonedata
-[**RestapiV10ClientInfoSpecialNumberRuleGet**](ApplicationSettingsApi.md#RestapiV10ClientInfoSpecialNumberRuleGet) | **Get** /restapi/v1.0/client-info/special-number-rule | Get Special Numbers Calling Limitation
 [**UpdateCustomData**](ApplicationSettingsApi.md#UpdateCustomData) | **Put** /restapi/v1.0/client-info/custom-data/{key} | Create/Update Custom Data
 
 
@@ -164,6 +164,41 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **GetSpecialNumberRules_**
+> NavigationInfo GetSpecialNumberRules_(ctx, optional)
+Get Special Numbers Calling Limitation
+
+<p style='font-style:italic;'>Since 1.0.12 (Release 6.4)</p><p>Returns available special numbers and rules of processing, depending on account brand and application type (mobile/softphone/web/other). A special number rule for each number includes limitations on the options: VoIP, RingOut, outgoing SMS and Fax. If the option is disallowed, the server returns the reason code and text description.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadClientInfo</td><td>Viewing of client application registered attributes and additional helper information (external URLs, hints, etc.)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **countryId** | **int32**| Internal identifier of a country. If not specified, the response is returned for the brand country | 
+
+### Return type
+
+[**NavigationInfo**](NavigationInfo.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **LoadClientInfo**
 > ClientApiResponse LoadClientInfo(ctx, )
 Get App Settings
@@ -200,41 +235,6 @@ This endpoint does not need any parameter.
 ### Return type
 
  (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10ClientInfoSpecialNumberRuleGet**
-> NavigationInfo RestapiV10ClientInfoSpecialNumberRuleGet(ctx, optional)
-Get Special Numbers Calling Limitation
-
-<p style='font-style:italic;'>Since 1.0.12 (Release 6.4)</p><p>Returns available special numbers and rules of processing, depending on account brand and application type (mobile/softphone/web/other). A special number rule for each number includes limitations on the options: VoIP, RingOut, outgoing SMS and Fax. If the option is disallowed, the server returns the reason code and text description.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadClientInfo</td><td>Viewing of client application registered attributes and additional helper information (external URLs, hints, etc.)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **countryId** | **int32**| Internal identifier of a country. If not specified, the response is returned for the brand country | 
-
-### Return type
-
-[**NavigationInfo**](NavigationInfo.md)
 
 ### Authorization
 

@@ -44,6 +44,15 @@ type AnsweringRuleInfo struct {
 	// Unconditional forwarding parameters. Returned if 'UnconditionalForwarding' is specified in 'callHandlingAction'
 	UnconditionalForwarding *UnconditionalForwardingInfo `json:"unconditionalForwarding,omitempty"`
 
+	// Queue settings applied for department (call queue) extension type, with the 'AgentQueue' value specified as a call handling action
+	Queue *QueueInfo `json:"queue,omitempty"`
+
+	// Transfer settings applied for department (call queue) extension type, with 'TransferToExtension' call handling action
+	Transfer *TransferredExtensionInfo `json:"transfer,omitempty"`
+
 	// Specifies whether to take a voicemail and who should do it
 	Voicemail *VoicemailInfo `json:"voicemail,omitempty"`
+
+	// Greetings applied for an answering rule; only predefined greetings can be applied, see Dictionary Greeting List
+	Greetings []GreetingInfo `json:"greetings,omitempty"`
 }

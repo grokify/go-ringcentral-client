@@ -50,7 +50,6 @@ type APIClient struct {
 	CallLogApi              *CallLogApiService
 	CompanyContactsApi      *CompanyContactsApiService
 	CompanySettingsApi      *CompanySettingsApiService
-	DefaultApi              *DefaultApiService
 	GlipApi                 *GlipApiService
 	MeetingsApi             *MeetingsApiService
 	MessagesApi             *MessagesApiService
@@ -89,7 +88,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CallLogApi = (*CallLogApiService)(&c.common)
 	c.CompanyContactsApi = (*CompanyContactsApiService)(&c.common)
 	c.CompanySettingsApi = (*CompanySettingsApiService)(&c.common)
-	c.DefaultApi = (*DefaultApiService)(&c.common)
 	c.GlipApi = (*GlipApiService)(&c.common)
 	c.MeetingsApi = (*MeetingsApiService)(&c.common)
 	c.MessagesApi = (*MessagesApiService)(&c.common)

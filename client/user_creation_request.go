@@ -31,4 +31,7 @@ type UserCreationRequest struct {
 
 	// User addresses
 	Addresses *AddressInfoRequest `json:"addresses,omitempty"`
+
+	// Urn link
+	Urnietfparamsscimschemasextensionenterprise20User *UrnInfoRequest `json:"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User,omitempty"`
 }

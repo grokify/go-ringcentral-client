@@ -456,13 +456,14 @@ func (a *UserContactsApiService) LoadContact(ctx context.Context, accountId stri
     @param "syncToken" (string) Value of syncToken property of the last sync request response
     @param "perPage" (int32) Number of records per page to be returned. The max number of records is 250, which is also the default. For FSync ??? if the number of records exceeds the parameter value (either specified or default), all of the pages can be retrieved in several requests. For ISync ??? if the number of records exceeds the page size, the number of incoming changes to this number is limited
     @param "pageId" (int32) Internal identifier of a page. It can be obtained from the &#39;nextPageId&#39; parameter passed in response body
-@return */
-func (a *UserContactsApiService) SyncAddressBook(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (*http.Response, error) {
+@return AddressBookSync*/
+func (a *UserContactsApiService) SyncAddressBook(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (AddressBookSync, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
+		successPayload     AddressBookSync
 	)
 
 	// create path and map variables
@@ -475,13 +476,13 @@ func (a *UserContactsApiService) SyncAddressBook(ctx context.Context, accountId 
 	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(localVarOptionals["syncToken"], "string", "syncToken"); err != nil {
-		return nil, err
+		return successPayload, nil, err
 	}
 	if err := typeCheckParameter(localVarOptionals["perPage"], "int32", "perPage"); err != nil {
-		return nil, err
+		return successPayload, nil, err
 	}
 	if err := typeCheckParameter(localVarOptionals["pageId"], "int32", "pageId"); err != nil {
-		return nil, err
+		return successPayload, nil, err
 	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["syncType"].([]string); localVarOk {
@@ -517,20 +518,24 @@ func (a *UserContactsApiService) SyncAddressBook(ctx context.Context, accountId 
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return successPayload, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
+		return successPayload, localVarHttpResponse, err
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
-		return localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
+		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
 
-	return localVarHttpResponse, err
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+
+	return successPayload, localVarHttpResponse, err
 }
 
 /* UserContactsApiService Update Contact(s) by ID

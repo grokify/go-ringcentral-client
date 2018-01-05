@@ -37,4 +37,7 @@ type UserUpdateRequest struct {
 
 	// Internal identifier of a user
 	Id string `json:"id,omitempty"`
+
+	// URN link
+	Urnietfparamsscimschemasextensionenterprise20User *UrnInfoRequest `json:"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User,omitempty"`
 }

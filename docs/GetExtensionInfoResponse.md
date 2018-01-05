@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Internal identifier of an extension | [default to null]
+**Id** | **int32** | Internal identifier of an extension | [default to null]
 **Uri** | **string** | Canonical URI of an extension | [default to null]
 **Contact** | [***ContactInfo**](ContactInfo.md) | Contact detailed information | [optional] [default to null]
 **Departments** | [**[]DepartmentInfo**](DepartmentInfo.md) | Information on department extension(s), to which the requested extension belongs. Returned only for user extensions, members of department, requested by single extensionId | [optional] [default to null]

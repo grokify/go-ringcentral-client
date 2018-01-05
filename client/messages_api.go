@@ -17,6 +17,7 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
+	"time"
 )
 
 // Linger please
@@ -247,8 +248,8 @@ func (a *MessagesApiService) GetFaxCoverPages(ctx context.Context, localVarOptio
 @param optional (nil or map[string]interface{}) with one or more of:
     @param "availability" ([]string) Specifies the availability status for the resulting messages. Default value is &#39;Alive&#39;. Multiple values are accepted
     @param "conversationId" (int32) Specifies the conversation identifier for the resulting messages
-    @param "dateFrom" (string) The start datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
-    @param "dateTo" (string) The end datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
+    @param "dateFrom" (time.Time) The start datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
+    @param "dateTo" (time.Time) The end datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
     @param "direction" ([]string) The direction for the resulting messages. If not specified, both inbound and outbound messages are returned. Multiple values are accepted
     @param "distinctConversations" (bool) If &#39;True&#39;, then the latest messages per every conversation ID are returned
     @param "messageType" ([]string) The type of the resulting messages. If not specified, all messages without message type filtering are returned. Multiple values are accepted
@@ -278,10 +279,10 @@ func (a *MessagesApiService) ListMessages(ctx context.Context, accountId string,
 	if err := typeCheckParameter(localVarOptionals["conversationId"], "int32", "conversationId"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(localVarOptionals["dateFrom"], "string", "dateFrom"); err != nil {
+	if err := typeCheckParameter(localVarOptionals["dateFrom"], "time.Time", "dateFrom"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(localVarOptionals["dateTo"], "string", "dateTo"); err != nil {
+	if err := typeCheckParameter(localVarOptionals["dateTo"], "time.Time", "dateTo"); err != nil {
 		return successPayload, nil, err
 	}
 	if err := typeCheckParameter(localVarOptionals["distinctConversations"], "bool", "distinctConversations"); err != nil {
@@ -303,10 +304,10 @@ func (a *MessagesApiService) ListMessages(ctx context.Context, accountId string,
 	if localVarTempParam, localVarOk := localVarOptionals["conversationId"].(int32); localVarOk {
 		localVarQueryParams.Add("conversationId", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam, localVarOk := localVarOptionals["dateFrom"].(string); localVarOk {
+	if localVarTempParam, localVarOk := localVarOptionals["dateFrom"].(time.Time); localVarOk {
 		localVarQueryParams.Add("dateFrom", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam, localVarOk := localVarOptionals["dateTo"].(string); localVarOk {
+	if localVarTempParam, localVarOk := localVarOptionals["dateTo"].(time.Time); localVarOk {
 		localVarQueryParams.Add("dateTo", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["direction"].([]string); localVarOk {

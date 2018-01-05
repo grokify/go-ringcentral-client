@@ -9,32 +9,18 @@
 
 package ringcentral
 
-type UserCallLogRecord struct {
+import (
+	"time"
+)
 
-	// Internal identifier of a cal log record
-	Id string `json:"id,omitempty"`
+type SyncInfoCallLog struct {
 
-	// Canonical URI of a call log record
-	Uri string `json:"uri,omitempty"`
+	// Type of synchronization
+	SyncType string `json:"syncType,omitempty"`
 
-	// Internal identifier of a call session
-	SessionId string `json:"sessionId,omitempty"`
+	// Synchronization token
+	SyncToken string `json:"syncToken,omitempty"`
 
-	From *CallLogCallerInfo `json:"from,omitempty"`
-
-	To *CallLogCallerInfo `json:"to,omitempty"`
-
-	// Call type = ['Voice', 'Fax']
-	Type_ string `json:"type,omitempty"`
-
-	// Call direction = ['Inbound', 'Outbound']
-	Direction string `json:"direction,omitempty"`
-
-	// The call start datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
-	StartTime string `json:"startTime,omitempty"`
-
-	// Call duration in seconds
-	Duration int32 `json:"duration,omitempty"`
-
-	Recording *RecordingInfo `json:"recording,omitempty"`
+	// The last synchronization datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
+	SyncTime time.Time `json:"syncTime,omitempty"`
 }

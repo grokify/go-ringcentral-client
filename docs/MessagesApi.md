@@ -154,8 +154,8 @@ Name | Type | Description  | Notes
  **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
  **availability** | [**[]string**](string.md)| Specifies the availability status for the resulting messages. Default value is &#39;Alive&#39;. Multiple values are accepted | 
  **conversationId** | **int32**| Specifies the conversation identifier for the resulting messages | 
- **dateFrom** | **string**| The start datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours | 
- **dateTo** | **string**| The end datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time | 
+ **dateFrom** | **time.Time**| The start datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours | 
+ **dateTo** | **time.Time**| The end datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time | 
  **direction** | [**[]string**](string.md)| The direction for the resulting messages. If not specified, both inbound and outbound messages are returned. Multiple values are accepted | 
  **distinctConversations** | **bool**| If &#39;True&#39;, then the latest messages per every conversation ID are returned | 
  **messageType** | [**[]string**](string.md)| The type of the resulting messages. If not specified, all messages without message type filtering are returned. Multiple values are accepted | 

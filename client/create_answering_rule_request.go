@@ -11,6 +11,9 @@ package ringcentral
 
 type CreateAnsweringRuleRequest struct {
 
+	// Specifies if the rule is active or inactive. The default value is 'True'
+	Enabled bool `json:"enabled,omitempty"`
+
 	// Type of an answering rule. The 'Custom' value should be specified
 	Type_ string `json:"type"`
 
@@ -20,6 +23,30 @@ type CreateAnsweringRuleRequest struct {
 	// Answering rule will be applied when calls are received from the specified caller(s)
 	Callers []CallersInfoRequest `json:"callers,omitempty"`
 
-	// Forwarding parameters. Should be specified if the 'callHandlingAction' parameter value is set to 'ForwardCalls'. These settings determine the forwarding numbers to which the call should be forwarded
-	Forwarding *ForwardingInfoCreateRuleRequest `json:"forwarding,omitempty"`
+	// Answering rules are applied when calling to selected number(s)
+	CalledNumbers []CalledNumberInfo `json:"calledNumbers,omitempty"`
+
+	// Schedule when an answering rule should be applied
+	Schedule *ScheduleInfo `json:"schedule,omitempty"`
+
+	// Specifies how incoming calls are forwarded
+	CallHandlingAction string `json:"callHandlingAction,omitempty"`
+
+	// Forwarding parameters. Returned if 'ForwardCalls' is specified in 'callHandlingAction'. These settings determine the forwarding numbers to which the call will be forwarded
+	Forwarding *ForwardingInfo `json:"forwarding,omitempty"`
+
+	// Unconditional forwarding parameters. Returned if 'UnconditionalForwarding' is specified in 'callHandlingAction'
+	UnconditionalForwarding *UnconditionalForwardingInfo `json:"unconditionalForwarding,omitempty"`
+
+	// Queue settings applied for department (call queue) extension type, with the 'AgentQueue' value specified as a call handling action
+	Queue *QueueInfo `json:"queue,omitempty"`
+
+	// Transfer settings applied for department (call queue) extension type, with 'TransferToExtension' call handling action
+	Transfer *TransferredExtensionInfo `json:"transfer,omitempty"`
+
+	// Specifies whether to take a voicemail and who should do it
+	Voicemail *VoicemailInfo `json:"voicemail,omitempty"`
+
+	// Greetings applied for an answering rule; only predefined greetings can be applied, see Dictionary Greeting List
+	Greetings []GreetingInfo `json:"greetings,omitempty"`
 }

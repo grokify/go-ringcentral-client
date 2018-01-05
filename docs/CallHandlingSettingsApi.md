@@ -27,6 +27,7 @@ Method | HTTP request | Description
 [**LoadUserBusinessHours**](CallHandlingSettingsApi.md#LoadUserBusinessHours) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/business-hours | Get User Business Hours
 [**RestapiV10AccountAccountIdIvrMenusIvrMenuIdGet**](CallHandlingSettingsApi.md#RestapiV10AccountAccountIdIvrMenusIvrMenuIdGet) | **Get** /restapi/v1.0/account/{accountId}/ivr-menus/{ivrMenuId} | Get IVR Menu
 [**RestapiV10AccountAccountIdIvrMenusIvrMenuIdPut**](CallHandlingSettingsApi.md#RestapiV10AccountAccountIdIvrMenusIvrMenuIdPut) | **Put** /restapi/v1.0/account/{accountId}/ivr-menus/{ivrMenuId} | Update IVR Menu
+[**RestapiV10AccountAccountIdIvrMenusPost**](CallHandlingSettingsApi.md#RestapiV10AccountAccountIdIvrMenusPost) | **Post** /restapi/v1.0/account/{accountId}/ivr-menus | Create IVR Menu
 [**RestapiV10AccountAccountIdIvrPromptsGet**](CallHandlingSettingsApi.md#RestapiV10AccountAccountIdIvrPromptsGet) | **Get** /restapi/v1.0/account/{accountId}/ivr-prompts | Get IVR Prompts
 [**RestapiV10AccountAccountIdIvrPromptsPost**](CallHandlingSettingsApi.md#RestapiV10AccountAccountIdIvrPromptsPost) | **Post** /restapi/v1.0/account/{accountId}/ivr-prompts | Create IVR Prompts
 [**RestapiV10AccountAccountIdIvrPromptsPromptIdContentGet**](CallHandlingSettingsApi.md#RestapiV10AccountAccountIdIvrPromptsPromptIdContentGet) | **Get** /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId}/content | Get IVR Prompt Content
@@ -207,7 +208,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **DeleteAnsweringRule**
-> DeleteAnsweringRule(ctx, accountId, extensionId, ruleId, body)
+> DeleteAnsweringRule(ctx, accountId, extensionId, ruleId)
 Delete Call Handling Rule
 
 ### Required Parameters
@@ -218,7 +219,6 @@ Name | Type | Description  | Notes
   **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
   **extensionId** | **string**| Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session | 
   **ruleId** | **string**| Internal identifier of an answering rule | 
-  **body** | [**UpdateAnsweringRuleRequest**](UpdateAnsweringRuleRequest.md)| JSON body | 
 
 ### Return type
 
@@ -739,6 +739,35 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **accountId** | **string**|  | 
   **ivrMenuId** | **string**|  | 
+  **body** | [**IvrMenuInfo**](IvrMenuInfo.md)| JSON body | 
+
+### Return type
+
+[**IvrMenuInfo**](IVRMenuInfo.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **RestapiV10AccountAccountIdIvrMenusPost**
+> IvrMenuInfo RestapiV10AccountAccountIdIvrMenusPost(ctx, accountId, body)
+Create IVR Menu
+
+<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Creates a company IVR menu</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Heavy</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**|  | 
   **body** | [**IvrMenuInfo**](IvrMenuInfo.md)| JSON body | 
 
 ### Return type

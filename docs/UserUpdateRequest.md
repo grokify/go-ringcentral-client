@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **ExternalId** | **string** | External identifier of a user | [optional] [default to null]
 **Addresses** | [***AddressInfoRequest**](AddressInfoRequest.md) | User addresses | [optional] [default to null]
 **Id** | **string** | Internal identifier of a user | [optional] [default to null]
+**Urnietfparamsscimschemasextensionenterprise20User** | [***UrnInfoRequest**](UrnInfoRequest.md) | URN link | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

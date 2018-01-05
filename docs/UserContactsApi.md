@@ -221,7 +221,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **SyncAddressBook**
-> SyncAddressBook(ctx, accountId, extensionId, optional)
+> AddressBookSync SyncAddressBook(ctx, accountId, extensionId, optional)
 Address Book Synchronization
 
 <p style='font-style:italic;'></p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadContacts</td><td>Viewing user personal contacts</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**AddressBookSync**](AddressBookSync.md)
 
 ### Authorization
 

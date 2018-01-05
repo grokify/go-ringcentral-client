@@ -161,7 +161,7 @@ func (a *UserSettingsApiService) DownloadImage(ctx context.Context, extensionId 
 @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
 @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
 @return NotificationSettings*/
-func (a *UserSettingsApiService) GetSettings(ctx context.Context, accountId string, extensionId int32) (NotificationSettings, *http.Response, error) {
+func (a *UserSettingsApiService) GetSettings(ctx context.Context, accountId string, extensionId string) (NotificationSettings, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}

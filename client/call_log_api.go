@@ -647,8 +647,8 @@ func (a *CallLogApiService) ListExtensionActiveCalls(ctx context.Context, accoun
     @param "type_" ([]string) Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted
     @param "view" ([]string) The default value is &#39;Simple&#39; for both account and extension call log
     @param "withRecording" (bool) &#39;True&#39; if only recorded calls have to be returned
-    @param "dateFrom" (string) The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
-    @param "dateTo" (string) The end datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
+    @param "dateFrom" (time.Time) The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
+    @param "dateTo" (time.Time) The end datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. The default value is &#39;1&#39;
     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default.
     @param "sessionId" (string)
@@ -679,10 +679,10 @@ func (a *CallLogApiService) LoadAccountCallLog(ctx context.Context, accountId st
 	if err := typeCheckParameter(localVarOptionals["withRecording"], "bool", "withRecording"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(localVarOptionals["dateFrom"], "string", "dateFrom"); err != nil {
+	if err := typeCheckParameter(localVarOptionals["dateFrom"], "time.Time", "dateFrom"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(localVarOptionals["dateTo"], "string", "dateTo"); err != nil {
+	if err := typeCheckParameter(localVarOptionals["dateTo"], "time.Time", "dateTo"); err != nil {
 		return successPayload, nil, err
 	}
 	if err := typeCheckParameter(localVarOptionals["page"], "int32", "page"); err != nil {
@@ -713,10 +713,10 @@ func (a *CallLogApiService) LoadAccountCallLog(ctx context.Context, accountId st
 	if localVarTempParam, localVarOk := localVarOptionals["withRecording"].(bool); localVarOk {
 		localVarQueryParams.Add("withRecording", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam, localVarOk := localVarOptionals["dateFrom"].(string); localVarOk {
+	if localVarTempParam, localVarOk := localVarOptionals["dateFrom"].(time.Time); localVarOk {
 		localVarQueryParams.Add("dateFrom", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam, localVarOk := localVarOptionals["dateTo"].(string); localVarOk {
+	if localVarTempParam, localVarOk := localVarOptionals["dateTo"].(time.Time); localVarOk {
 		localVarQueryParams.Add("dateTo", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
@@ -849,8 +849,8 @@ func (a *CallLogApiService) LoadAccountCallLogRecord(ctx context.Context, accoun
     @param "transport" ([]string) Call transport type. &#39;PSTN&#39; specifies that a call leg is initiated from the PSTN network provider; &#39;VoIP&#39; - from an RC phone. By default this filter is disabled
     @param "view" ([]string) The default value is &#39;Simple&#39; for both account and extension call log
     @param "withRecording" (bool) &#39;True&#39; if only recorded calls have to be returned
-    @param "dateTo" (string) The end datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
-    @param "dateFrom" (string) The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
+    @param "dateTo" (time.Time) The end datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
+    @param "dateFrom" (time.Time) The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
 @return ExtensionCallLogResponse*/
@@ -887,10 +887,10 @@ func (a *CallLogApiService) LoadExtensionCallLog(ctx context.Context, accountId 
 	if err := typeCheckParameter(localVarOptionals["withRecording"], "bool", "withRecording"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(localVarOptionals["dateTo"], "string", "dateTo"); err != nil {
+	if err := typeCheckParameter(localVarOptionals["dateTo"], "time.Time", "dateTo"); err != nil {
 		return successPayload, nil, err
 	}
-	if err := typeCheckParameter(localVarOptionals["dateFrom"], "string", "dateFrom"); err != nil {
+	if err := typeCheckParameter(localVarOptionals["dateFrom"], "time.Time", "dateFrom"); err != nil {
 		return successPayload, nil, err
 	}
 	if err := typeCheckParameter(localVarOptionals["page"], "int32", "page"); err != nil {
@@ -927,10 +927,10 @@ func (a *CallLogApiService) LoadExtensionCallLog(ctx context.Context, accountId 
 	if localVarTempParam, localVarOk := localVarOptionals["withRecording"].(bool); localVarOk {
 		localVarQueryParams.Add("withRecording", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam, localVarOk := localVarOptionals["dateTo"].(string); localVarOk {
+	if localVarTempParam, localVarOk := localVarOptionals["dateTo"].(time.Time); localVarOk {
 		localVarQueryParams.Add("dateTo", parameterToString(localVarTempParam, ""))
 	}
-	if localVarTempParam, localVarOk := localVarOptionals["dateFrom"].(string); localVarOk {
+	if localVarTempParam, localVarOk := localVarOptionals["dateFrom"].(time.Time); localVarOk {
 		localVarQueryParams.Add("dateFrom", parameterToString(localVarTempParam, ""))
 	}
 	if localVarTempParam, localVarOk := localVarOptionals["page"].(int32); localVarOk {
@@ -1079,13 +1079,14 @@ func (a *CallLogApiService) SyncAccountCallLog(ctx context.Context, accountId st
     @param "dateFrom" (string) The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is the current moment
     @param "recordCount" (int32) ForT?FSync the parameter is mandatory, it limits the number of records to be returned in response. For ISync it specifies with how many records to extend sync Frame to the past, the maximum number of records is 250
     @param "statusGroup" ([]string) Type of calls to be returned. The default value is &#39;All&#39;
-@return */
-func (a *CallLogApiService) SyncExtensionCallLog(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (*http.Response, error) {
+@return CallLogSync*/
+func (a *CallLogApiService) SyncExtensionCallLog(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (CallLogSync, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
+		successPayload     CallLogSync
 	)
 
 	// create path and map variables
@@ -1098,13 +1099,13 @@ func (a *CallLogApiService) SyncExtensionCallLog(ctx context.Context, accountId 
 	localVarFormParams := url.Values{}
 
 	if err := typeCheckParameter(localVarOptionals["syncToken"], "string", "syncToken"); err != nil {
-		return nil, err
+		return successPayload, nil, err
 	}
 	if err := typeCheckParameter(localVarOptionals["dateFrom"], "string", "dateFrom"); err != nil {
-		return nil, err
+		return successPayload, nil, err
 	}
 	if err := typeCheckParameter(localVarOptionals["recordCount"], "int32", "recordCount"); err != nil {
-		return nil, err
+		return successPayload, nil, err
 	}
 
 	if localVarTempParam, localVarOk := localVarOptionals["syncType"].([]string); localVarOk {
@@ -1143,18 +1144,22 @@ func (a *CallLogApiService) SyncExtensionCallLog(ctx context.Context, accountId 
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {
-		return nil, err
+		return successPayload, nil, err
 	}
 
 	localVarHttpResponse, err := a.client.callAPI(r)
 	if err != nil || localVarHttpResponse == nil {
-		return localVarHttpResponse, err
+		return successPayload, localVarHttpResponse, err
 	}
 	defer localVarHttpResponse.Body.Close()
 	if localVarHttpResponse.StatusCode >= 300 {
 		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
-		return localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
+		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
 
-	return localVarHttpResponse, err
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+
+	return successPayload, localVarHttpResponse, err
 }

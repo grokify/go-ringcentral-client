@@ -341,6 +341,76 @@ func (a *ApplicationSettingsApiService) GetInProductMessage(ctx context.Context,
 	return successPayload, localVarHttpResponse, err
 }
 
+/* ApplicationSettingsApiService Get Special Numbers Calling Limitation
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.12 (Release 6.4)&lt;/p&gt;&lt;p&gt;Returns available special numbers and rules of processing, depending on account brand and application type (mobile/softphone/web/other). A special number rule for each number includes limitations on the options: VoIP, RingOut, outgoing SMS and Fax. If the option is disallowed, the server returns the reason code and text description.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadClientInfo&lt;/td&gt;&lt;td&gt;Viewing of client application registered attributes and additional helper information (external URLs, hints, etc.)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "countryId" (int32) Internal identifier of a country. If not specified, the response is returned for the brand country
+@return NavigationInfo*/
+func (a *ApplicationSettingsApiService) GetSpecialNumberRules_(ctx context.Context, localVarOptionals map[string]interface{}) (NavigationInfo, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     NavigationInfo
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/restapi/v1.0/client-info/special-number-rule"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if err := typeCheckParameter(localVarOptionals["countryId"], "int32", "countryId"); err != nil {
+		return successPayload, nil, err
+	}
+
+	if localVarTempParam, localVarOk := localVarOptionals["countryId"].(int32); localVarOk {
+		localVarQueryParams.Add("countryId", parameterToString(localVarTempParam, ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{
+		"application/json",
+	}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return successPayload, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return successPayload, localVarHttpResponse, err
+	}
+	defer localVarHttpResponse.Body.Close()
+	if localVarHttpResponse.StatusCode >= 300 {
+		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
+		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
+	}
+
+	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+		return successPayload, localVarHttpResponse, err
+	}
+
+	return successPayload, localVarHttpResponse, err
+}
+
 /* ApplicationSettingsApiService Get App Settings
 &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.11 (Release 6.3)&lt;/p&gt;&lt;p&gt;Returns client application data: general info, specific provisioning parameters, hints, etc.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadClientInfo&lt;/td&gt;&lt;td&gt;Viewing of client application registered attributes and additional helper information (external URLs, hints, etc.)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
 * @param ctx context.Context for authentication, logging, tracing, etc.
@@ -456,76 +526,6 @@ func (a *ApplicationSettingsApiService) LoadPhoneData(ctx context.Context) (*htt
 	}
 
 	return localVarHttpResponse, err
-}
-
-/* ApplicationSettingsApiService Get Special Numbers Calling Limitation
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.12 (Release 6.4)&lt;/p&gt;&lt;p&gt;Returns available special numbers and rules of processing, depending on account brand and application type (mobile/softphone/web/other). A special number rule for each number includes limitations on the options: VoIP, RingOut, outgoing SMS and Fax. If the option is disallowed, the server returns the reason code and text description.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadClientInfo&lt;/td&gt;&lt;td&gt;Viewing of client application registered attributes and additional helper information (external URLs, hints, etc.)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "countryId" (int32) Internal identifier of a country. If not specified, the response is returned for the brand country
-@return NavigationInfo*/
-func (a *ApplicationSettingsApiService) RestapiV10ClientInfoSpecialNumberRuleGet(ctx context.Context, localVarOptionals map[string]interface{}) (NavigationInfo, *http.Response, error) {
-	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     NavigationInfo
-	)
-
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/restapi/v1.0/client-info/special-number-rule"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if err := typeCheckParameter(localVarOptionals["countryId"], "int32", "countryId"); err != nil {
-		return successPayload, nil, err
-	}
-
-	if localVarTempParam, localVarOk := localVarOptionals["countryId"].(int32); localVarOk {
-		localVarQueryParams.Add("countryId", parameterToString(localVarTempParam, ""))
-	}
-	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
-	if localVarHttpContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHttpContentType
-	}
-
-	// to determine the Accept header
-	localVarHttpHeaderAccepts := []string{
-		"application/json",
-	}
-
-	// set Accept header
-	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
-	if localVarHttpHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
-	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return successPayload, nil, err
-	}
-
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return successPayload, localVarHttpResponse, err
-	}
-	defer localVarHttpResponse.Body.Close()
-	if localVarHttpResponse.StatusCode >= 300 {
-		bodyBytes, _ := ioutil.ReadAll(localVarHttpResponse.Body)
-		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
-	}
-
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
-
-	return successPayload, localVarHttpResponse, err
 }
 
 /* ApplicationSettingsApiService Create/Update Custom Data
