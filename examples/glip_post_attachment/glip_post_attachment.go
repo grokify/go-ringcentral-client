@@ -211,7 +211,6 @@ func main() {
 	fmtutil.PrintJSON(msgs)
 
 	for _, msg := range msgs {
-
 		info, resp, err := apiClient.GlipApi.CreatePost(context.Background(), groupId, msg)
 		if err != nil {
 			panic(err)
