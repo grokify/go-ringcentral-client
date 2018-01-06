@@ -6,13 +6,13 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateGlipFile**](GlipApi.md#CreateGlipFile) | **Post** /restapi/v1.0/glip/files | Upload File
 [**CreateGroup**](GlipApi.md#CreateGroup) | **Post** /restapi/v1.0/glip/groups | Create Group
-[**CreatePost**](GlipApi.md#CreatePost) | **Post** /restapi/v1.0/glip/posts | Create Post
+[**CreatePost**](GlipApi.md#CreatePost) | **Post** /restapi/v1.0/glip/groups/{groupId}/posts | Create Post
 [**LoadCompany**](GlipApi.md#LoadCompany) | **Get** /restapi/v1.0/glip/companies/{companyId} | Get Company Info
 [**LoadGlipFile**](GlipApi.md#LoadGlipFile) | **Get** /restapi/v1.0/glip/files/{fileId} | Get File Info
 [**LoadGroup**](GlipApi.md#LoadGroup) | **Get** /restapi/v1.0/glip/groups/{groupId} | Get Group
 [**LoadGroupList**](GlipApi.md#LoadGroupList) | **Get** /restapi/v1.0/glip/groups | Get User Groups
 [**LoadPerson**](GlipApi.md#LoadPerson) | **Get** /restapi/v1.0/glip/persons/{personId} | Get Person
-[**LoadPosts**](GlipApi.md#LoadPosts) | **Get** /restapi/v1.0/glip/posts | Get Posts
+[**LoadPosts**](GlipApi.md#LoadPosts) | **Get** /restapi/v1.0/glip/groups/{groupId}/posts | Get Posts
 [**LoadUnreadMessageCount**](GlipApi.md#LoadUnreadMessageCount) | **Get** /restapi/v1.0/glip/profile | Glip Unread Message Count
 [**UpdateGroup**](GlipApi.md#UpdateGroup) | **Post** /restapi/v1.0/glip/groups/{groupId}/bulk-assign | Edit Group Members
 
@@ -84,7 +84,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreatePost**
-> GlipPostInfo CreatePost(ctx, body)
+> GlipPostInfo CreatePost(ctx, groupId, body)
 Create Post
 
 <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Creates a post.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
@@ -94,6 +94,7 @@ Create Post
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **groupId** | **string**| Id of a group to send post | 
   **body** | [**GlipCreatePost**](GlipCreatePost.md)| JSON body | 
 
 ### Return type
@@ -261,7 +262,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **LoadPosts**
-> GlipPosts LoadPosts(ctx, optional)
+> GlipPosts LoadPosts(ctx, groupId, optional)
 Get Posts
 
 <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Returns list of posts.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
@@ -271,6 +272,7 @@ Get Posts
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **groupId** | **string**| Identifier of a group to filter posts | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **PhoneLines** | [***PhoneLineResource**](PhoneLineResource.md) | Phone lines information | [optional] [default to null]
 **EmergencyServiceAddress** | [***EmergencyServiceAddressResource**](EmergencyServiceAddressResource.md) |  Address for emergency cases. The same emergency address is assigned to all numbers of a single device , | [optional] [default to null]
 **Shipping** | [***ShippingResource**](ShippingResource.md) | Shipping information, according to which devices (in case of HardPhone ) or e911 stickers (in case of SoftPhone and OtherPhone ) will be delivered to the customer | [optional] [default to null]
-**BoxBillingId** | **int32** | Box billing identifier of a device. Applicable only for HardPhones. It is an alternative way to identify the device to be ordered. Either  model structure, or boxBillingId must be specified for HardPhone | [optional] [default to null]
+**BoxBillingId** | **int32** | Box billing identifier of a device. Applicable only for HardPhones. It is an alternative way to identify the device to be ordered. Either model structure, or boxBillingId must be specified for HardPhone | [optional] [default to null]
 **LinePooling** | **string** | Pooling type of a deviceHost - device with standalone paid phone line which can be linked to Glip/Softphone instanceGuest - device with a linked phone lineNone - device without a phone line or with specific line (free, BLA, etc.) &#x3D; [&#39;Host&#39;, &#39;Guest&#39;, &#39;None&#39;] | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
