@@ -67,7 +67,7 @@ func getDemoMessage() rc.GlipCreatePost {
 					},
 					{
 						Title: "Field 2",
-						Value: "[A linked short field](https://example.com)",
+						Value: "This is [a linked short field](https://example.com)",
 						Style: "Short",
 					},
 					{
@@ -86,24 +86,139 @@ func getDemoMessage() rc.GlipCreatePost {
 	}
 }
 
+func getDemoMessageSalesforce() rc.GlipCreatePost {
+	return rc.GlipCreatePost{
+		Text: "**Top Opportunities**\n\nFull report: https://my.salesforce.com/00O80000007MOgS",
+		Attachments: []rc.GlipMessageAttachmentInfoRequest{
+			{
+				Type_:    "Card",
+				Color:    "#00ff2a",
+				Fallback: "Attachment fallback text",
+				Fields: []rc.GlipMessageAttachmentFieldsInfo{
+					{
+						Title: "Opportunity",
+						Value: "[Electric Company of America (0038000004OrS7y)](https://example.com)",
+						Style: "Short"},
+					{
+						Title: "Owner",
+						Value: "Matthew West",
+						Style: "Short"},
+					{
+						Title: "Stage",
+						Value: "Contract Negotiation",
+						Style: "Short"},
+					{
+						Title: "Close Date",
+						Value: "2017-12-20",
+						Style: "Short"},
+					{
+						Title: "Amount",
+						Value: "$150,000",
+						Style: "Short"},
+					{
+						Title: "Probability",
+						Value: "95%",
+						Style: "Short"},
+				},
+			},
+			{
+				Type_:    "Card",
+				Color:    "#dfdd13",
+				Fallback: "Attachment fallback text",
+				Fields: []rc.GlipMessageAttachmentFieldsInfo{
+					{
+						Title: "Opportunity",
+						Value: "[Eureka Oil and Gas (0038000001MgG2z)](https://example.com)",
+						Style: "Short"},
+					{
+						Title: "Owner",
+						Value: "Alice Collins",
+						Style: "Short"},
+					{
+						Title: "Stage",
+						Value: "Proposal/Quote",
+						Style: "Short"},
+					{
+						Title: "Close Date",
+						Value: "2017-09-20",
+						Style: "Short"},
+					{
+						Title: "Amount",
+						Value: "$750,000",
+						Style: "Short"},
+					{
+						Title: "Probability",
+						Value: "70%",
+						Style: "Short"},
+					{
+						Title: "Field 1",
+						Value: "A short field",
+						Style: "Short",
+					},
+				},
+			},
+			{
+				Type_:    "Card",
+				Color:    "#ff0000",
+				Fallback: "Attachment fallback text",
+				Fields: []rc.GlipMessageAttachmentFieldsInfo{
+					{
+						Title: "Opportunity",
+						Value: "[Pacfic Restaurants (0038000004WhM4a)](https://example.com)",
+						Style: "Short"},
+					{
+						Title: "Owner",
+						Value: "Justin Lyons",
+						Style: "Short"},
+					{
+						Title: "Stage",
+						Value: "Discovery",
+						Style: "Short"},
+					{
+						Title: "Close Date",
+						Value: "2017-09-20",
+						Style: "Short"},
+					{
+						Title: "Amount",
+						Value: "$500,000",
+						Style: "Short"},
+					{
+						Title: "Probability",
+						Value: "30%",
+						Style: "Short"},
+				},
+			},
+		},
+	}
+}
+
 func main() {
 	err := loadEnv()
 	if err != nil {
 		panic(err)
 	}
+	groupId := os.Getenv("GLIP_POST_GROUP_ID")
+
 	apiClient, err := newApiClient()
 	if err != nil {
 		panic(err)
 	}
 
-	msg := getDemoMessage()
+	msgs := []rc.GlipCreatePost{}
+	msgs = append(msgs, getDemoMessage())
+	msgs = append(msgs, getDemoMessageSalesforce())
 
-	info, resp, err := apiClient.GlipApi.CreatePost(context.Background(), "3154083846", msg)
-	if err != nil {
-		panic(err)
-	} else if resp.StatusCode > 299 {
-		panic(fmt.Errorf("API Status %v", resp.StatusCode))
+	fmtutil.PrintJSON(msgs)
+
+	for _, msg := range msgs {
+
+		info, resp, err := apiClient.GlipApi.CreatePost(context.Background(), groupId, msg)
+		if err != nil {
+			panic(err)
+		} else if resp.StatusCode > 299 {
+			panic(fmt.Errorf("API Status %v", resp.StatusCode))
+		}
+		fmtutil.PrintJSON(info)
 	}
-	fmtutil.PrintJSON(info)
 	fmt.Println("DONE")
 }
