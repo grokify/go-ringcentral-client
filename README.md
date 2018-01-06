@@ -4,14 +4,14 @@
 [![Docs][docs-godoc-svg]][docs-godoc-link]
 [![License][license-svg]][license-link]
 
- [build-status-svg]: https://api.travis-ci.org/grokify/ringcentral-sdk-go-scg.svg?branch=master
- [build-status-link]: https://travis-ci.org/grokify/ringcentral-sdk-go-scg
- [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/ringcentral-sdk-go-scg
- [goreport-link]: https://goreportcard.com/report/github.com/grokify/ringcentral-sdk-go-scg
+ [build-status-svg]: https://api.travis-ci.org/grokify/go-ringcentral.svg?branch=master
+ [build-status-link]: https://travis-ci.org/grokify/go-ringcentral
+ [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/go-ringcentral
+ [goreport-link]: https://goreportcard.com/report/github.com/grokify/go-ringcentral
  [docs-godoc-svg]: https://img.shields.io/badge/docs-godoc-blue.svg
- [docs-godoc-link]: https://godoc.org/github.com/grokify/ringcentral-sdk-go-scg
+ [docs-godoc-link]: https://godoc.org/github.com/grokify/go-ringcentral
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
- [license-link]: https://github.com/grokify/ringcentral-sdk-go-scg/blob/master/LICENSE
+ [license-link]: https://github.com/grokify/go-ringcentral/blob/master/LICENSE
 
 <p>This is a beta interactive API explorer for the RingCentral Connect Platform. To use this service, you will need to have an account with the proper credentials to generate an OAuth2 access token.</p><p><h2>Quick Start</h2></p><ol><li>1) Go to <b>Authentication > /oauth/token</b></li><li>2) Enter <b>app_key, app_secret, username, password</b> fields and then click \"Try it out!\"</li><li>3) Upon success, your access_token is loaded and you can access any form requiring authorization.</li></ol><h2>Links</h2><ul><li><a href=\"https://github.com/ringcentral\" target=\"_blank\">RingCentral SDKs on Github</a></li><li><a href=\"mailto:devsupport@ringcentral.com\">RingCentral Developer Support Email</a></li></ul>
 
