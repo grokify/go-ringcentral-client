@@ -10,13 +10,13 @@
 package ringcentral
 
 import (
+	"io/ioutil"
+	"net/url"
+	"net/http"
+	"strings"
+	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
-	"golang.org/x/net/context"
-	"io/ioutil"
-	"net/http"
-	"net/url"
-	"strings"
 )
 
 // Linger please
@@ -26,18 +26,19 @@ var (
 
 type SCIMApiService service
 
+
 /* SCIMApiService Create User
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Creates a user.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param body JSON body
-@return UserInfo*/
-func (a *SCIMApiService) CreateUser(ctx context.Context, body UserCreationRequest) (UserInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Creates a user.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param body JSON body
+ @return UserInfo*/
+func (a *SCIMApiService) CreateUser(ctx context.Context, body UserCreationRequest) (UserInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     UserInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  UserInfo
 	)
 
 	// create path and map variables
@@ -47,8 +48,9 @@ func (a *SCIMApiService) CreateUser(ctx context.Context, body UserCreationReques
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -59,7 +61,7 @@ func (a *SCIMApiService) CreateUser(ctx context.Context, body UserCreationReques
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -87,20 +89,21 @@ func (a *SCIMApiService) CreateUser(ctx context.Context, body UserCreationReques
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* SCIMApiService Delete User
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param id Internal identifier of a user
-@return */
-func (a *SCIMApiService) DeleteUser(ctx context.Context, id string) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param id Internal identifier of a user
+ @return */
+func (a *SCIMApiService) DeleteUser(ctx context.Context, id string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -111,8 +114,9 @@ func (a *SCIMApiService) DeleteUser(ctx context.Context, id string) (*http.Respo
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -123,7 +127,7 @@ func (a *SCIMApiService) DeleteUser(ctx context.Context, id string) (*http.Respo
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -149,17 +153,17 @@ func (a *SCIMApiService) DeleteUser(ctx context.Context, id string) (*http.Respo
 }
 
 /* SCIMApiService Get User
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns a user by ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param id Internal identifier of a user
-@return UserInfo*/
-func (a *SCIMApiService) GetUserById(ctx context.Context, id string) (UserInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns a user by ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param id Internal identifier of a user
+ @return UserInfo*/
+func (a *SCIMApiService) GetUserById(ctx context.Context, id string) (UserInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     UserInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  UserInfo
 	)
 
 	// create path and map variables
@@ -170,8 +174,9 @@ func (a *SCIMApiService) GetUserById(ctx context.Context, id string) (UserInfo, 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -182,7 +187,7 @@ func (a *SCIMApiService) GetUserById(ctx context.Context, id string) (UserInfo, 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -208,24 +213,25 @@ func (a *SCIMApiService) GetUserById(ctx context.Context, id string) (UserInfo, 
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* SCIMApiService Get User List
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns the list of users requested.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "filter" ([]string) User name or email
-    @param "count" (int64) Page
-    @param "startIndex" (int64) 1-based index of the query result
-@return GetUserListResponse*/
-func (a *SCIMApiService) ListScimUsers(ctx context.Context, localVarOptionals map[string]interface{}) (GetUserListResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns the list of users requested.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "filter" ([]string) User name or email
+     @param "count" (int64) Page
+     @param "startIndex" (int64) 1-based index of the query result
+ @return GetUserListResponse*/
+func (a *SCIMApiService) ListScimUsers(ctx context.Context, localVarOptionals map[string]interface{}) (GetUserListResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetUserListResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetUserListResponse
 	)
 
 	// create path and map variables
@@ -252,7 +258,7 @@ func (a *SCIMApiService) ListScimUsers(ctx context.Context, localVarOptionals ma
 		localVarQueryParams.Add("startIndex", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -263,7 +269,7 @@ func (a *SCIMApiService) ListScimUsers(ctx context.Context, localVarOptionals ma
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -289,22 +295,23 @@ func (a *SCIMApiService) ListScimUsers(ctx context.Context, localVarOptionals ma
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* SCIMApiService Update User
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param id Internal identifier of a user
-@param body JSON body
-@return UserInfo*/
-func (a *SCIMApiService) UpdateUser(ctx context.Context, id string, body UserUpdateRequest) (UserInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param id Internal identifier of a user
+ @param body JSON body
+ @return UserInfo*/
+func (a *SCIMApiService) UpdateUser(ctx context.Context, id string, body UserUpdateRequest) (UserInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     UserInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  UserInfo
 	)
 
 	// create path and map variables
@@ -315,8 +322,9 @@ func (a *SCIMApiService) UpdateUser(ctx context.Context, id string, body UserUpd
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -327,7 +335,7 @@ func (a *SCIMApiService) UpdateUser(ctx context.Context, id string, body UserUpd
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -355,5 +363,7 @@ func (a *SCIMApiService) UpdateUser(ctx context.Context, id string, body UserUpd
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
+

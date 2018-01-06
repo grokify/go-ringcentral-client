@@ -14,6 +14,7 @@ import (
 )
 
 type PersonalContactResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Availability string `json:"availability,omitempty"`

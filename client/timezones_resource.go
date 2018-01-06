@@ -10,6 +10,7 @@
 package ringcentral
 
 type TimezonesResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []TimezoneResource `json:"records,omitempty"`

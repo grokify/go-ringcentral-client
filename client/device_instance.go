@@ -10,6 +10,7 @@
 package ringcentral
 
 type DeviceInstance struct {
+
 	Id string `json:"id,omitempty"`
 
 	Serial string `json:"serial,omitempty"`

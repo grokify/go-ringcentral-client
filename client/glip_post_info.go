@@ -27,9 +27,6 @@ type GlipPostInfo struct {
 	// For 'TextMessage' post type only. Message text
 	Text string `json:"text,omitempty"`
 
-	// List of posted attachments
-	Attachments []GlipAttachmentInfo `json:"attachments,omitempty"`
-
 	// Internal identifier of a user - author of a post
 	CreatorId string `json:"creatorId,omitempty"`
 
@@ -41,4 +38,22 @@ type GlipPostInfo struct {
 
 	// Post last modification datetime in ISO 8601 format
 	LastModifiedTime time.Time `json:"lastModifiedTime,omitempty"`
+
+	// List of posted attachments
+	Attachments []GlipMessageAttachmentInfo `json:"attachments,omitempty"`
+
+	// List of posted attachments
+	Mentions []GlipMentionsInfo `json:"mentions,omitempty"`
+
+	// activity type
+	Activity string `json:"activity,omitempty"`
+
+	// Title of the message. Can be set for bot messages only
+	Title string `json:"title,omitempty"`
+
+	// URI to an image to use as the icon for this message.
+	IconUri string `json:"iconUri,omitempty"`
+
+	// Emoji to use as the icon for a message
+	IconEmoji string `json:"iconEmoji,omitempty"`
 }

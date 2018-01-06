@@ -10,6 +10,7 @@
 package ringcentral
 
 type CallerInfo struct {
+
 	PhoneNumber string `json:"phoneNumber,omitempty"`
 
 	ExtensionNumber string `json:"extensionNumber,omitempty"`

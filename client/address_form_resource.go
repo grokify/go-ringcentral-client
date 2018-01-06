@@ -10,6 +10,7 @@
 package ringcentral
 
 type AddressFormResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []AddressFormCountryResource `json:"records,omitempty"`

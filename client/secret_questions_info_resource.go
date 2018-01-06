@@ -10,6 +10,7 @@
 package ringcentral
 
 type SecretQuestionsInfoResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []SecretQuestionInfoResource `json:"records,omitempty"`

@@ -10,13 +10,13 @@
 package ringcentral
 
 import (
+	"io/ioutil"
+	"net/url"
+	"net/http"
+	"strings"
+	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
-	"golang.org/x/net/context"
-	"io/ioutil"
-	"net/http"
-	"net/url"
-	"strings"
 )
 
 // Linger please
@@ -26,17 +26,18 @@ var (
 
 type UserContactsApiService service
 
+
 /* UserContactsApiService Get Favorite Contacts
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@return */
-func (a *UserContactsApiService) ContactFavorite(ctx context.Context, accountId string, extensionId string) (*http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @return */
+func (a *UserContactsApiService) ContactFavorite(ctx context.Context, accountId string, extensionId string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -48,8 +49,9 @@ func (a *UserContactsApiService) ContactFavorite(ctx context.Context, accountId 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -60,7 +62,7 @@ func (a *UserContactsApiService) ContactFavorite(ctx context.Context, accountId 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -86,20 +88,20 @@ func (a *UserContactsApiService) ContactFavorite(ctx context.Context, accountId 
 }
 
 /* UserContactsApiService Create Contact
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Contacts&lt;/td&gt;&lt;td&gt;Creating, viewing, editing and deleting user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadContacts&lt;/td&gt;&lt;td&gt;Viewing user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "body" (PersonalContactResource)
-@return PersonalContactResource*/
-func (a *UserContactsApiService) CreateContact(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (PersonalContactResource, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Contacts&lt;/td&gt;&lt;td&gt;Creating, viewing, editing and deleting user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadContacts&lt;/td&gt;&lt;td&gt;Viewing user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "body" (PersonalContactResource) 
+ @return PersonalContactResource*/
+func (a *UserContactsApiService) CreateContact(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (PersonalContactResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     PersonalContactResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PersonalContactResource
 	)
 
 	// create path and map variables
@@ -111,8 +113,9 @@ func (a *UserContactsApiService) CreateContact(ctx context.Context, accountId st
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -123,7 +126,7 @@ func (a *UserContactsApiService) CreateContact(ctx context.Context, accountId st
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -153,22 +156,23 @@ func (a *UserContactsApiService) CreateContact(ctx context.Context, accountId st
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserContactsApiService Update Favorite Contacts
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "body" (FavoriteCollection)
-@return */
-func (a *UserContactsApiService) CreateContacts(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (*http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "body" (FavoriteCollection) 
+ @return */
+func (a *UserContactsApiService) CreateContacts(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -180,8 +184,9 @@ func (a *UserContactsApiService) CreateContacts(ctx context.Context, accountId s
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -192,7 +197,7 @@ func (a *UserContactsApiService) CreateContacts(ctx context.Context, accountId s
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -222,18 +227,18 @@ func (a *UserContactsApiService) CreateContacts(ctx context.Context, accountId s
 }
 
 /* UserContactsApiService Delete Contact(s) by ID
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Contacts&lt;/td&gt;&lt;td&gt;Creating, viewing, editing and deleting user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadContacts&lt;/td&gt;&lt;td&gt;Viewing user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param contactId Internal identifier of a contact record in the RingCentral database
-@return */
-func (a *UserContactsApiService) DeleteContact(ctx context.Context, accountId string, extensionId string, contactId int32) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Contacts&lt;/td&gt;&lt;td&gt;Creating, viewing, editing and deleting user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadContacts&lt;/td&gt;&lt;td&gt;Viewing user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param contactId Internal identifier of a contact record in the RingCentral database
+ @return */
+func (a *UserContactsApiService) DeleteContact(ctx context.Context, accountId string, extensionId string, contactId int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -246,8 +251,9 @@ func (a *UserContactsApiService) DeleteContact(ctx context.Context, accountId st
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -258,7 +264,7 @@ func (a *UserContactsApiService) DeleteContact(ctx context.Context, accountId st
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -284,24 +290,24 @@ func (a *UserContactsApiService) DeleteContact(ctx context.Context, accountId st
 }
 
 /* UserContactsApiService Get Contacts
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadContacts&lt;/td&gt;&lt;td&gt;Viewing user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "startsWith" (string) If specified, only contacts whose First name or Last name start with the mentioned substring are returned. Case-insensitive
-    @param "sortBy" ([]string) Sorts results by the specified property. The default is &#39;First Name&#39;
-    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-    @param "phoneNumber" ([]string)
-@return ContactList*/
-func (a *UserContactsApiService) ListContacts(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (ContactList, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadContacts&lt;/td&gt;&lt;td&gt;Viewing user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "startsWith" (string) If specified, only contacts whose First name or Last name start with the mentioned substring are returned. Case-insensitive
+     @param "sortBy" ([]string) Sorts results by the specified property. The default is &#39;First Name&#39;
+     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+     @param "phoneNumber" ([]string) 
+ @return ContactList*/
+func (a *UserContactsApiService) ListContacts(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (ContactList,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     ContactList
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ContactList
 	)
 
 	// create path and map variables
@@ -339,7 +345,7 @@ func (a *UserContactsApiService) ListContacts(ctx context.Context, accountId str
 		localVarQueryParams.Add("phoneNumber", parameterToString(localVarTempParam, "multi"))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -350,7 +356,7 @@ func (a *UserContactsApiService) ListContacts(ctx context.Context, accountId str
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -376,23 +382,24 @@ func (a *UserContactsApiService) ListContacts(ctx context.Context, accountId str
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserContactsApiService Get Contact(s) by ID
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadContacts&lt;/td&gt;&lt;td&gt;Viewing user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param contactId Internal identifier of a contact record in the RingCentral database
-@return PersonalContactResource*/
-func (a *UserContactsApiService) LoadContact(ctx context.Context, accountId string, extensionId string, contactId int32) (PersonalContactResource, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadContacts&lt;/td&gt;&lt;td&gt;Viewing user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param contactId Internal identifier of a contact record in the RingCentral database
+ @return PersonalContactResource*/
+func (a *UserContactsApiService) LoadContact(ctx context.Context, accountId string, extensionId string, contactId int32) (PersonalContactResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     PersonalContactResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PersonalContactResource
 	)
 
 	// create path and map variables
@@ -405,8 +412,9 @@ func (a *UserContactsApiService) LoadContact(ctx context.Context, accountId stri
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -417,7 +425,7 @@ func (a *UserContactsApiService) LoadContact(ctx context.Context, accountId stri
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -443,27 +451,28 @@ func (a *UserContactsApiService) LoadContact(ctx context.Context, accountId stri
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserContactsApiService Address Book Synchronization
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadContacts&lt;/td&gt;&lt;td&gt;Viewing user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "syncType" ([]string) Type of synchronization. The default value is &#39;FSync&#39;
-    @param "syncToken" (string) Value of syncToken property of the last sync request response
-    @param "perPage" (int32) Number of records per page to be returned. The max number of records is 250, which is also the default. For FSync ??? if the number of records exceeds the parameter value (either specified or default), all of the pages can be retrieved in several requests. For ISync ??? if the number of records exceeds the page size, the number of incoming changes to this number is limited
-    @param "pageId" (int32) Internal identifier of a page. It can be obtained from the &#39;nextPageId&#39; parameter passed in response body
-@return AddressBookSync*/
-func (a *UserContactsApiService) SyncAddressBook(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (AddressBookSync, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadContacts&lt;/td&gt;&lt;td&gt;Viewing user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "syncType" ([]string) Type of synchronization. The default value is &#39;FSync&#39;
+     @param "syncToken" (string) Value of syncToken property of the last sync request response
+     @param "perPage" (int32) Number of records per page to be returned. The max number of records is 250, which is also the default. For FSync ??? if the number of records exceeds the parameter value (either specified or default), all of the pages can be retrieved in several requests. For ISync ??? if the number of records exceeds the page size, the number of incoming changes to this number is limited
+     @param "pageId" (int32) Internal identifier of a page. It can be obtained from the &#39;nextPageId&#39; parameter passed in response body
+ @return AddressBookSync*/
+func (a *UserContactsApiService) SyncAddressBook(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (AddressBookSync,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     AddressBookSync
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  AddressBookSync
 	)
 
 	// create path and map variables
@@ -498,7 +507,7 @@ func (a *UserContactsApiService) SyncAddressBook(ctx context.Context, accountId 
 		localVarQueryParams.Add("pageId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -509,7 +518,7 @@ func (a *UserContactsApiService) SyncAddressBook(ctx context.Context, accountId 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -535,25 +544,26 @@ func (a *UserContactsApiService) SyncAddressBook(ctx context.Context, accountId 
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserContactsApiService Update Contact(s) by ID
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Contacts&lt;/td&gt;&lt;td&gt;Creating, viewing, editing and deleting user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadContacts&lt;/td&gt;&lt;td&gt;Viewing user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param contactId Internal identifier of a contact record in the RingCentral database
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "body" (PersonalContactResource)
-@return PersonalContactResource*/
-func (a *UserContactsApiService) UpdateContact(ctx context.Context, accountId string, extensionId string, contactId int32, localVarOptionals map[string]interface{}) (PersonalContactResource, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Contacts&lt;/td&gt;&lt;td&gt;Creating, viewing, editing and deleting user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadContacts&lt;/td&gt;&lt;td&gt;Viewing user personal contacts&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param contactId Internal identifier of a contact record in the RingCentral database
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "body" (PersonalContactResource) 
+ @return PersonalContactResource*/
+func (a *UserContactsApiService) UpdateContact(ctx context.Context, accountId string, extensionId string, contactId int32, localVarOptionals map[string]interface{}) (PersonalContactResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     PersonalContactResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PersonalContactResource
 	)
 
 	// create path and map variables
@@ -566,8 +576,9 @@ func (a *UserContactsApiService) UpdateContact(ctx context.Context, accountId st
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -578,7 +589,7 @@ func (a *UserContactsApiService) UpdateContact(ctx context.Context, accountId st
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -608,5 +619,7 @@ func (a *UserContactsApiService) UpdateContact(ctx context.Context, accountId st
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
+

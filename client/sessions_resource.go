@@ -10,6 +10,7 @@
 package ringcentral
 
 type SessionsResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []VersionedResource `json:"records,omitempty"`

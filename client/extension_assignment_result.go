@@ -10,6 +10,7 @@
 package ringcentral
 
 type ExtensionAssignmentResult struct {
+
 	Successful bool `json:"successful,omitempty"`
 
 	Extension *ExtensionResource `json:"extension,omitempty"`

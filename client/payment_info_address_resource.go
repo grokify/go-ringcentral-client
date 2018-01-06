@@ -10,6 +10,7 @@
 package ringcentral
 
 type PaymentInfoAddressResource struct {
+
 	Country string `json:"country,omitempty"`
 
 	State string `json:"state,omitempty"`

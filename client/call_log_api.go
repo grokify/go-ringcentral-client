@@ -10,14 +10,14 @@
 package ringcentral
 
 import (
+	"io/ioutil"
+	"net/url"
+	"net/http"
+	"strings"
+	"golang.org/x/net/context"
+	"time"
 	"encoding/json"
 	"fmt"
-	"golang.org/x/net/context"
-	"io/ioutil"
-	"net/http"
-	"net/url"
-	"strings"
-	"time"
 )
 
 // Linger please
@@ -27,19 +27,20 @@ var (
 
 type CallLogApiService service
 
+
 /* CallLogApiService Delete Call Log Records by Filter
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditCallLog&lt;/td&gt;&lt;td&gt;Viewing and updating user call logs&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "dateTo" (string) The end datetime for records deletion in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
-@return */
-func (a *CallLogApiService) DeleteAccountCallLog(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditCallLog&lt;/td&gt;&lt;td&gt;Viewing and updating user call logs&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "dateTo" (string) The end datetime for records deletion in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
+ @return */
+func (a *CallLogApiService) DeleteAccountCallLog(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -58,7 +59,7 @@ func (a *CallLogApiService) DeleteAccountCallLog(ctx context.Context, accountId 
 		localVarQueryParams.Add("dateTo", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -69,7 +70,7 @@ func (a *CallLogApiService) DeleteAccountCallLog(ctx context.Context, accountId 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -95,16 +96,16 @@ func (a *CallLogApiService) DeleteAccountCallLog(ctx context.Context, accountId 
 }
 
 /* CallLogApiService Delete Account Call Log Record(s) by ID
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param callRecordId Internal identifier of a call log record
-@return */
-func (a *CallLogApiService) DeleteAccountCallLogRecord(ctx context.Context, accountId string, callRecordId int32) (*http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param callRecordId Internal identifier of a call log record
+ @return */
+func (a *CallLogApiService) DeleteAccountCallLogRecord(ctx context.Context, accountId string, callRecordId int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -116,8 +117,9 @@ func (a *CallLogApiService) DeleteAccountCallLogRecord(ctx context.Context, acco
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -128,7 +130,7 @@ func (a *CallLogApiService) DeleteAccountCallLogRecord(ctx context.Context, acco
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -154,24 +156,24 @@ func (a *CallLogApiService) DeleteAccountCallLogRecord(ctx context.Context, acco
 }
 
 /* CallLogApiService Delete Call Log Records by Filter
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditCallLog&lt;/td&gt;&lt;td&gt;Viewing and updating user call logs&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "dateTo" (string) The end datetime for records deletion in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
-    @param "phoneNumber" (string)
-    @param "extensionNumber" (string)
-    @param "type_" ([]string)
-    @param "direction" ([]string)
-    @param "dateFrom" (time.Time)
-@return */
-func (a *CallLogApiService) DeleteExtensionCallLog(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditCallLog&lt;/td&gt;&lt;td&gt;Viewing and updating user call logs&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "dateTo" (string) The end datetime for records deletion in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
+     @param "phoneNumber" (string) 
+     @param "extensionNumber" (string) 
+     @param "type_" ([]string) 
+     @param "direction" ([]string) 
+     @param "dateFrom" (time.Time) 
+ @return */
+func (a *CallLogApiService) DeleteExtensionCallLog(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -215,7 +217,7 @@ func (a *CallLogApiService) DeleteExtensionCallLog(ctx context.Context, accountI
 		localVarQueryParams.Add("dateFrom", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -226,7 +228,7 @@ func (a *CallLogApiService) DeleteExtensionCallLog(ctx context.Context, accountI
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -252,20 +254,20 @@ func (a *CallLogApiService) DeleteExtensionCallLog(ctx context.Context, accountI
 }
 
 /* CallLogApiService Get Call Records by ID
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param callRecordId
-@param extensionId
-@param accountId
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "view" (string)
-@return UserCallLogRecord*/
-func (a *CallLogApiService) GetCallRecords(ctx context.Context, callRecordId []string, extensionId string, accountId string, localVarOptionals map[string]interface{}) (UserCallLogRecord, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param callRecordId 
+ @param extensionId 
+ @param accountId 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "view" (string) 
+ @return UserCallLogRecord*/
+func (a *CallLogApiService) GetCallRecords(ctx context.Context, callRecordId []string, extensionId string, accountId string, localVarOptionals map[string]interface{}) (UserCallLogRecord,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     UserCallLogRecord
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  UserCallLogRecord
 	)
 
 	// create path and map variables
@@ -286,7 +288,7 @@ func (a *CallLogApiService) GetCallRecords(ctx context.Context, callRecordId []s
 		localVarQueryParams.Add("view", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -297,7 +299,7 @@ func (a *CallLogApiService) GetCallRecords(ctx context.Context, callRecordId []s
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -323,22 +325,23 @@ func (a *CallLogApiService) GetCallRecords(ctx context.Context, callRecordId []s
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallLogApiService Get Call Recordings Data
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.16 (Release 7.1)&lt;/p&gt;&lt;p&gt;Returns call recording metadata.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallRecording&lt;/td&gt;&lt;td&gt;Downloading call recording content&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param recordingId Internal identifier of a recording (returned in Call Log)
-@return Binary*/
-func (a *CallLogApiService) ListCallRecordingData(ctx context.Context, accountId string, recordingId string) (Binary, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.16 (Release 7.1)&lt;/p&gt;&lt;p&gt;Returns call recording metadata.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallRecording&lt;/td&gt;&lt;td&gt;Downloading call recording content&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param recordingId Internal identifier of a recording (returned in Call Log)
+ @return Binary*/
+func (a *CallLogApiService) ListCallRecordingData(ctx context.Context, accountId string, recordingId string) (Binary,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     Binary
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  Binary
 	)
 
 	// create path and map variables
@@ -350,8 +353,9 @@ func (a *CallLogApiService) ListCallRecordingData(ctx context.Context, accountId
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -362,7 +366,7 @@ func (a *CallLogApiService) ListCallRecordingData(ctx context.Context, accountId
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -388,22 +392,23 @@ func (a *CallLogApiService) ListCallRecordingData(ctx context.Context, accountId
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallLogApiService Get Call Recordings
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.18 (Release 6.5)&lt;/p&gt;&lt;p&gt;Returns call recording metadata.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallRecording&lt;/td&gt;&lt;td&gt;Downloading call recording content&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param recordingId Internal identifier of a recording (returned in Call Log)
-@return GetCallRecordingResponse*/
-func (a *CallLogApiService) ListCallRecordings(ctx context.Context, accountId string, recordingId string) (GetCallRecordingResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.18 (Release 6.5)&lt;/p&gt;&lt;p&gt;Returns call recording metadata.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallRecording&lt;/td&gt;&lt;td&gt;Downloading call recording content&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param recordingId Internal identifier of a recording (returned in Call Log)
+ @return GetCallRecordingResponse*/
+func (a *CallLogApiService) ListCallRecordings(ctx context.Context, accountId string, recordingId string) (GetCallRecordingResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetCallRecordingResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetCallRecordingResponse
 	)
 
 	// create path and map variables
@@ -415,8 +420,9 @@ func (a *CallLogApiService) ListCallRecordings(ctx context.Context, accountId st
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -427,7 +433,7 @@ func (a *CallLogApiService) ListCallRecordings(ctx context.Context, accountId st
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -453,27 +459,28 @@ func (a *CallLogApiService) ListCallRecordings(ctx context.Context, accountId st
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallLogApiService Get User Active Calls
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.13 (Release 6.5)&lt;/p&gt;&lt;p&gt;Returns records of all calls that are in progress, ordered by start time in descending order&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "direction" ([]string) The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are accepted
-    @param "type_" ([]string) Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted
-    @param "transport" ([]string) Call transport type. &#39;PSTN&#39; specifies that a call leg is initiated from the PSTN network provider; &#39;VoIP&#39; - from an RC phone. By default this filter is disabled
-    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-@return ExtensionActiveCallsResponse*/
-func (a *CallLogApiService) ListCompanyActiveCalls(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (ExtensionActiveCallsResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.13 (Release 6.5)&lt;/p&gt;&lt;p&gt;Returns records of all calls that are in progress, ordered by start time in descending order&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "direction" ([]string) The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are accepted
+     @param "type_" ([]string) Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted
+     @param "transport" ([]string) Call transport type. &#39;PSTN&#39; specifies that a call leg is initiated from the PSTN network provider; &#39;VoIP&#39; - from an RC phone. By default this filter is disabled
+     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+ @return ExtensionActiveCallsResponse*/
+func (a *CallLogApiService) ListCompanyActiveCalls(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (ExtensionActiveCallsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     ExtensionActiveCallsResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ExtensionActiveCallsResponse
 	)
 
 	// create path and map variables
@@ -507,7 +514,7 @@ func (a *CallLogApiService) ListCompanyActiveCalls(ctx context.Context, accountI
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -518,7 +525,7 @@ func (a *CallLogApiService) ListCompanyActiveCalls(ctx context.Context, accountI
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -544,27 +551,28 @@ func (a *CallLogApiService) ListCompanyActiveCalls(ctx context.Context, accountI
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallLogApiService Get User Active Calls
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.13 (Release 6.5)&lt;/p&gt;&lt;p&gt;Returns records of all extension calls that are in progress, ordered by start time in descending order.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "direction" ([]string) The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are accepted
-    @param "type_" ([]string) Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted
-    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-@return ExtensionActiveCallsResponse*/
-func (a *CallLogApiService) ListExtensionActiveCalls(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (ExtensionActiveCallsResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.13 (Release 6.5)&lt;/p&gt;&lt;p&gt;Returns records of all extension calls that are in progress, ordered by start time in descending order.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "direction" ([]string) The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are accepted
+     @param "type_" ([]string) Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted
+     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+ @return ExtensionActiveCallsResponse*/
+func (a *CallLogApiService) ListExtensionActiveCalls(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (ExtensionActiveCallsResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     ExtensionActiveCallsResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ExtensionActiveCallsResponse
 	)
 
 	// create path and map variables
@@ -596,7 +604,7 @@ func (a *CallLogApiService) ListExtensionActiveCalls(ctx context.Context, accoun
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -607,7 +615,7 @@ func (a *CallLogApiService) ListExtensionActiveCalls(ctx context.Context, accoun
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -633,33 +641,34 @@ func (a *CallLogApiService) ListExtensionActiveCalls(ctx context.Context, accoun
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallLogApiService Get Call Log Records by Filter
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.3 (Release 5.11)&lt;/p&gt;&lt;p&gt;Returns call log records filtered by the specified parameters.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "extensionNumber" (string) Extension number of a user. If specified, returns call log for a particular extension only. Cannot be specified together with the phoneNumber filter
-    @param "phoneNumber" (string) Phone number of a caller/call recipient. If specified, returns all calls (both incoming and outcoming) with the mentioned phone number. Cannot be specified together with the extensionNumber filter
-    @param "direction" ([]string) The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are accepted
-    @param "type_" ([]string) Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted
-    @param "view" ([]string) The default value is &#39;Simple&#39; for both account and extension call log
-    @param "withRecording" (bool) &#39;True&#39; if only recorded calls have to be returned
-    @param "dateFrom" (time.Time) The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
-    @param "dateTo" (time.Time) The end datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
-    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. The default value is &#39;1&#39;
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default.
-    @param "sessionId" (string)
-@return AccountCallLogResponse*/
-func (a *CallLogApiService) LoadAccountCallLog(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (AccountCallLogResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.3 (Release 5.11)&lt;/p&gt;&lt;p&gt;Returns call log records filtered by the specified parameters.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "extensionNumber" (string) Extension number of a user. If specified, returns call log for a particular extension only. Cannot be specified together with the phoneNumber filter
+     @param "phoneNumber" (string) Phone number of a caller/call recipient. If specified, returns all calls (both incoming and outcoming) with the mentioned phone number. Cannot be specified together with the extensionNumber filter
+     @param "direction" ([]string) The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are accepted
+     @param "type_" ([]string) Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted
+     @param "view" ([]string) The default value is &#39;Simple&#39; for both account and extension call log
+     @param "withRecording" (bool) &#39;True&#39; if only recorded calls have to be returned
+     @param "dateFrom" (time.Time) The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
+     @param "dateTo" (time.Time) The end datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
+     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. The default value is &#39;1&#39;
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default.
+     @param "sessionId" (string) 
+ @return AccountCallLogResponse*/
+func (a *CallLogApiService) LoadAccountCallLog(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (AccountCallLogResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     AccountCallLogResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  AccountCallLogResponse
 	)
 
 	// create path and map variables
@@ -729,7 +738,7 @@ func (a *CallLogApiService) LoadAccountCallLog(ctx context.Context, accountId st
 		localVarQueryParams.Add("sessionId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -740,7 +749,7 @@ func (a *CallLogApiService) LoadAccountCallLog(ctx context.Context, accountId st
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -766,22 +775,23 @@ func (a *CallLogApiService) LoadAccountCallLog(ctx context.Context, accountId st
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallLogApiService Get Account Call Log Record(s) by ID
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.3 (Release 5.11)&lt;/p&gt;&lt;p&gt;Returns individual call log record(s) by ID(s). Batch request is supported, see Batch Requests for details.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param callRecordId Internal identifier of a call log record
-@return GetAccountCallLogRecordResponse*/
-func (a *CallLogApiService) LoadAccountCallLogRecord(ctx context.Context, accountId string, callRecordId int32) (GetAccountCallLogRecordResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.3 (Release 5.11)&lt;/p&gt;&lt;p&gt;Returns individual call log record(s) by ID(s). Batch request is supported, see Batch Requests for details.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param callRecordId Internal identifier of a call log record
+ @return GetAccountCallLogRecordResponse*/
+func (a *CallLogApiService) LoadAccountCallLogRecord(ctx context.Context, accountId string, callRecordId int32) (GetAccountCallLogRecordResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetAccountCallLogRecordResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetAccountCallLogRecordResponse
 	)
 
 	// create path and map variables
@@ -793,8 +803,9 @@ func (a *CallLogApiService) LoadAccountCallLogRecord(ctx context.Context, accoun
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -805,7 +816,7 @@ func (a *CallLogApiService) LoadAccountCallLogRecord(ctx context.Context, accoun
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -831,36 +842,37 @@ func (a *CallLogApiService) LoadAccountCallLogRecord(ctx context.Context, accoun
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallLogApiService Get Call Log Records by Filter
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.3 (Release 5.11)&lt;/p&gt;&lt;p&gt;Returns call log records filtered by the specified parameters.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "extensionNumber" (string) Extension number of a user. If specified, returns call log for a particular extension only. Cannot be specified together with the phoneNumber filter
-    @param "showBlocked" (bool) If &#39;True&#39; then calls from/to blocked numbers are returned. The default value is &#39;True&#39;
-    @param "phoneNumber" (string) Phone number of a caller/call recipient. If specified, returns all calls (both incoming and outcoming) with the mentioned phone number. Cannot be specified together with the extensionNumber filter
-    @param "direction" ([]string) The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are accepted
-    @param "sessionId" (string)
-    @param "type_" ([]string) Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted
-    @param "transport" ([]string) Call transport type. &#39;PSTN&#39; specifies that a call leg is initiated from the PSTN network provider; &#39;VoIP&#39; - from an RC phone. By default this filter is disabled
-    @param "view" ([]string) The default value is &#39;Simple&#39; for both account and extension call log
-    @param "withRecording" (bool) &#39;True&#39; if only recorded calls have to be returned
-    @param "dateTo" (time.Time) The end datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
-    @param "dateFrom" (time.Time) The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
-    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-@return ExtensionCallLogResponse*/
-func (a *CallLogApiService) LoadExtensionCallLog(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (ExtensionCallLogResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.3 (Release 5.11)&lt;/p&gt;&lt;p&gt;Returns call log records filtered by the specified parameters.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "extensionNumber" (string) Extension number of a user. If specified, returns call log for a particular extension only. Cannot be specified together with the phoneNumber filter
+     @param "showBlocked" (bool) If &#39;True&#39; then calls from/to blocked numbers are returned. The default value is &#39;True&#39;
+     @param "phoneNumber" (string) Phone number of a caller/call recipient. If specified, returns all calls (both incoming and outcoming) with the mentioned phone number. Cannot be specified together with the extensionNumber filter
+     @param "direction" ([]string) The direction for the result records. It is allowed to specify more than one direction. If not specified, both inbound and outbound records are returned. Multiple values are accepted
+     @param "sessionId" (string) 
+     @param "type_" ([]string) Call type of a record. It is allowed to specify more than one type. If not specified, all call types are returned. Multiple values are accepted
+     @param "transport" ([]string) Call transport type. &#39;PSTN&#39; specifies that a call leg is initiated from the PSTN network provider; &#39;VoIP&#39; - from an RC phone. By default this filter is disabled
+     @param "view" ([]string) The default value is &#39;Simple&#39; for both account and extension call log
+     @param "withRecording" (bool) &#39;True&#39; if only recorded calls have to be returned
+     @param "dateTo" (time.Time) The end datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
+     @param "dateFrom" (time.Time) The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
+     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+ @return ExtensionCallLogResponse*/
+func (a *CallLogApiService) LoadExtensionCallLog(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (ExtensionCallLogResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     ExtensionCallLogResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ExtensionCallLogResponse
 	)
 
 	// create path and map variables
@@ -940,7 +952,7 @@ func (a *CallLogApiService) LoadExtensionCallLog(ctx context.Context, accountId 
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -951,7 +963,7 @@ func (a *CallLogApiService) LoadExtensionCallLog(ctx context.Context, accountId 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -977,25 +989,26 @@ func (a *CallLogApiService) LoadExtensionCallLog(ctx context.Context, accountId 
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallLogApiService Call Log Synchronization
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "syncType" ([]string) Type of synchronization. &#39;FSync&#39; is a default value
-    @param "syncToken" (string) Value of syncToken property of last sync request response
-    @param "dateFrom" (string) The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is the current moment
-    @param "recordCount" (int32) ForT?FSync the parameter is mandatory, it limits the number of records to be returned in response. For ISync it specifies with how many records to extend sync Frame to the past, the maximum number of records is 250
-    @param "statusGroup" ([]string) Type of calls to be returned. The default value is &#39;All&#39;
-@return */
-func (a *CallLogApiService) SyncAccountCallLog(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (*http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "syncType" ([]string) Type of synchronization. &#39;FSync&#39; is a default value
+     @param "syncToken" (string) Value of syncToken property of last sync request response
+     @param "dateFrom" (string) The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is the current moment
+     @param "recordCount" (int32) ForT?FSync the parameter is mandatory, it limits the number of records to be returned in response. For ISync it specifies with how many records to extend sync Frame to the past, the maximum number of records is 250
+     @param "statusGroup" ([]string) Type of calls to be returned. The default value is &#39;All&#39;
+ @return */
+func (a *CallLogApiService) SyncAccountCallLog(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -1032,7 +1045,7 @@ func (a *CallLogApiService) SyncAccountCallLog(ctx context.Context, accountId st
 		localVarQueryParams.Add("statusGroup", parameterToString(localVarTempParam, "multi"))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1043,7 +1056,7 @@ func (a *CallLogApiService) SyncAccountCallLog(ctx context.Context, accountId st
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1069,24 +1082,24 @@ func (a *CallLogApiService) SyncAccountCallLog(ctx context.Context, accountId st
 }
 
 /* CallLogApiService Call Log Synchronization
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "syncType" ([]string) Type of synchronization. &#39;FSync&#39; is a default value
-    @param "syncToken" (string) Value of syncToken property of last sync request response
-    @param "dateFrom" (string) The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is the current moment
-    @param "recordCount" (int32) ForT?FSync the parameter is mandatory, it limits the number of records to be returned in response. For ISync it specifies with how many records to extend sync Frame to the past, the maximum number of records is 250
-    @param "statusGroup" ([]string) Type of calls to be returned. The default value is &#39;All&#39;
-@return CallLogSync*/
-func (a *CallLogApiService) SyncExtensionCallLog(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (CallLogSync, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadCallLog&lt;/td&gt;&lt;td&gt;Viewing user call logs&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "syncType" ([]string) Type of synchronization. &#39;FSync&#39; is a default value
+     @param "syncToken" (string) Value of syncToken property of last sync request response
+     @param "dateFrom" (string) The start datetime for resulting records in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is the current moment
+     @param "recordCount" (int32) ForT?FSync the parameter is mandatory, it limits the number of records to be returned in response. For ISync it specifies with how many records to extend sync Frame to the past, the maximum number of records is 250
+     @param "statusGroup" ([]string) Type of calls to be returned. The default value is &#39;All&#39;
+ @return CallLogSync*/
+func (a *CallLogApiService) SyncExtensionCallLog(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (CallLogSync,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     CallLogSync
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  CallLogSync
 	)
 
 	// create path and map variables
@@ -1124,7 +1137,7 @@ func (a *CallLogApiService) SyncExtensionCallLog(ctx context.Context, accountId 
 		localVarQueryParams.Add("statusGroup", parameterToString(localVarTempParam, "multi"))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1135,7 +1148,7 @@ func (a *CallLogApiService) SyncExtensionCallLog(ctx context.Context, accountId 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1161,5 +1174,7 @@ func (a *CallLogApiService) SyncExtensionCallLog(ctx context.Context, accountId 
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
+

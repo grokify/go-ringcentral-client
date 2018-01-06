@@ -10,6 +10,7 @@
 package ringcentral
 
 type EmailResource struct {
+
 	AccountId string `json:"accountId,omitempty"`
 
 	ExtensionId string `json:"extensionId,omitempty"`

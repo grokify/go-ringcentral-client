@@ -178,9 +178,10 @@ func (a *GlipApiService) CreateGroup(ctx context.Context, body GlipCreateGroup) 
 /* GlipApiService Create Post
 &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Creates a post.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
 * @param ctx context.Context for authentication, logging, tracing, etc.
+@param groupId Id of a group to send post
 @param body JSON body
 @return GlipPostInfo*/
-func (a *GlipApiService) CreatePost(ctx context.Context, body GlipCreatePost) (GlipPostInfo, *http.Response, error) {
+func (a *GlipApiService) CreatePost(ctx context.Context, groupId string, body GlipCreatePost) (GlipPostInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -190,7 +191,8 @@ func (a *GlipApiService) CreatePost(ctx context.Context, body GlipCreatePost) (G
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/restapi/v1.0/glip/posts"
+	localVarPath := a.client.cfg.BasePath + "/restapi/v1.0/glip/groups/{groupId}/posts"
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", fmt.Sprintf("%v", groupId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -575,12 +577,12 @@ func (a *GlipApiService) LoadPerson(ctx context.Context, personId string) (GlipP
 /* GlipApiService Get Posts
 &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns list of posts.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
 * @param ctx context.Context for authentication, logging, tracing, etc.
+@param groupId Identifier of a group to filter posts
 @param optional (nil or map[string]interface{}) with one or more of:
-    @param "groupId" (string) Identifier of a group to filter posts
     @param "pageToken" (string) Token of a page to be returned, see Glip Navigation Info
     @param "recordCount" (int64) Max numbers of records to be returned. The default/maximum value is 250
 @return GlipPosts*/
-func (a *GlipApiService) LoadPosts(ctx context.Context, localVarOptionals map[string]interface{}) (GlipPosts, *http.Response, error) {
+func (a *GlipApiService) LoadPosts(ctx context.Context, groupId string, localVarOptionals map[string]interface{}) (GlipPosts, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -590,15 +592,13 @@ func (a *GlipApiService) LoadPosts(ctx context.Context, localVarOptionals map[st
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/restapi/v1.0/glip/posts"
+	localVarPath := a.client.cfg.BasePath + "/restapi/v1.0/glip/groups/{groupId}/posts"
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", fmt.Sprintf("%v", groupId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if err := typeCheckParameter(localVarOptionals["groupId"], "string", "groupId"); err != nil {
-		return successPayload, nil, err
-	}
 	if err := typeCheckParameter(localVarOptionals["pageToken"], "string", "pageToken"); err != nil {
 		return successPayload, nil, err
 	}
@@ -606,9 +606,6 @@ func (a *GlipApiService) LoadPosts(ctx context.Context, localVarOptionals map[st
 		return successPayload, nil, err
 	}
 
-	if localVarTempParam, localVarOk := localVarOptionals["groupId"].(string); localVarOk {
-		localVarQueryParams.Add("groupId", parameterToString(localVarTempParam, ""))
-	}
 	if localVarTempParam, localVarOk := localVarOptionals["pageToken"].(string); localVarOk {
 		localVarQueryParams.Add("pageToken", parameterToString(localVarTempParam, ""))
 	}

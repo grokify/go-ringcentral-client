@@ -10,6 +10,7 @@
 package ringcentral
 
 type ExtensionRegionalSettingRequest struct {
+
 	HomeCountry *ExtensionCountryInfoRequest `json:"homeCountry,omitempty"`
 
 	Timezone *ExtensionTimezoneInfoRequest `json:"timezone,omitempty"`

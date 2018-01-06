@@ -11,12 +11,9 @@ package ringcentral
 
 type GlipCreatePost struct {
 
-	// Internal identifier of a group to send post to
-	GroupId string `json:"groupId"`
-
-	// Text of a post, the maximum is 10000 characters
+	// Text of a post, the maximum is 10000 unicode characters
 	Text string `json:"text,omitempty"`
 
 	// List of attachments to be posted
-	Attachments []GlipAttachmentInfoRequest `json:"attachments,omitempty"`
+	Attachments []GlipMessageAttachmentInfoRequest `json:"attachments,omitempty"`
 }

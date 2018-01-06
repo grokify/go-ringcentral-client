@@ -10,6 +10,7 @@
 package ringcentral
 
 type RecordsCollectionResourceSubscriptionResponse struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []SubscriptionResponse `json:"records,omitempty"`

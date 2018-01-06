@@ -10,6 +10,7 @@
 package ringcentral
 
 type DetailedCallInfo struct {
+
 	CallId string `json:"callId,omitempty"`
 
 	ToTag string `json:"toTag,omitempty"`

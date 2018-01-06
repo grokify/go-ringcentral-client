@@ -14,7 +14,7 @@ type BrandInfo struct {
 	// Internal identifier of a brand
 	Id string `json:"id,omitempty"`
 
-	// Brand name, for example  RingCentral UK ,  ClearFax
+	// Brand name, for example  RingCentral UK ,  ClearFax 
 	Name string `json:"name,omitempty"`
 
 	// Home country information

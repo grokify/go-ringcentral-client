@@ -10,6 +10,7 @@
 package ringcentral
 
 type PhoneNumberForProvisioningResource struct {
+
 	PhoneNumber string `json:"phoneNumber,omitempty"`
 
 	VanityPattern string `json:"vanityPattern,omitempty"`

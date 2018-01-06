@@ -10,5 +10,6 @@
 package ringcentral
 
 type ResourceModelComponent struct {
+
 	Components []ResourceModelComponent `json:"components,omitempty"`
 }

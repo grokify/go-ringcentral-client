@@ -10,13 +10,13 @@
 package ringcentral
 
 import (
+	"io/ioutil"
+	"net/url"
+	"net/http"
+	"strings"
+	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
-	"golang.org/x/net/context"
-	"io/ioutil"
-	"net/http"
-	"net/url"
-	"strings"
 )
 
 // Linger please
@@ -26,17 +26,18 @@ var (
 
 type CompanySettingsApiService service
 
+
 /* CompanySettingsApiService Delete Account
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.0&lt;/p&gt;&lt;p&gt;Updates account information.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@return */
-func (a *CompanySettingsApiService) DeleteAccount(ctx context.Context, accountId string) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.0&lt;/p&gt;&lt;p&gt;Updates account information.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @return */
+func (a *CompanySettingsApiService) DeleteAccount(ctx context.Context, accountId string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -47,8 +48,9 @@ func (a *CompanySettingsApiService) DeleteAccount(ctx context.Context, accountId
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -59,7 +61,7 @@ func (a *CompanySettingsApiService) DeleteAccount(ctx context.Context, accountId
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -85,20 +87,20 @@ func (a *CompanySettingsApiService) DeleteAccount(ctx context.Context, accountId
 }
 
 /* CompanySettingsApiService Get Available Dialing Plans
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns list of countries which can be selected for a dialing plan (to call short numbers and special services).&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-@return GetDialingPlanInfo*/
-func (a *CompanySettingsApiService) ListDialingPlans(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (GetDialingPlanInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns list of countries which can be selected for a dialing plan (to call short numbers and special services).&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+ @return GetDialingPlanInfo*/
+func (a *CompanySettingsApiService) ListDialingPlans(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (GetDialingPlanInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetDialingPlanInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetDialingPlanInfo
 	)
 
 	// create path and map variables
@@ -123,7 +125,7 @@ func (a *CompanySettingsApiService) ListDialingPlans(ctx context.Context, accoun
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -134,7 +136,7 @@ func (a *CompanySettingsApiService) ListDialingPlans(ctx context.Context, accoun
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -159,22 +161,23 @@ func (a *CompanySettingsApiService) ListDialingPlans(ctx context.Context, accoun
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
+
 
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CompanySettingsApiService Get Company Info
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.0&lt;/p&gt;&lt;p&gt;Returns basic information about a particular RingCentral customer account.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@return GetAccountInfoResponse*/
-func (a *CompanySettingsApiService) LoadAccount(ctx context.Context, accountId string) (GetAccountInfoResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.0&lt;/p&gt;&lt;p&gt;Returns basic information about a particular RingCentral customer account.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @return GetAccountInfoResponse*/
+func (a *CompanySettingsApiService) LoadAccount(ctx context.Context, accountId string) (GetAccountInfoResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetAccountInfoResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetAccountInfoResponse
 	)
 
 	// create path and map variables
@@ -185,8 +188,9 @@ func (a *CompanySettingsApiService) LoadAccount(ctx context.Context, accountId s
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -197,7 +201,7 @@ func (a *CompanySettingsApiService) LoadAccount(ctx context.Context, accountId s
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -222,22 +226,23 @@ func (a *CompanySettingsApiService) LoadAccount(ctx context.Context, accountId s
 	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
 		return successPayload, localVarHttpResponse, err
 	}
+
 
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CompanySettingsApiService Get Company Business Address
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@return GetAccountInfoResponse*/
-func (a *CompanySettingsApiService) LoadAccountBusinessAddress(ctx context.Context, accountId string) (GetAccountInfoResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @return GetAccountInfoResponse*/
+func (a *CompanySettingsApiService) LoadAccountBusinessAddress(ctx context.Context, accountId string) (GetAccountInfoResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetAccountInfoResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetAccountInfoResponse
 	)
 
 	// create path and map variables
@@ -248,8 +253,9 @@ func (a *CompanySettingsApiService) LoadAccountBusinessAddress(ctx context.Conte
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -260,7 +266,7 @@ func (a *CompanySettingsApiService) LoadAccountBusinessAddress(ctx context.Conte
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -286,21 +292,22 @@ func (a *CompanySettingsApiService) LoadAccountBusinessAddress(ctx context.Conte
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CompanySettingsApiService Get Account Service Info
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@return GetServiceInfoResponse*/
-func (a *CompanySettingsApiService) LoadServiceInfo(ctx context.Context, accountId string) (GetServiceInfoResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @return GetServiceInfoResponse*/
+func (a *CompanySettingsApiService) LoadServiceInfo(ctx context.Context, accountId string) (GetServiceInfoResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetServiceInfoResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetServiceInfoResponse
 	)
 
 	// create path and map variables
@@ -311,8 +318,9 @@ func (a *CompanySettingsApiService) LoadServiceInfo(ctx context.Context, account
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -323,7 +331,7 @@ func (a *CompanySettingsApiService) LoadServiceInfo(ctx context.Context, account
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -349,22 +357,23 @@ func (a *CompanySettingsApiService) LoadServiceInfo(ctx context.Context, account
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CompanySettingsApiService Update Company
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.0&lt;/p&gt;&lt;p&gt;Updates account information.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@param body JSON body
-@return GetAccountInfoResponse*/
-func (a *CompanySettingsApiService) ModifyAccount(ctx context.Context, accountId string, body UpdateAccountRequest) (GetAccountInfoResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.0&lt;/p&gt;&lt;p&gt;Updates account information.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @param body JSON body
+ @return GetAccountInfoResponse*/
+func (a *CompanySettingsApiService) ModifyAccount(ctx context.Context, accountId string, body UpdateAccountRequest) (GetAccountInfoResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetAccountInfoResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetAccountInfoResponse
 	)
 
 	// create path and map variables
@@ -375,8 +384,9 @@ func (a *CompanySettingsApiService) ModifyAccount(ctx context.Context, accountId
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -387,7 +397,7 @@ func (a *CompanySettingsApiService) ModifyAccount(ctx context.Context, accountId
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -415,22 +425,23 @@ func (a *CompanySettingsApiService) ModifyAccount(ctx context.Context, accountId
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CompanySettingsApiService Update Company Business Address
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param body JSON body
-@return AccountBusinessAddressResource*/
-func (a *CompanySettingsApiService) UpdateAccountBusinessAddress(ctx context.Context, accountId string, body ModifyAccountBusinessAddressRequest) (AccountBusinessAddressResource, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param body JSON body
+ @return AccountBusinessAddressResource*/
+func (a *CompanySettingsApiService) UpdateAccountBusinessAddress(ctx context.Context, accountId string, body ModifyAccountBusinessAddressRequest) (AccountBusinessAddressResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     AccountBusinessAddressResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  AccountBusinessAddressResource
 	)
 
 	// create path and map variables
@@ -441,8 +452,9 @@ func (a *CompanySettingsApiService) UpdateAccountBusinessAddress(ctx context.Con
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -453,7 +465,7 @@ func (a *CompanySettingsApiService) UpdateAccountBusinessAddress(ctx context.Con
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -481,22 +493,23 @@ func (a *CompanySettingsApiService) UpdateAccountBusinessAddress(ctx context.Con
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CompanySettingsApiService Update Account Service Info [Beta]
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.29 (Release 9.0)&lt;/p&gt;&lt;p&gt;Updates limitations for a particular RingCentral customer account.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Accounts&lt;/td&gt;&lt;td&gt;Managing accounts: creating new accounts, viewing and updating account information, deleting existing accounts&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param body JSON body
-@return AccountServiceInfo*/
-func (a *CompanySettingsApiService) UpdateServiceInfo(ctx context.Context, accountId string, body ServiceInfoRequest) (AccountServiceInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.29 (Release 9.0)&lt;/p&gt;&lt;p&gt;Updates limitations for a particular RingCentral customer account.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Accounts&lt;/td&gt;&lt;td&gt;Managing accounts: creating new accounts, viewing and updating account information, deleting existing accounts&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param body JSON body
+ @return AccountServiceInfo*/
+func (a *CompanySettingsApiService) UpdateServiceInfo(ctx context.Context, accountId string, body ServiceInfoRequest) (AccountServiceInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     AccountServiceInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  AccountServiceInfo
 	)
 
 	// create path and map variables
@@ -507,8 +520,9 @@ func (a *CompanySettingsApiService) UpdateServiceInfo(ctx context.Context, accou
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -519,7 +533,7 @@ func (a *CompanySettingsApiService) UpdateServiceInfo(ctx context.Context, accou
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -547,5 +561,7 @@ func (a *CompanySettingsApiService) UpdateServiceInfo(ctx context.Context, accou
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
+

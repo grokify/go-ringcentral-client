@@ -11,6 +11,36 @@ package ringcentral
 
 type UpdateAnsweringRuleRequest struct {
 
+	// Name of an answering rule specified by user
+	Name string `json:"name,omitempty"`
+
+	// Specifies if an answering rule is active or inactive
+	Enabled bool `json:"enabled,omitempty"`
+
+	// Answering rules are applied when calls are received from specified caller(s)
+	Callers []CallersInfo `json:"callers,omitempty"`
+
+	// Answering rules are applied when calling to selected number(s)
+	CalledNumbers []CalledNumberInfo `json:"calledNumbers,omitempty"`
+
+	// Schedule when an answering rule should be applied
+	Schedule *ScheduleInfo `json:"schedule,omitempty"`
+
+	// Specifies how incoming calls are forwarded
+	CallHandlingAction string `json:"callHandlingAction,omitempty"`
+
 	// Forwarding parameters. Returned if 'ForwardCalls' is specified in 'callHandlingAction'. These settings determine the forwarding numbers to which the call will be forwarded
-	Forwarding *ForwardingInfoCreateRuleRequest `json:"forwarding,omitempty"`
+	Forwarding *ForwardingInfo `json:"forwarding,omitempty"`
+
+	// Unconditional forwarding parameters. Returned if 'UnconditionalForwarding' is specified in 'callHandlingAction'
+	UnconditionalForwarding *UnconditionalForwardingInfo `json:"unconditionalForwarding,omitempty"`
+
+	// Queue settings applied for department (call queue) extension type, with the 'AgentQueue' value specified as a call handling action
+	Queue *QueueInfo `json:"queue,omitempty"`
+
+	// Specifies whether to take a voicemail and who should do it
+	Voicemail *VoicemailInfo `json:"voicemail,omitempty"`
+
+	// Greetings applied for an answering rule; only predefined greetings can be applied, see Dictionary Greeting List
+	Greetings []GreetingInfo `json:"greetings,omitempty"`
 }

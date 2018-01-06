@@ -10,6 +10,7 @@
 package ringcentral
 
 type PutPresenceResource struct {
+
 	UserStatus string `json:"userStatus,omitempty"`
 
 	Message string `json:"message,omitempty"`

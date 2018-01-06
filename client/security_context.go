@@ -10,6 +10,7 @@
 package ringcentral
 
 type SecurityContext struct {
+
 	UserPrincipal *Principal `json:"userPrincipal,omitempty"`
 
 	Secure bool `json:"secure,omitempty"`

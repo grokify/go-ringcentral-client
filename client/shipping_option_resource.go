@@ -10,6 +10,7 @@
 package ringcentral
 
 type ShippingOptionResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Method *ShippingMethod `json:"method,omitempty"`

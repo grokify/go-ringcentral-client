@@ -10,6 +10,7 @@
 package ringcentral
 
 type AcceptableToken struct {
+
 	Token string `json:"token,omitempty"`
 
 	Quality int32 `json:"quality,omitempty"`

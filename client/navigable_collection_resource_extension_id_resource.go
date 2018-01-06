@@ -10,6 +10,7 @@
 package ringcentral
 
 type NavigableCollectionResourceExtensionIdResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []ExtensionIdResource `json:"records,omitempty"`

@@ -10,6 +10,7 @@
 package ringcentral
 
 type FavoriteCollection struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []FavoriteContactResource `json:"records,omitempty"`

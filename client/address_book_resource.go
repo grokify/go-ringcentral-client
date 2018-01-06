@@ -10,6 +10,7 @@
 package ringcentral
 
 type AddressBookResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Contacts *ResourceLink `json:"contacts,omitempty"`

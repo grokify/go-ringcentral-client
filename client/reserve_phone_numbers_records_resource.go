@@ -10,5 +10,6 @@
 package ringcentral
 
 type ReservePhoneNumbersRecordsResource struct {
+
 	Records []ReservePhoneNumberResource `json:"records,omitempty"`
 }

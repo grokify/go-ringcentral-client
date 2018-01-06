@@ -10,6 +10,7 @@
 package ringcentral
 
 type MeetingServiceInfoResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	SupportUri string `json:"supportUri,omitempty"`

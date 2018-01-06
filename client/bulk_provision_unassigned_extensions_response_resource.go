@@ -10,5 +10,6 @@
 package ringcentral
 
 type BulkProvisionUnassignedExtensionsResponseResource struct {
+
 	Items []ExtensionAssignmentResult `json:"items,omitempty"`
 }

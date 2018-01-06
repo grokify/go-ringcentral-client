@@ -10,6 +10,7 @@
 package ringcentral
 
 type AcceptableLanguageTag struct {
+
 	Tag string `json:"tag,omitempty"`
 
 	PrimaryTag string `json:"primaryTag,omitempty"`

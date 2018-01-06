@@ -10,6 +10,7 @@
 package ringcentral
 
 type BulkRoleAssignResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	AddedExtensionIds []string `json:"addedExtensionIds,omitempty"`
