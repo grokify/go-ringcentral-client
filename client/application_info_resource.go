@@ -10,7 +10,6 @@
 package ringcentral
 
 type ApplicationInfoResource struct {
-
 	ClientId string `json:"clientId,omitempty"`
 
 	Application *ApplicationResource `json:"application,omitempty"`

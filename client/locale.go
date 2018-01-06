@@ -10,7 +10,6 @@
 package ringcentral
 
 type Locale struct {
-
 	Language string `json:"language,omitempty"`
 
 	Country string `json:"country,omitempty"`

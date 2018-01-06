@@ -10,13 +10,13 @@
 package ringcentral
 
 import (
-	"io/ioutil"
-	"net/url"
-	"net/http"
-	"strings"
-	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
+	"golang.org/x/net/context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,24 +26,23 @@ var (
 
 type PhoneNumbersApiService service
 
-
 /* PhoneNumbersApiService Get Extension Phone Number List
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.2&lt;/p&gt;&lt;p&gt;Returns the list of phone numbers that are used by a particular extension, and can be filtered by the phone number type. The returned list contains all numbers which are directly mapped to a given extension plus the features and also company-level numbers which may be used when performing different operations on behalf of this extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "usageType" ([]string) Usage type of the phone number
-     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
- @return GetExtensionPhoneNumbersResponse*/
-func (a *PhoneNumbersApiService) ListExtensionPhoneNumbers(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (GetExtensionPhoneNumbersResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.2&lt;/p&gt;&lt;p&gt;Returns the list of phone numbers that are used by a particular extension, and can be filtered by the phone number type. The returned list contains all numbers which are directly mapped to a given extension plus the features and also company-level numbers which may be used when performing different operations on behalf of this extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "usageType" ([]string) Usage type of the phone number
+    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+@return GetExtensionPhoneNumbersResponse*/
+func (a *PhoneNumbersApiService) ListExtensionPhoneNumbers(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (GetExtensionPhoneNumbersResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetExtensionPhoneNumbersResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetExtensionPhoneNumbersResponse
 	)
 
 	// create path and map variables
@@ -72,7 +71,7 @@ func (a *PhoneNumbersApiService) ListExtensionPhoneNumbers(ctx context.Context, 
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -83,7 +82,7 @@ func (a *PhoneNumbersApiService) ListExtensionPhoneNumbers(ctx context.Context, 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -109,7 +108,5 @@ func (a *PhoneNumbersApiService) ListExtensionPhoneNumbers(ctx context.Context, 
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
-

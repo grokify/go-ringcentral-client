@@ -10,7 +10,6 @@
 package ringcentral
 
 type Paging struct {
-
 	Page int32 `json:"page,omitempty"`
 
 	TotalPages int32 `json:"totalPages,omitempty"`

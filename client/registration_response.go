@@ -10,7 +10,6 @@
 package ringcentral
 
 type RegistrationResponse struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	Device *DeviceResource `json:"device,omitempty"`

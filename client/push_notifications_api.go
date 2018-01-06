@@ -10,13 +10,13 @@
 package ringcentral
 
 import (
-	"io/ioutil"
-	"net/url"
-	"net/http"
-	"strings"
-	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
+	"golang.org/x/net/context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,19 +26,18 @@ var (
 
 type PushNotificationsApiService service
 
-
 /* PushNotificationsApiService Create Subscription
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.6 (Release 5.15)&lt;/p&gt;&lt;p&gt;Creates a new subscription.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param body JSON body
- @return SubscriptionInfo*/
-func (a *PushNotificationsApiService) CreateSubscription(ctx context.Context, body CreateSubscriptionRequest) (SubscriptionInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.6 (Release 5.15)&lt;/p&gt;&lt;p&gt;Creates a new subscription.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param body JSON body
+@return SubscriptionInfo*/
+func (a *PushNotificationsApiService) CreateSubscription(ctx context.Context, body CreateSubscriptionRequest) (SubscriptionInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  SubscriptionInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     SubscriptionInfo
 	)
 
 	// create path and map variables
@@ -48,9 +47,8 @@ func (a *PushNotificationsApiService) CreateSubscription(ctx context.Context, bo
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -61,7 +59,7 @@ func (a *PushNotificationsApiService) CreateSubscription(ctx context.Context, bo
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -89,21 +87,20 @@ func (a *PushNotificationsApiService) CreateSubscription(ctx context.Context, bo
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* PushNotificationsApiService Cancel Subscription
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Cancels the existent subscription.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param subscriptionId Internal identifier of a subscription
- @return */
-func (a *PushNotificationsApiService) DeleteSubscription(ctx context.Context, subscriptionId string) ( *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Cancels the existent subscription.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param subscriptionId Internal identifier of a subscription
+@return */
+func (a *PushNotificationsApiService) DeleteSubscription(ctx context.Context, subscriptionId string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 	)
 
 	// create path and map variables
@@ -114,9 +111,8 @@ func (a *PushNotificationsApiService) DeleteSubscription(ctx context.Context, su
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -127,7 +123,7 @@ func (a *PushNotificationsApiService) DeleteSubscription(ctx context.Context, su
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -155,13 +151,13 @@ func (a *PushNotificationsApiService) DeleteSubscription(ctx context.Context, su
 /* PushNotificationsApiService Get Subscriptions
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @return RecordsCollectionResourceSubscriptionResponse*/
-func (a *PushNotificationsApiService) GetSubscriptions(ctx context.Context) (RecordsCollectionResourceSubscriptionResponse,  *http.Response, error) {
+func (a *PushNotificationsApiService) GetSubscriptions(ctx context.Context) (RecordsCollectionResourceSubscriptionResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  RecordsCollectionResourceSubscriptionResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     RecordsCollectionResourceSubscriptionResponse
 	)
 
 	// create path and map variables
@@ -171,9 +167,8 @@ func (a *PushNotificationsApiService) GetSubscriptions(ctx context.Context) (Rec
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -184,7 +179,7 @@ func (a *PushNotificationsApiService) GetSubscriptions(ctx context.Context) (Rec
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -210,22 +205,21 @@ func (a *PushNotificationsApiService) GetSubscriptions(ctx context.Context) (Rec
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* PushNotificationsApiService Get Subscription
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.6 (Release 5.15)&lt;/p&gt;&lt;p&gt;Returns the requested subscription.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param subscriptionId Internal identifier of a subscription
- @return SubscriptionInfo*/
-func (a *PushNotificationsApiService) LoadSubscription(ctx context.Context, subscriptionId int32) (SubscriptionInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.6 (Release 5.15)&lt;/p&gt;&lt;p&gt;Returns the requested subscription.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param subscriptionId Internal identifier of a subscription
+@return SubscriptionInfo*/
+func (a *PushNotificationsApiService) LoadSubscription(ctx context.Context, subscriptionId int32) (SubscriptionInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  SubscriptionInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     SubscriptionInfo
 	)
 
 	// create path and map variables
@@ -236,9 +230,8 @@ func (a *PushNotificationsApiService) LoadSubscription(ctx context.Context, subs
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -249,7 +242,7 @@ func (a *PushNotificationsApiService) LoadSubscription(ctx context.Context, subs
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -275,22 +268,21 @@ func (a *PushNotificationsApiService) LoadSubscription(ctx context.Context, subs
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* PushNotificationsApiService Renew Subscription
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.26 (Release 8.12)&lt;/p&gt;&lt;p&gt;Renews an existent subscription by ID by posting request with an empty body..&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param subscriptionId 
- @return SubscriptionInfo*/
-func (a *PushNotificationsApiService) RenewSubscription(ctx context.Context, subscriptionId string) (SubscriptionInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.26 (Release 8.12)&lt;/p&gt;&lt;p&gt;Renews an existent subscription by ID by posting request with an empty body..&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param subscriptionId
+@return SubscriptionInfo*/
+func (a *PushNotificationsApiService) RenewSubscription(ctx context.Context, subscriptionId string) (SubscriptionInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  SubscriptionInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     SubscriptionInfo
 	)
 
 	// create path and map variables
@@ -301,9 +293,8 @@ func (a *PushNotificationsApiService) RenewSubscription(ctx context.Context, sub
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -314,7 +305,7 @@ func (a *PushNotificationsApiService) RenewSubscription(ctx context.Context, sub
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -340,25 +331,24 @@ func (a *PushNotificationsApiService) RenewSubscription(ctx context.Context, sub
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* PushNotificationsApiService Renew Subscription / Update Event Filters
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.6 (Release 5.15)&lt;/p&gt;&lt;p&gt;Renews the existent subscription if the request body is empty. If event filters are specified, calling this method modifies the event filters for the existing subscription. The client application can extend or narrow the events for which it receives notifications in the frame of one subscription.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param subscriptionId Internal identifier of a subscription
- @param body JSON body
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "aggregated" (bool) If &#39;True&#39; then aggregated presence status is returned in a notification payload
- @return SubscriptionInfo*/
-func (a *PushNotificationsApiService) UpdateSubscription(ctx context.Context, subscriptionId string, body ModifySubscriptionRequest, localVarOptionals map[string]interface{}) (SubscriptionInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.6 (Release 5.15)&lt;/p&gt;&lt;p&gt;Renews the existent subscription if the request body is empty. If event filters are specified, calling this method modifies the event filters for the existing subscription. The client application can extend or narrow the events for which it receives notifications in the frame of one subscription.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param subscriptionId Internal identifier of a subscription
+@param body JSON body
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "aggregated" (bool) If &#39;True&#39; then aggregated presence status is returned in a notification payload
+@return SubscriptionInfo*/
+func (a *PushNotificationsApiService) UpdateSubscription(ctx context.Context, subscriptionId string, body ModifySubscriptionRequest, localVarOptionals map[string]interface{}) (SubscriptionInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  SubscriptionInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     SubscriptionInfo
 	)
 
 	// create path and map variables
@@ -377,7 +367,7 @@ func (a *PushNotificationsApiService) UpdateSubscription(ctx context.Context, su
 		localVarQueryParams.Add("aggregated", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -388,7 +378,7 @@ func (a *PushNotificationsApiService) UpdateSubscription(ctx context.Context, su
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -416,7 +406,5 @@ func (a *PushNotificationsApiService) UpdateSubscription(ctx context.Context, su
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
-

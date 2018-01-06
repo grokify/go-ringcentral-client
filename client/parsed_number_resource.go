@@ -10,7 +10,6 @@
 package ringcentral
 
 type ParsedNumberResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	OriginalString string `json:"originalString,omitempty"`

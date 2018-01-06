@@ -10,7 +10,6 @@
 package ringcentral
 
 type AcceptableMediaType struct {
-
 	Type_ string `json:"type,omitempty"`
 
 	Subtype string `json:"subtype,omitempty"`

@@ -10,7 +10,6 @@
 package ringcentral
 
 type AuthProfileCheckResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	Successful bool `json:"successful,omitempty"`

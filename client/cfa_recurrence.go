@@ -10,7 +10,6 @@
 package ringcentral
 
 type CfaRecurrence struct {
-
 	Pattern string `json:"pattern,omitempty"`
 
 	Value string `json:"value,omitempty"`

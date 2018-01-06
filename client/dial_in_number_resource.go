@@ -10,7 +10,6 @@
 package ringcentral
 
 type DialInNumberResource struct {
-
 	PhoneNumber string `json:"phoneNumber,omitempty"`
 
 	FormattedNumber string `json:"formattedNumber,omitempty"`

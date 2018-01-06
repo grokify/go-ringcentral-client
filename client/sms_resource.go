@@ -10,7 +10,6 @@
 package ringcentral
 
 type SmsResource struct {
-
 	Country *CountryResource `json:"country,omitempty"`
 
 	To []CallerInfo `json:"to,omitempty"`

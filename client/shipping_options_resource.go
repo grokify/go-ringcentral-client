@@ -10,7 +10,6 @@
 package ringcentral
 
 type ShippingOptionsResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	Records []ShippingOptionResource `json:"records,omitempty"`

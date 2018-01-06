@@ -10,7 +10,6 @@
 package ringcentral
 
 type ClientInfoSpecialNumberResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	PhoneNumber string `json:"phoneNumber,omitempty"`

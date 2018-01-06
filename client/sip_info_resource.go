@@ -10,7 +10,6 @@
 package ringcentral
 
 type SipInfoResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	Domain string `json:"domain,omitempty"`

@@ -10,7 +10,6 @@
 package ringcentral
 
 type ExtensionPermissionsResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	Admin *Permission `json:"admin,omitempty"`

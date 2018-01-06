@@ -10,6 +10,5 @@
 package ringcentral
 
 type ProfileImageInfoUri struct {
-
 	Uri string `json:"uri,omitempty"`
 }
