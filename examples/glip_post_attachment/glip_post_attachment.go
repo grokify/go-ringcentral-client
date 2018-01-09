@@ -7,39 +7,10 @@ import (
 	"time"
 
 	"github.com/grokify/gotilla/fmt/fmtutil"
-	"github.com/joho/godotenv"
 
 	rc "github.com/grokify/go-ringcentral/client"
-	ro "github.com/grokify/oauth2more/ringcentral"
+	rcu "github.com/grokify/go-ringcentral/clientutil"
 )
-
-func loadEnv() error {
-	envPaths := []string{}
-	if len(os.Getenv("ENV_PATH")) > 0 {
-		envPaths = append(envPaths, os.Getenv("ENV_PATH"))
-	}
-	return godotenv.Load(envPaths...)
-}
-
-func newApiClient() (*rc.APIClient, error) {
-	httpClient, err := ro.NewClientPassword(
-		ro.ApplicationCredentials{
-			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
-			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
-			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET")},
-		ro.UserCredentials{
-			Username:  os.Getenv("RINGCENTRAL_USERNAME"),
-			Extension: os.Getenv("RINGCENTRAL_EXTENSION"),
-			Password:  os.Getenv("RINGCENTRAL_PASSWORD")})
-	if err != nil {
-		return nil, err
-	}
-
-	apiConfig := rc.NewConfiguration()
-	apiConfig.HTTPClient = httpClient
-	apiClient := rc.NewAPIClient(apiConfig)
-	return apiClient, nil
-}
 
 func getDemoMessage() rc.GlipCreatePost {
 	return rc.GlipCreatePost{
@@ -193,13 +164,13 @@ func getDemoMessageSalesforce() rc.GlipCreatePost {
 }
 
 func main() {
-	err := loadEnv()
+	err := rcu.LoadEnv()
 	if err != nil {
 		panic(err)
 	}
 	groupId := os.Getenv("GLIP_POST_GROUP_ID")
 
-	apiClient, err := newApiClient()
+	apiClient, err := rcu.NewApiClientEnv()
 	if err != nil {
 		panic(err)
 	}

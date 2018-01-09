@@ -35,6 +35,7 @@ func newApiClient() (*rc.APIClient, error) {
 	}
 
 	apiConfig := rc.NewConfiguration()
+	apiConfig.BasePath = os.Getenv("RINGCENTRAL_SERVER_URL")
 	apiConfig.HTTPClient = httpClient
 	apiClient := rc.NewAPIClient(apiConfig)
 	return apiClient, nil
