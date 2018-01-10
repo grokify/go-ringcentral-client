@@ -278,7 +278,7 @@ func (a *PushNotificationsApiService) LoadSubscription(ctx context.Context, subs
 @return SubscriptionInfo*/
 func (a *PushNotificationsApiService) RenewSubscription(ctx context.Context, subscriptionId string) (SubscriptionInfo, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
+		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte

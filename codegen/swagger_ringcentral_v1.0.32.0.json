@@ -4946,7 +4946,7 @@
       }
     },
     "/restapi/v1.0/subscription/{subscriptionId}/renew": {
-      "get": {
+      "post": {
         "tags": [
           "Push Notifications"
         ],

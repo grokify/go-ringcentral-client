@@ -2,6 +2,7 @@ package clientutil
 
 import (
 	"os"
+	"time"
 
 	"github.com/joho/godotenv"
 
@@ -39,4 +40,22 @@ func NewApiClientEnv() (*rc.APIClient, error) {
 			Username:  os.Getenv("RINGCENTRAL_USERNAME"),
 			Extension: os.Getenv("RINGCENTRAL_EXTENSION"),
 			Password:  os.Getenv("RINGCENTRAL_PASSWORD")})
+}
+
+type Event struct {
+	UUID           string    `json:"uuid,omitempty"`
+	Event          string    `json:"event,omitempty"`
+	Timestamp      time.Time `json:"timestamp,omitempty"`
+	SubscriptionId string    `json:"subscriptionId,omitempty"`
+	OwnerId        string    `json:"ownerId,omitempty"`
+	Body           EventBody `json:"body,omitempty"`
+}
+
+type EventBody struct {
+	ExpiresIn            int       `json:"expiresIn,omitempty"`
+	CreationTime         time.Time `json:"creationTime,omitempty"`
+	Direction            string    `json:"direction,omitempty"`
+	LastModificationTime time.Time `json:"lastModificationTime,omitempty"`
+	Subject              string    `json:"subject,omitempty"`
+	Type                 string    `json:"type,omitempty"`
 }
