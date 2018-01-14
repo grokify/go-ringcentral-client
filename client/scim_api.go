@@ -163,7 +163,7 @@ func (a *SCIMApiService) GetUserById(ctx context.Context, id string) (UserInfo, 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/restapi/scim/v2/Users/{id}"
+	localVarPath := a.client.cfg.BasePath + "/scim/v2/Users/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -229,7 +229,7 @@ func (a *SCIMApiService) ListScimUsers(ctx context.Context, localVarOptionals ma
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/restapi/scim/v2/Users"
+	localVarPath := a.client.cfg.BasePath + "/scim/v2/Users"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
