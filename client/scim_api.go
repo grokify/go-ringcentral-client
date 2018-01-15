@@ -308,7 +308,7 @@ func (a *SCIMApiService) UpdateUser(ctx context.Context, id string, body UserUpd
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/restapi/scim/v2/Users/{id}"
+	localVarPath := a.client.cfg.BasePath + "/scim/v2/Users/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
 
 	localVarHeaderParams := make(map[string]string)

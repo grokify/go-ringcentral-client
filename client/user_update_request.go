@@ -33,7 +33,8 @@ type UserUpdateRequest struct {
 	ExternalId string `json:"externalId,omitempty"`
 
 	// User addresses
-	Addresses *AddressInfoRequest `json:"addresses,omitempty"`
+	//Addresses *AddressInfoRequest `json:"addresses,omitempty"`
+	Addresses []AddressInfoRequest `json:"addresses,omitempty"`
 
 	// Internal identifier of a user
 	Id string `json:"id,omitempty"`
