@@ -10,6 +10,5 @@
 package ringcentral
 
 type UserGroupBulkAssignResource struct {
-
 	Items []BulkAssignItem `json:"items,omitempty"`
 }

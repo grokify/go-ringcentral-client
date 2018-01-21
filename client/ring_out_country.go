@@ -10,6 +10,5 @@
 package ringcentral
 
 type RingOutCountry struct {
-
 	Id string `json:"id,omitempty"`
 }

@@ -10,6 +10,5 @@
 package ringcentral
 
 type ParameterizedHeader struct {
-
 	Value string `json:"value,omitempty"`
 }

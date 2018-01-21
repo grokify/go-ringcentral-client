@@ -10,6 +10,5 @@
 package ringcentral
 
 type AuthenticationSchemes struct {
-
 	AuthenticationSchemes []AuthenticationScheme `json:"authenticationSchemes,omitempty"`
 }

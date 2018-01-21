@@ -10,7 +10,6 @@
 package ringcentral
 
 type ScheduleResource struct {
-
 	Ranges []DateTimeIntervalResource `json:"ranges,omitempty"`
 
 	Ref string `json:"ref,omitempty"`

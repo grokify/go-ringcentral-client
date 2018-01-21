@@ -10,7 +10,6 @@
 package ringcentral
 
 type Currency struct {
-
 	Id string `json:"id,omitempty"`
 
 	Code string `json:"code,omitempty"`

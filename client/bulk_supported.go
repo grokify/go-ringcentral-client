@@ -10,7 +10,6 @@
 package ringcentral
 
 type BulkSupported struct {
-
 	MaxOperations int32 `json:"maxOperations,omitempty"`
 
 	MaxPayloadSize int32 `json:"maxPayloadSize,omitempty"`

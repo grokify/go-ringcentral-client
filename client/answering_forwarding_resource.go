@@ -10,7 +10,6 @@
 package ringcentral
 
 type AnsweringForwardingResource struct {
-
 	NotifyMySoftPhones bool `json:"notifyMySoftPhones,omitempty"`
 
 	NotifyAdminSoftPhones bool `json:"notifyAdminSoftPhones,omitempty"`

@@ -10,7 +10,6 @@
 package ringcentral
 
 type PresencePermissions struct {
-
 	TargetExtensionId string `json:"targetExtensionId,omitempty"`
 
 	SubscriberExtensionId string `json:"subscriberExtensionId,omitempty"`

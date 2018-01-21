@@ -10,13 +10,13 @@
 package ringcentral
 
 import (
-	"io/ioutil"
-	"net/url"
-	"net/http"
-	"strings"
-	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
+	"golang.org/x/net/context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,20 +26,19 @@ var (
 
 type CompanyContactsApiService service
 
-
 /* CompanyContactsApiService Create Bot Extension
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Creates a bot extension. Please note: Bot extension is always created in Enabled status, no welcome email is sent.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param body JSON body
- @return BotExtensionCreation*/
-func (a *CompanyContactsApiService) CreateBotExtension(ctx context.Context, accountId string, body BotExtensionCreationRequest) (BotExtensionCreation,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Creates a bot extension. Please note: Bot extension is always created in Enabled status, no welcome email is sent.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param body JSON body
+@return BotExtensionCreation*/
+func (a *CompanyContactsApiService) CreateBotExtension(ctx context.Context, accountId string, body BotExtensionCreationRequest) (BotExtensionCreation, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  BotExtensionCreation
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     BotExtensionCreation
 	)
 
 	// create path and map variables
@@ -50,9 +49,8 @@ func (a *CompanyContactsApiService) CreateBotExtension(ctx context.Context, acco
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -63,7 +61,7 @@ func (a *CompanyContactsApiService) CreateBotExtension(ctx context.Context, acco
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -91,23 +89,22 @@ func (a *CompanyContactsApiService) CreateBotExtension(ctx context.Context, acco
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CompanyContactsApiService Create Extension
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Creates an extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param body JSON body
- @return ExtensionInfo*/
-func (a *CompanyContactsApiService) CreateExtension(ctx context.Context, accountId string, body ExtensionCreationRequest) (ExtensionInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Creates an extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param body JSON body
+@return ExtensionInfo*/
+func (a *CompanyContactsApiService) CreateExtension(ctx context.Context, accountId string, body ExtensionCreationRequest) (ExtensionInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  ExtensionInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     ExtensionInfo
 	)
 
 	// create path and map variables
@@ -118,9 +115,8 @@ func (a *CompanyContactsApiService) CreateExtension(ctx context.Context, account
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -131,7 +127,7 @@ func (a *CompanyContactsApiService) CreateExtension(ctx context.Context, account
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -159,26 +155,25 @@ func (a *CompanyContactsApiService) CreateExtension(ctx context.Context, account
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CompanyContactsApiService Get Company Directory
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns contact information on corporate users of federated accounts. Please note: 1. User, DigitalUser, VirtualUser and FaxUser types are returned as User type. 2.ApplicationExtension type is not returned. 3. Only extensions in Enabled, Disabled and NotActivated state are returned.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "page" (int64) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-     @param "perPage" (int64) Indicates the page size (number of items). The possible values are: Max, all or a numeric value. If not specified, all records are returned on one page
-     @param "excludeFederatedContacts" (bool) If &#39;True&#39; then only contacts of current account are returned, if &#39;False&#39; then all contacts of all federation accounts are returned
- @return CompanyDirectoryContacts*/
-func (a *CompanyContactsApiService) ListCompanyDirectoryContacts(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (CompanyDirectoryContacts,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns contact information on corporate users of federated accounts. Please note: 1. User, DigitalUser, VirtualUser and FaxUser types are returned as User type. 2.ApplicationExtension type is not returned. 3. Only extensions in Enabled, Disabled and NotActivated state are returned.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "page" (int64) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+    @param "perPage" (int64) Indicates the page size (number of items). The possible values are: Max, all or a numeric value. If not specified, all records are returned on one page
+    @param "excludeFederatedContacts" (bool) If &#39;True&#39; then only contacts of current account are returned, if &#39;False&#39; then all contacts of all federation accounts are returned
+@return CompanyDirectoryContacts*/
+func (a *CompanyContactsApiService) ListCompanyDirectoryContacts(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (CompanyDirectoryContacts, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  CompanyDirectoryContacts
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     CompanyDirectoryContacts
 	)
 
 	// create path and map variables
@@ -209,7 +204,7 @@ func (a *CompanyContactsApiService) ListCompanyDirectoryContacts(ctx context.Con
 		localVarQueryParams.Add("excludeFederatedContacts", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -220,7 +215,7 @@ func (a *CompanyContactsApiService) ListCompanyDirectoryContacts(ctx context.Con
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -246,27 +241,26 @@ func (a *CompanyContactsApiService) ListCompanyDirectoryContacts(ctx context.Con
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CompanyContactsApiService Get Extensions
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.0&lt;/p&gt;&lt;p&gt;Returns the list of extensions created for a particular account. All types of extensions are included in this list.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "page" (int64) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-     @param "perPage" (int64) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default.
-     @param "status" ([]string) Extension current state. Multiple values are supported. If &#39;Unassigned&#39; is specified, then extensions without extensionNumber are returned. If not specified, then all extensions are returned
-     @param "type_" ([]string) Extension type. Multiple values are supported
- @return GetExtensionListResponse*/
-func (a *CompanyContactsApiService) ListExtensions(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (GetExtensionListResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.0&lt;/p&gt;&lt;p&gt;Returns the list of extensions created for a particular account. All types of extensions are included in this list.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "page" (int64) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+    @param "perPage" (int64) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default.
+    @param "status" ([]string) Extension current state. Multiple values are supported. If &#39;Unassigned&#39; is specified, then extensions without extensionNumber are returned. If not specified, then all extensions are returned
+    @param "type_" ([]string) Extension type. Multiple values are supported
+@return GetExtensionListResponse*/
+func (a *CompanyContactsApiService) ListExtensions(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (GetExtensionListResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetExtensionListResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetExtensionListResponse
 	)
 
 	// create path and map variables
@@ -297,7 +291,7 @@ func (a *CompanyContactsApiService) ListExtensions(ctx context.Context, accountI
 		localVarQueryParams.Add("type", parameterToString(localVarTempParam, "multi"))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -308,7 +302,7 @@ func (a *CompanyContactsApiService) ListExtensions(ctx context.Context, accountI
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -334,23 +328,22 @@ func (a *CompanyContactsApiService) ListExtensions(ctx context.Context, accountI
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CompanyContactsApiService Get Company Directory Contact
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns contact information on a particular corporate user of a federated account.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param contactId Internal identifier of an extension
- @return ContactInfo*/
-func (a *CompanyContactsApiService) LoadCompanyDirectoryContact(ctx context.Context, accountId string, contactId string) (ContactInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns contact information on a particular corporate user of a federated account.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param contactId Internal identifier of an extension
+@return ContactInfo*/
+func (a *CompanyContactsApiService) LoadCompanyDirectoryContact(ctx context.Context, accountId string, contactId string) (ContactInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  ContactInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     ContactInfo
 	)
 
 	// create path and map variables
@@ -362,9 +355,8 @@ func (a *CompanyContactsApiService) LoadCompanyDirectoryContact(ctx context.Cont
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -375,7 +367,7 @@ func (a *CompanyContactsApiService) LoadCompanyDirectoryContact(ctx context.Cont
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -401,22 +393,21 @@ func (a *CompanyContactsApiService) LoadCompanyDirectoryContact(ctx context.Cont
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CompanyContactsApiService Get Existing Extension Numbers
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns the list of account federation extensions.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @return FederationExtensionNumbers*/
-func (a *CompanyContactsApiService) LoadCompanyDirectoryExtensionNumbers(ctx context.Context, accountId string) (FederationExtensionNumbers,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns the list of account federation extensions.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@return FederationExtensionNumbers*/
+func (a *CompanyContactsApiService) LoadCompanyDirectoryExtensionNumbers(ctx context.Context, accountId string) (FederationExtensionNumbers, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  FederationExtensionNumbers
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     FederationExtensionNumbers
 	)
 
 	// create path and map variables
@@ -427,9 +418,8 @@ func (a *CompanyContactsApiService) LoadCompanyDirectoryExtensionNumbers(ctx con
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -440,7 +430,7 @@ func (a *CompanyContactsApiService) LoadCompanyDirectoryExtensionNumbers(ctx con
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -466,22 +456,21 @@ func (a *CompanyContactsApiService) LoadCompanyDirectoryExtensionNumbers(ctx con
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CompanyContactsApiService Get Account Federation
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns information on a federation and associated accounts.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @return FederationInfo*/
-func (a *CompanyContactsApiService) LoadCompanyDirectoryFederation(ctx context.Context, accountId string) (FederationInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns information on a federation and associated accounts.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@return FederationInfo*/
+func (a *CompanyContactsApiService) LoadCompanyDirectoryFederation(ctx context.Context, accountId string) (FederationInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  FederationInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     FederationInfo
 	)
 
 	// create path and map variables
@@ -492,9 +481,8 @@ func (a *CompanyContactsApiService) LoadCompanyDirectoryFederation(ctx context.C
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -505,7 +493,7 @@ func (a *CompanyContactsApiService) LoadCompanyDirectoryFederation(ctx context.C
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -531,22 +519,21 @@ func (a *CompanyContactsApiService) LoadCompanyDirectoryFederation(ctx context.C
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CompanyContactsApiService Get Account Federation Conflicts
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns the list of federation extensions which numbers are conflicting with extension numbers of the requested account.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @return FederationConflicts*/
-func (a *CompanyContactsApiService) LoadCompanyDirectoryFederationConflicts(ctx context.Context, accountId string) (FederationConflicts,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns the list of federation extensions which numbers are conflicting with extension numbers of the requested account.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@return FederationConflicts*/
+func (a *CompanyContactsApiService) LoadCompanyDirectoryFederationConflicts(ctx context.Context, accountId string) (FederationConflicts, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  FederationConflicts
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     FederationConflicts
 	)
 
 	// create path and map variables
@@ -557,9 +544,8 @@ func (a *CompanyContactsApiService) LoadCompanyDirectoryFederationConflicts(ctx 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -570,7 +556,7 @@ func (a *CompanyContactsApiService) LoadCompanyDirectoryFederationConflicts(ctx 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -596,7 +582,5 @@ func (a *CompanyContactsApiService) LoadCompanyDirectoryFederationConflicts(ctx 
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
-

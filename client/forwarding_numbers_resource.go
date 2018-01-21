@@ -10,7 +10,6 @@
 package ringcentral
 
 type ForwardingNumbersResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	Records []ForwardingNumberResource `json:"records,omitempty"`

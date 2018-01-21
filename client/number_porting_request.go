@@ -10,7 +10,6 @@
 package ringcentral
 
 type NumberPortingRequest struct {
-
 	RcAccountId int64 `json:"rcAccountId,omitempty"`
 
 	RcOrderId int64 `json:"rcOrderId,omitempty"`
