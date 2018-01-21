@@ -10,6 +10,7 @@
 package ringcentral
 
 type BlacklistEntriesResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []BlacklistEntryResource `json:"records,omitempty"`

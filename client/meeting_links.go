@@ -10,6 +10,7 @@
 package ringcentral
 
 type MeetingLinks struct {
+
 	StartUri string `json:"startUri,omitempty"`
 
 	JoinUri string `json:"joinUri,omitempty"`

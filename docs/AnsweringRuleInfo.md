@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Uri** | **string** | Canonical URI to the answering rule resource | [optional] [default to null]
-**Id** | **string** | Internal identifier of an asnwering rule | [optional] [default to null]
+**Id** | **string** | Internal identifier of an answering rule | [optional] [default to null]
 **Type_** | **string** | Type of an answering rule | [optional] [default to null]
 **Name** | **string** | Name of an answering rule specified by user | [optional] [default to null]
 **Enabled** | **bool** | Specifies if an answering rule is active or inactive | [optional] [default to null]

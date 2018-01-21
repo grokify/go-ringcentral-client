@@ -10,5 +10,6 @@
 package ringcentral
 
 type UnconditionalForwardingResource struct {
+
 	PhoneNumber string `json:"phoneNumber,omitempty"`
 }

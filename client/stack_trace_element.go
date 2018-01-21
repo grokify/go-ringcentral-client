@@ -10,6 +10,7 @@
 package ringcentral
 
 type StackTraceElement struct {
+
 	MethodName string `json:"methodName,omitempty"`
 
 	FileName string `json:"fileName,omitempty"`

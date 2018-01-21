@@ -10,6 +10,7 @@
 package ringcentral
 
 type ClientInfoResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Client *ClientResource `json:"client,omitempty"`

@@ -18239,7 +18239,7 @@ definitions:
         description: "Canonical URI to the answering rule resource"
       id:
         type: "string"
-        description: "Internal identifier of an asnwering rule"
+        description: "Internal identifier of an answering rule"
       type:
         type: "string"
         description: "Type of an answering rule"

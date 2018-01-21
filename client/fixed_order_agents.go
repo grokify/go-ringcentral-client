@@ -10,6 +10,7 @@
 package ringcentral
 
 type FixedOrderAgents struct {
+
 	Extension *ExtensionInfo `json:"extension,omitempty"`
 
 	// Ordinal of an agent (call queue member)

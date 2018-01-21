@@ -10,14 +10,14 @@
 package ringcentral
 
 import (
+	"io/ioutil"
+	"net/url"
+	"net/http"
+	"strings"
+	"golang.org/x/net/context"
+	"os"
 	"encoding/json"
 	"fmt"
-	"golang.org/x/net/context"
-	"io/ioutil"
-	"net/http"
-	"net/url"
-	"os"
-	"strings"
 )
 
 // Linger please
@@ -27,21 +27,22 @@ var (
 
 type CallHandlingSettingsApiService service
 
+
 /* CallHandlingSettingsApiService Add Blocked Numbers
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "body" (BlockedNumberInfo)
-@return BlockedNumberInfo*/
-func (a *CallHandlingSettingsApiService) BlockNumber(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (BlockedNumberInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "body" (BlockedNumberInfo) 
+ @return BlockedNumberInfo*/
+func (a *CallHandlingSettingsApiService) BlockNumber(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (BlockedNumberInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     BlockedNumberInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  BlockedNumberInfo
 	)
 
 	// create path and map variables
@@ -53,8 +54,9 @@ func (a *CallHandlingSettingsApiService) BlockNumber(ctx context.Context, accoun
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -65,7 +67,7 @@ func (a *CallHandlingSettingsApiService) BlockNumber(ctx context.Context, accoun
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -95,23 +97,24 @@ func (a *CallHandlingSettingsApiService) BlockNumber(ctx context.Context, accoun
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Create Custom Call Handling Rules
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.24 (Release 8.0)&lt;/p&gt;&lt;p&gt;Creates a custom answering rule for a particular caller ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param body JSON body
-@return AnsweringRuleInfo*/
-func (a *CallHandlingSettingsApiService) CreateAnsweringRuleInfo(ctx context.Context, accountId string, extensionId string, body CreateAnsweringRuleRequest) (AnsweringRuleInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.24 (Release 8.0)&lt;/p&gt;&lt;p&gt;Creates a custom answering rule for a particular caller ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param body JSON body
+ @return AnsweringRuleInfo*/
+func (a *CallHandlingSettingsApiService) CreateAnsweringRuleInfo(ctx context.Context, accountId string, extensionId string, body CreateAnsweringRuleRequest) (AnsweringRuleInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     AnsweringRuleInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  AnsweringRuleInfo
 	)
 
 	// create path and map variables
@@ -123,8 +126,9 @@ func (a *CallHandlingSettingsApiService) CreateAnsweringRuleInfo(ctx context.Con
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -135,7 +139,7 @@ func (a *CallHandlingSettingsApiService) CreateAnsweringRuleInfo(ctx context.Con
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -163,22 +167,23 @@ func (a *CallHandlingSettingsApiService) CreateAnsweringRuleInfo(ctx context.Con
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Create Company Call Handling Rule
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Creates a company answering rule for a particular caller ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param body JSON body
-@return CompanyAnsweringRuleInfo*/
-func (a *CallHandlingSettingsApiService) CreateCompanyAnsweringRuleInfo(ctx context.Context, accountId string, body CompanyAnsweringRuleRequest) (CompanyAnsweringRuleInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Creates a company answering rule for a particular caller ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param body JSON body
+ @return CompanyAnsweringRuleInfo*/
+func (a *CallHandlingSettingsApiService) CreateCompanyAnsweringRuleInfo(ctx context.Context, accountId string, body CompanyAnsweringRuleRequest) (CompanyAnsweringRuleInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     CompanyAnsweringRuleInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  CompanyAnsweringRuleInfo
 	)
 
 	// create path and map variables
@@ -189,8 +194,9 @@ func (a *CallHandlingSettingsApiService) CreateCompanyAnsweringRuleInfo(ctx cont
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -201,7 +207,7 @@ func (a *CallHandlingSettingsApiService) CreateCompanyAnsweringRuleInfo(ctx cont
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -229,23 +235,24 @@ func (a *CallHandlingSettingsApiService) CreateCompanyAnsweringRuleInfo(ctx cont
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Create Forwarding Numbers
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.12 (Release 6.4)&lt;/p&gt;&lt;p&gt;Adds a new forwarding number to the forwarding number list.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param body JSON body
-@return ForwardingNumberInfo*/
-func (a *CallHandlingSettingsApiService) CreateExtensionForwardingNumber(ctx context.Context, accountId string, extensionId string, body CreateForwardingNumberRequest) (ForwardingNumberInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.12 (Release 6.4)&lt;/p&gt;&lt;p&gt;Adds a new forwarding number to the forwarding number list.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param body JSON body
+ @return ForwardingNumberInfo*/
+func (a *CallHandlingSettingsApiService) CreateExtensionForwardingNumber(ctx context.Context, accountId string, extensionId string, body CreateForwardingNumberRequest) (ForwardingNumberInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     ForwardingNumberInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ForwardingNumberInfo
 	)
 
 	// create path and map variables
@@ -257,8 +264,9 @@ func (a *CallHandlingSettingsApiService) CreateExtensionForwardingNumber(ctx con
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -269,7 +277,7 @@ func (a *CallHandlingSettingsApiService) CreateExtensionForwardingNumber(ctx con
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -297,23 +305,24 @@ func (a *CallHandlingSettingsApiService) CreateExtensionForwardingNumber(ctx con
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Create User Custom Greeting
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "body" (CustomGreetingRequest)
-@return CustomCompanyGreetingInfo*/
-func (a *CallHandlingSettingsApiService) CreateGreeting(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (CustomCompanyGreetingInfo, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "body" (CustomGreetingRequest) 
+ @return CustomCompanyGreetingInfo*/
+func (a *CallHandlingSettingsApiService) CreateGreeting(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (CustomCompanyGreetingInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     CustomCompanyGreetingInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  CustomCompanyGreetingInfo
 	)
 
 	// create path and map variables
@@ -325,8 +334,9 @@ func (a *CallHandlingSettingsApiService) CreateGreeting(ctx context.Context, acc
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -337,7 +347,7 @@ func (a *CallHandlingSettingsApiService) CreateGreeting(ctx context.Context, acc
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -367,22 +377,23 @@ func (a *CallHandlingSettingsApiService) CreateGreeting(ctx context.Context, acc
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Create IVR Menu
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Creates a company IVR menu&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@param body JSON body
-@return IvrMenuInfo*/
-func (a *CallHandlingSettingsApiService) CreateIVRMenu(ctx context.Context, accountId string, body IvrMenuInfo) (IvrMenuInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Creates a company IVR menu&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @param body JSON body
+ @return IvrMenuInfo*/
+func (a *CallHandlingSettingsApiService) CreateIVRMenu(ctx context.Context, accountId string, body IvrMenuInfo) (IvrMenuInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     IvrMenuInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  IvrMenuInfo
 	)
 
 	// create path and map variables
@@ -393,8 +404,9 @@ func (a *CallHandlingSettingsApiService) CreateIVRMenu(ctx context.Context, acco
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -405,7 +417,7 @@ func (a *CallHandlingSettingsApiService) CreateIVRMenu(ctx context.Context, acco
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -433,24 +445,25 @@ func (a *CallHandlingSettingsApiService) CreateIVRMenu(ctx context.Context, acco
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Create IVR Prompt
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Creates an IVR prompt.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@param attachment Audio file that will be used as a prompt. Attachment cannot be empty, only audio files are supported
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "name" (string) Description of file contents.
-@return PromptInfo*/
-func (a *CallHandlingSettingsApiService) CreatePrompts(ctx context.Context, accountId string, localVarFile *os.File, localVarOptionals map[string]interface{}) (PromptInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Creates an IVR prompt.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @param attachment Audio file that will be used as a prompt. Attachment cannot be empty, only audio files are supported
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "name" (string) Description of file contents.
+ @return PromptInfo*/
+func (a *CallHandlingSettingsApiService) CreatePrompts(ctx context.Context, accountId string, attachment *os.File, localVarOptionals map[string]interface{}) (PromptInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     PromptInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PromptInfo
 	)
 
 	// create path and map variables
@@ -466,7 +479,7 @@ func (a *CallHandlingSettingsApiService) CreatePrompts(ctx context.Context, acco
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"multipart/form-data"}
+	localVarHttpContentTypes := []string{ "multipart/form-data",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -477,7 +490,7 @@ func (a *CallHandlingSettingsApiService) CreatePrompts(ctx context.Context, acco
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -512,21 +525,22 @@ func (a *CallHandlingSettingsApiService) CreatePrompts(ctx context.Context, acco
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Delete Call Handling Rule
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param ruleId Internal identifier of an answering rule
-@return */
-func (a *CallHandlingSettingsApiService) DeleteAnsweringRule(ctx context.Context, accountId string, extensionId string, ruleId string) (*http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param ruleId Internal identifier of an answering rule
+ @return */
+func (a *CallHandlingSettingsApiService) DeleteAnsweringRule(ctx context.Context, accountId string, extensionId string, ruleId string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -539,8 +553,9 @@ func (a *CallHandlingSettingsApiService) DeleteAnsweringRule(ctx context.Context
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -551,7 +566,7 @@ func (a *CallHandlingSettingsApiService) DeleteAnsweringRule(ctx context.Context
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -577,18 +592,18 @@ func (a *CallHandlingSettingsApiService) DeleteAnsweringRule(ctx context.Context
 }
 
 /* CallHandlingSettingsApiService Delete Forwarding Number
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.24 (Release 8.0)&lt;/p&gt;&lt;p&gt;Deletes a forwarding number from the forwarding number list by its ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param forwardingNumberId Internal identifier of a forwarding number
-@return */
-func (a *CallHandlingSettingsApiService) DeleteExtensionForwardingNumber(ctx context.Context, accountId string, extensionId string, forwardingNumberId string) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.24 (Release 8.0)&lt;/p&gt;&lt;p&gt;Deletes a forwarding number from the forwarding number list by its ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param forwardingNumberId Internal identifier of a forwarding number
+ @return */
+func (a *CallHandlingSettingsApiService) DeleteExtensionForwardingNumber(ctx context.Context, accountId string, extensionId string, forwardingNumberId string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -601,8 +616,9 @@ func (a *CallHandlingSettingsApiService) DeleteExtensionForwardingNumber(ctx con
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -613,7 +629,7 @@ func (a *CallHandlingSettingsApiService) DeleteExtensionForwardingNumber(ctx con
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -639,17 +655,17 @@ func (a *CallHandlingSettingsApiService) DeleteExtensionForwardingNumber(ctx con
 }
 
 /* CallHandlingSettingsApiService Delete IVR Prompt
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Deletes an IVR prompt by ID&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@param promptId
-@return */
-func (a *CallHandlingSettingsApiService) DeleteIVRPrompt(ctx context.Context, accountId string, promptId string) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Deletes an IVR prompt by ID&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @param promptId 
+ @return */
+func (a *CallHandlingSettingsApiService) DeleteIVRPrompt(ctx context.Context, accountId string, promptId string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -661,8 +677,9 @@ func (a *CallHandlingSettingsApiService) DeleteIVRPrompt(ctx context.Context, ac
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -673,7 +690,7 @@ func (a *CallHandlingSettingsApiService) DeleteIVRPrompt(ctx context.Context, ac
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -699,17 +716,17 @@ func (a *CallHandlingSettingsApiService) DeleteIVRPrompt(ctx context.Context, ac
 }
 
 /* CallHandlingSettingsApiService Create Custom Company Greeting
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param body JSON body
-@return CustomCompanyGreetingInfo*/
-func (a *CallHandlingSettingsApiService) GetCompanyGreeting(ctx context.Context, accountId string, body CustomCompanyGreetingRequest) (CustomCompanyGreetingInfo, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param body JSON body
+ @return CustomCompanyGreetingInfo*/
+func (a *CallHandlingSettingsApiService) GetCompanyGreeting(ctx context.Context, accountId string, body CustomCompanyGreetingRequest) (CustomCompanyGreetingInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     CustomCompanyGreetingInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  CustomCompanyGreetingInfo
 	)
 
 	// create path and map variables
@@ -720,8 +737,9 @@ func (a *CallHandlingSettingsApiService) GetCompanyGreeting(ctx context.Context,
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -732,7 +750,7 @@ func (a *CallHandlingSettingsApiService) GetCompanyGreeting(ctx context.Context,
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -760,22 +778,23 @@ func (a *CallHandlingSettingsApiService) GetCompanyGreeting(ctx context.Context,
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Get Forwarding Number
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param forwardingNumberId
-@param extensionId
-@param accountId
-@return ForwardingNumberResource*/
-func (a *CallHandlingSettingsApiService) GetForwardingNumber(ctx context.Context, forwardingNumberId string, extensionId string, accountId string) (ForwardingNumberResource, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param forwardingNumberId 
+ @param extensionId 
+ @param accountId 
+ @return ForwardingNumberResource*/
+func (a *CallHandlingSettingsApiService) GetForwardingNumber(ctx context.Context, forwardingNumberId string, extensionId string, accountId string) (ForwardingNumberResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     ForwardingNumberResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ForwardingNumberResource
 	)
 
 	// create path and map variables
@@ -788,8 +807,9 @@ func (a *CallHandlingSettingsApiService) GetForwardingNumber(ctx context.Context
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -800,7 +820,7 @@ func (a *CallHandlingSettingsApiService) GetForwardingNumber(ctx context.Context
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -826,21 +846,22 @@ func (a *CallHandlingSettingsApiService) GetForwardingNumber(ctx context.Context
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Get Greeting Info
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 8.2 (Release 1.0.26)&lt;/p&gt;&lt;p&gt;Returns a standard greeting by ID&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;View Greetings&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param greetingId
-@return DictionaryGreetingInfo*/
-func (a *CallHandlingSettingsApiService) GetGreeting(ctx context.Context, greetingId string) (DictionaryGreetingInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 8.2 (Release 1.0.26)&lt;/p&gt;&lt;p&gt;Returns a standard greeting by ID&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;View Greetings&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param greetingId 
+ @return DictionaryGreetingInfo*/
+func (a *CallHandlingSettingsApiService) GetGreeting(ctx context.Context, greetingId string) (DictionaryGreetingInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     DictionaryGreetingInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  DictionaryGreetingInfo
 	)
 
 	// create path and map variables
@@ -851,8 +872,9 @@ func (a *CallHandlingSettingsApiService) GetGreeting(ctx context.Context, greeti
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -863,7 +885,7 @@ func (a *CallHandlingSettingsApiService) GetGreeting(ctx context.Context, greeti
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -889,22 +911,23 @@ func (a *CallHandlingSettingsApiService) GetGreeting(ctx context.Context, greeti
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Get Custom Greeting Info
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param greetingId
-@return CustomCompanyGreetingInfo*/
-func (a *CallHandlingSettingsApiService) GetGreetingByID(ctx context.Context, accountId string, extensionId string, greetingId int32) (CustomCompanyGreetingInfo, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param greetingId 
+ @return CustomCompanyGreetingInfo*/
+func (a *CallHandlingSettingsApiService) GetGreetingByID(ctx context.Context, accountId string, extensionId string, greetingId int32) (CustomCompanyGreetingInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     CustomCompanyGreetingInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  CustomCompanyGreetingInfo
 	)
 
 	// create path and map variables
@@ -917,8 +940,9 @@ func (a *CallHandlingSettingsApiService) GetGreetingByID(ctx context.Context, ac
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -929,7 +953,7 @@ func (a *CallHandlingSettingsApiService) GetGreetingByID(ctx context.Context, ac
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -955,25 +979,26 @@ func (a *CallHandlingSettingsApiService) GetGreetingByID(ctx context.Context, ac
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Get Standard Greetings
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 8.2 (Release 1.0.26)&lt;/p&gt;&lt;p&gt;Returns a list of predefined standard greetings. Please note: Custom greetings recorded by user are not returned in response to this request. See Get Extension Custom Greetings.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;View Greetings&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-    @param "type_" (string) Type of a greeting, specifying the case when the greeting is played
-    @param "usageType" (string) Usage type of a greeting, specifying if the greeting is applied for user extension or department extension
-@return DictionaryGreetingList*/
-func (a *CallHandlingSettingsApiService) GetGreetings(ctx context.Context, localVarOptionals map[string]interface{}) (DictionaryGreetingList, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 8.2 (Release 1.0.26)&lt;/p&gt;&lt;p&gt;Returns a list of predefined standard greetings. Please note: Custom greetings recorded by user are not returned in response to this request. See Get Extension Custom Greetings.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;View Greetings&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+     @param "type_" (string) Type of a greeting, specifying the case when the greeting is played
+     @param "usageType" (string) Usage type of a greeting, specifying if the greeting is applied for user extension or department extension
+ @return DictionaryGreetingList*/
+func (a *CallHandlingSettingsApiService) GetGreetings(ctx context.Context, localVarOptionals map[string]interface{}) (DictionaryGreetingList,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     DictionaryGreetingList
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  DictionaryGreetingList
 	)
 
 	// create path and map variables
@@ -1009,7 +1034,7 @@ func (a *CallHandlingSettingsApiService) GetGreetings(ctx context.Context, local
 		localVarQueryParams.Add("usageType", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1020,7 +1045,7 @@ func (a *CallHandlingSettingsApiService) GetGreetings(ctx context.Context, local
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1046,22 +1071,23 @@ func (a *CallHandlingSettingsApiService) GetGreetings(ctx context.Context, local
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Get IVR Menu
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns a company IVR menu by ID&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@param ivrMenuId
-@return IvrMenuInfo*/
-func (a *CallHandlingSettingsApiService) GetIVRMenuById(ctx context.Context, accountId string, ivrMenuId string) (IvrMenuInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns a company IVR menu by ID&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @param ivrMenuId 
+ @return IvrMenuInfo*/
+func (a *CallHandlingSettingsApiService) GetIVRMenuById(ctx context.Context, accountId string, ivrMenuId string) (IvrMenuInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     IvrMenuInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  IvrMenuInfo
 	)
 
 	// create path and map variables
@@ -1073,8 +1099,9 @@ func (a *CallHandlingSettingsApiService) GetIVRMenuById(ctx context.Context, acc
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1085,7 +1112,7 @@ func (a *CallHandlingSettingsApiService) GetIVRMenuById(ctx context.Context, acc
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1111,22 +1138,23 @@ func (a *CallHandlingSettingsApiService) GetIVRMenuById(ctx context.Context, acc
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Get IVR Prompt
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns an IVR prompt by ID&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@param promptId
-@return PromptInfo*/
-func (a *CallHandlingSettingsApiService) GetIVRPrompt(ctx context.Context, accountId string, promptId string) (PromptInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns an IVR prompt by ID&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @param promptId 
+ @return PromptInfo*/
+func (a *CallHandlingSettingsApiService) GetIVRPrompt(ctx context.Context, accountId string, promptId string) (PromptInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     PromptInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PromptInfo
 	)
 
 	// create path and map variables
@@ -1138,8 +1166,9 @@ func (a *CallHandlingSettingsApiService) GetIVRPrompt(ctx context.Context, accou
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1150,7 +1179,7 @@ func (a *CallHandlingSettingsApiService) GetIVRPrompt(ctx context.Context, accou
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1176,21 +1205,22 @@ func (a *CallHandlingSettingsApiService) GetIVRPrompt(ctx context.Context, accou
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Get IVR Prompt Content
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns media content of an IVR prompt by its ID&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@param promptId
-@return */
-func (a *CallHandlingSettingsApiService) GetIVRPromptContent(ctx context.Context, accountId string, promptId string) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns media content of an IVR prompt by its ID&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @param promptId 
+ @return */
+func (a *CallHandlingSettingsApiService) GetIVRPromptContent(ctx context.Context, accountId string, promptId string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -1202,8 +1232,9 @@ func (a *CallHandlingSettingsApiService) GetIVRPromptContent(ctx context.Context
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1214,7 +1245,7 @@ func (a *CallHandlingSettingsApiService) GetIVRPromptContent(ctx context.Context
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1240,17 +1271,17 @@ func (a *CallHandlingSettingsApiService) GetIVRPromptContent(ctx context.Context
 }
 
 /* CallHandlingSettingsApiService Get IVR Prompts
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns a list of IVR prompts.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@return IvrPrompts*/
-func (a *CallHandlingSettingsApiService) GetIVRPrompts(ctx context.Context, accountId string) (IvrPrompts, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns a list of IVR prompts.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @return IvrPrompts*/
+func (a *CallHandlingSettingsApiService) GetIVRPrompts(ctx context.Context, accountId string) (IvrPrompts,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     IvrPrompts
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  IvrPrompts
 	)
 
 	// create path and map variables
@@ -1261,8 +1292,9 @@ func (a *CallHandlingSettingsApiService) GetIVRPrompts(ctx context.Context, acco
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1273,7 +1305,7 @@ func (a *CallHandlingSettingsApiService) GetIVRPrompts(ctx context.Context, acco
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1299,22 +1331,23 @@ func (a *CallHandlingSettingsApiService) GetIVRPrompts(ctx context.Context, acco
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Get Blocked Numbers
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@return BlockedNumbersList*/
-func (a *CallHandlingSettingsApiService) ListBlockedNumbers(ctx context.Context, accountId string, extensionId string) (BlockedNumbersList, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @return BlockedNumbersList*/
+func (a *CallHandlingSettingsApiService) ListBlockedNumbers(ctx context.Context, accountId string, extensionId string) (BlockedNumbersList,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     BlockedNumbersList
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  BlockedNumbersList
 	)
 
 	// create path and map variables
@@ -1326,8 +1359,9 @@ func (a *CallHandlingSettingsApiService) ListBlockedNumbers(ctx context.Context,
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1338,7 +1372,7 @@ func (a *CallHandlingSettingsApiService) ListBlockedNumbers(ctx context.Context,
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1364,21 +1398,22 @@ func (a *CallHandlingSettingsApiService) ListBlockedNumbers(ctx context.Context,
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Get Company Call Handling Rules
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns a list of company answering rules.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@return CompanyAnsweringRuleList*/
-func (a *CallHandlingSettingsApiService) ListCompanyAnsweringRule(ctx context.Context, accountId string) (CompanyAnsweringRuleList, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns a list of company answering rules.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @return CompanyAnsweringRuleList*/
+func (a *CallHandlingSettingsApiService) ListCompanyAnsweringRule(ctx context.Context, accountId string) (CompanyAnsweringRuleList,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     CompanyAnsweringRuleList
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  CompanyAnsweringRuleList
 	)
 
 	// create path and map variables
@@ -1389,8 +1424,9 @@ func (a *CallHandlingSettingsApiService) ListCompanyAnsweringRule(ctx context.Co
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1401,7 +1437,7 @@ func (a *CallHandlingSettingsApiService) ListCompanyAnsweringRule(ctx context.Co
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1427,25 +1463,26 @@ func (a *CallHandlingSettingsApiService) ListCompanyAnsweringRule(ctx context.Co
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Get Forwarding Numbers
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.7 (Release 5.16)&lt;/p&gt;&lt;p&gt;Returns the list of extension phone numbers used for call forwarding and call flip. The returned list contains all the extension phone numbers that are used for call forwarding and call flip.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-@return GetExtensionForwardingNumberListResponse*/
-func (a *CallHandlingSettingsApiService) ListExtensionForwardingNumbers(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (GetExtensionForwardingNumberListResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.7 (Release 5.16)&lt;/p&gt;&lt;p&gt;Returns the list of extension phone numbers used for call forwarding and call flip. The returned list contains all the extension phone numbers that are used for call forwarding and call flip.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+ @return GetExtensionForwardingNumberListResponse*/
+func (a *CallHandlingSettingsApiService) ListExtensionForwardingNumbers(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (GetExtensionForwardingNumberListResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetExtensionForwardingNumberListResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetExtensionForwardingNumberListResponse
 	)
 
 	// create path and map variables
@@ -1471,7 +1508,7 @@ func (a *CallHandlingSettingsApiService) ListExtensionForwardingNumbers(ctx cont
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1482,7 +1519,7 @@ func (a *CallHandlingSettingsApiService) ListExtensionForwardingNumbers(ctx cont
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1508,23 +1545,24 @@ func (a *CallHandlingSettingsApiService) ListExtensionForwardingNumbers(ctx cont
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Get Call Handling Rule
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.15 (Release 7.0)&lt;/p&gt;&lt;p&gt;Returns an answering rule by ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param ruleId Internal identifier of an answering rule. The value can be standard digital ID or specific ID - either business-hours-rule or after-hours-rule
-@return AnsweringRuleInfo*/
-func (a *CallHandlingSettingsApiService) LoadAnsweringRuleInfo(ctx context.Context, accountId string, extensionId string, ruleId string) (AnsweringRuleInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.15 (Release 7.0)&lt;/p&gt;&lt;p&gt;Returns an answering rule by ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param ruleId Internal identifier of an answering rule. The value can be standard digital ID or specific ID - either business-hours-rule or after-hours-rule
+ @return AnsweringRuleInfo*/
+func (a *CallHandlingSettingsApiService) LoadAnsweringRuleInfo(ctx context.Context, accountId string, extensionId string, ruleId string) (AnsweringRuleInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     AnsweringRuleInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  AnsweringRuleInfo
 	)
 
 	// create path and map variables
@@ -1537,8 +1575,9 @@ func (a *CallHandlingSettingsApiService) LoadAnsweringRuleInfo(ctx context.Conte
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1549,7 +1588,7 @@ func (a *CallHandlingSettingsApiService) LoadAnsweringRuleInfo(ctx context.Conte
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1575,24 +1614,25 @@ func (a *CallHandlingSettingsApiService) LoadAnsweringRuleInfo(ctx context.Conte
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Get Call Handling Rules
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.15 (Release 7.0)&lt;/p&gt;&lt;p&gt;Returns the extension answering rules.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "page" (string)
-    @param "perPage" (string)
-@return */
-func (a *CallHandlingSettingsApiService) LoadAnsweringRulesList(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.15 (Release 7.0)&lt;/p&gt;&lt;p&gt;Returns the extension answering rules.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "page" (string) 
+     @param "perPage" (string) 
+ @return */
+func (a *CallHandlingSettingsApiService) LoadAnsweringRulesList(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -1618,7 +1658,7 @@ func (a *CallHandlingSettingsApiService) LoadAnsweringRulesList(ctx context.Cont
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1629,7 +1669,7 @@ func (a *CallHandlingSettingsApiService) LoadAnsweringRulesList(ctx context.Cont
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1655,19 +1695,19 @@ func (a *CallHandlingSettingsApiService) LoadAnsweringRulesList(ctx context.Cont
 }
 
 /* CallHandlingSettingsApiService Get Blocked Number
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param blockedNumberId Internal identifiers of a blocked number list entry
-@return BlockedNumberInfo*/
-func (a *CallHandlingSettingsApiService) LoadBlockedNumber(ctx context.Context, accountId string, extensionId string, blockedNumberId int32) (BlockedNumberInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param blockedNumberId Internal identifiers of a blocked number list entry
+ @return BlockedNumberInfo*/
+func (a *CallHandlingSettingsApiService) LoadBlockedNumber(ctx context.Context, accountId string, extensionId string, blockedNumberId int32) (BlockedNumberInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     BlockedNumberInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  BlockedNumberInfo
 	)
 
 	// create path and map variables
@@ -1680,8 +1720,9 @@ func (a *CallHandlingSettingsApiService) LoadBlockedNumber(ctx context.Context, 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1692,7 +1733,7 @@ func (a *CallHandlingSettingsApiService) LoadBlockedNumber(ctx context.Context, 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1718,21 +1759,22 @@ func (a *CallHandlingSettingsApiService) LoadBlockedNumber(ctx context.Context, 
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Get Company Business Hours
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns company hours when answering rules are to be applied.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@return CompanyBusinessHours*/
-func (a *CallHandlingSettingsApiService) LoadBusinesshoursInfo(ctx context.Context, accountId string) (CompanyBusinessHours, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns company hours when answering rules are to be applied.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @return CompanyBusinessHours*/
+func (a *CallHandlingSettingsApiService) LoadBusinesshoursInfo(ctx context.Context, accountId string) (CompanyBusinessHours,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     CompanyBusinessHours
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  CompanyBusinessHours
 	)
 
 	// create path and map variables
@@ -1743,8 +1785,9 @@ func (a *CallHandlingSettingsApiService) LoadBusinesshoursInfo(ctx context.Conte
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1755,7 +1798,7 @@ func (a *CallHandlingSettingsApiService) LoadBusinesshoursInfo(ctx context.Conte
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1781,22 +1824,23 @@ func (a *CallHandlingSettingsApiService) LoadBusinesshoursInfo(ctx context.Conte
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Get Company Call Handling Rule
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns a company answering rule by ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param ruleId Internal identifier of an answering rule. The value can be standard digital ID or specific ID - either business-hours-rule or after-hours-rule
-@return CompanyAnsweringRuleInfo*/
-func (a *CallHandlingSettingsApiService) LoadCompanyAnsweringRuleInfo(ctx context.Context, accountId string, ruleId string) (CompanyAnsweringRuleInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns a company answering rule by ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param ruleId Internal identifier of an answering rule. The value can be standard digital ID or specific ID - either business-hours-rule or after-hours-rule
+ @return CompanyAnsweringRuleInfo*/
+func (a *CallHandlingSettingsApiService) LoadCompanyAnsweringRuleInfo(ctx context.Context, accountId string, ruleId string) (CompanyAnsweringRuleInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     CompanyAnsweringRuleInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  CompanyAnsweringRuleInfo
 	)
 
 	// create path and map variables
@@ -1808,8 +1852,9 @@ func (a *CallHandlingSettingsApiService) LoadCompanyAnsweringRuleInfo(ctx contex
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1820,7 +1865,7 @@ func (a *CallHandlingSettingsApiService) LoadCompanyAnsweringRuleInfo(ctx contex
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1846,22 +1891,23 @@ func (a *CallHandlingSettingsApiService) LoadCompanyAnsweringRuleInfo(ctx contex
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Get User Business Hours
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.15 (Release 7.0)&lt;/p&gt;&lt;p&gt;Returns the extension user hours when answering rules are to be applied.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@return GetUserBusinessHoursResponse*/
-func (a *CallHandlingSettingsApiService) LoadUserBusinessHours(ctx context.Context, accountId string, extensionId string) (GetUserBusinessHoursResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.15 (Release 7.0)&lt;/p&gt;&lt;p&gt;Returns the extension user hours when answering rules are to be applied.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @return GetUserBusinessHoursResponse*/
+func (a *CallHandlingSettingsApiService) LoadUserBusinessHours(ctx context.Context, accountId string, extensionId string) (GetUserBusinessHoursResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetUserBusinessHoursResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetUserBusinessHoursResponse
 	)
 
 	// create path and map variables
@@ -1873,8 +1919,9 @@ func (a *CallHandlingSettingsApiService) LoadUserBusinessHours(ctx context.Conte
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1885,7 +1932,7 @@ func (a *CallHandlingSettingsApiService) LoadUserBusinessHours(ctx context.Conte
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1911,23 +1958,24 @@ func (a *CallHandlingSettingsApiService) LoadUserBusinessHours(ctx context.Conte
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Update IVR Menu
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns a company IVR menu by ID&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@param ivrMenuId
-@param body JSON body
-@return IvrMenuInfo*/
-func (a *CallHandlingSettingsApiService) RestapiV10AccountAccountIdIvrMenusIvrMenuIdPut(ctx context.Context, accountId string, ivrMenuId string, body IvrMenuInfo) (IvrMenuInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns a company IVR menu by ID&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @param ivrMenuId 
+ @param body JSON body
+ @return IvrMenuInfo*/
+func (a *CallHandlingSettingsApiService) RestapiV10AccountAccountIdIvrMenusIvrMenuIdPut(ctx context.Context, accountId string, ivrMenuId string, body IvrMenuInfo) (IvrMenuInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     IvrMenuInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  IvrMenuInfo
 	)
 
 	// create path and map variables
@@ -1939,8 +1987,9 @@ func (a *CallHandlingSettingsApiService) RestapiV10AccountAccountIdIvrMenusIvrMe
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1951,7 +2000,7 @@ func (a *CallHandlingSettingsApiService) RestapiV10AccountAccountIdIvrMenusIvrMe
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1979,22 +2028,23 @@ func (a *CallHandlingSettingsApiService) RestapiV10AccountAccountIdIvrMenusIvrMe
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Delete Blocked Number
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param blockedNumberId Internal identifiers of a blocked number list entry
-@return */
-func (a *CallHandlingSettingsApiService) UnblockNumber(ctx context.Context, accountId string, extensionId string, blockedNumberId int32) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param blockedNumberId Internal identifiers of a blocked number list entry
+ @return */
+func (a *CallHandlingSettingsApiService) UnblockNumber(ctx context.Context, accountId string, extensionId string, blockedNumberId int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -2007,8 +2057,9 @@ func (a *CallHandlingSettingsApiService) UnblockNumber(ctx context.Context, acco
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2019,7 +2070,7 @@ func (a *CallHandlingSettingsApiService) UnblockNumber(ctx context.Context, acco
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -2045,20 +2096,20 @@ func (a *CallHandlingSettingsApiService) UnblockNumber(ctx context.Context, acco
 }
 
 /* CallHandlingSettingsApiService Update Custom Call Handling Rule
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.24 (Release 8.0)&lt;/p&gt;&lt;p&gt;Updates a custom answering rule for a particular caller ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param ruleId Internal identifier of an answering rule
-@param body JSON body
-@return AnsweringRuleInfo*/
-func (a *CallHandlingSettingsApiService) UpdateAnsweringRuleInfo(ctx context.Context, accountId string, extensionId string, ruleId string, body UpdateAnsweringRuleRequest) (AnsweringRuleInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.24 (Release 8.0)&lt;/p&gt;&lt;p&gt;Updates a custom answering rule for a particular caller ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param ruleId Internal identifier of an answering rule
+ @param body JSON body
+ @return AnsweringRuleInfo*/
+func (a *CallHandlingSettingsApiService) UpdateAnsweringRuleInfo(ctx context.Context, accountId string, extensionId string, ruleId string, body UpdateAnsweringRuleRequest) (AnsweringRuleInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     AnsweringRuleInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  AnsweringRuleInfo
 	)
 
 	// create path and map variables
@@ -2071,8 +2122,9 @@ func (a *CallHandlingSettingsApiService) UpdateAnsweringRuleInfo(ctx context.Con
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2083,7 +2135,7 @@ func (a *CallHandlingSettingsApiService) UpdateAnsweringRuleInfo(ctx context.Con
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -2111,25 +2163,26 @@ func (a *CallHandlingSettingsApiService) UpdateAnsweringRuleInfo(ctx context.Con
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Update Blocked Number
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param blockedNumberId Internal identifier of a blocked number list entry
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "body" (BlockedNumberInfo)
-@return BlockedNumberInfo*/
-func (a *CallHandlingSettingsApiService) UpdateBlockedNumber(ctx context.Context, accountId string, extensionId string, blockedNumberId int32, localVarOptionals map[string]interface{}) (BlockedNumberInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param blockedNumberId Internal identifier of a blocked number list entry
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "body" (BlockedNumberInfo) 
+ @return BlockedNumberInfo*/
+func (a *CallHandlingSettingsApiService) UpdateBlockedNumber(ctx context.Context, accountId string, extensionId string, blockedNumberId int32, localVarOptionals map[string]interface{}) (BlockedNumberInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     BlockedNumberInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  BlockedNumberInfo
 	)
 
 	// create path and map variables
@@ -2142,8 +2195,9 @@ func (a *CallHandlingSettingsApiService) UpdateBlockedNumber(ctx context.Context
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2154,7 +2208,7 @@ func (a *CallHandlingSettingsApiService) UpdateBlockedNumber(ctx context.Context
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -2184,23 +2238,24 @@ func (a *CallHandlingSettingsApiService) UpdateBlockedNumber(ctx context.Context
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Update Company Call Handling Rule
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Updates a company answering rule.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param ruleId Internal identifier of an answering rule. The value can be standard digital ID or specific ID - either business-hours-rule or after-hours-rule
-@param body JSON body
-@return CompanyAnsweringRuleInfo*/
-func (a *CallHandlingSettingsApiService) UpdateCompanyAnsweringRuleInfo(ctx context.Context, accountId string, ruleId string, body CompanyAnsweringRuleUpdate) (CompanyAnsweringRuleInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Updates a company answering rule.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param ruleId Internal identifier of an answering rule. The value can be standard digital ID or specific ID - either business-hours-rule or after-hours-rule
+ @param body JSON body
+ @return CompanyAnsweringRuleInfo*/
+func (a *CallHandlingSettingsApiService) UpdateCompanyAnsweringRuleInfo(ctx context.Context, accountId string, ruleId string, body CompanyAnsweringRuleUpdate) (CompanyAnsweringRuleInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     CompanyAnsweringRuleInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  CompanyAnsweringRuleInfo
 	)
 
 	// create path and map variables
@@ -2212,8 +2267,9 @@ func (a *CallHandlingSettingsApiService) UpdateCompanyAnsweringRuleInfo(ctx cont
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2224,7 +2280,7 @@ func (a *CallHandlingSettingsApiService) UpdateCompanyAnsweringRuleInfo(ctx cont
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -2252,22 +2308,23 @@ func (a *CallHandlingSettingsApiService) UpdateCompanyAnsweringRuleInfo(ctx cont
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Update Company Business Hours
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.24 (Release 8.0)&lt;/p&gt;&lt;p&gt;Updates company hours when answering rules are to be applied.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param body JSON body
-@return CompanyBusinessHours*/
-func (a *CallHandlingSettingsApiService) UpdateCompanyBusinessHours(ctx context.Context, accountId string, body CompanyBusinessHoursUpdateRequest) (CompanyBusinessHours, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.24 (Release 8.0)&lt;/p&gt;&lt;p&gt;Updates company hours when answering rules are to be applied.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param body JSON body
+ @return CompanyBusinessHours*/
+func (a *CallHandlingSettingsApiService) UpdateCompanyBusinessHours(ctx context.Context, accountId string, body CompanyBusinessHoursUpdateRequest) (CompanyBusinessHours,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     CompanyBusinessHours
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  CompanyBusinessHours
 	)
 
 	// create path and map variables
@@ -2278,8 +2335,9 @@ func (a *CallHandlingSettingsApiService) UpdateCompanyBusinessHours(ctx context.
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2290,7 +2348,7 @@ func (a *CallHandlingSettingsApiService) UpdateCompanyBusinessHours(ctx context.
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -2318,24 +2376,25 @@ func (a *CallHandlingSettingsApiService) UpdateCompanyBusinessHours(ctx context.
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Update Forwarding Numbers
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.24 (Release 8.0)&lt;/p&gt;&lt;p&gt;Updates an existent forwarding number from the forwarding number list.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param forwardingNumberId Internal identifier of a forwarding number; returned in response in the id field
-@param body JSON body
-@return ForwardingNumberInfo*/
-func (a *CallHandlingSettingsApiService) UpdateExtensionForwardingNumber(ctx context.Context, accountId string, extensionId string, forwardingNumberId string, body UpdateForwardingNumberRequest) (ForwardingNumberInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.24 (Release 8.0)&lt;/p&gt;&lt;p&gt;Updates an existent forwarding number from the forwarding number list.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param forwardingNumberId Internal identifier of a forwarding number; returned in response in the id field
+ @param body JSON body
+ @return ForwardingNumberInfo*/
+func (a *CallHandlingSettingsApiService) UpdateExtensionForwardingNumber(ctx context.Context, accountId string, extensionId string, forwardingNumberId string, body UpdateForwardingNumberRequest) (ForwardingNumberInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     ForwardingNumberInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ForwardingNumberInfo
 	)
 
 	// create path and map variables
@@ -2348,8 +2407,9 @@ func (a *CallHandlingSettingsApiService) UpdateExtensionForwardingNumber(ctx con
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2360,7 +2420,7 @@ func (a *CallHandlingSettingsApiService) UpdateExtensionForwardingNumber(ctx con
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -2388,23 +2448,24 @@ func (a *CallHandlingSettingsApiService) UpdateExtensionForwardingNumber(ctx con
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* CallHandlingSettingsApiService Update User Business Hours
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Updates the extension user hours when answering rules are to be applied.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param body JSON body
-@return UserBusinessHoursUpdate*/
-func (a *CallHandlingSettingsApiService) UpdateUserBusinessHours(ctx context.Context, accountId string, extensionId string, body UserBusinessHoursUpdateRequest) (UserBusinessHoursUpdate, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Updates the extension user hours when answering rules are to be applied.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param body JSON body
+ @return UserBusinessHoursUpdate*/
+func (a *CallHandlingSettingsApiService) UpdateUserBusinessHours(ctx context.Context, accountId string, extensionId string, body UserBusinessHoursUpdateRequest) (UserBusinessHoursUpdate,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     UserBusinessHoursUpdate
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  UserBusinessHoursUpdate
 	)
 
 	// create path and map variables
@@ -2416,8 +2477,9 @@ func (a *CallHandlingSettingsApiService) UpdateUserBusinessHours(ctx context.Con
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2428,7 +2490,7 @@ func (a *CallHandlingSettingsApiService) UpdateUserBusinessHours(ctx context.Con
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -2456,5 +2518,7 @@ func (a *CallHandlingSettingsApiService) UpdateUserBusinessHours(ctx context.Con
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
+

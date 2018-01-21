@@ -10,5 +10,6 @@
 package ringcentral
 
 type CfaSettingsResource struct {
+
 	Views []CfaView `json:"views,omitempty"`
 }

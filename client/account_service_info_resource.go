@@ -10,6 +10,7 @@
 package ringcentral
 
 type AccountServiceInfoResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	ServicePlanName string `json:"servicePlanName,omitempty"`

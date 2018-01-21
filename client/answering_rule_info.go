@@ -14,7 +14,7 @@ type AnsweringRuleInfo struct {
 	// Canonical URI to the answering rule resource
 	Uri string `json:"uri,omitempty"`
 
-	// Internal identifier of an asnwering rule
+	// Internal identifier of an answering rule
 	Id string `json:"id,omitempty"`
 
 	// Type of an answering rule

@@ -10,5 +10,6 @@
 package ringcentral
 
 type RingOutPhoneNumberInfo struct {
+
 	PhoneNumber string `json:"phoneNumber,omitempty"`
 }

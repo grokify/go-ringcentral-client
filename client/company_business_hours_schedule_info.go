@@ -10,5 +10,6 @@
 package ringcentral
 
 type CompanyBusinessHoursScheduleInfo struct {
+
 	WeeklyRanges *WeeklyScheduleInfo `json:"weeklyRanges,omitempty"`
 }

@@ -10,6 +10,7 @@
 package ringcentral
 
 type PathPattern struct {
+
 	Regex string `json:"regex,omitempty"`
 
 	GroupIndexes []int32 `json:"groupIndexes,omitempty"`

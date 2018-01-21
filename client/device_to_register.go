@@ -10,6 +10,7 @@
 package ringcentral
 
 type DeviceToRegister struct {
+
 	Id string `json:"id,omitempty"`
 
 	ComputerName string `json:"computerName,omitempty"`

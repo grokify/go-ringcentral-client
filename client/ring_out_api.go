@@ -10,13 +10,13 @@
 package ringcentral
 
 import (
+	"io/ioutil"
+	"net/url"
+	"net/http"
+	"strings"
+	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
-	"golang.org/x/net/context"
-	"io/ioutil"
-	"net/http"
-	"net/url"
-	"strings"
 )
 
 // Linger please
@@ -26,19 +26,20 @@ var (
 
 type RingOutApiService service
 
+
 /* RingOutApiService Cancel RingOut Call
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Cancels the 2-leg RingOut call.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RingOut&lt;/td&gt;&lt;td&gt;Performing two-legged ring-out phone calls&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param ringoutId Internal identifier of a RingOut call
-@return */
-func (a *RingOutApiService) CancelRingOutCall(ctx context.Context, accountId string, extensionId string, ringoutId int32) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Cancels the 2-leg RingOut call.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RingOut&lt;/td&gt;&lt;td&gt;Performing two-legged ring-out phone calls&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param ringoutId Internal identifier of a RingOut call
+ @return */
+func (a *RingOutApiService) CancelRingOutCall(ctx context.Context, accountId string, extensionId string, ringoutId int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -51,8 +52,9 @@ func (a *RingOutApiService) CancelRingOutCall(ctx context.Context, accountId str
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -63,7 +65,7 @@ func (a *RingOutApiService) CancelRingOutCall(ctx context.Context, accountId str
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -89,18 +91,18 @@ func (a *RingOutApiService) CancelRingOutCall(ctx context.Context, accountId str
 }
 
 /* RingOutApiService Cancel RingOut Call
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Cancels the 2-leg RingOut call.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RingOut&lt;/td&gt;&lt;td&gt;Performing two-legged ring-out phone calls&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param ringoutId Internal identifier of a RingOut call
-@return */
-func (a *RingOutApiService) CancelRingOutCallNew(ctx context.Context, accountId string, extensionId string, ringoutId int32) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Cancels the 2-leg RingOut call.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RingOut&lt;/td&gt;&lt;td&gt;Performing two-legged ring-out phone calls&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param ringoutId Internal identifier of a RingOut call
+ @return */
+func (a *RingOutApiService) CancelRingOutCallNew(ctx context.Context, accountId string, extensionId string, ringoutId int32) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -113,8 +115,9 @@ func (a *RingOutApiService) CancelRingOutCallNew(ctx context.Context, accountId 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -125,7 +128,7 @@ func (a *RingOutApiService) CancelRingOutCallNew(ctx context.Context, accountId 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -150,19 +153,19 @@ func (a *RingOutApiService) CancelRingOutCallNew(ctx context.Context, accountId 
 	return localVarHttpResponse, err
 }
 
-/* RingOutApiService
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param extensionId
-@param accountId
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "body" (RingOutResource)
-@return */
-func (a *RingOutApiService) CreateDirectRingOut(ctx context.Context, extensionId string, accountId string, localVarOptionals map[string]interface{}) (*http.Response, error) {
+/* RingOutApiService 
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param extensionId 
+ @param accountId 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "body" (RingOutResource) 
+ @return */
+func (a *RingOutApiService) CreateDirectRingOut(ctx context.Context, extensionId string, accountId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -174,8 +177,9 @@ func (a *RingOutApiService) CreateDirectRingOut(ctx context.Context, extensionId
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -186,7 +190,7 @@ func (a *RingOutApiService) CreateDirectRingOut(ctx context.Context, extensionId
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -216,18 +220,18 @@ func (a *RingOutApiService) CreateDirectRingOut(ctx context.Context, extensionId
 }
 
 /* RingOutApiService Make Direct RingOut Call
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param extensionId
-@param accountId
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "body" (RingOutResource)
-@return */
-func (a *RingOutApiService) CreateDirectRingOutNew(ctx context.Context, extensionId string, accountId string, localVarOptionals map[string]interface{}) (*http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param extensionId 
+ @param accountId 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "body" (RingOutResource) 
+ @return */
+func (a *RingOutApiService) CreateDirectRingOutNew(ctx context.Context, extensionId string, accountId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -239,8 +243,9 @@ func (a *RingOutApiService) CreateDirectRingOutNew(ctx context.Context, extensio
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -251,7 +256,7 @@ func (a *RingOutApiService) CreateDirectRingOutNew(ctx context.Context, extensio
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -281,19 +286,19 @@ func (a *RingOutApiService) CreateDirectRingOutNew(ctx context.Context, extensio
 }
 
 /* RingOutApiService Get Status of RingOut Call
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.7 (Release 5.16)&lt;/p&gt;&lt;p&gt;Returns the status of a 2-leg RingOut call.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RingOut&lt;/td&gt;&lt;td&gt;Performing two-legged ring-out phone calls&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param ringoutId Internal identifier of a RingOut call
-@return GetRingOutStatusResponse*/
-func (a *RingOutApiService) GetRingOutCallStatus(ctx context.Context, accountId string, extensionId string, ringoutId int32) (GetRingOutStatusResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.7 (Release 5.16)&lt;/p&gt;&lt;p&gt;Returns the status of a 2-leg RingOut call.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RingOut&lt;/td&gt;&lt;td&gt;Performing two-legged ring-out phone calls&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param ringoutId Internal identifier of a RingOut call
+ @return GetRingOutStatusResponse*/
+func (a *RingOutApiService) GetRingOutCallStatus(ctx context.Context, accountId string, extensionId string, ringoutId int32) (GetRingOutStatusResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetRingOutStatusResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetRingOutStatusResponse
 	)
 
 	// create path and map variables
@@ -306,8 +311,9 @@ func (a *RingOutApiService) GetRingOutCallStatus(ctx context.Context, accountId 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -318,7 +324,7 @@ func (a *RingOutApiService) GetRingOutCallStatus(ctx context.Context, accountId 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -344,23 +350,24 @@ func (a *RingOutApiService) GetRingOutCallStatus(ctx context.Context, accountId 
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RingOutApiService Get Status of RingOut Call
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.7 (Release 5.16)&lt;/p&gt;&lt;p&gt;Returns the status of a 2-leg RingOut call.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RingOut&lt;/td&gt;&lt;td&gt;Performing two-legged ring-out phone calls&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param ringoutId Internal identifier of a RingOut call
-@return GetRingOutStatusResponse*/
-func (a *RingOutApiService) GetRingOutCallStatusNew(ctx context.Context, accountId string, extensionId string, ringoutId int32) (GetRingOutStatusResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.7 (Release 5.16)&lt;/p&gt;&lt;p&gt;Returns the status of a 2-leg RingOut call.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RingOut&lt;/td&gt;&lt;td&gt;Performing two-legged ring-out phone calls&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param ringoutId Internal identifier of a RingOut call
+ @return GetRingOutStatusResponse*/
+func (a *RingOutApiService) GetRingOutCallStatusNew(ctx context.Context, accountId string, extensionId string, ringoutId int32) (GetRingOutStatusResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetRingOutStatusResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetRingOutStatusResponse
 	)
 
 	// create path and map variables
@@ -373,8 +380,9 @@ func (a *RingOutApiService) GetRingOutCallStatusNew(ctx context.Context, account
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -385,7 +393,7 @@ func (a *RingOutApiService) GetRingOutCallStatusNew(ctx context.Context, account
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -411,23 +419,24 @@ func (a *RingOutApiService) GetRingOutCallStatusNew(ctx context.Context, account
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RingOutApiService Make RingOut Call
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.7 (Release 5.16)&lt;/p&gt;&lt;p&gt;Makes a 2-leg RingOut call.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RingOut&lt;/td&gt;&lt;td&gt;Performing two-legged ring-out phone calls&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param body JSON body
-@return GetRingOutStatusResponse*/
-func (a *RingOutApiService) MakeRingOutCall(ctx context.Context, accountId string, extensionId string, body MakeRingOutRequest) (GetRingOutStatusResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.7 (Release 5.16)&lt;/p&gt;&lt;p&gt;Makes a 2-leg RingOut call.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RingOut&lt;/td&gt;&lt;td&gt;Performing two-legged ring-out phone calls&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param body JSON body
+ @return GetRingOutStatusResponse*/
+func (a *RingOutApiService) MakeRingOutCall(ctx context.Context, accountId string, extensionId string, body MakeRingOutRequest) (GetRingOutStatusResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetRingOutStatusResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetRingOutStatusResponse
 	)
 
 	// create path and map variables
@@ -439,8 +448,9 @@ func (a *RingOutApiService) MakeRingOutCall(ctx context.Context, accountId strin
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -451,7 +461,7 @@ func (a *RingOutApiService) MakeRingOutCall(ctx context.Context, accountId strin
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -479,23 +489,24 @@ func (a *RingOutApiService) MakeRingOutCall(ctx context.Context, accountId strin
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RingOutApiService Make RingOut Call
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.7 (Release 5.16)&lt;/p&gt;&lt;p&gt;Makes a 2-leg RingOut call.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RingOut&lt;/td&gt;&lt;td&gt;Performing two-legged ring-out phone calls&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param body JSON body
-@return GetRingOutStatusResponse*/
-func (a *RingOutApiService) MakeRingOutCallNew(ctx context.Context, accountId string, extensionId string, body MakeRingOutRequest) (GetRingOutStatusResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.7 (Release 5.16)&lt;/p&gt;&lt;p&gt;Makes a 2-leg RingOut call.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RingOut&lt;/td&gt;&lt;td&gt;Performing two-legged ring-out phone calls&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param body JSON body
+ @return GetRingOutStatusResponse*/
+func (a *RingOutApiService) MakeRingOutCallNew(ctx context.Context, accountId string, extensionId string, body MakeRingOutRequest) (GetRingOutStatusResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetRingOutStatusResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetRingOutStatusResponse
 	)
 
 	// create path and map variables
@@ -507,8 +518,9 @@ func (a *RingOutApiService) MakeRingOutCallNew(ctx context.Context, accountId st
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -519,7 +531,7 @@ func (a *RingOutApiService) MakeRingOutCallNew(ctx context.Context, accountId st
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -547,5 +559,7 @@ func (a *RingOutApiService) MakeRingOutCallNew(ctx context.Context, accountId st
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
+

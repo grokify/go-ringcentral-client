@@ -10,6 +10,7 @@
 package ringcentral
 
 type MeetingExternalUserInfoResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	UserId string `json:"userId,omitempty"`

@@ -10,6 +10,7 @@
 package ringcentral
 
 type BusinessHoursResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Schedule *ScheduleResource `json:"schedule,omitempty"`

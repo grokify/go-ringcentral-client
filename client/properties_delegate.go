@@ -10,5 +10,6 @@
 package ringcentral
 
 type PropertiesDelegate struct {
+
 	PropertyNames []string `json:"propertyNames,omitempty"`
 }

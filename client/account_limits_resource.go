@@ -10,6 +10,7 @@
 package ringcentral
 
 type AccountLimitsResource struct {
+
 	FreeSoftPhoneLinesPerExtension int32 `json:"freeSoftPhoneLinesPerExtension,omitempty"`
 
 	MeetingSize int32 `json:"meetingSize,omitempty"`

@@ -10,6 +10,7 @@
 package ringcentral
 
 type Features struct {
+
 	Voip *Feature `json:"voip,omitempty"`
 
 	RingOut *Feature `json:"ringOut,omitempty"`

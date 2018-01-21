@@ -10,6 +10,7 @@
 package ringcentral
 
 type CfaAttachments struct {
+
 	Csv bool `json:"csv,omitempty"`
 
 	Pdf bool `json:"pdf,omitempty"`

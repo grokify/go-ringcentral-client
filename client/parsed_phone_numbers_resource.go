@@ -10,6 +10,7 @@
 package ringcentral
 
 type ParsedPhoneNumbersResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	HomeCountry *HomeCountryResource `json:"homeCountry,omitempty"`

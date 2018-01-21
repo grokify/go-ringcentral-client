@@ -10,6 +10,7 @@
 package ringcentral
 
 type MonitoringExtensionsResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []MonitoringExtensionResource `json:"records,omitempty"`

@@ -10,6 +10,7 @@
 package ringcentral
 
 type PresenceLinesNavigationResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []PresenceLineResource `json:"records,omitempty"`

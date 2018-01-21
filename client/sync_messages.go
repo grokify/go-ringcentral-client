@@ -10,6 +10,7 @@
 package ringcentral
 
 type SyncMessages struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []MessageInfoResource `json:"records,omitempty"`

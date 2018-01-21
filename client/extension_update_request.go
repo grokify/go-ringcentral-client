@@ -10,6 +10,7 @@
 package ringcentral
 
 type ExtensionUpdateRequest struct {
+
 	Status string `json:"status,omitempty"`
 
 	StatusInfo *ExtensionStatusInfo `json:"statusInfo,omitempty"`

@@ -10,6 +10,7 @@
 package ringcentral
 
 type ExtensionUserGroupsResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Groups []UserGroupIdResource `json:"groups,omitempty"`

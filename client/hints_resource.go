@@ -10,6 +10,7 @@
 package ringcentral
 
 type HintsResource struct {
+
 	UserCredentialState *HintResource `json:"userCredentialState,omitempty"`
 
 	TrialState *HintResource `json:"trialState,omitempty"`

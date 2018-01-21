@@ -11,7 +11,7 @@ package ringcentral
 
 type CompanyBusinessHours struct {
 
-	// Canonical URI of a business-hours resource
+	// Canonical URI of a business-hours resource 
 	Uri string `json:"uri,omitempty"`
 
 	// Schedule when an answering rule is applied

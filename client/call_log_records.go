@@ -10,6 +10,7 @@
 package ringcentral
 
 type CallLogRecords struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []CallLogRecordResource `json:"records,omitempty"`
