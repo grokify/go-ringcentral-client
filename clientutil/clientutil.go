@@ -7,6 +7,8 @@ import (
 	"github.com/joho/godotenv"
 
 	rc "github.com/grokify/go-ringcentral/client"
+	rs "github.com/grokify/go-scim-client"
+	"github.com/grokify/gotilla/net/urlutil"
 	ro "github.com/grokify/oauth2more/ringcentral"
 )
 
@@ -32,14 +34,20 @@ func NewApiClient(app ro.ApplicationCredentials, user ro.UserCredentials) (*rc.A
 
 func NewApiClientEnv() (*rc.APIClient, error) {
 	return NewApiClient(
-		ro.ApplicationCredentials{
-			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
-			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
-			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET")},
-		ro.UserCredentials{
-			Username:  os.Getenv("RINGCENTRAL_USERNAME"),
-			Extension: os.Getenv("RINGCENTRAL_EXTENSION"),
-			Password:  os.Getenv("RINGCENTRAL_PASSWORD")})
+		ro.NewApplicationCredentialsEnv(),
+		ro.NewUserCredentialsEnv())
+}
+
+func NewScimApiClient(app ro.ApplicationCredentials, user ro.UserCredentials) (*rs.APIClient, error) {
+	httpClient, err := ro.NewClientPassword(app, user)
+	if err != nil {
+		return nil, err
+	}
+	apiConfig := rs.NewConfiguration()
+	apiConfig.BasePath = urlutil.JoinAbsolute(app.ServerURL, "/scim/v2")
+	apiConfig.HTTPClient = httpClient
+	apiClient := rs.NewAPIClient(apiConfig)
+	return apiClient, nil
 }
 
 type Event struct {

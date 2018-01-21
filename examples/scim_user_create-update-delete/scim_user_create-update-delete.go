@@ -21,10 +21,6 @@ func loadEnv() error {
 	return godotenv.Load(envPaths...)
 }
 
-func testRetrieveUsers() {
-
-}
-
 type ScimApiUtil struct {
 	ApiClient *rc.APIClient
 	Context   context.Context
@@ -95,13 +91,15 @@ func main() {
 	}
 
 	params := rc.UserUpdateRequest{
-		Schemas: []string{"urn:ietf:params:scim:schemas:core:2.0:User"},
+		Schemas:  []string{"urn:ietf:params:scim:schemas:core:2.0:User"},
+		UserName: "JonSnow",
+		Emails:   "jon.snow@winterfell.gov",
+		Active:   true,
 		Addresses: []rc.AddressInfoRequest{
 			{
-				StreetAddress: "100 Main St.",
-				Locality:      "South Park",
-				Region:        "Colorado",
-				Country:       "US",
+				Locality: "Winterfell",
+				Region:   "The North",
+				Country:  "Seven Kingdoms",
 			},
 		},
 	}
