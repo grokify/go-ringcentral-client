@@ -10,14 +10,14 @@
 package ringcentral
 
 import (
-	"io/ioutil"
-	"net/url"
-	"net/http"
-	"strings"
-	"golang.org/x/net/context"
-	"os"
 	"encoding/json"
 	"fmt"
+	"golang.org/x/net/context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"os"
+	"strings"
 )
 
 // Linger please
@@ -27,22 +27,21 @@ var (
 
 type GlipApiService service
 
-
 /* GlipApiService Upload File
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Posts a file.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param body The file to upload
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "groupId" (string) Internal identifier of a group the post with file attached will be added to
-     @param "name" (string) Name of a file attached
- @return PostGlipFile*/
-func (a *GlipApiService) CreateGlipFile(ctx context.Context, body *os.File, localVarOptionals map[string]interface{}) (PostGlipFile,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Posts a file.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param localVarFile The file to upload
+@param optional (nil or map[string]interface{}) with one or more of:
+@param "groupId" (string) Internal identifier of a group the post with file attached will be added to
+@param "name" (string) Name of a file attached
+@return PostGlipFile*/
+func (a *GlipApiService) CreateGlipFile(ctx context.Context, localVarFile *os.File, localVarOptionals map[string]interface{}) (PostGlipFile, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  PostGlipFile
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     PostGlipFile
 	)
 
 	// create path and map variables
@@ -63,7 +62,7 @@ func (a *GlipApiService) CreateGlipFile(ctx context.Context, body *os.File, loca
 		localVarQueryParams.Add("groupId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "multipart/form-data",  }
+	localVarHttpContentTypes := []string{"multipart/form-data"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -74,7 +73,7 @@ func (a *GlipApiService) CreateGlipFile(ctx context.Context, body *os.File, loca
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -109,22 +108,21 @@ func (a *GlipApiService) CreateGlipFile(ctx context.Context, body *os.File, loca
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* GlipApiService Create Group
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Creates a group.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param body JSON body
- @return GlipGroupInfo*/
-func (a *GlipApiService) CreateGroup(ctx context.Context, body GlipCreateGroup) (GlipGroupInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Creates a group.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param body JSON body
+@return GlipGroupInfo*/
+func (a *GlipApiService) CreateGroup(ctx context.Context, body GlipCreateGroup) (GlipGroupInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GlipGroupInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GlipGroupInfo
 	)
 
 	// create path and map variables
@@ -134,9 +132,8 @@ func (a *GlipApiService) CreateGroup(ctx context.Context, body GlipCreateGroup) 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -147,7 +144,7 @@ func (a *GlipApiService) CreateGroup(ctx context.Context, body GlipCreateGroup) 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -175,23 +172,22 @@ func (a *GlipApiService) CreateGroup(ctx context.Context, body GlipCreateGroup) 
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* GlipApiService Create Post
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Creates a post.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param groupId Id of a group to send post
- @param body JSON body
- @return GlipPostInfo*/
-func (a *GlipApiService) CreatePost(ctx context.Context, groupId string, body GlipCreatePost) (GlipPostInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Creates a post.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param groupId Id of a group to send post
+@param body JSON body
+@return GlipPostInfo*/
+func (a *GlipApiService) CreatePost(ctx context.Context, groupId string, body GlipCreatePost) (GlipPostInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GlipPostInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GlipPostInfo
 	)
 
 	// create path and map variables
@@ -202,9 +198,8 @@ func (a *GlipApiService) CreatePost(ctx context.Context, groupId string, body Gl
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -215,7 +210,7 @@ func (a *GlipApiService) CreatePost(ctx context.Context, groupId string, body Gl
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -243,22 +238,21 @@ func (a *GlipApiService) CreatePost(ctx context.Context, groupId string, body Gl
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* GlipApiService Get Company Info
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns a company by ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param companyId Internal identifier of an RC account/Glip company, or tilde (~) to indicate a company the current user belongs to
- @return GlipCompany*/
-func (a *GlipApiService) LoadCompany(ctx context.Context, companyId string) (GlipCompany,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns a company by ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param companyId Internal identifier of an RC account/Glip company, or tilde (~) to indicate a company the current user belongs to
+@return GlipCompany*/
+func (a *GlipApiService) LoadCompany(ctx context.Context, companyId string) (GlipCompany, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GlipCompany
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GlipCompany
 	)
 
 	// create path and map variables
@@ -269,9 +263,8 @@ func (a *GlipApiService) LoadCompany(ctx context.Context, companyId string) (Gli
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -282,7 +275,7 @@ func (a *GlipApiService) LoadCompany(ctx context.Context, companyId string) (Gli
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -308,22 +301,21 @@ func (a *GlipApiService) LoadCompany(ctx context.Context, companyId string) (Gli
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* GlipApiService Get File Info
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns a file.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param fileId Internal identifier of file.
- @return PostGlipFile*/
-func (a *GlipApiService) LoadGlipFile(ctx context.Context, fileId string) (PostGlipFile,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns a file.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param fileId Internal identifier of file.
+@return PostGlipFile*/
+func (a *GlipApiService) LoadGlipFile(ctx context.Context, fileId string) (PostGlipFile, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  PostGlipFile
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     PostGlipFile
 	)
 
 	// create path and map variables
@@ -334,9 +326,8 @@ func (a *GlipApiService) LoadGlipFile(ctx context.Context, fileId string) (PostG
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -347,7 +338,7 @@ func (a *GlipApiService) LoadGlipFile(ctx context.Context, fileId string) (PostG
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -373,22 +364,21 @@ func (a *GlipApiService) LoadGlipFile(ctx context.Context, fileId string) (PostG
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* GlipApiService Get Group
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns a group or few groups by ID(s). Batch request is supported.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param groupId Internal identifier of a group to be returned, the maximum number of IDs is 30
- @return GlipGroupInfo*/
-func (a *GlipApiService) LoadGroup(ctx context.Context, groupId string) (GlipGroupInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns a group or few groups by ID(s). Batch request is supported.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param groupId Internal identifier of a group to be returned, the maximum number of IDs is 30
+@return GlipGroupInfo*/
+func (a *GlipApiService) LoadGroup(ctx context.Context, groupId string) (GlipGroupInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GlipGroupInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GlipGroupInfo
 	)
 
 	// create path and map variables
@@ -399,9 +389,8 @@ func (a *GlipApiService) LoadGroup(ctx context.Context, groupId string) (GlipGro
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -412,7 +401,7 @@ func (a *GlipApiService) LoadGroup(ctx context.Context, groupId string) (GlipGro
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -438,25 +427,24 @@ func (a *GlipApiService) LoadGroup(ctx context.Context, groupId string) (GlipGro
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* GlipApiService Get User Groups
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns the list of groups associated with the user.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "type_" ([]string) Type of a group. &#39;PrivateChat&#39; is a group of 2 members. &#39;Group&#39; is a chat of 2 and more participants, the membership cannot be changed after group creation. &#39;Team&#39; is a chat of 1 and more participants, the membership can be modified in future
-     @param "pageToken" (string) Token of a page to be returned, see Glip Navigation Info
-     @param "recordCount" (int64) Max numbers of records to be returned. The default/maximum value is 250
- @return GlipGroupList*/
-func (a *GlipApiService) LoadGroupList(ctx context.Context, localVarOptionals map[string]interface{}) (GlipGroupList,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns the list of groups associated with the user.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "type_" ([]string) Type of a group. &#39;PrivateChat&#39; is a group of 2 members. &#39;Group&#39; is a chat of 2 and more participants, the membership cannot be changed after group creation. &#39;Team&#39; is a chat of 1 and more participants, the membership can be modified in future
+    @param "pageToken" (string) Token of a page to be returned, see Glip Navigation Info
+    @param "recordCount" (int64) Max numbers of records to be returned. The default/maximum value is 250
+@return GlipGroupList*/
+func (a *GlipApiService) LoadGroupList(ctx context.Context, localVarOptionals map[string]interface{}) (GlipGroupList, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GlipGroupList
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GlipGroupList
 	)
 
 	// create path and map variables
@@ -483,7 +471,7 @@ func (a *GlipApiService) LoadGroupList(ctx context.Context, localVarOptionals ma
 		localVarQueryParams.Add("recordCount", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -494,7 +482,7 @@ func (a *GlipApiService) LoadGroupList(ctx context.Context, localVarOptionals ma
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -520,22 +508,21 @@ func (a *GlipApiService) LoadGroupList(ctx context.Context, localVarOptionals ma
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* GlipApiService Get Person
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns a user or few users by ID(s). Batch request is supported.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param personId Internal identifier of a user to be returned, the maximum number of IDs is 30
- @return GlipPersonInfo*/
-func (a *GlipApiService) LoadPerson(ctx context.Context, personId string) (GlipPersonInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns a user or few users by ID(s). Batch request is supported.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param personId Internal identifier of a user to be returned, the maximum number of IDs is 30
+@return GlipPersonInfo*/
+func (a *GlipApiService) LoadPerson(ctx context.Context, personId string) (GlipPersonInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GlipPersonInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GlipPersonInfo
 	)
 
 	// create path and map variables
@@ -546,9 +533,8 @@ func (a *GlipApiService) LoadPerson(ctx context.Context, personId string) (GlipP
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -559,7 +545,7 @@ func (a *GlipApiService) LoadPerson(ctx context.Context, personId string) (GlipP
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -585,25 +571,24 @@ func (a *GlipApiService) LoadPerson(ctx context.Context, personId string) (GlipP
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* GlipApiService Get Posts
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns list of posts.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param groupId Identifier of a group to filter posts
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "pageToken" (string) Token of a page to be returned, see Glip Navigation Info
-     @param "recordCount" (int64) Max numbers of records to be returned. The default/maximum value is 250
- @return GlipPosts*/
-func (a *GlipApiService) LoadPosts(ctx context.Context, groupId string, localVarOptionals map[string]interface{}) (GlipPosts,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns list of posts.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param groupId Identifier of a group to filter posts
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "pageToken" (string) Token of a page to be returned, see Glip Navigation Info
+    @param "recordCount" (int64) Max numbers of records to be returned. The default/maximum value is 250
+@return GlipPosts*/
+func (a *GlipApiService) LoadPosts(ctx context.Context, groupId string, localVarOptionals map[string]interface{}) (GlipPosts, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GlipPosts
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GlipPosts
 	)
 
 	// create path and map variables
@@ -628,7 +613,7 @@ func (a *GlipApiService) LoadPosts(ctx context.Context, groupId string, localVar
 		localVarQueryParams.Add("recordCount", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -639,7 +624,7 @@ func (a *GlipApiService) LoadPosts(ctx context.Context, groupId string, localVar
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -665,23 +650,22 @@ func (a *GlipApiService) LoadPosts(ctx context.Context, groupId string, localVar
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* GlipApiService Glip Unread Message Count
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.30 (Release 9.1)&lt;/p&gt;&lt;p&gt;Returns Glip unread message count.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "fields" (string) List of attributes to be returned. To return unread message count &#39;unreadPostsCount&#39; and &#39;tooManyUnreadPosts&#39; should be specified
- @return GlipUnreadMessageCount*/
-func (a *GlipApiService) LoadUnreadMessageCount(ctx context.Context, localVarOptionals map[string]interface{}) (GlipUnreadMessageCount,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.30 (Release 9.1)&lt;/p&gt;&lt;p&gt;Returns Glip unread message count.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "fields" (string) List of attributes to be returned. To return unread message count &#39;unreadPostsCount&#39; and &#39;tooManyUnreadPosts&#39; should be specified
+@return GlipUnreadMessageCount*/
+func (a *GlipApiService) LoadUnreadMessageCount(ctx context.Context, localVarOptionals map[string]interface{}) (GlipUnreadMessageCount, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GlipUnreadMessageCount
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GlipUnreadMessageCount
 	)
 
 	// create path and map variables
@@ -699,7 +683,7 @@ func (a *GlipApiService) LoadUnreadMessageCount(ctx context.Context, localVarOpt
 		localVarQueryParams.Add("fields", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -710,7 +694,7 @@ func (a *GlipApiService) LoadUnreadMessageCount(ctx context.Context, localVarOpt
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -736,23 +720,22 @@ func (a *GlipApiService) LoadUnreadMessageCount(ctx context.Context, localVarOpt
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* GlipApiService Edit Group Members
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Updates group members. Please note: Only groups of &#39;Team&#39; type can be updated. Currently only one operation at a time (either adding or removal) is supported.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param groupId Internal identifier of a group to be edited
- @param body JSON body
- @return GlipGroupInfo*/
-func (a *GlipApiService) UpdateGroup(ctx context.Context, groupId string, body EditGroupRequest) (GlipGroupInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Updates group members. Please note: Only groups of &#39;Team&#39; type can be updated. Currently only one operation at a time (either adding or removal) is supported.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param groupId Internal identifier of a group to be edited
+@param body JSON body
+@return GlipGroupInfo*/
+func (a *GlipApiService) UpdateGroup(ctx context.Context, groupId string, body EditGroupRequest) (GlipGroupInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GlipGroupInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GlipGroupInfo
 	)
 
 	// create path and map variables
@@ -763,9 +746,8 @@ func (a *GlipApiService) UpdateGroup(ctx context.Context, groupId string, body E
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -776,7 +758,7 @@ func (a *GlipApiService) UpdateGroup(ctx context.Context, groupId string, body E
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -804,7 +786,5 @@ func (a *GlipApiService) UpdateGroup(ctx context.Context, groupId string, body E
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
-

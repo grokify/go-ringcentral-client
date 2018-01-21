@@ -10,14 +10,14 @@
 package ringcentral
 
 import (
-	"io/ioutil"
-	"net/url"
-	"net/http"
-	"strings"
-	"golang.org/x/net/context"
-	"os"
 	"encoding/json"
 	"fmt"
+	"golang.org/x/net/context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"os"
+	"strings"
 )
 
 // Linger please
@@ -27,19 +27,18 @@ var (
 
 type UserSettingsApiService service
 
-
 /* UserSettingsApiService Delete Extension
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Deletes extension(s) by ID(s).&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param extensionId 
- @param accountId 
- @return */
-func (a *UserSettingsApiService) DeleteExtension(ctx context.Context, extensionId string, accountId string) ( *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Deletes extension(s) by ID(s).&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param extensionId
+@param accountId
+@return */
+func (a *UserSettingsApiService) DeleteExtension(ctx context.Context, extensionId string, accountId string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 	)
 
 	// create path and map variables
@@ -51,9 +50,8 @@ func (a *UserSettingsApiService) DeleteExtension(ctx context.Context, extensionI
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -64,7 +62,7 @@ func (a *UserSettingsApiService) DeleteExtension(ctx context.Context, extensionI
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -90,18 +88,18 @@ func (a *UserSettingsApiService) DeleteExtension(ctx context.Context, extensionI
 }
 
 /* UserSettingsApiService Get User Profile Image
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.20 (Release 7.4)&lt;/p&gt;&lt;p&gt;Returns the extension profile image.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param extensionId 
- @param accountId 
- @return Binary*/
-func (a *UserSettingsApiService) DownloadImage(ctx context.Context, extensionId string, accountId string) (Binary,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.20 (Release 7.4)&lt;/p&gt;&lt;p&gt;Returns the extension profile image.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param extensionId
+@param accountId
+@return Binary*/
+func (a *UserSettingsApiService) DownloadImage(ctx context.Context, extensionId string, accountId string) (Binary, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  Binary
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     Binary
 	)
 
 	// create path and map variables
@@ -113,9 +111,8 @@ func (a *UserSettingsApiService) DownloadImage(ctx context.Context, extensionId 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -129,7 +126,7 @@ func (a *UserSettingsApiService) DownloadImage(ctx context.Context, extensionId 
 		"image/png",
 		"image/jpeg",
 		"image/gif",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -155,23 +152,22 @@ func (a *UserSettingsApiService) DownloadImage(ctx context.Context, extensionId 
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Get Notification Settings
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.26 (Release 8.2)&lt;/p&gt;&lt;p&gt;Returns notification settings for the current extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
- @return NotificationSettings*/
-func (a *UserSettingsApiService) GetNotificationSettings(ctx context.Context, accountId string, extensionId string) (NotificationSettings,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.26 (Release 8.2)&lt;/p&gt;&lt;p&gt;Returns notification settings for the current extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@return NotificationSettings*/
+func (a *UserSettingsApiService) GetNotificationSettings(ctx context.Context, accountId string, extensionId string) (NotificationSettings, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  NotificationSettings
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     NotificationSettings
 	)
 
 	// create path and map variables
@@ -183,9 +179,8 @@ func (a *UserSettingsApiService) GetNotificationSettings(ctx context.Context, ac
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -196,7 +191,7 @@ func (a *UserSettingsApiService) GetNotificationSettings(ctx context.Context, ac
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -222,26 +217,25 @@ func (a *UserSettingsApiService) GetNotificationSettings(ctx context.Context, ac
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Get Extension Grants
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns the list of extension grants.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
- @return GetExtensionGrantListResponse*/
-func (a *UserSettingsApiService) ListExtensionGrants(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (GetExtensionGrantListResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns the list of extension grants.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+@return GetExtensionGrantListResponse*/
+func (a *UserSettingsApiService) ListExtensionGrants(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (GetExtensionGrantListResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetExtensionGrantListResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetExtensionGrantListResponse
 	)
 
 	// create path and map variables
@@ -267,7 +261,7 @@ func (a *UserSettingsApiService) ListExtensionGrants(ctx context.Context, accoun
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -278,7 +272,7 @@ func (a *UserSettingsApiService) ListExtensionGrants(ctx context.Context, accoun
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -304,25 +298,24 @@ func (a *UserSettingsApiService) ListExtensionGrants(ctx context.Context, accoun
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Get Secret Questions
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.20 (Release 7.4)&lt;/p&gt;&lt;p&gt;Returns the list of secret questions for a specific language.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "signupOnly" (bool) 
-     @param "page" (string) 
-     @param "perPage" (string) 
- @return GetSecretQuestionListResponse*/
-func (a *UserSettingsApiService) ListSecretQuestions(ctx context.Context, localVarOptionals map[string]interface{}) (GetSecretQuestionListResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.20 (Release 7.4)&lt;/p&gt;&lt;p&gt;Returns the list of secret questions for a specific language.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "signupOnly" (bool)
+    @param "page" (string)
+    @param "perPage" (string)
+@return GetSecretQuestionListResponse*/
+func (a *UserSettingsApiService) ListSecretQuestions(ctx context.Context, localVarOptionals map[string]interface{}) (GetSecretQuestionListResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetSecretQuestionListResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetSecretQuestionListResponse
 	)
 
 	// create path and map variables
@@ -352,7 +345,7 @@ func (a *UserSettingsApiService) ListSecretQuestions(ctx context.Context, localV
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -363,7 +356,7 @@ func (a *UserSettingsApiService) ListSecretQuestions(ctx context.Context, localV
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -389,25 +382,24 @@ func (a *UserSettingsApiService) ListSecretQuestions(ctx context.Context, localV
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Get User Conferencing Settings
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.4 (Release 5.13)&lt;/p&gt;&lt;p&gt;Returns the information on the Free Conference Calling (FCC) feature for a given extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "countryId" (string) Internal identifier of a country. If not specified, the response is returned for the brand country
- @return GetConferencingInfoResponse*/
-func (a *UserSettingsApiService) LoadConferencingInfo(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (GetConferencingInfoResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.4 (Release 5.13)&lt;/p&gt;&lt;p&gt;Returns the information on the Free Conference Calling (FCC) feature for a given extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "countryId" (string) Internal identifier of a country. If not specified, the response is returned for the brand country
+@return GetConferencingInfoResponse*/
+func (a *UserSettingsApiService) LoadConferencingInfo(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (GetConferencingInfoResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetConferencingInfoResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetConferencingInfoResponse
 	)
 
 	// create path and map variables
@@ -427,7 +419,7 @@ func (a *UserSettingsApiService) LoadConferencingInfo(ctx context.Context, accou
 		localVarQueryParams.Add("countryId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -438,7 +430,7 @@ func (a *UserSettingsApiService) LoadConferencingInfo(ctx context.Context, accou
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -464,23 +456,22 @@ func (a *UserSettingsApiService) LoadConferencingInfo(ctx context.Context, accou
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Get Extension Caller ID
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns information on an outbound caller ID of an extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
- @return ExtensionCallerIdInfo*/
-func (a *UserSettingsApiService) LoadExtensionCallerId(ctx context.Context, accountId string, extensionId string) (ExtensionCallerIdInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns information on an outbound caller ID of an extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@return ExtensionCallerIdInfo*/
+func (a *UserSettingsApiService) LoadExtensionCallerId(ctx context.Context, accountId string, extensionId string) (ExtensionCallerIdInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  ExtensionCallerIdInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     ExtensionCallerIdInfo
 	)
 
 	// create path and map variables
@@ -492,9 +483,8 @@ func (a *UserSettingsApiService) LoadExtensionCallerId(ctx context.Context, acco
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -505,7 +495,7 @@ func (a *UserSettingsApiService) LoadExtensionCallerId(ctx context.Context, acco
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -531,23 +521,22 @@ func (a *UserSettingsApiService) LoadExtensionCallerId(ctx context.Context, acco
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Get Extension Info
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.0&lt;/p&gt;&lt;p&gt;Returns basic information about a particular extension of an account.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
- @return GetExtensionInfoResponse*/
-func (a *UserSettingsApiService) LoadExtensionInfo(ctx context.Context, accountId string, extensionId string) (GetExtensionInfoResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.0&lt;/p&gt;&lt;p&gt;Returns basic information about a particular extension of an account.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@return GetExtensionInfoResponse*/
+func (a *UserSettingsApiService) LoadExtensionInfo(ctx context.Context, accountId string, extensionId string) (GetExtensionInfoResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetExtensionInfoResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetExtensionInfoResponse
 	)
 
 	// create path and map variables
@@ -559,9 +548,8 @@ func (a *UserSettingsApiService) LoadExtensionInfo(ctx context.Context, accountI
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -572,7 +560,7 @@ func (a *UserSettingsApiService) LoadExtensionInfo(ctx context.Context, accountI
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -598,24 +586,23 @@ func (a *UserSettingsApiService) LoadExtensionInfo(ctx context.Context, accountI
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Get Extension Profile Image (Scaled)
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns the extension profile image.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
- @param scaleSize Dimensions of a profile image which will be returned in response. If this path parameter is not specified in request URI then
- @return Binary*/
-func (a *UserSettingsApiService) LoadExtensionProfileImage(ctx context.Context, accountId string, extensionId string, scaleSize string) (Binary,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Returns the extension profile image.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@param scaleSize Dimensions of a profile image which will be returned in response. If this path parameter is not specified in request URI then
+@return Binary*/
+func (a *UserSettingsApiService) LoadExtensionProfileImage(ctx context.Context, accountId string, extensionId string, scaleSize string) (Binary, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  Binary
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     Binary
 	)
 
 	// create path and map variables
@@ -628,9 +615,8 @@ func (a *UserSettingsApiService) LoadExtensionProfileImage(ctx context.Context, 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -641,7 +627,7 @@ func (a *UserSettingsApiService) LoadExtensionProfileImage(ctx context.Context, 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -667,23 +653,22 @@ func (a *UserSettingsApiService) LoadExtensionProfileImage(ctx context.Context, 
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Get User Credentials
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.27 (Release 8.3)&lt;/p&gt;&lt;p&gt;Returns extension user credentials.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
- @return ExtensionUserCredentials*/
-func (a *UserSettingsApiService) LoadExtensionUserCredentials(ctx context.Context, accountId string, extensionId string) (ExtensionUserCredentials,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.27 (Release 8.3)&lt;/p&gt;&lt;p&gt;Returns extension user credentials.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@return ExtensionUserCredentials*/
+func (a *UserSettingsApiService) LoadExtensionUserCredentials(ctx context.Context, accountId string, extensionId string) (ExtensionUserCredentials, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  ExtensionUserCredentials
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     ExtensionUserCredentials
 	)
 
 	// create path and map variables
@@ -695,9 +680,8 @@ func (a *UserSettingsApiService) LoadExtensionUserCredentials(ctx context.Contex
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -708,7 +692,7 @@ func (a *UserSettingsApiService) LoadExtensionUserCredentials(ctx context.Contex
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -734,22 +718,21 @@ func (a *UserSettingsApiService) LoadExtensionUserCredentials(ctx context.Contex
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Get Secret Question
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.20 (Release 7.4)&lt;/p&gt;&lt;p&gt;Returns a particular secret question in specific language by question ID.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param questionId Internal identifier of a question
- @return SecretQuestionInfo*/
-func (a *UserSettingsApiService) LoadSecretQuestion(ctx context.Context, questionId int32) (SecretQuestionInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.20 (Release 7.4)&lt;/p&gt;&lt;p&gt;Returns a particular secret question in specific language by question ID.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param questionId Internal identifier of a question
+@return SecretQuestionInfo*/
+func (a *UserSettingsApiService) LoadSecretQuestion(ctx context.Context, questionId int32) (SecretQuestionInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  SecretQuestionInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     SecretQuestionInfo
 	)
 
 	// create path and map variables
@@ -760,9 +743,8 @@ func (a *UserSettingsApiService) LoadSecretQuestion(ctx context.Context, questio
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -773,7 +755,7 @@ func (a *UserSettingsApiService) LoadSecretQuestion(ctx context.Context, questio
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -799,24 +781,23 @@ func (a *UserSettingsApiService) LoadSecretQuestion(ctx context.Context, questio
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Update User Conferencing Settings
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
- @param body JSON body
- @return GetConferencingInfoResponse*/
-func (a *UserSettingsApiService) UpdateConferencingInfo(ctx context.Context, accountId string, extensionId string, body UpdateConferencingInfoRequest) (GetConferencingInfoResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@param body JSON body
+@return GetConferencingInfoResponse*/
+func (a *UserSettingsApiService) UpdateConferencingInfo(ctx context.Context, accountId string, extensionId string, body UpdateConferencingInfoRequest) (GetConferencingInfoResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetConferencingInfoResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetConferencingInfoResponse
 	)
 
 	// create path and map variables
@@ -828,9 +809,8 @@ func (a *UserSettingsApiService) UpdateConferencingInfo(ctx context.Context, acc
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -841,7 +821,7 @@ func (a *UserSettingsApiService) UpdateConferencingInfo(ctx context.Context, acc
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -869,24 +849,23 @@ func (a *UserSettingsApiService) UpdateConferencingInfo(ctx context.Context, acc
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Update Extension
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
- @param body JSON body
- @return GetExtensionInfoResponse*/
-func (a *UserSettingsApiService) UpdateExtension(ctx context.Context, accountId string, extensionId string, body ExtensionUpdateRequest) (GetExtensionInfoResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@param body JSON body
+@return GetExtensionInfoResponse*/
+func (a *UserSettingsApiService) UpdateExtension(ctx context.Context, accountId string, extensionId string, body ExtensionUpdateRequest) (GetExtensionInfoResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetExtensionInfoResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetExtensionInfoResponse
 	)
 
 	// create path and map variables
@@ -898,9 +877,8 @@ func (a *UserSettingsApiService) UpdateExtension(ctx context.Context, accountId 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -911,7 +889,7 @@ func (a *UserSettingsApiService) UpdateExtension(ctx context.Context, accountId 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -939,24 +917,23 @@ func (a *UserSettingsApiService) UpdateExtension(ctx context.Context, accountId 
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Update Extension Caller ID
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Updates outbound caller ID information of an extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
- @param body JSON body
- @return ExtensionCallerIdInfo*/
-func (a *UserSettingsApiService) UpdateExtensionCallerId(ctx context.Context, accountId string, extensionId string, body ExtensionCallerIdInfo) (ExtensionCallerIdInfo,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Updates outbound caller ID information of an extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@param body JSON body
+@return ExtensionCallerIdInfo*/
+func (a *UserSettingsApiService) UpdateExtensionCallerId(ctx context.Context, accountId string, extensionId string, body ExtensionCallerIdInfo) (ExtensionCallerIdInfo, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  ExtensionCallerIdInfo
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     ExtensionCallerIdInfo
 	)
 
 	// create path and map variables
@@ -968,9 +945,8 @@ func (a *UserSettingsApiService) UpdateExtensionCallerId(ctx context.Context, ac
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -981,7 +957,7 @@ func (a *UserSettingsApiService) UpdateExtensionCallerId(ctx context.Context, ac
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1009,24 +985,23 @@ func (a *UserSettingsApiService) UpdateExtensionCallerId(ctx context.Context, ac
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Update User Credentials
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.27 (Release 8.3)&lt;/p&gt;&lt;p&gt;Updates extension user credentials.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
- @param body JSON body
- @return ExtensionUserCredentials*/
-func (a *UserSettingsApiService) UpdateExtensionUserCredentials(ctx context.Context, accountId string, extensionId string, body ExtensionUserCredentailsRequest) (ExtensionUserCredentials,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.27 (Release 8.3)&lt;/p&gt;&lt;p&gt;Updates extension user credentials.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@param body JSON body
+@return ExtensionUserCredentials*/
+func (a *UserSettingsApiService) UpdateExtensionUserCredentials(ctx context.Context, accountId string, extensionId string, body ExtensionUserCredentailsRequest) (ExtensionUserCredentials, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  ExtensionUserCredentials
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     ExtensionUserCredentials
 	)
 
 	// create path and map variables
@@ -1038,9 +1013,8 @@ func (a *UserSettingsApiService) UpdateExtensionUserCredentials(ctx context.Cont
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1051,7 +1025,7 @@ func (a *UserSettingsApiService) UpdateExtensionUserCredentials(ctx context.Cont
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1079,24 +1053,23 @@ func (a *UserSettingsApiService) UpdateExtensionUserCredentials(ctx context.Cont
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Update Notification Settings
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.26 (Release 8.2)&lt;/p&gt;&lt;p&gt;Updates notification settings for the current extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
- @param body 
- @return NotificationSettings*/
-func (a *UserSettingsApiService) UpdateNotificationSettings(ctx context.Context, accountId string, extensionId int32, body NotificationSettingsUpdateRequest) (NotificationSettings,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.26 (Release 8.2)&lt;/p&gt;&lt;p&gt;Updates notification settings for the current extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@param body
+@return NotificationSettings*/
+func (a *UserSettingsApiService) UpdateNotificationSettings(ctx context.Context, accountId string, extensionId int32, body NotificationSettingsUpdateRequest) (NotificationSettings, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  NotificationSettings
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     NotificationSettings
 	)
 
 	// create path and map variables
@@ -1108,9 +1081,8 @@ func (a *UserSettingsApiService) UpdateNotificationSettings(ctx context.Context,
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1121,7 +1093,7 @@ func (a *UserSettingsApiService) UpdateNotificationSettings(ctx context.Context,
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1149,24 +1121,23 @@ func (a *UserSettingsApiService) UpdateNotificationSettings(ctx context.Context,
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Upload User Profile Image
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.26 (Release 8.2)&lt;/p&gt;&lt;p&gt;Returns the extension profile image.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param image 
- @param extensionId 
- @param accountId 
- @return Binary*/
-func (a *UserSettingsApiService) UploadImageByPostForm(ctx context.Context, image *os.File, extensionId string, accountId string) (Binary,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.26 (Release 8.2)&lt;/p&gt;&lt;p&gt;Returns the extension profile image.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param localVarFile
+@param extensionId
+@param accountId
+@return Binary*/
+func (a *UserSettingsApiService) UploadImageByPostForm(ctx context.Context, localVarFile *os.File, extensionId string, accountId string) (Binary, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  Binary
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     Binary
 	)
 
 	// create path and map variables
@@ -1178,9 +1149,8 @@ func (a *UserSettingsApiService) UploadImageByPostForm(ctx context.Context, imag
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "multipart/form-data",  }
+	localVarHttpContentTypes := []string{"multipart/form-data"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1191,7 +1161,7 @@ func (a *UserSettingsApiService) UploadImageByPostForm(ctx context.Context, imag
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1223,25 +1193,24 @@ func (a *UserSettingsApiService) UploadImageByPostForm(ctx context.Context, imag
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Update User Profile Image
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.26 (Release 8.2)&lt;/p&gt;&lt;p&gt;Updates the extension profile image..&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param extensionId 
- @param accountId 
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "image" (*os.File) 
- @return Binary*/
-func (a *UserSettingsApiService) UploadImageByPutForm(ctx context.Context, extensionId string, accountId string, localVarOptionals map[string]interface{}) (Binary,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.26 (Release 8.2)&lt;/p&gt;&lt;p&gt;Updates the extension profile image..&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param extensionId
+@param accountId
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "image" (*os.File)
+@return Binary*/
+func (a *UserSettingsApiService) UploadImageByPutForm(ctx context.Context, extensionId string, accountId string, localVarOptionals map[string]interface{}) (Binary, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  Binary
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     Binary
 	)
 
 	// create path and map variables
@@ -1253,9 +1222,8 @@ func (a *UserSettingsApiService) UploadImageByPutForm(ctx context.Context, exten
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "multipart/form-data",  }
+	localVarHttpContentTypes := []string{"multipart/form-data"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1266,7 +1234,7 @@ func (a *UserSettingsApiService) UploadImageByPutForm(ctx context.Context, exten
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1302,23 +1270,22 @@ func (a *UserSettingsApiService) UploadImageByPutForm(ctx context.Context, exten
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* UserSettingsApiService Validate User Credentials
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.27 (Release 8.3)&lt;/p&gt;&lt;p&gt;Validates if extension user credentials specified can be applied.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
- @param body JSON body
- @return */
-func (a *UserSettingsApiService) ValidateExtensionUserCredentials(ctx context.Context, accountId string, extensionId string, body ValidateExtensionUserCredentials) ( *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.27 (Release 8.3)&lt;/p&gt;&lt;p&gt;Validates if extension user credentials specified can be applied.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@param body JSON body
+@return */
+func (a *UserSettingsApiService) ValidateExtensionUserCredentials(ctx context.Context, accountId string, extensionId string, body ValidateExtensionUserCredentials) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 	)
 
 	// create path and map variables
@@ -1330,9 +1297,8 @@ func (a *UserSettingsApiService) ValidateExtensionUserCredentials(ctx context.Co
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1343,7 +1309,7 @@ func (a *UserSettingsApiService) ValidateExtensionUserCredentials(ctx context.Co
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1371,18 +1337,18 @@ func (a *UserSettingsApiService) ValidateExtensionUserCredentials(ctx context.Co
 }
 
 /* UserSettingsApiService Verify Extension User Credentials
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.27 (Release 8.3)&lt;/p&gt;&lt;p&gt;Verifies current extension user credentials.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
- @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
- @param body JSON body
- @return */
-func (a *UserSettingsApiService) VerifyExtensionUserCredentials(ctx context.Context, accountId string, extensionId string, body VerifyExtensionUserCredentials) ( *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.27 (Release 8.3)&lt;/p&gt;&lt;p&gt;Verifies current extension user credentials.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@param body JSON body
+@return */
+func (a *UserSettingsApiService) VerifyExtensionUserCredentials(ctx context.Context, accountId string, extensionId string, body VerifyExtensionUserCredentials) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 	)
 
 	// create path and map variables
@@ -1394,9 +1360,8 @@ func (a *UserSettingsApiService) VerifyExtensionUserCredentials(ctx context.Cont
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1407,7 +1372,7 @@ func (a *UserSettingsApiService) VerifyExtensionUserCredentials(ctx context.Cont
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1433,4 +1398,3 @@ func (a *UserSettingsApiService) VerifyExtensionUserCredentials(ctx context.Cont
 
 	return localVarHttpResponse, err
 }
-
