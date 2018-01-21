@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Primary** | **bool** | Specifies if this is the main user address | [optional] [default to null]
 **StreetAddress** | **string** | User street address | [optional] [default to null]
 **Locality** | **string** | User city | [optional] [default to null]
 **Region** | **string** | User state/region | [optional] [default to null]

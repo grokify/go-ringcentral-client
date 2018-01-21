@@ -1,12 +1,12 @@
 # \UserSettingsApi
 
-All URIs are relative to *https://api.ringcentral.com*
+All URIs are relative to *https://platform.devtest.ringcentral.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**DeleteExtension**](UserSettingsApi.md#DeleteExtension) | **Delete** /restapi/v1.0/account/{accountId}/extension/{extensionId} | Delete Extension
 [**DownloadImage**](UserSettingsApi.md#DownloadImage) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image | Get User Profile Image
-[**GetSettings**](UserSettingsApi.md#GetSettings) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/notification-settings | Get Notification Settings
+[**GetNotificationSettings**](UserSettingsApi.md#GetNotificationSettings) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/notification-settings | Get Notification Settings
 [**ListExtensionGrants**](UserSettingsApi.md#ListExtensionGrants) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/grant | Get Extension Grants
 [**ListSecretQuestions**](UserSettingsApi.md#ListSecretQuestions) | **Get** /restapi/v1.0/dictionary/secret-question | Get Secret Questions
 [**LoadConferencingInfo**](UserSettingsApi.md#LoadConferencingInfo) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/conferencing | Get User Conferencing Settings
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 [**UpdateExtension**](UserSettingsApi.md#UpdateExtension) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId} | Update Extension
 [**UpdateExtensionCallerId**](UserSettingsApi.md#UpdateExtensionCallerId) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-id | Update Extension Caller ID
 [**UpdateExtensionUserCredentials**](UserSettingsApi.md#UpdateExtensionUserCredentials) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/credentials | Update User Credentials
-[**UpdateSettings**](UserSettingsApi.md#UpdateSettings) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/notification-settings | Update Notification Settings
+[**UpdateNotificationSettings**](UserSettingsApi.md#UpdateNotificationSettings) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/notification-settings | Update Notification Settings
 [**UploadImageByPostForm**](UserSettingsApi.md#UploadImageByPostForm) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image | Upload User Profile Image
 [**UploadImageByPutForm**](UserSettingsApi.md#UploadImageByPutForm) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image | Update User Profile Image
 [**ValidateExtensionUserCredentials**](UserSettingsApi.md#ValidateExtensionUserCredentials) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/credentials/validate | Validate User Credentials
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -84,8 +84,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetSettings**
-> NotificationSettings GetSettings(ctx, accountId, extensionId)
+# **GetNotificationSettings**
+> NotificationSettings GetNotificationSettings(ctx, accountId, extensionId)
 Get Notification Settings
 
 <p style='font-style:italic;'>Since 1.0.26 (Release 8.2)</p><p>Returns notification settings for the current extension.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -395,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -425,7 +425,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -485,7 +485,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -494,8 +494,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **UpdateSettings**
-> NotificationSettings UpdateSettings(ctx, accountId, extensionId, body)
+# **UpdateNotificationSettings**
+> NotificationSettings UpdateNotificationSettings(ctx, accountId, extensionId, body)
 Update Notification Settings
 
 <p style='font-style:italic;'>Since 1.0.26 (Release 8.2)</p><p>Updates notification settings for the current extension.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Medium</p>
@@ -515,7 +515,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -545,7 +545,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -584,7 +584,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -614,7 +614,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -644,7 +644,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 

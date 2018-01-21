@@ -1,6 +1,6 @@
 # \MessagesApi
 
-All URIs are relative to *https://api.ringcentral.com*
+All URIs are relative to *https://platform.devtest.ringcentral.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**ListMessages**](MessagesApi.md#ListMessages) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store | Get Message List
 [**LoadMessage**](MessagesApi.md#LoadMessage) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId} | Get Message(s) by ID
 [**LoadMessageAttachment**](MessagesApi.md#LoadMessageAttachment) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}/content/{attachmentId} | Get Message Attachment
-[**RestapiV10AccountAccountIdExtensionExtensionIdFaxPost**](MessagesApi.md#RestapiV10AccountAccountIdExtensionExtensionIdFaxPost) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/fax | Create Fax Message
+[**SendFaxMessage**](MessagesApi.md#SendFaxMessage) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/fax | Create Fax Message
 [**SendInternalMessage**](MessagesApi.md#SendInternalMessage) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/company-pager | Create Pager Message
 [**SendSMS**](MessagesApi.md#SendSMS) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/sms | Create SMS Message
 [**SyncMessages**](MessagesApi.md#SyncMessages) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-sync | Get Message Sync
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -252,8 +252,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **RestapiV10AccountAccountIdExtensionExtensionIdFaxPost**
-> FaxResponse RestapiV10AccountAccountIdExtensionExtensionIdFaxPost(ctx, accountId, extensionId)
+# **SendFaxMessage**
+> FaxResponse SendFaxMessage(ctx, accountId, extensionId)
 Create Fax Message
 
 <p style='font-style:italic;'>Since 1.0.2</p><p>Creates and sends/resends new fax message. Resend can be done if sending failed.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Faxes</td><td>Sending and receiving faxes</td></tr><tr><td class='code'>ReadMessages</td><td>Viewing user messages</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -332,7 +332,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -379,7 +379,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 

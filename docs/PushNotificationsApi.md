@@ -1,6 +1,6 @@
 # \PushNotificationsApi
 
-All URIs are relative to *https://api.ringcentral.com*
+All URIs are relative to *https://platform.devtest.ringcentral.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**DeleteSubscription**](PushNotificationsApi.md#DeleteSubscription) | **Delete** /restapi/v1.0/subscription/{subscriptionId} | Cancel Subscription
 [**GetSubscriptions**](PushNotificationsApi.md#GetSubscriptions) | **Get** /restapi/v1.0/subscription | Get Subscriptions
 [**LoadSubscription**](PushNotificationsApi.md#LoadSubscription) | **Get** /restapi/v1.0/subscription/{subscriptionId} | Get Subscription
-[**RenewSubscription**](PushNotificationsApi.md#RenewSubscription) | **Get** /restapi/v1.0/subscription/{subscriptionId}/renew | Renew Subscription
+[**RenewSubscription**](PushNotificationsApi.md#RenewSubscription) | **Post** /restapi/v1.0/subscription/{subscriptionId}/renew | Renew Subscription
 [**UpdateSubscription**](PushNotificationsApi.md#UpdateSubscription) | **Put** /restapi/v1.0/subscription/{subscriptionId} | Renew Subscription / Update Event Filters
 
 
@@ -31,7 +31,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -81,7 +81,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 

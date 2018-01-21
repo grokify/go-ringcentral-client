@@ -33,13 +33,13 @@ See [examples](examples)
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.ringcentral.com*
+All URIs are relative to *https://platform.devtest.ringcentral.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*APIInfoApi* | [**GetAPIVersion**](docs/APIInfoApi.md#getapiversion) | **Get** /restapi | Get API Versions
+*APIInfoApi* | [**GetVersionInfo**](docs/APIInfoApi.md#getversioninfo) | **Get** /restapi/{apiVersion} | Get Version Info
 *APIInfoApi* | [**LoadAPIStatus**](docs/APIInfoApi.md#loadapistatus) | **Get** /restapi/v1.0/status | Get Status
-*APIInfoApi* | [**RestapiApiVersionGet**](docs/APIInfoApi.md#restapiapiversionget) | **Get** /restapi/{apiVersion} | Get Version Info
-*APIInfoApi* | [**RestapiGet**](docs/APIInfoApi.md#restapiget) | **Get** /restapi | Get API Versions
 *AccountProvisioningApi* | [**BulkAssign**](docs/AccountProvisioningApi.md#bulkassign) | **Post** /restapi/v1.0/account/{accountId}/department/bulk-assign | Edit Call Queue Members
 *AccountProvisioningApi* | [**CreateAccount**](docs/AccountProvisioningApi.md#createaccount) | **Post** /restapi/v1.0/account | Create Account
 *AccountProvisioningApi* | [**CreateDeviceOrder**](docs/AccountProvisioningApi.md#createdeviceorder) | **Post** /restapi/v1.0/account/{accountId}/order | Create Device Order
@@ -49,6 +49,9 @@ Class | Method | HTTP request | Description
 *AccountProvisioningApi* | [**GetBrandInfo**](docs/AccountProvisioningApi.md#getbrandinfo) | **Get** /restapi/v1.0/dictionary/brand/{brandId} | Get Brand Info
 *AccountProvisioningApi* | [**GetDeviceModels**](docs/AccountProvisioningApi.md#getdevicemodels) | **Get** /restapi/v1.0/dictionary/device | Get Device Catalog
 *AccountProvisioningApi* | [**GetExtensionFreeNumbers**](docs/AccountProvisioningApi.md#getextensionfreenumbers) | **Get** /restapi/v1.0/account/{accountId}/extension/free-numbers | Get Free Extension Numbers
+*AccountProvisioningApi* | [**GetPagingOnlyGroupDevices**](docs/AccountProvisioningApi.md#getpagingonlygroupdevices) | **Get** /restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/devices | Get Paging Only Group Devices
+*AccountProvisioningApi* | [**GetPagingOnlyGroupUsers**](docs/AccountProvisioningApi.md#getpagingonlygroupusers) | **Get** /restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/users | Get Paging Only Group Users
+*AccountProvisioningApi* | [**GetParkLocationUsers**](docs/AccountProvisioningApi.md#getparklocationusers) | **Get** /restapi/v1.0/account/{accountId}/park-locations/{parkLocationId}/users | Get Park Location Users
 *AccountProvisioningApi* | [**GetServicePlanInfo**](docs/AccountProvisioningApi.md#getserviceplaninfo) | **Get** /restapi/v1.0/dictionary/service-plan/{servicePlanId} | Get Service Plan
 *AccountProvisioningApi* | [**ListAccountDevices**](docs/AccountProvisioningApi.md#listaccountdevices) | **Get** /restapi/v1.0/account/{accountId}/device | Get Account Devices
 *AccountProvisioningApi* | [**ListAccountPhoneNumbers**](docs/AccountProvisioningApi.md#listaccountphonenumbers) | **Get** /restapi/v1.0/account/{accountId}/phone-number | Get All Company Phone Numbers
@@ -66,33 +69,37 @@ Class | Method | HTTP request | Description
 *AccountProvisioningApi* | [**ProvisionPhoneNumber**](docs/AccountProvisioningApi.md#provisionphonenumber) | **Post** /restapi/v1.0/account/{accountId}/phone-number | Provision Phone Numbers
 *AccountProvisioningApi* | [**ReassignPhoneNumberById**](docs/AccountProvisioningApi.md#reassignphonenumberbyid) | **Put** /restapi/v1.0/account/{accountId}/phone-number/{phoneNumberId} | Reassign Phone Number
 *AccountProvisioningApi* | [**ReservePhoneNumbers**](docs/AccountProvisioningApi.md#reservephonenumbers) | **Post** /restapi/v1.0/number-pool/reserve | Reserve/ Un-reserve Numbers
-*AccountProvisioningApi* | [**RestapiV10AccountAccountIdPagingOnlyGroupsPagingOnlyGroupIdBulkAssignPost**](docs/AccountProvisioningApi.md#restapiv10accountaccountidpagingonlygroupspagingonlygroupidbulkassignpost) | **Post** /restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/bulk-assign | Edit Paging Group Users &amp; Devices
-*AccountProvisioningApi* | [**RestapiV10AccountAccountIdPagingOnlyGroupsPagingOnlyGroupIdDevicesGet**](docs/AccountProvisioningApi.md#restapiv10accountaccountidpagingonlygroupspagingonlygroupiddevicesget) | **Get** /restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/devices | Get Paging Only Group Devices
-*AccountProvisioningApi* | [**RestapiV10AccountAccountIdPagingOnlyGroupsPagingOnlyGroupIdUsersGet**](docs/AccountProvisioningApi.md#restapiv10accountaccountidpagingonlygroupspagingonlygroupidusersget) | **Get** /restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/users | Get Paging Only Group Users
-*AccountProvisioningApi* | [**RestapiV10AccountAccountIdParkLocationsParkLocationIdBulkAssignPost**](docs/AccountProvisioningApi.md#restapiv10accountaccountidparklocationsparklocationidbulkassignpost) | **Post** /restapi/v1.0/account/{accountId}/park-locations/{parkLocationId}/bulk-assign | Adds and/or removes park location users
-*AccountProvisioningApi* | [**RestapiV10AccountAccountIdParkLocationsParkLocationIdUsersGet**](docs/AccountProvisioningApi.md#restapiv10accountaccountidparklocationsparklocationidusersget) | **Get** /restapi/v1.0/account/{accountId}/park-locations/{parkLocationId}/users | Get Park Location Users
 *AccountProvisioningApi* | [**UpdateDevice**](docs/AccountProvisioningApi.md#updatedevice) | **Put** /restapi/v1.0/account/{accountId}/device/{deviceId} | Update Device
+*AccountProvisioningApi* | [**UpdatePagingOnlyGroupUsersAndDevices**](docs/AccountProvisioningApi.md#updatepagingonlygroupusersanddevices) | **Post** /restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/bulk-assign | Edit Paging Group Users &amp; Devices
+*AccountProvisioningApi* | [**UpdateParkLocationUsers**](docs/AccountProvisioningApi.md#updateparklocationusers) | **Post** /restapi/v1.0/account/{accountId}/park-locations/{parkLocationId}/bulk-assign | Adds and/or removes park location users
 *ApplicationSettingsApi* | [**CreateSipRegistration**](docs/ApplicationSettingsApi.md#createsipregistration) | **Post** /restapi/v1.0/client-info/sip-provision | Register SIP Device
 *ApplicationSettingsApi* | [**DeleteCustomData**](docs/ApplicationSettingsApi.md#deletecustomdata) | **Delete** /restapi/v1.0/client-info/custom-data/{key} | Delete Custom Data
 *ApplicationSettingsApi* | [**GetAttachment**](docs/ApplicationSettingsApi.md#getattachment) | **Get** /restapi/v1.0/client-info/custom-data/{key}/content | Get Custom Data Attachment
 *ApplicationSettingsApi* | [**GetCustomData**](docs/ApplicationSettingsApi.md#getcustomdata) | **Get** /restapi/v1.0/client-info/custom-data/{key} | Get Custom Data
 *ApplicationSettingsApi* | [**GetInProductMessage**](docs/ApplicationSettingsApi.md#getinproductmessage) | **Get** /restapi/v1.0/client-info/banners | Get In Product Message List
+*ApplicationSettingsApi* | [**GetSpecialNumberRules_**](docs/ApplicationSettingsApi.md#getspecialnumberrules_) | **Get** /restapi/v1.0/client-info/special-number-rule | Get Special Numbers Calling Limitation
 *ApplicationSettingsApi* | [**LoadClientInfo**](docs/ApplicationSettingsApi.md#loadclientinfo) | **Get** /restapi/v1.0/client-info | Get App Settings
 *ApplicationSettingsApi* | [**LoadPhoneData**](docs/ApplicationSettingsApi.md#loadphonedata) | **Get** /restapi/v1.0/number-parser/phonedata.xml | Get Phonedata
-*ApplicationSettingsApi* | [**RestapiV10ClientInfoSpecialNumberRuleGet**](docs/ApplicationSettingsApi.md#restapiv10clientinfospecialnumberruleget) | **Get** /restapi/v1.0/client-info/special-number-rule | Get Special Numbers Calling Limitation
 *ApplicationSettingsApi* | [**UpdateCustomData**](docs/ApplicationSettingsApi.md#updatecustomdata) | **Put** /restapi/v1.0/client-info/custom-data/{key} | Create/Update Custom Data
 *CallHandlingSettingsApi* | [**BlockNumber**](docs/CallHandlingSettingsApi.md#blocknumber) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/blocked-number | Add Blocked Numbers
 *CallHandlingSettingsApi* | [**CreateAnsweringRuleInfo**](docs/CallHandlingSettingsApi.md#createansweringruleinfo) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/answering-rule | Create Custom Call Handling Rules
 *CallHandlingSettingsApi* | [**CreateCompanyAnsweringRuleInfo**](docs/CallHandlingSettingsApi.md#createcompanyansweringruleinfo) | **Post** /restapi/v1.0/account/{accountId}/answering-rule | Create Company Call Handling Rule
 *CallHandlingSettingsApi* | [**CreateExtensionForwardingNumber**](docs/CallHandlingSettingsApi.md#createextensionforwardingnumber) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/forwarding-number | Create Forwarding Numbers
 *CallHandlingSettingsApi* | [**CreateGreeting**](docs/CallHandlingSettingsApi.md#creategreeting) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/greeting | Create User Custom Greeting
+*CallHandlingSettingsApi* | [**CreateIVRMenu**](docs/CallHandlingSettingsApi.md#createivrmenu) | **Post** /restapi/v1.0/account/{accountId}/ivr-menus | Create IVR Menu
+*CallHandlingSettingsApi* | [**CreatePrompts**](docs/CallHandlingSettingsApi.md#createprompts) | **Post** /restapi/v1.0/account/{accountId}/ivr-prompts | Create IVR Prompt
 *CallHandlingSettingsApi* | [**DeleteAnsweringRule**](docs/CallHandlingSettingsApi.md#deleteansweringrule) | **Delete** /restapi/v1.0/account/{accountId}/extension/{extensionId}/answering-rule/{ruleId} | Delete Call Handling Rule
 *CallHandlingSettingsApi* | [**DeleteExtensionForwardingNumber**](docs/CallHandlingSettingsApi.md#deleteextensionforwardingnumber) | **Delete** /restapi/v1.0/account/{accountId}/extension/{extensionId}/forwarding-number/{forwardingNumberId} | Delete Forwarding Number
+*CallHandlingSettingsApi* | [**DeleteIVRPrompt**](docs/CallHandlingSettingsApi.md#deleteivrprompt) | **Delete** /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId} | Delete IVR Prompt
 *CallHandlingSettingsApi* | [**GetCompanyGreeting**](docs/CallHandlingSettingsApi.md#getcompanygreeting) | **Post** /restapi/v1.0/account/{accountId}/greeting | Create Custom Company Greeting
 *CallHandlingSettingsApi* | [**GetForwardingNumber**](docs/CallHandlingSettingsApi.md#getforwardingnumber) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/forwarding-number/{forwardingNumberId} | Get Forwarding Number
 *CallHandlingSettingsApi* | [**GetGreeting**](docs/CallHandlingSettingsApi.md#getgreeting) | **Get** /restapi/v1.0/dictionary/greeting/{greetingId} | Get Greeting Info
 *CallHandlingSettingsApi* | [**GetGreetingByID**](docs/CallHandlingSettingsApi.md#getgreetingbyid) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/greeting/{greetingId} | Get Custom Greeting Info
 *CallHandlingSettingsApi* | [**GetGreetings**](docs/CallHandlingSettingsApi.md#getgreetings) | **Get** /restapi/v1.0/dictionary/greeting | Get Standard Greetings
+*CallHandlingSettingsApi* | [**GetIVRMenuById**](docs/CallHandlingSettingsApi.md#getivrmenubyid) | **Get** /restapi/v1.0/account/{accountId}/ivr-menus/{ivrMenuId} | Get IVR Menu
+*CallHandlingSettingsApi* | [**GetIVRPrompt**](docs/CallHandlingSettingsApi.md#getivrprompt) | **Get** /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId} | Get IVR Prompt
+*CallHandlingSettingsApi* | [**GetIVRPromptContent**](docs/CallHandlingSettingsApi.md#getivrpromptcontent) | **Get** /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId}/content | Get IVR Prompt Content
+*CallHandlingSettingsApi* | [**GetIVRPrompts**](docs/CallHandlingSettingsApi.md#getivrprompts) | **Get** /restapi/v1.0/account/{accountId}/ivr-prompts | Get IVR Prompts
 *CallHandlingSettingsApi* | [**ListBlockedNumbers**](docs/CallHandlingSettingsApi.md#listblockednumbers) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/blocked-number | Get Blocked Numbers
 *CallHandlingSettingsApi* | [**ListCompanyAnsweringRule**](docs/CallHandlingSettingsApi.md#listcompanyansweringrule) | **Get** /restapi/v1.0/account/{accountId}/answering-rule | Get Company Call Handling Rules
 *CallHandlingSettingsApi* | [**ListExtensionForwardingNumbers**](docs/CallHandlingSettingsApi.md#listextensionforwardingnumbers) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/forwarding-number | Get Forwarding Numbers
@@ -102,13 +109,7 @@ Class | Method | HTTP request | Description
 *CallHandlingSettingsApi* | [**LoadBusinesshoursInfo**](docs/CallHandlingSettingsApi.md#loadbusinesshoursinfo) | **Get** /restapi/v1.0/account/{accountId}/business-hours | Get Company Business Hours
 *CallHandlingSettingsApi* | [**LoadCompanyAnsweringRuleInfo**](docs/CallHandlingSettingsApi.md#loadcompanyansweringruleinfo) | **Get** /restapi/v1.0/account/{accountId}/answering-rule/{ruleId} | Get Company Call Handling Rule
 *CallHandlingSettingsApi* | [**LoadUserBusinessHours**](docs/CallHandlingSettingsApi.md#loaduserbusinesshours) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/business-hours | Get User Business Hours
-*CallHandlingSettingsApi* | [**RestapiV10AccountAccountIdIvrMenusIvrMenuIdGet**](docs/CallHandlingSettingsApi.md#restapiv10accountaccountidivrmenusivrmenuidget) | **Get** /restapi/v1.0/account/{accountId}/ivr-menus/{ivrMenuId} | Get IVR Menu
 *CallHandlingSettingsApi* | [**RestapiV10AccountAccountIdIvrMenusIvrMenuIdPut**](docs/CallHandlingSettingsApi.md#restapiv10accountaccountidivrmenusivrmenuidput) | **Put** /restapi/v1.0/account/{accountId}/ivr-menus/{ivrMenuId} | Update IVR Menu
-*CallHandlingSettingsApi* | [**RestapiV10AccountAccountIdIvrPromptsGet**](docs/CallHandlingSettingsApi.md#restapiv10accountaccountidivrpromptsget) | **Get** /restapi/v1.0/account/{accountId}/ivr-prompts | Get IVR Prompts
-*CallHandlingSettingsApi* | [**RestapiV10AccountAccountIdIvrPromptsPost**](docs/CallHandlingSettingsApi.md#restapiv10accountaccountidivrpromptspost) | **Post** /restapi/v1.0/account/{accountId}/ivr-prompts | Create IVR Prompts
-*CallHandlingSettingsApi* | [**RestapiV10AccountAccountIdIvrPromptsPromptIdContentGet**](docs/CallHandlingSettingsApi.md#restapiv10accountaccountidivrpromptspromptidcontentget) | **Get** /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId}/content | Get IVR Prompt Content
-*CallHandlingSettingsApi* | [**RestapiV10AccountAccountIdIvrPromptsPromptIdDelete**](docs/CallHandlingSettingsApi.md#restapiv10accountaccountidivrpromptspromptiddelete) | **Delete** /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId} | Delete IVR Prompt
-*CallHandlingSettingsApi* | [**RestapiV10AccountAccountIdIvrPromptsPromptIdGet**](docs/CallHandlingSettingsApi.md#restapiv10accountaccountidivrpromptspromptidget) | **Get** /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId} | Get IVR Prompt
 *CallHandlingSettingsApi* | [**UnblockNumber**](docs/CallHandlingSettingsApi.md#unblocknumber) | **Delete** /restapi/v1.0/account/{accountId}/extension/{extensionId}/blocked-number/{blockedNumberId} | Delete Blocked Number
 *CallHandlingSettingsApi* | [**UpdateAnsweringRuleInfo**](docs/CallHandlingSettingsApi.md#updateansweringruleinfo) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/answering-rule/{ruleId} | Update Custom Call Handling Rule
 *CallHandlingSettingsApi* | [**UpdateBlockedNumber**](docs/CallHandlingSettingsApi.md#updateblockednumber) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/blocked-number/{blockedNumberId} | Update Blocked Number
@@ -145,16 +146,15 @@ Class | Method | HTTP request | Description
 *CompanySettingsApi* | [**ModifyAccount**](docs/CompanySettingsApi.md#modifyaccount) | **Put** /restapi/v1.0/account/{accountId} | Update Company
 *CompanySettingsApi* | [**UpdateAccountBusinessAddress**](docs/CompanySettingsApi.md#updateaccountbusinessaddress) | **Put** /restapi/v1.0/account/{accountId}/business-address | Update Company Business Address
 *CompanySettingsApi* | [**UpdateServiceInfo**](docs/CompanySettingsApi.md#updateserviceinfo) | **Put** /restapi/v1.0/account/{accountId}/service-info | Update Account Service Info [Beta]
-*DefaultApi* | [**RestapiV10AccountAccountIdIvrMenusPost**](docs/DefaultApi.md#restapiv10accountaccountidivrmenuspost) | **Post** /restapi/v1.0/account/{accountId}/ivr-menus | Create IVR Menu
 *GlipApi* | [**CreateGlipFile**](docs/GlipApi.md#createglipfile) | **Post** /restapi/v1.0/glip/files | Upload File
 *GlipApi* | [**CreateGroup**](docs/GlipApi.md#creategroup) | **Post** /restapi/v1.0/glip/groups | Create Group
-*GlipApi* | [**CreatePost**](docs/GlipApi.md#createpost) | **Post** /restapi/v1.0/glip/posts | Create Post
+*GlipApi* | [**CreatePost**](docs/GlipApi.md#createpost) | **Post** /restapi/v1.0/glip/groups/{groupId}/posts | Create Post
 *GlipApi* | [**LoadCompany**](docs/GlipApi.md#loadcompany) | **Get** /restapi/v1.0/glip/companies/{companyId} | Get Company Info
 *GlipApi* | [**LoadGlipFile**](docs/GlipApi.md#loadglipfile) | **Get** /restapi/v1.0/glip/files/{fileId} | Get File Info
 *GlipApi* | [**LoadGroup**](docs/GlipApi.md#loadgroup) | **Get** /restapi/v1.0/glip/groups/{groupId} | Get Group
 *GlipApi* | [**LoadGroupList**](docs/GlipApi.md#loadgrouplist) | **Get** /restapi/v1.0/glip/groups | Get User Groups
 *GlipApi* | [**LoadPerson**](docs/GlipApi.md#loadperson) | **Get** /restapi/v1.0/glip/persons/{personId} | Get Person
-*GlipApi* | [**LoadPosts**](docs/GlipApi.md#loadposts) | **Get** /restapi/v1.0/glip/posts | Get Posts
+*GlipApi* | [**LoadPosts**](docs/GlipApi.md#loadposts) | **Get** /restapi/v1.0/glip/groups/{groupId}/posts | Get Posts
 *GlipApi* | [**LoadUnreadMessageCount**](docs/GlipApi.md#loadunreadmessagecount) | **Get** /restapi/v1.0/glip/profile | Glip Unread Message Count
 *GlipApi* | [**UpdateGroup**](docs/GlipApi.md#updategroup) | **Post** /restapi/v1.0/glip/groups/{groupId}/bulk-assign | Edit Group Members
 *MeetingsApi* | [**CreateMeeting**](docs/MeetingsApi.md#createmeeting) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/meeting | Create Meetings
@@ -170,7 +170,7 @@ Class | Method | HTTP request | Description
 *MessagesApi* | [**ListMessages**](docs/MessagesApi.md#listmessages) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store | Get Message List
 *MessagesApi* | [**LoadMessage**](docs/MessagesApi.md#loadmessage) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId} | Get Message(s) by ID
 *MessagesApi* | [**LoadMessageAttachment**](docs/MessagesApi.md#loadmessageattachment) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-store/{messageId}/content/{attachmentId} | Get Message Attachment
-*MessagesApi* | [**RestapiV10AccountAccountIdExtensionExtensionIdFaxPost**](docs/MessagesApi.md#restapiv10accountaccountidextensionextensionidfaxpost) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/fax | Create Fax Message
+*MessagesApi* | [**SendFaxMessage**](docs/MessagesApi.md#sendfaxmessage) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/fax | Create Fax Message
 *MessagesApi* | [**SendInternalMessage**](docs/MessagesApi.md#sendinternalmessage) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/company-pager | Create Pager Message
 *MessagesApi* | [**SendSMS**](docs/MessagesApi.md#sendsms) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/sms | Create SMS Message
 *MessagesApi* | [**SyncMessages**](docs/MessagesApi.md#syncmessages) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/message-sync | Get Message Sync
@@ -188,7 +188,7 @@ Class | Method | HTTP request | Description
 *PushNotificationsApi* | [**DeleteSubscription**](docs/PushNotificationsApi.md#deletesubscription) | **Delete** /restapi/v1.0/subscription/{subscriptionId} | Cancel Subscription
 *PushNotificationsApi* | [**GetSubscriptions**](docs/PushNotificationsApi.md#getsubscriptions) | **Get** /restapi/v1.0/subscription | Get Subscriptions
 *PushNotificationsApi* | [**LoadSubscription**](docs/PushNotificationsApi.md#loadsubscription) | **Get** /restapi/v1.0/subscription/{subscriptionId} | Get Subscription
-*PushNotificationsApi* | [**RenewSubscription**](docs/PushNotificationsApi.md#renewsubscription) | **Get** /restapi/v1.0/subscription/{subscriptionId}/renew | Renew Subscription
+*PushNotificationsApi* | [**RenewSubscription**](docs/PushNotificationsApi.md#renewsubscription) | **Post** /restapi/v1.0/subscription/{subscriptionId}/renew | Renew Subscription
 *PushNotificationsApi* | [**UpdateSubscription**](docs/PushNotificationsApi.md#updatesubscription) | **Put** /restapi/v1.0/subscription/{subscriptionId} | Renew Subscription / Update Event Filters
 *RegionalSettingsApi* | [**ListCountries**](docs/RegionalSettingsApi.md#listcountries) | **Get** /restapi/v1.0/dictionary/country | Get Country List
 *RegionalSettingsApi* | [**ListLanguages**](docs/RegionalSettingsApi.md#listlanguages) | **Get** /restapi/v1.0/dictionary/language | Get Language List
@@ -219,11 +219,14 @@ Class | Method | HTTP request | Description
 *RolesAndPermissionsApi* | [**ListSystemRoles**](docs/RolesAndPermissionsApi.md#listsystemroles) | **Get** /restapi/v1.0/dictionary/user-role | Get Standard User Roles
 *RolesAndPermissionsApi* | [**LoadUserRole**](docs/RolesAndPermissionsApi.md#loaduserrole) | **Get** /restapi/v1.0/account/{accountId}/user-role/default | Get Default User Role
 *RolesAndPermissionsApi* | [**UpdateUserRole**](docs/RolesAndPermissionsApi.md#updateuserrole) | **Put** /restapi/v1.0/account/{accountId}/user-role/default | Set Default User Role
-*SCIMApi* | [**CreateUser**](docs/SCIMApi.md#createuser) | **Post** /restapi/scim/v2/Users | Create User
-*SCIMApi* | [**DeleteUser**](docs/SCIMApi.md#deleteuser) | **Delete** /restapi/scim/v2/Users/{id} | Delete User
-*SCIMApi* | [**GetUserById**](docs/SCIMApi.md#getuserbyid) | **Get** /restapi/scim/v2/Users/{id} | Get User
-*SCIMApi* | [**ListScimUsers**](docs/SCIMApi.md#listscimusers) | **Get** /restapi/scim/v2/Users | Get User List
-*SCIMApi* | [**UpdateUser**](docs/SCIMApi.md#updateuser) | **Put** /restapi/scim/v2/Users/{id} | Update User
+*SCIMApi* | [**CreateUser**](docs/SCIMApi.md#createuser) | **Post** /scim/v2/Users | Create User
+*SCIMApi* | [**DeleteUser**](docs/SCIMApi.md#deleteuser) | **Delete** /scim/v2/Users/{id} | Delete User
+*SCIMApi* | [**GetServiceProviderConfig**](docs/SCIMApi.md#getserviceproviderconfig) | **Get** /scim/v2/ServiceProviderConfig | Get Service Provider Config
+*SCIMApi* | [**GetUserById**](docs/SCIMApi.md#getuserbyid) | **Get** /scim/v2/Users/{id} | Get User
+*SCIMApi* | [**ListUsers**](docs/SCIMApi.md#listusers) | **Get** /scim/v2/Users | Get User List
+*SCIMApi* | [**PatchUser**](docs/SCIMApi.md#patchuser) | **Patch** /scim/v2/Users/{id} | Partially update/patch a user
+*SCIMApi* | [**SearchUsersViaPost**](docs/SCIMApi.md#searchusersviapost) | **Post** /scim/v2/Users/.search | search or list users
+*SCIMApi* | [**UpdateUser**](docs/SCIMApi.md#updateuser) | **Put** /scim/v2/Users/{id} | Update or replace user
 *UserContactsApi* | [**ContactFavorite**](docs/UserContactsApi.md#contactfavorite) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/favorite | Get Favorite Contacts
 *UserContactsApi* | [**CreateContact**](docs/UserContactsApi.md#createcontact) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/address-book/contact | Create Contact
 *UserContactsApi* | [**CreateContacts**](docs/UserContactsApi.md#createcontacts) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/favorite | Update Favorite Contacts
@@ -234,7 +237,7 @@ Class | Method | HTTP request | Description
 *UserContactsApi* | [**UpdateContact**](docs/UserContactsApi.md#updatecontact) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/address-book/contact/{contactId} | Update Contact(s) by ID
 *UserSettingsApi* | [**DeleteExtension**](docs/UserSettingsApi.md#deleteextension) | **Delete** /restapi/v1.0/account/{accountId}/extension/{extensionId} | Delete Extension
 *UserSettingsApi* | [**DownloadImage**](docs/UserSettingsApi.md#downloadimage) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image | Get User Profile Image
-*UserSettingsApi* | [**GetSettings**](docs/UserSettingsApi.md#getsettings) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/notification-settings | Get Notification Settings
+*UserSettingsApi* | [**GetNotificationSettings**](docs/UserSettingsApi.md#getnotificationsettings) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/notification-settings | Get Notification Settings
 *UserSettingsApi* | [**ListExtensionGrants**](docs/UserSettingsApi.md#listextensiongrants) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/grant | Get Extension Grants
 *UserSettingsApi* | [**ListSecretQuestions**](docs/UserSettingsApi.md#listsecretquestions) | **Get** /restapi/v1.0/dictionary/secret-question | Get Secret Questions
 *UserSettingsApi* | [**LoadConferencingInfo**](docs/UserSettingsApi.md#loadconferencinginfo) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/conferencing | Get User Conferencing Settings
@@ -247,7 +250,7 @@ Class | Method | HTTP request | Description
 *UserSettingsApi* | [**UpdateExtension**](docs/UserSettingsApi.md#updateextension) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId} | Update Extension
 *UserSettingsApi* | [**UpdateExtensionCallerId**](docs/UserSettingsApi.md#updateextensioncallerid) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/caller-id | Update Extension Caller ID
 *UserSettingsApi* | [**UpdateExtensionUserCredentials**](docs/UserSettingsApi.md#updateextensionusercredentials) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/credentials | Update User Credentials
-*UserSettingsApi* | [**UpdateSettings**](docs/UserSettingsApi.md#updatesettings) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/notification-settings | Update Notification Settings
+*UserSettingsApi* | [**UpdateNotificationSettings**](docs/UserSettingsApi.md#updatenotificationsettings) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/notification-settings | Update Notification Settings
 *UserSettingsApi* | [**UploadImageByPostForm**](docs/UserSettingsApi.md#uploadimagebypostform) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image | Upload User Profile Image
 *UserSettingsApi* | [**UploadImageByPutForm**](docs/UserSettingsApi.md#uploadimagebyputform) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/profile-image | Update User Profile Image
 *UserSettingsApi* | [**ValidateExtensionUserCredentials**](docs/UserSettingsApi.md#validateextensionusercredentials) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/credentials/validate | Validate User Credentials
@@ -301,6 +304,8 @@ Class | Method | HTTP request | Description
  - [AudioPromptInfo](docs/AudioPromptInfo.md)
  - [AuthProfileCheckResource](docs/AuthProfileCheckResource.md)
  - [AuthProfileResource](docs/AuthProfileResource.md)
+ - [AuthenticationScheme](docs/AuthenticationScheme.md)
+ - [AuthenticationSchemes](docs/AuthenticationSchemes.md)
  - [BannerInfo](docs/BannerInfo.md)
  - [BillingPlanInfo](docs/BillingPlanInfo.md)
  - [BillingPlanResource](docs/BillingPlanResource.md)
@@ -320,6 +325,7 @@ Class | Method | HTTP request | Description
  - [BulkProvisionUnassignedExtensionsRequestResource](docs/BulkProvisionUnassignedExtensionsRequestResource.md)
  - [BulkProvisionUnassignedExtensionsResponseResource](docs/BulkProvisionUnassignedExtensionsResponseResource.md)
  - [BulkRoleAssignResource](docs/BulkRoleAssignResource.md)
+ - [BulkSupported](docs/BulkSupported.md)
  - [BusinessAddressInfo](docs/BusinessAddressInfo.md)
  - [BusinessHoursResource](docs/BusinessHoursResource.md)
  - [CallLogCallerInfo](docs/CallLogCallerInfo.md)
@@ -330,6 +336,7 @@ Class | Method | HTTP request | Description
  - [CallLogRecordingInfoResource](docs/CallLogRecordingInfoResource.md)
  - [CallLogRecordingResource](docs/CallLogRecordingResource.md)
  - [CallLogRecords](docs/CallLogRecords.md)
+ - [CallLogSync](docs/CallLogSync.md)
  - [CallQueueInfo](docs/CallQueueInfo.md)
  - [CallQueueInfoRequest](docs/CallQueueInfoRequest.md)
  - [CalledNumberInfo](docs/CalledNumberInfo.md)
@@ -450,6 +457,7 @@ Class | Method | HTTP request | Description
  - [EmergencyAddressInfo](docs/EmergencyAddressInfo.md)
  - [EmergencyAddressInfoRequest](docs/EmergencyAddressInfoRequest.md)
  - [EmergencyServiceAddressResource](docs/EmergencyServiceAddressResource.md)
+ - [EnterpriseUser](docs/EnterpriseUser.md)
  - [EntityTag](docs/EntityTag.md)
  - [ErrorEntity](docs/ErrorEntity.md)
  - [ExtensionActiveCallsResponse](docs/ExtensionActiveCallsResponse.md)
@@ -504,6 +512,8 @@ Class | Method | HTTP request | Description
  - [FederationMainNumberInfo](docs/FederationMainNumberInfo.md)
  - [FeeChargeResource](docs/FeeChargeResource.md)
  - [File](docs/File.md)
+ - [FilterSupported](docs/FilterSupported.md)
+ - [FixedOrderAgents](docs/FixedOrderAgents.md)
  - [FormDataContentDisposition](docs/FormDataContentDisposition.md)
  - [FormFieldResource](docs/FormFieldResource.md)
  - [FormattingLocaleInfo](docs/FormattingLocaleInfo.md)
@@ -553,13 +563,17 @@ Class | Method | HTTP request | Description
  - [GetUserListResponse](docs/GetUserListResponse.md)
  - [GetVersionResponse](docs/GetVersionResponse.md)
  - [GetVersionsResponse](docs/GetVersionsResponse.md)
- - [GlipAttachmentInfo](docs/GlipAttachmentInfo.md)
- - [GlipAttachmentInfoRequest](docs/GlipAttachmentInfoRequest.md)
  - [GlipCompany](docs/GlipCompany.md)
  - [GlipCreateGroup](docs/GlipCreateGroup.md)
  - [GlipCreatePost](docs/GlipCreatePost.md)
  - [GlipGroupInfo](docs/GlipGroupInfo.md)
  - [GlipGroupList](docs/GlipGroupList.md)
+ - [GlipMentionsInfo](docs/GlipMentionsInfo.md)
+ - [GlipMessageAttachmentAuthorInfo](docs/GlipMessageAttachmentAuthorInfo.md)
+ - [GlipMessageAttachmentFieldsInfo](docs/GlipMessageAttachmentFieldsInfo.md)
+ - [GlipMessageAttachmentFootnoteInfo](docs/GlipMessageAttachmentFootnoteInfo.md)
+ - [GlipMessageAttachmentInfo](docs/GlipMessageAttachmentInfo.md)
+ - [GlipMessageAttachmentInfoRequest](docs/GlipMessageAttachmentInfoRequest.md)
  - [GlipNavigationInfo](docs/GlipNavigationInfo.md)
  - [GlipPersonInfo](docs/GlipPersonInfo.md)
  - [GlipPostInfo](docs/GlipPostInfo.md)
@@ -670,6 +684,7 @@ Class | Method | HTTP request | Description
  - [ParsePhoneNumberResponse](docs/ParsePhoneNumberResponse.md)
  - [ParsedNumberResource](docs/ParsedNumberResource.md)
  - [ParsedPhoneNumbersResource](docs/ParsedPhoneNumbersResource.md)
+ - [PatchOperationInfo](docs/PatchOperationInfo.md)
  - [PathPattern](docs/PathPattern.md)
  - [PatternWithGroups](docs/PatternWithGroups.md)
  - [PaymentInfoAddressResource](docs/PaymentInfoAddressResource.md)
@@ -697,6 +712,7 @@ Class | Method | HTTP request | Description
  - [PhoneNumbers](docs/PhoneNumbers.md)
  - [PhoneNumbersRecordsResource](docs/PhoneNumbersRecordsResource.md)
  - [PhoneNumbersResource](docs/PhoneNumbersResource.md)
+ - [PhotoInfo](docs/PhotoInfo.md)
  - [PoolRequestResource](docs/PoolRequestResource.md)
  - [PoolResponseResource](docs/PoolResponseResource.md)
  - [PostGlipFile](docs/PostGlipFile.md)
@@ -720,6 +736,7 @@ Class | Method | HTTP request | Description
  - [ProvisionPhoneNumberRequest](docs/ProvisionPhoneNumberRequest.md)
  - [ProvisioningResource](docs/ProvisioningResource.md)
  - [PutPresenceResource](docs/PutPresenceResource.md)
+ - [QueueInfo](docs/QueueInfo.md)
  - [RangesInfo](docs/RangesInfo.md)
  - [Reason](docs/Reason.md)
  - [ReassignPhoneNumberResource](docs/ReassignPhoneNumberResource.md)
@@ -761,6 +778,9 @@ Class | Method | HTTP request | Description
  - [ScheduleInfoUserBusinessHours](docs/ScheduleInfoUserBusinessHours.md)
  - [ScheduleResource](docs/ScheduleResource.md)
  - [SchedulesInfoReporting](docs/SchedulesInfoReporting.md)
+ - [ScimErrorResponse](docs/ScimErrorResponse.md)
+ - [ScimSearchRequestInfo](docs/ScimSearchRequestInfo.md)
+ - [ScimUserPatch](docs/ScimUserPatch.md)
  - [SecretQuestionInfo](docs/SecretQuestionInfo.md)
  - [SecretQuestionInfoResource](docs/SecretQuestionInfoResource.md)
  - [SecretQuestionInfoValidationRequest](docs/SecretQuestionInfoValidationRequest.md)
@@ -775,6 +795,7 @@ Class | Method | HTTP request | Description
  - [ServicePlan](docs/ServicePlan.md)
  - [ServicePlanInfo](docs/ServicePlanInfo.md)
  - [ServicePlanResource](docs/ServicePlanResource.md)
+ - [ServiceProviderConfig](docs/ServiceProviderConfig.md)
  - [SessionResource](docs/SessionResource.md)
  - [SessionsResource](docs/SessionsResource.md)
  - [SetReportingSettingsRequest](docs/SetReportingSettingsRequest.md)
@@ -805,8 +826,10 @@ Class | Method | HTTP request | Description
  - [SubscriptionInfo](docs/SubscriptionInfo.md)
  - [SubscriptionRequest](docs/SubscriptionRequest.md)
  - [SubscriptionResponse](docs/SubscriptionResponse.md)
+ - [Supported](docs/Supported.md)
  - [SyncCallLogRecords](docs/SyncCallLogRecords.md)
  - [SyncInfo](docs/SyncInfo.md)
+ - [SyncInfoCallLog](docs/SyncInfoCallLog.md)
  - [SyncInfoMessages](docs/SyncInfoMessages.md)
  - [SyncMessages](docs/SyncMessages.md)
  - [TargetServicePlanInfo](docs/TargetServicePlanInfo.md)
@@ -819,6 +842,7 @@ Class | Method | HTTP request | Description
  - [TimezonesResource](docs/TimezonesResource.md)
  - [TouchRequestResource](docs/TouchRequestResource.md)
  - [TranscriptionResult](docs/TranscriptionResult.md)
+ - [TransferredExtensionInfo](docs/TransferredExtensionInfo.md)
  - [TransitionInfo](docs/TransitionInfo.md)
  - [UnconditionalForwardingInfo](docs/UnconditionalForwardingInfo.md)
  - [UnconditionalForwardingResource](docs/UnconditionalForwardingResource.md)
@@ -857,8 +881,29 @@ Class | Method | HTTP request | Description
 
 
 ## Documentation For Authorization
- Endpoints do not require authorization.
 
+## OAuth2
+- **Type**: OAuth
+- **Flow**: accessCode
+- **Authorization URL**: https://platform.devtest.ringcentral.com/restapi/oauth/authorize
+- **Scopes**: N/A
+
+Example
+```
+	auth := context.WithValue(context.Background(), sw.ContextAccessToken, "ACCESSTOKENSTRING")
+    r, err := client.Service.Operation(auth, args)
+```
+
+Or via OAuth2 module to automatically refresh tokens and perform user authentication.
+```
+	import 	"golang.org/x/oauth2"
+
+    / .. Perform OAuth2 round trip request and obtain a token .. //
+
+    tokenSource := oauth2cfg.TokenSource(createContext(httpClient), &token)
+	auth := context.WithValue(oauth2.NoContext, sw.ContextOAuth2, tokenSource)
+    r, err := client.Service.Operation(auth, args)
+```
 
 ## Author
 

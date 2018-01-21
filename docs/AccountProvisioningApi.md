@@ -1,6 +1,6 @@
 # \AccountProvisioningApi
 
-All URIs are relative to *https://api.ringcentral.com*
+All URIs are relative to *https://platform.devtest.ringcentral.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,6 +13,9 @@ Method | HTTP request | Description
 [**GetBrandInfo**](AccountProvisioningApi.md#GetBrandInfo) | **Get** /restapi/v1.0/dictionary/brand/{brandId} | Get Brand Info
 [**GetDeviceModels**](AccountProvisioningApi.md#GetDeviceModels) | **Get** /restapi/v1.0/dictionary/device | Get Device Catalog
 [**GetExtensionFreeNumbers**](AccountProvisioningApi.md#GetExtensionFreeNumbers) | **Get** /restapi/v1.0/account/{accountId}/extension/free-numbers | Get Free Extension Numbers
+[**GetPagingOnlyGroupDevices**](AccountProvisioningApi.md#GetPagingOnlyGroupDevices) | **Get** /restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/devices | Get Paging Only Group Devices
+[**GetPagingOnlyGroupUsers**](AccountProvisioningApi.md#GetPagingOnlyGroupUsers) | **Get** /restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/users | Get Paging Only Group Users
+[**GetParkLocationUsers**](AccountProvisioningApi.md#GetParkLocationUsers) | **Get** /restapi/v1.0/account/{accountId}/park-locations/{parkLocationId}/users | Get Park Location Users
 [**GetServicePlanInfo**](AccountProvisioningApi.md#GetServicePlanInfo) | **Get** /restapi/v1.0/dictionary/service-plan/{servicePlanId} | Get Service Plan
 [**ListAccountDevices**](AccountProvisioningApi.md#ListAccountDevices) | **Get** /restapi/v1.0/account/{accountId}/device | Get Account Devices
 [**ListAccountPhoneNumbers**](AccountProvisioningApi.md#ListAccountPhoneNumbers) | **Get** /restapi/v1.0/account/{accountId}/phone-number | Get All Company Phone Numbers
@@ -30,12 +33,9 @@ Method | HTTP request | Description
 [**ProvisionPhoneNumber**](AccountProvisioningApi.md#ProvisionPhoneNumber) | **Post** /restapi/v1.0/account/{accountId}/phone-number | Provision Phone Numbers
 [**ReassignPhoneNumberById**](AccountProvisioningApi.md#ReassignPhoneNumberById) | **Put** /restapi/v1.0/account/{accountId}/phone-number/{phoneNumberId} | Reassign Phone Number
 [**ReservePhoneNumbers**](AccountProvisioningApi.md#ReservePhoneNumbers) | **Post** /restapi/v1.0/number-pool/reserve | Reserve/ Un-reserve Numbers
-[**RestapiV10AccountAccountIdPagingOnlyGroupsPagingOnlyGroupIdBulkAssignPost**](AccountProvisioningApi.md#RestapiV10AccountAccountIdPagingOnlyGroupsPagingOnlyGroupIdBulkAssignPost) | **Post** /restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/bulk-assign | Edit Paging Group Users &amp; Devices
-[**RestapiV10AccountAccountIdPagingOnlyGroupsPagingOnlyGroupIdDevicesGet**](AccountProvisioningApi.md#RestapiV10AccountAccountIdPagingOnlyGroupsPagingOnlyGroupIdDevicesGet) | **Get** /restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/devices | Get Paging Only Group Devices
-[**RestapiV10AccountAccountIdPagingOnlyGroupsPagingOnlyGroupIdUsersGet**](AccountProvisioningApi.md#RestapiV10AccountAccountIdPagingOnlyGroupsPagingOnlyGroupIdUsersGet) | **Get** /restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/users | Get Paging Only Group Users
-[**RestapiV10AccountAccountIdParkLocationsParkLocationIdBulkAssignPost**](AccountProvisioningApi.md#RestapiV10AccountAccountIdParkLocationsParkLocationIdBulkAssignPost) | **Post** /restapi/v1.0/account/{accountId}/park-locations/{parkLocationId}/bulk-assign | Adds and/or removes park location users
-[**RestapiV10AccountAccountIdParkLocationsParkLocationIdUsersGet**](AccountProvisioningApi.md#RestapiV10AccountAccountIdParkLocationsParkLocationIdUsersGet) | **Get** /restapi/v1.0/account/{accountId}/park-locations/{parkLocationId}/users | Get Park Location Users
 [**UpdateDevice**](AccountProvisioningApi.md#UpdateDevice) | **Put** /restapi/v1.0/account/{accountId}/device/{deviceId} | Update Device
+[**UpdatePagingOnlyGroupUsersAndDevices**](AccountProvisioningApi.md#UpdatePagingOnlyGroupUsersAndDevices) | **Post** /restapi/v1.0/account/{accountId}/paging-only-groups/{pagingOnlyGroupId}/bulk-assign | Edit Paging Group Users &amp; Devices
+[**UpdateParkLocationUsers**](AccountProvisioningApi.md#UpdateParkLocationUsers) | **Post** /restapi/v1.0/account/{accountId}/park-locations/{parkLocationId}/bulk-assign | Adds and/or removes park location users
 
 
 # **BulkAssign**
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -267,7 +267,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -293,7 +293,127 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetPagingOnlyGroupDevices**
+> PagingOnlyGroupDevices GetPagingOnlyGroupDevices(ctx, accountId, pagingOnlyGroupId, optional)
+Get Paging Only Group Devices
+
+<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns the list of paging devices assigned to this group.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**|  | 
+  **pagingOnlyGroupId** | **string**|  | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **string**|  | 
+ **pagingOnlyGroupId** | **string**|  | 
+ **page** | **int32**| Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39; | 
+ **perPage** | **int32**| Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default | 
+
+### Return type
+
+[**PagingOnlyGroupDevices**](PagingOnlyGroupDevices.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetPagingOnlyGroupUsers**
+> PagingOnlyGroupUsers GetPagingOnlyGroupUsers(ctx, accountId, pagingOnlyGroupId, optional)
+Get Paging Only Group Users
+
+<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns the list of users allowed to page this group.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**|  | 
+  **pagingOnlyGroupId** | **string**|  | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **string**|  | 
+ **pagingOnlyGroupId** | **string**|  | 
+ **page** | **int32**| Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39; | 
+ **perPage** | **int32**| Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default | 
+
+### Return type
+
+[**PagingOnlyGroupUsers**](PagingOnlyGroupUsers.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetParkLocationUsers**
+> ParkLocationResponse GetParkLocationUsers(ctx, accountId, parkLocationId, optional)
+Get Park Location Users
+
+<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns the list of users allowed to park and unpark calls to/from the park location extension specified</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**|  | 
+  **parkLocationId** | **string**|  | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **string**|  | 
+ **parkLocationId** | **string**|  | 
+ **page** | **int32**| Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39; | 
+ **perPage** | **int32**| Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default | 
+
+### Return type
+
+[**ParkLocationResponse**](ParkLocationResponse.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -319,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -347,7 +467,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -386,7 +506,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -426,7 +546,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -465,7 +585,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -489,7 +609,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -528,7 +648,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -565,7 +685,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -594,7 +714,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -623,7 +743,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -652,7 +772,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -681,7 +801,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -728,7 +848,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -766,7 +886,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -795,7 +915,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -834,7 +954,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -862,205 +982,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdPagingOnlyGroupsPagingOnlyGroupIdBulkAssignPost**
-> RestapiV10AccountAccountIdPagingOnlyGroupsPagingOnlyGroupIdBulkAssignPost(ctx, accountId, pagingOnlyGroupId, optional)
-Edit Paging Group Users & Devices
-
-<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Adds and/or removes paging group users and devices.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **accountId** | **string**|  | 
-  **pagingOnlyGroupId** | **string**|  | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **string**|  | 
- **pagingOnlyGroupId** | **string**|  | 
- **body** | [**EditPagingGroupRequest**](EditPagingGroupRequest.md)|  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdPagingOnlyGroupsPagingOnlyGroupIdDevicesGet**
-> PagingOnlyGroupDevices RestapiV10AccountAccountIdPagingOnlyGroupsPagingOnlyGroupIdDevicesGet(ctx, accountId, pagingOnlyGroupId, optional)
-Get Paging Only Group Devices
-
-<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns the list of paging devices assigned to this group.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **accountId** | **string**|  | 
-  **pagingOnlyGroupId** | **string**|  | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **string**|  | 
- **pagingOnlyGroupId** | **string**|  | 
- **page** | **int32**| Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39; | 
- **perPage** | **int32**| Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default | 
-
-### Return type
-
-[**PagingOnlyGroupDevices**](PagingOnlyGroupDevices.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdPagingOnlyGroupsPagingOnlyGroupIdUsersGet**
-> PagingOnlyGroupUsers RestapiV10AccountAccountIdPagingOnlyGroupsPagingOnlyGroupIdUsersGet(ctx, accountId, pagingOnlyGroupId, optional)
-Get Paging Only Group Users
-
-<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns the list of users allowed to page this group.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **accountId** | **string**|  | 
-  **pagingOnlyGroupId** | **string**|  | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **string**|  | 
- **pagingOnlyGroupId** | **string**|  | 
- **page** | **int32**| Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39; | 
- **perPage** | **int32**| Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default | 
-
-### Return type
-
-[**PagingOnlyGroupUsers**](PagingOnlyGroupUsers.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdParkLocationsParkLocationIdBulkAssignPost**
-> RestapiV10AccountAccountIdParkLocationsParkLocationIdBulkAssignPost(ctx, accountId, parkLocationId, optional)
-Adds and/or removes park location users
-
-<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Adds and/or removes park location users.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **accountId** | **string**|  | 
-  **parkLocationId** | **string**|  | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **string**|  | 
- **parkLocationId** | **string**|  | 
- **body** | [**EditParkLocationRequest**](EditParkLocationRequest.md)|  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdParkLocationsParkLocationIdUsersGet**
-> ParkLocationResponse RestapiV10AccountAccountIdParkLocationsParkLocationIdUsersGet(ctx, accountId, parkLocationId, optional)
-Get Park Location Users
-
-<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns the list of users allowed to park and unpark calls to/from the park location extension specified</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Light</p>
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **accountId** | **string**|  | 
-  **parkLocationId** | **string**|  | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **string**|  | 
- **parkLocationId** | **string**|  | 
- **page** | **int32**| Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39; | 
- **perPage** | **int32**| Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default | 
-
-### Return type
-
-[**ParkLocationResponse**](ParkLocationResponse.md)
-
-### Authorization
-
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -1097,7 +1019,85 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UpdatePagingOnlyGroupUsersAndDevices**
+> UpdatePagingOnlyGroupUsersAndDevices(ctx, accountId, pagingOnlyGroupId, optional)
+Edit Paging Group Users & Devices
+
+<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Adds and/or removes paging group users and devices.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**|  | 
+  **pagingOnlyGroupId** | **string**|  | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **string**|  | 
+ **pagingOnlyGroupId** | **string**|  | 
+ **body** | [**EditPagingGroupRequest**](EditPagingGroupRequest.md)|  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **UpdateParkLocationUsers**
+> UpdateParkLocationUsers(ctx, accountId, parkLocationId, optional)
+Adds and/or removes park location users
+
+<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Adds and/or removes park location users.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Viewing and updating my extension info (includes extension name, number, email and phone number)</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**|  | 
+  **parkLocationId** | **string**|  | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **string**|  | 
+ **parkLocationId** | **string**|  | 
+ **body** | [**EditParkLocationRequest**](EditParkLocationRequest.md)|  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 

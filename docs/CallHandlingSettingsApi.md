@@ -1,6 +1,6 @@
 # \CallHandlingSettingsApi
 
-All URIs are relative to *https://api.ringcentral.com*
+All URIs are relative to *https://platform.devtest.ringcentral.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,13 +9,20 @@ Method | HTTP request | Description
 [**CreateCompanyAnsweringRuleInfo**](CallHandlingSettingsApi.md#CreateCompanyAnsweringRuleInfo) | **Post** /restapi/v1.0/account/{accountId}/answering-rule | Create Company Call Handling Rule
 [**CreateExtensionForwardingNumber**](CallHandlingSettingsApi.md#CreateExtensionForwardingNumber) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/forwarding-number | Create Forwarding Numbers
 [**CreateGreeting**](CallHandlingSettingsApi.md#CreateGreeting) | **Post** /restapi/v1.0/account/{accountId}/extension/{extensionId}/greeting | Create User Custom Greeting
+[**CreateIVRMenu**](CallHandlingSettingsApi.md#CreateIVRMenu) | **Post** /restapi/v1.0/account/{accountId}/ivr-menus | Create IVR Menu
+[**CreatePrompts**](CallHandlingSettingsApi.md#CreatePrompts) | **Post** /restapi/v1.0/account/{accountId}/ivr-prompts | Create IVR Prompt
 [**DeleteAnsweringRule**](CallHandlingSettingsApi.md#DeleteAnsweringRule) | **Delete** /restapi/v1.0/account/{accountId}/extension/{extensionId}/answering-rule/{ruleId} | Delete Call Handling Rule
 [**DeleteExtensionForwardingNumber**](CallHandlingSettingsApi.md#DeleteExtensionForwardingNumber) | **Delete** /restapi/v1.0/account/{accountId}/extension/{extensionId}/forwarding-number/{forwardingNumberId} | Delete Forwarding Number
+[**DeleteIVRPrompt**](CallHandlingSettingsApi.md#DeleteIVRPrompt) | **Delete** /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId} | Delete IVR Prompt
 [**GetCompanyGreeting**](CallHandlingSettingsApi.md#GetCompanyGreeting) | **Post** /restapi/v1.0/account/{accountId}/greeting | Create Custom Company Greeting
 [**GetForwardingNumber**](CallHandlingSettingsApi.md#GetForwardingNumber) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/forwarding-number/{forwardingNumberId} | Get Forwarding Number
 [**GetGreeting**](CallHandlingSettingsApi.md#GetGreeting) | **Get** /restapi/v1.0/dictionary/greeting/{greetingId} | Get Greeting Info
 [**GetGreetingByID**](CallHandlingSettingsApi.md#GetGreetingByID) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/greeting/{greetingId} | Get Custom Greeting Info
 [**GetGreetings**](CallHandlingSettingsApi.md#GetGreetings) | **Get** /restapi/v1.0/dictionary/greeting | Get Standard Greetings
+[**GetIVRMenuById**](CallHandlingSettingsApi.md#GetIVRMenuById) | **Get** /restapi/v1.0/account/{accountId}/ivr-menus/{ivrMenuId} | Get IVR Menu
+[**GetIVRPrompt**](CallHandlingSettingsApi.md#GetIVRPrompt) | **Get** /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId} | Get IVR Prompt
+[**GetIVRPromptContent**](CallHandlingSettingsApi.md#GetIVRPromptContent) | **Get** /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId}/content | Get IVR Prompt Content
+[**GetIVRPrompts**](CallHandlingSettingsApi.md#GetIVRPrompts) | **Get** /restapi/v1.0/account/{accountId}/ivr-prompts | Get IVR Prompts
 [**ListBlockedNumbers**](CallHandlingSettingsApi.md#ListBlockedNumbers) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/blocked-number | Get Blocked Numbers
 [**ListCompanyAnsweringRule**](CallHandlingSettingsApi.md#ListCompanyAnsweringRule) | **Get** /restapi/v1.0/account/{accountId}/answering-rule | Get Company Call Handling Rules
 [**ListExtensionForwardingNumbers**](CallHandlingSettingsApi.md#ListExtensionForwardingNumbers) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/forwarding-number | Get Forwarding Numbers
@@ -25,14 +32,7 @@ Method | HTTP request | Description
 [**LoadBusinesshoursInfo**](CallHandlingSettingsApi.md#LoadBusinesshoursInfo) | **Get** /restapi/v1.0/account/{accountId}/business-hours | Get Company Business Hours
 [**LoadCompanyAnsweringRuleInfo**](CallHandlingSettingsApi.md#LoadCompanyAnsweringRuleInfo) | **Get** /restapi/v1.0/account/{accountId}/answering-rule/{ruleId} | Get Company Call Handling Rule
 [**LoadUserBusinessHours**](CallHandlingSettingsApi.md#LoadUserBusinessHours) | **Get** /restapi/v1.0/account/{accountId}/extension/{extensionId}/business-hours | Get User Business Hours
-[**RestapiV10AccountAccountIdIvrMenusIvrMenuIdGet**](CallHandlingSettingsApi.md#RestapiV10AccountAccountIdIvrMenusIvrMenuIdGet) | **Get** /restapi/v1.0/account/{accountId}/ivr-menus/{ivrMenuId} | Get IVR Menu
 [**RestapiV10AccountAccountIdIvrMenusIvrMenuIdPut**](CallHandlingSettingsApi.md#RestapiV10AccountAccountIdIvrMenusIvrMenuIdPut) | **Put** /restapi/v1.0/account/{accountId}/ivr-menus/{ivrMenuId} | Update IVR Menu
-[**RestapiV10AccountAccountIdIvrMenusPost**](CallHandlingSettingsApi.md#RestapiV10AccountAccountIdIvrMenusPost) | **Post** /restapi/v1.0/account/{accountId}/ivr-menus | Create IVR Menu
-[**RestapiV10AccountAccountIdIvrPromptsGet**](CallHandlingSettingsApi.md#RestapiV10AccountAccountIdIvrPromptsGet) | **Get** /restapi/v1.0/account/{accountId}/ivr-prompts | Get IVR Prompts
-[**RestapiV10AccountAccountIdIvrPromptsPost**](CallHandlingSettingsApi.md#RestapiV10AccountAccountIdIvrPromptsPost) | **Post** /restapi/v1.0/account/{accountId}/ivr-prompts | Create IVR Prompts
-[**RestapiV10AccountAccountIdIvrPromptsPromptIdContentGet**](CallHandlingSettingsApi.md#RestapiV10AccountAccountIdIvrPromptsPromptIdContentGet) | **Get** /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId}/content | Get IVR Prompt Content
-[**RestapiV10AccountAccountIdIvrPromptsPromptIdDelete**](CallHandlingSettingsApi.md#RestapiV10AccountAccountIdIvrPromptsPromptIdDelete) | **Delete** /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId} | Delete IVR Prompt
-[**RestapiV10AccountAccountIdIvrPromptsPromptIdGet**](CallHandlingSettingsApi.md#RestapiV10AccountAccountIdIvrPromptsPromptIdGet) | **Get** /restapi/v1.0/account/{accountId}/ivr-prompts/{promptId} | Get IVR Prompt
 [**UnblockNumber**](CallHandlingSettingsApi.md#UnblockNumber) | **Delete** /restapi/v1.0/account/{accountId}/extension/{extensionId}/blocked-number/{blockedNumberId} | Delete Blocked Number
 [**UpdateAnsweringRuleInfo**](CallHandlingSettingsApi.md#UpdateAnsweringRuleInfo) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/answering-rule/{ruleId} | Update Custom Call Handling Rule
 [**UpdateBlockedNumber**](CallHandlingSettingsApi.md#UpdateBlockedNumber) | **Put** /restapi/v1.0/account/{accountId}/extension/{extensionId}/blocked-number/{blockedNumberId} | Update Blocked Number
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -198,11 +198,79 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **CreateIVRMenu**
+> IvrMenuInfo CreateIVRMenu(ctx, accountId, body)
+Create IVR Menu
+
+<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Creates a company IVR menu</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Heavy</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**|  | 
+  **body** | [**IvrMenuInfo**](IvrMenuInfo.md)| JSON body | 
+
+### Return type
+
+[**IvrMenuInfo**](IVRMenuInfo.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **CreatePrompts**
+> PromptInfo CreatePrompts(ctx, accountId, attachment, optional)
+Create IVR Prompt
+
+<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Creates an IVR prompt.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Heavy</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**|  | 
+  **attachment** | ***os.File**| Audio file that will be used as a prompt. Attachment cannot be empty, only audio files are supported | 
+ **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a map[string]interface{}.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **string**|  | 
+ **attachment** | ***os.File**| Audio file that will be used as a prompt. Attachment cannot be empty, only audio files are supported | 
+ **name** | **string**| Description of file contents. | 
+
+### Return type
+
+[**PromptInfo**](PromptInfo.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -226,7 +294,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -256,7 +324,36 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **DeleteIVRPrompt**
+> DeleteIVRPrompt(ctx, accountId, promptId)
+Delete IVR Prompt
+
+<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Deletes an IVR prompt by ID</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Heavy</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**|  | 
+  **promptId** | **string**|  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -283,7 +380,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -311,7 +408,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -339,7 +436,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -367,7 +464,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -405,7 +502,122 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetIVRMenuById**
+> IvrMenuInfo GetIVRMenuById(ctx, accountId, ivrMenuId)
+Get IVR Menu
+
+<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns a company IVR menu by ID</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**|  | 
+  **ivrMenuId** | **string**|  | 
+
+### Return type
+
+[**IvrMenuInfo**](IVRMenuInfo.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetIVRPrompt**
+> PromptInfo GetIVRPrompt(ctx, accountId, promptId)
+Get IVR Prompt
+
+<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns an IVR prompt by ID</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**|  | 
+  **promptId** | **string**|  | 
+
+### Return type
+
+[**PromptInfo**](PromptInfo.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetIVRPromptContent**
+> GetIVRPromptContent(ctx, accountId, promptId)
+Get IVR Prompt Content
+
+<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns media content of an IVR prompt by its ID</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**|  | 
+  **promptId** | **string**|  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetIVRPrompts**
+> IvrPrompts GetIVRPrompts(ctx, accountId)
+Get IVR Prompts
+
+<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns a list of IVR prompts.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **accountId** | **string**|  | 
+
+### Return type
+
+[**IvrPrompts**](IVRPrompts.md)
+
+### Authorization
+
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -434,7 +646,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -462,7 +674,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -502,7 +714,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -532,7 +744,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -572,7 +784,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -602,7 +814,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -630,7 +842,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -659,7 +871,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -688,36 +900,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdIvrMenusIvrMenuIdGet**
-> IvrMenuInfo RestapiV10AccountAccountIdIvrMenusIvrMenuIdGet(ctx, accountId, ivrMenuId)
-Get IVR Menu
-
-<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns a company IVR menu by ID</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **accountId** | **string**|  | 
-  **ivrMenuId** | **string**|  | 
-
-### Return type
-
-[**IvrMenuInfo**](IVRMenuInfo.md)
-
-### Authorization
-
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -747,190 +930,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdIvrMenusPost**
-> IvrMenuInfo RestapiV10AccountAccountIdIvrMenusPost(ctx, accountId, body)
-Create IVR Menu
-
-<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Creates a company IVR menu</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Heavy</p>
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **accountId** | **string**|  | 
-  **body** | [**IvrMenuInfo**](IvrMenuInfo.md)| JSON body | 
-
-### Return type
-
-[**IvrMenuInfo**](IVRMenuInfo.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdIvrPromptsGet**
-> IvrPrompts RestapiV10AccountAccountIdIvrPromptsGet(ctx, accountId)
-Get IVR Prompts
-
-<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns a list of IVR prompts.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **accountId** | **string**|  | 
-
-### Return type
-
-[**IvrPrompts**](IVRPrompts.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdIvrPromptsPost**
-> PromptInfo RestapiV10AccountAccountIdIvrPromptsPost(ctx, accountId, attachment, optional)
-Create IVR Prompts
-
-<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Creates an IVR prompt.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Heavy</p>
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **accountId** | **string**|  | 
-  **attachment** | ***os.File**| Audio file that will be used as a prompt. Attachment cannot be empty, only audio files are supported | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **string**|  | 
- **attachment** | ***os.File**| Audio file that will be used as a prompt. Attachment cannot be empty, only audio files are supported | 
- **name** | **string**| Description of file contents. | 
-
-### Return type
-
-[**PromptInfo**](PromptInfo.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdIvrPromptsPromptIdContentGet**
-> RestapiV10AccountAccountIdIvrPromptsPromptIdContentGet(ctx, accountId, promptId)
-Get IVR Prompt Content
-
-<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns media content of an IVR prompt by its ID</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **accountId** | **string**|  | 
-  **promptId** | **string**|  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdIvrPromptsPromptIdDelete**
-> RestapiV10AccountAccountIdIvrPromptsPromptIdDelete(ctx, accountId, promptId)
-Delete IVR Prompt
-
-<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Deletes an IVR prompt by ID</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Heavy</p>
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **accountId** | **string**|  | 
-  **promptId** | **string**|  | 
-
-### Return type
-
- (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **RestapiV10AccountAccountIdIvrPromptsPromptIdGet**
-> PromptInfo RestapiV10AccountAccountIdIvrPromptsPromptIdGet(ctx, accountId, promptId)
-Get IVR Prompt
-
-<p style='font-style:italic;'>Since 1.0.32 (Release 9.3)</p><p>Returns an IVR prompt by ID</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>ReadAccounts</td><td>Viewing user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **accountId** | **string**|  | 
-  **promptId** | **string**|  | 
-
-### Return type
-
-[**PromptInfo**](PromptInfo.md)
-
-### Authorization
-
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -960,7 +960,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -991,7 +991,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -1032,7 +1032,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -1062,7 +1062,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -1091,7 +1091,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -1122,7 +1122,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -1152,7 +1152,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 

@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"os"
 
-	log "github.com/Sirupsen/logrus"
 	"github.com/grokify/gotilla/fmt/fmtutil"
 	hum "github.com/grokify/gotilla/net/httputilmore"
 	"github.com/joho/godotenv"
+	log "github.com/sirupsen/logrus"
 
 	rc "github.com/grokify/go-ringcentral/client"
 	rcu "github.com/grokify/go-ringcentral/clientutil"
