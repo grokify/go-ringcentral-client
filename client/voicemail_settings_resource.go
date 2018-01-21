@@ -10,7 +10,6 @@
 package ringcentral
 
 type VoicemailSettingsResource struct {
-
 	Enabled bool `json:"enabled,omitempty"`
 
 	Recipient *ExtensionResource `json:"recipient,omitempty"`

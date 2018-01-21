@@ -10,7 +10,6 @@
 package ringcentral
 
 type InvoiceSettingsResource struct {
-
 	MaxAmountPerFirstMonth int64 `json:"maxAmountPerFirstMonth,omitempty"`
 
 	MaxAmountPerMonth int64 `json:"maxAmountPerMonth,omitempty"`

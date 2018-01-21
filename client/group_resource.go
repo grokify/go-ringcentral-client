@@ -10,7 +10,6 @@
 package ringcentral
 
 type GroupResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	Contacts *ResourceLink `json:"contacts,omitempty"`

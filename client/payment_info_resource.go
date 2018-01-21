@@ -10,7 +10,6 @@
 package ringcentral
 
 type PaymentInfoResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	PaymentType string `json:"paymentType,omitempty"`

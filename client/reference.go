@@ -10,7 +10,6 @@
 package ringcentral
 
 type Reference struct {
-
 	Type_ string `json:"type,omitempty"`
 
 	Ref string `json:"ref,omitempty"`

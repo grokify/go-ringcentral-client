@@ -10,7 +10,6 @@
 package ringcentral
 
 type SipInfo struct {
-
 	Transport string `json:"transport,omitempty"`
 
 	Certificate string `json:"certificate,omitempty"`

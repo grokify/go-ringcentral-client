@@ -10,7 +10,6 @@
 package ringcentral
 
 type RegistrationRequest struct {
-
 	Device *DeviceToRegister `json:"device,omitempty"`
 
 	SipInfo []SipDetailsToRegister `json:"sipInfo,omitempty"`

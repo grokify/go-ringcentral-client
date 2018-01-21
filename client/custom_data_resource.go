@@ -14,7 +14,6 @@ import (
 )
 
 type CustomDataResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	Id string `json:"id,omitempty"`

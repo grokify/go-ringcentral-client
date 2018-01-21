@@ -10,6 +10,5 @@
 package ringcentral
 
 type PoolRequestResource struct {
-
 	RendererId string `json:"rendererId,omitempty"`
 }

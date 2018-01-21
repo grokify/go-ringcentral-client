@@ -10,7 +10,6 @@
 package ringcentral
 
 type RingOutResource struct {
-
 	From *RingOutFromInfo `json:"from,omitempty"`
 
 	To *RingOutPhoneNumberInfo `json:"to,omitempty"`

@@ -10,7 +10,6 @@
 package ringcentral
 
 type SubscriptionRequest struct {
-
 	EventFilters []string `json:"eventFilters,omitempty"`
 
 	DeliveryMode *DeliveryModeResource `json:"deliveryMode,omitempty"`

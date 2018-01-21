@@ -10,7 +10,6 @@
 package ringcentral
 
 type StatusType struct {
-
 	Family string `json:"family,omitempty"`
 
 	StatusCode int32 `json:"statusCode,omitempty"`

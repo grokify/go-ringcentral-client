@@ -10,6 +10,5 @@
 package ringcentral
 
 type SipDetailsToRegister struct {
-
 	Transport string `json:"transport,omitempty"`
 }

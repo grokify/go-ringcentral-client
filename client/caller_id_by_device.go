@@ -10,7 +10,6 @@
 package ringcentral
 
 type CallerIdByDevice struct {
-
 	Device *CallerIdDeviceInfo `json:"device,omitempty"`
 
 	CallerId *CallerIdByDeviceInfo `json:"callerId,omitempty"`
