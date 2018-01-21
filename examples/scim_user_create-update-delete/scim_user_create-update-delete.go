@@ -37,7 +37,7 @@ func (su *ScimApiUtil) GetSCIMUserById(userId string) (rc.UserInfo, error) {
 }
 
 func (su *ScimApiUtil) ListScimUsers(params map[string]interface{}) (rc.GetUserListResponse, error) {
-	info, resp, err := su.ApiClient.SCIMApi.ListScimUsers(su.Context, params)
+	info, resp, err := su.ApiClient.SCIMApi.ListUsers(su.Context, params)
 	if err != nil {
 		return info, err
 	} else if resp.StatusCode >= 300 {
@@ -57,7 +57,6 @@ func (su *ScimApiUtil) LoadExtensionInfo(accountId, extensionId string) (rc.GetE
 }
 
 func main() {
-	panic("In development")
 	err := loadEnv()
 	if err != nil {
 		panic(err)
@@ -93,9 +92,13 @@ func main() {
 	params := rc.UserUpdateRequest{
 		Schemas:  []string{"urn:ietf:params:scim:schemas:core:2.0:User"},
 		UserName: "JonSnow",
-		Emails:   "jon.snow@winterfell.gov",
-		Active:   true,
-		Addresses: []rc.AddressInfoRequest{
+		Emails: []rc.EmailInfo{
+			{
+				Value: "jon.snow@winterfell.gov",
+			},
+		},
+		Active: true,
+		Addresses: []rc.AddressInfo{
 			{
 				Locality: "Winterfell",
 				Region:   "The North",
@@ -104,14 +107,15 @@ func main() {
 		},
 	}
 
-	info, res, err := apiClient.SCIMApi.UpdateUser(scimUtil.Context, userId, params)
-	if err != nil {
-		panic(err)
-	} else if res.StatusCode >= 300 {
-		panic(fmt.Sprintf("API Response %v", res.StatusCode))
+	if 1 == 0 {
+		info, res, err := apiClient.SCIMApi.UpdateUser(scimUtil.Context, userId, params)
+		if err != nil {
+			panic(err)
+		} else if res.StatusCode >= 300 {
+			panic(fmt.Sprintf("API Response %v", res.StatusCode))
+		}
+		fmtutil.PrintJSON(info)
 	}
-	fmtutil.PrintJSON(info)
-
 	if 1 == 0 {
 		// Retrieve a list of users
 		info, err := scimUtil.ListScimUsers(map[string]interface{}{})
