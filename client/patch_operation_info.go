@@ -15,5 +15,5 @@ type PatchOperationInfo struct {
 	Path string `json:"path,omitempty"`
 
 	// corresponding 'value' of that field specified by 'path'
-	Value *interface{} `json:"value,omitempty"`
+	Value interface{} `json:"value,omitempty"`
 }
