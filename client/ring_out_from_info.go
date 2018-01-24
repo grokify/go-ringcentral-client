@@ -10,6 +10,7 @@
 package ringcentral
 
 type RingOutFromInfo struct {
+
 	PhoneNumber string `json:"phoneNumber,omitempty"`
 
 	ForwardingNumberId string `json:"forwardingNumberId,omitempty"`

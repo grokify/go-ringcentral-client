@@ -10,6 +10,7 @@
 package ringcentral
 
 type MeetingScheduleResource struct {
+
 	StartTime string `json:"startTime,omitempty"`
 
 	DurationInMinutes int32 `json:"durationInMinutes,omitempty"`

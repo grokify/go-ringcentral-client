@@ -10,5 +10,6 @@
 package ringcentral
 
 type ScaledProfileImageResource struct {
+
 	Uri string `json:"uri,omitempty"`
 }

@@ -10,6 +10,7 @@
 package ringcentral
 
 type NavigableCollectionResourceUserGroupResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []UserGroupResource `json:"records,omitempty"`

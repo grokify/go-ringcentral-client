@@ -10,5 +10,6 @@
 package ringcentral
 
 type ContactsInput struct {
+
 	Records []PersonalContactResource `json:"records,omitempty"`
 }

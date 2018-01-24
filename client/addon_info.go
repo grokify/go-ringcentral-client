@@ -10,6 +10,7 @@
 package ringcentral
 
 type AddonInfo struct {
+
 	Id string `json:"id,omitempty"`
 
 	Count string `json:"count,omitempty"`

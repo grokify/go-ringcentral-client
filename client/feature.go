@@ -10,6 +10,7 @@
 package ringcentral
 
 type Feature struct {
+
 	Enabled bool `json:"enabled,omitempty"`
 
 	Reason *Reason `json:"reason,omitempty"`

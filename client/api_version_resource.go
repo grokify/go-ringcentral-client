@@ -14,6 +14,7 @@ import (
 )
 
 type ApiVersionResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	VersionString string `json:"versionString,omitempty"`

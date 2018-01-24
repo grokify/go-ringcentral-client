@@ -32,8 +32,8 @@ type GlipApiService service
 * @param ctx context.Context for authentication, logging, tracing, etc.
 @param localVarFile The file to upload
 @param optional (nil or map[string]interface{}) with one or more of:
-@param "groupId" (string) Internal identifier of a group the post with file attached will be added to
-@param "name" (string) Name of a file attached
+    @param "groupId" (string) Internal identifier of a group the post with file attached will be added to
+    @param "name" (string) Name of a file attached
 @return PostGlipFile*/
 func (a *GlipApiService) CreateGlipFile(ctx context.Context, localVarFile *os.File, localVarOptionals map[string]interface{}) (PostGlipFile, *http.Response, error) {
 	var (

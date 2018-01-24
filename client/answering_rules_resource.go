@@ -10,6 +10,7 @@
 package ringcentral
 
 type AnsweringRulesResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []AnsweringRuleResource `json:"records,omitempty"`

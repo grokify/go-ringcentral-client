@@ -10,6 +10,7 @@
 package ringcentral
 
 type Address struct {
+
 	Country string `json:"country,omitempty"`
 
 	State string `json:"state,omitempty"`

@@ -14,6 +14,7 @@ import (
 )
 
 type ProfileImageResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Etag string `json:"etag,omitempty"`

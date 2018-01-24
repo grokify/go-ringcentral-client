@@ -14,7 +14,7 @@ type LicenseTypes struct {
 	// Canonical URI of a license types resource
 	Uri string `json:"uri,omitempty"`
 
-	// List of supported licenses
+	// List of supported licenses 
 	Records []LicenseInfo `json:"records,omitempty"`
 
 	// Information on paging

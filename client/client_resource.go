@@ -10,6 +10,7 @@
 package ringcentral
 
 type ClientResource struct {
+
 	Detected bool `json:"detected,omitempty"`
 
 	UserAgent string `json:"userAgent,omitempty"`

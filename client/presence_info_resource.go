@@ -10,6 +10,7 @@
 package ringcentral
 
 type PresenceInfoResource struct {
+
 	UserStatus string `json:"userStatus,omitempty"`
 
 	DndStatus string `json:"dndStatus,omitempty"`

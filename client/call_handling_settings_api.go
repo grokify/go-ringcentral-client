@@ -442,7 +442,7 @@ func (a *CallHandlingSettingsApiService) CreateIVRMenu(ctx context.Context, acco
 @param accountId
 @param localVarFile Audio file that will be used as a prompt. Attachment cannot be empty, only audio files are supported
 @param optional (nil or map[string]interface{}) with one or more of:
-@param "name" (string) Description of file contents.
+    @param "name" (string) Description of file contents.
 @return PromptInfo*/
 func (a *CallHandlingSettingsApiService) CreatePrompts(ctx context.Context, accountId string, localVarFile *os.File, localVarOptionals map[string]interface{}) (PromptInfo, *http.Response, error) {
 	var (

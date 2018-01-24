@@ -10,14 +10,14 @@
 package ringcentral
 
 import (
+	"io/ioutil"
+	"net/url"
+	"net/http"
+	"strings"
+	"golang.org/x/net/context"
+	"time"
 	"encoding/json"
 	"fmt"
-	"golang.org/x/net/context"
-	"io/ioutil"
-	"net/http"
-	"net/url"
-	"strings"
-	"time"
 )
 
 // Linger please
@@ -27,22 +27,23 @@ var (
 
 type MessagesApiService service
 
+
 /* MessagesApiService Delete Message(s) by ID
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Deletes message(s) by the given message ID(s). The first call of this method transfers the message to the &#39;Delete&#39; status. The second call transfers the deleted message to the &#39;Purged&#39; status. If it is required to make the message &#39;Purged&#39; immediately (from the first call), then set the query parameter purge to &#39;True&#39;.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditMessages&lt;/td&gt;&lt;td&gt;Viewing and updating user messages&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param messageId Internal identifier of a message
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "purge" (bool) If the value is &#39;True&#39;, then the message is purged immediately with all the attachments. The default value is &#39;False&#39;
-    @param "conversationId" (int32) Internal identifier of a message thread
-@return */
-func (a *MessagesApiService) DeleteMessage(ctx context.Context, accountId string, extensionId string, messageId int32, localVarOptionals map[string]interface{}) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;Deletes message(s) by the given message ID(s). The first call of this method transfers the message to the &#39;Delete&#39; status. The second call transfers the deleted message to the &#39;Purged&#39; status. If it is required to make the message &#39;Purged&#39; immediately (from the first call), then set the query parameter purge to &#39;True&#39;.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditMessages&lt;/td&gt;&lt;td&gt;Viewing and updating user messages&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param messageId Internal identifier of a message
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "purge" (bool) If the value is &#39;True&#39;, then the message is purged immediately with all the attachments. The default value is &#39;False&#39;
+     @param "conversationId" (int32) Internal identifier of a message thread
+ @return */
+func (a *MessagesApiService) DeleteMessage(ctx context.Context, accountId string, extensionId string, messageId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -69,7 +70,7 @@ func (a *MessagesApiService) DeleteMessage(ctx context.Context, accountId string
 		localVarQueryParams.Add("conversationId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -80,7 +81,7 @@ func (a *MessagesApiService) DeleteMessage(ctx context.Context, accountId string
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -106,18 +107,18 @@ func (a *MessagesApiService) DeleteMessage(ctx context.Context, accountId string
 }
 
 /* MessagesApiService Delete Conversations by ID&#39;s
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param extensionId
-@param accountId
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "conversationId" ([]string)
-@return */
-func (a *MessagesApiService) DeleteMessagesByFilter(ctx context.Context, extensionId string, accountId string, localVarOptionals map[string]interface{}) (*http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param extensionId 
+ @param accountId 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "conversationId" ([]string) 
+ @return */
+func (a *MessagesApiService) DeleteMessagesByFilter(ctx context.Context, extensionId string, accountId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -129,11 +130,12 @@ func (a *MessagesApiService) DeleteMessagesByFilter(ctx context.Context, extensi
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	if localVarTempParam, localVarOk := localVarOptionals["conversationId"].([]string); localVarOk {
 		localVarQueryParams.Add("conversationId", parameterToString(localVarTempParam, "multi"))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -144,7 +146,7 @@ func (a *MessagesApiService) DeleteMessagesByFilter(ctx context.Context, extensi
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -170,17 +172,17 @@ func (a *MessagesApiService) DeleteMessagesByFilter(ctx context.Context, extensi
 }
 
 /* MessagesApiService Get Fax Cover Pages
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-@return */
-func (a *MessagesApiService) GetFaxCoverPages(ctx context.Context, localVarOptionals map[string]interface{}) (*http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+ @return */
+func (a *MessagesApiService) GetFaxCoverPages(ctx context.Context, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -204,7 +206,7 @@ func (a *MessagesApiService) GetFaxCoverPages(ctx context.Context, localVarOptio
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -215,7 +217,7 @@ func (a *MessagesApiService) GetFaxCoverPages(ctx context.Context, localVarOptio
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -241,30 +243,30 @@ func (a *MessagesApiService) GetFaxCoverPages(ctx context.Context, localVarOptio
 }
 
 /* MessagesApiService Get Message List
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.2&lt;/p&gt;&lt;p&gt;Returns the list of messages from an extension mailbox.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "availability" ([]string) Specifies the availability status for the resulting messages. Default value is &#39;Alive&#39;. Multiple values are accepted
-    @param "conversationId" (int32) Specifies the conversation identifier for the resulting messages
-    @param "dateFrom" (time.Time) The start datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
-    @param "dateTo" (time.Time) The end datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
-    @param "direction" ([]string) The direction for the resulting messages. If not specified, both inbound and outbound messages are returned. Multiple values are accepted
-    @param "distinctConversations" (bool) If &#39;True&#39;, then the latest messages per every conversation ID are returned
-    @param "messageType" ([]string) The type of the resulting messages. If not specified, all messages without message type filtering are returned. Multiple values are accepted
-    @param "readStatus" ([]string) The read status for the resulting messages. Multiple values are accepted
-    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-    @param "phoneNumber" (string) The phone number. If specified, messages are returned for this particular phone number only
-@return GetMessageList*/
-func (a *MessagesApiService) ListMessages(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (GetMessageList, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.2&lt;/p&gt;&lt;p&gt;Returns the list of messages from an extension mailbox.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "availability" ([]string) Specifies the availability status for the resulting messages. Default value is &#39;Alive&#39;. Multiple values are accepted
+     @param "conversationId" (int32) Specifies the conversation identifier for the resulting messages
+     @param "dateFrom" (time.Time) The start datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
+     @param "dateTo" (time.Time) The end datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
+     @param "direction" ([]string) The direction for the resulting messages. If not specified, both inbound and outbound messages are returned. Multiple values are accepted
+     @param "distinctConversations" (bool) If &#39;True&#39;, then the latest messages per every conversation ID are returned
+     @param "messageType" ([]string) The type of the resulting messages. If not specified, all messages without message type filtering are returned. Multiple values are accepted
+     @param "readStatus" ([]string) The read status for the resulting messages. Multiple values are accepted
+     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+     @param "phoneNumber" (string) The phone number. If specified, messages are returned for this particular phone number only
+ @return GetMessageList*/
+func (a *MessagesApiService) ListMessages(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (GetMessageList,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetMessageList
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetMessageList
 	)
 
 	// create path and map variables
@@ -332,7 +334,7 @@ func (a *MessagesApiService) ListMessages(ctx context.Context, accountId string,
 		localVarQueryParams.Add("phoneNumber", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -343,7 +345,7 @@ func (a *MessagesApiService) ListMessages(ctx context.Context, accountId string,
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -369,23 +371,24 @@ func (a *MessagesApiService) ListMessages(ctx context.Context, accountId string,
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MessagesApiService Get Message(s) by ID
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.2&lt;/p&gt;&lt;p&gt;Returns individual message record(s) by the given message ID(s). The length of inbound messages is unlimited. Batch request is supported, see Batch Requests for details.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param messageId Internal identifier of a message
-@return GetMessageInfoResponse*/
-func (a *MessagesApiService) LoadMessage(ctx context.Context, accountId string, extensionId string, messageId int32) (GetMessageInfoResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.2&lt;/p&gt;&lt;p&gt;Returns individual message record(s) by the given message ID(s). The length of inbound messages is unlimited. Batch request is supported, see Batch Requests for details.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param messageId Internal identifier of a message
+ @return GetMessageInfoResponse*/
+func (a *MessagesApiService) LoadMessage(ctx context.Context, accountId string, extensionId string, messageId int32) (GetMessageInfoResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetMessageInfoResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetMessageInfoResponse
 	)
 
 	// create path and map variables
@@ -398,8 +401,9 @@ func (a *MessagesApiService) LoadMessage(ctx context.Context, accountId string, 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -410,7 +414,7 @@ func (a *MessagesApiService) LoadMessage(ctx context.Context, accountId string, 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -436,25 +440,26 @@ func (a *MessagesApiService) LoadMessage(ctx context.Context, accountId string, 
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MessagesApiService Get Message Attachment
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.4 (Release 5.13)&lt;/p&gt;&lt;p&gt;Returns particular message attachment data as a media stream.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param attachmentId Internal identifier of a message attachment
-@param messageId Internal identifier of a message
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "range_" (string)
-@return */
-func (a *MessagesApiService) LoadMessageAttachment(ctx context.Context, accountId string, extensionId string, attachmentId int32, messageId int32, localVarOptionals map[string]interface{}) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.4 (Release 5.13)&lt;/p&gt;&lt;p&gt;Returns particular message attachment data as a media stream.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param attachmentId Internal identifier of a message attachment
+ @param messageId Internal identifier of a message
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "range_" (string) 
+ @return */
+func (a *MessagesApiService) LoadMessageAttachment(ctx context.Context, accountId string, extensionId string, attachmentId int32, messageId int32, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -473,7 +478,7 @@ func (a *MessagesApiService) LoadMessageAttachment(ctx context.Context, accountI
 	}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -484,7 +489,7 @@ func (a *MessagesApiService) LoadMessageAttachment(ctx context.Context, accountI
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -513,18 +518,18 @@ func (a *MessagesApiService) LoadMessageAttachment(ctx context.Context, accountI
 }
 
 /* MessagesApiService Create Fax Message
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.2&lt;/p&gt;&lt;p&gt;Creates and sends/resends new fax message. Resend can be done if sending failed.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Faxes&lt;/td&gt;&lt;td&gt;Sending and receiving faxes&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account (integer) or tilde (~) to indicate the account which was logged-in within the current session.
-@param extensionId Internal identifier of an extension (integer) or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@return FaxResponse*/
-func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId string, extensionId string) (FaxResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.2&lt;/p&gt;&lt;p&gt;Creates and sends/resends new fax message. Resend can be done if sending failed.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Faxes&lt;/td&gt;&lt;td&gt;Sending and receiving faxes&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account (integer) or tilde (~) to indicate the account which was logged-in within the current session.
+ @param extensionId Internal identifier of an extension (integer) or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @return FaxResponse*/
+func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId string, extensionId string) (FaxResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     FaxResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  FaxResponse
 	)
 
 	// create path and map variables
@@ -536,8 +541,9 @@ func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId strin
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"multipart/mixed; boundary=Boundary_1_14413901_1361871080888"}
+	localVarHttpContentTypes := []string{ "multipart/mixed; boundary=Boundary_1_14413901_1361871080888",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -548,7 +554,7 @@ func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId strin
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -574,23 +580,24 @@ func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId strin
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MessagesApiService Create Pager Message
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.2&lt;/p&gt;&lt;p&gt;Creates and sends a pager message.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;InternalMessages&lt;/td&gt;&lt;td&gt;Sending and receiving intra-company text messages&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param body JSON body
-@return GetMessageInfoResponse*/
-func (a *MessagesApiService) SendInternalMessage(ctx context.Context, accountId string, extensionId string, body CreatePagerMessageRequest) (GetMessageInfoResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.2&lt;/p&gt;&lt;p&gt;Creates and sends a pager message.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;InternalMessages&lt;/td&gt;&lt;td&gt;Sending and receiving intra-company text messages&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param body JSON body
+ @return GetMessageInfoResponse*/
+func (a *MessagesApiService) SendInternalMessage(ctx context.Context, accountId string, extensionId string, body CreatePagerMessageRequest) (GetMessageInfoResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetMessageInfoResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetMessageInfoResponse
 	)
 
 	// create path and map variables
@@ -602,8 +609,9 @@ func (a *MessagesApiService) SendInternalMessage(ctx context.Context, accountId 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -614,7 +622,7 @@ func (a *MessagesApiService) SendInternalMessage(ctx context.Context, accountId 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -642,23 +650,24 @@ func (a *MessagesApiService) SendInternalMessage(ctx context.Context, accountId 
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MessagesApiService Create SMS Message
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.2&lt;/p&gt;&lt;p&gt;Creates and sends new SMS message. Sending SMS messages simultaneously to different recipients is limited up to 50 requests per minute; relevant for all client applications.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;SMS&lt;/td&gt;&lt;td&gt;Sending and receiving SMS (text) messages&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param body JSON body
-@return GetMessageInfoResponse*/
-func (a *MessagesApiService) SendSMS(ctx context.Context, accountId string, extensionId string, body CreateSmsMessage) (GetMessageInfoResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.2&lt;/p&gt;&lt;p&gt;Creates and sends new SMS message. Sending SMS messages simultaneously to different recipients is limited up to 50 requests per minute; relevant for all client applications.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;SMS&lt;/td&gt;&lt;td&gt;Sending and receiving SMS (text) messages&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param body JSON body
+ @return GetMessageInfoResponse*/
+func (a *MessagesApiService) SendSMS(ctx context.Context, accountId string, extensionId string, body CreateSmsMessage) (GetMessageInfoResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetMessageInfoResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetMessageInfoResponse
 	)
 
 	// create path and map variables
@@ -670,8 +679,9 @@ func (a *MessagesApiService) SendSMS(ctx context.Context, accountId string, exte
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -682,7 +692,7 @@ func (a *MessagesApiService) SendSMS(ctx context.Context, accountId string, exte
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -710,32 +720,33 @@ func (a *MessagesApiService) SendSMS(ctx context.Context, accountId string, exte
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MessagesApiService Get Message Sync
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.4 (Release 5.13)&lt;/p&gt;&lt;p&gt;Provides facilities to synchronize mailbox content stored externally with server state.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "conversationId" (int32) Conversation identifier for the resulting messages. Meaningful for SMS and Pager messages only.
-    @param "dateFrom" (string) The start datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
-    @param "dateTo" (string) The end datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
-    @param "direction" ([]string) Direction for the resulting messages. If not specified, both inbound and outbound messages are returned. Multiple values are accepted
-    @param "distinctConversations" (bool) If &#39;True&#39;, then the latest messages per every conversation ID are returned
-    @param "messageType" ([]string) Type for the resulting messages. If not specified, all types of messages are returned. Multiple values are accepted
-    @param "recordCount" (int32) Limits the number of records to be returned (works in combination with dateFrom and dateTo if specified)
-    @param "syncToken" (string) Value of syncToken property of last sync request response
-    @param "syncType" ([]string) Type of message synchronization
-@return GetMessageSyncResponse*/
-func (a *MessagesApiService) SyncMessages(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (GetMessageSyncResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.4 (Release 5.13)&lt;/p&gt;&lt;p&gt;Provides facilities to synchronize mailbox content stored externally with server state.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "conversationId" (int32) Conversation identifier for the resulting messages. Meaningful for SMS and Pager messages only.
+     @param "dateFrom" (string) The start datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is dateTo minus 24 hours
+     @param "dateTo" (string) The end datetime for resulting messages in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z. The default value is current time
+     @param "direction" ([]string) Direction for the resulting messages. If not specified, both inbound and outbound messages are returned. Multiple values are accepted
+     @param "distinctConversations" (bool) If &#39;True&#39;, then the latest messages per every conversation ID are returned
+     @param "messageType" ([]string) Type for the resulting messages. If not specified, all types of messages are returned. Multiple values are accepted
+     @param "recordCount" (int32) Limits the number of records to be returned (works in combination with dateFrom and dateTo if specified)
+     @param "syncToken" (string) Value of syncToken property of last sync request response
+     @param "syncType" ([]string) Type of message synchronization
+ @return GetMessageSyncResponse*/
+func (a *MessagesApiService) SyncMessages(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (GetMessageSyncResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetMessageSyncResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetMessageSyncResponse
 	)
 
 	// create path and map variables
@@ -794,7 +805,7 @@ func (a *MessagesApiService) SyncMessages(ctx context.Context, accountId string,
 		localVarQueryParams.Add("syncType", parameterToString(localVarTempParam, "multi"))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -805,7 +816,7 @@ func (a *MessagesApiService) SyncMessages(ctx context.Context, accountId string,
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -831,24 +842,25 @@ func (a *MessagesApiService) SyncMessages(ctx context.Context, accountId string,
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MessagesApiService Update Message(s) by ID
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.2&lt;/p&gt;&lt;p&gt;Updates message(s) by ID(s). Batch request is supported, see Batch Requests for details. Currently, only the message read status updating is supported.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditMessages&lt;/td&gt;&lt;td&gt;Viewing and updating user messages&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param messageId Internal identifier of a message
-@param body JSON body
-@return GetMessageInfoResponse*/
-func (a *MessagesApiService) UpdateMessage(ctx context.Context, accountId string, extensionId string, messageId int32, body UpdateMessageRequest) (GetMessageInfoResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.2&lt;/p&gt;&lt;p&gt;Updates message(s) by ID(s). Batch request is supported, see Batch Requests for details. Currently, only the message read status updating is supported.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditMessages&lt;/td&gt;&lt;td&gt;Viewing and updating user messages&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadMessages&lt;/td&gt;&lt;td&gt;Viewing user messages&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param messageId Internal identifier of a message
+ @param body JSON body
+ @return GetMessageInfoResponse*/
+func (a *MessagesApiService) UpdateMessage(ctx context.Context, accountId string, extensionId string, messageId int32, body UpdateMessageRequest) (GetMessageInfoResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetMessageInfoResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetMessageInfoResponse
 	)
 
 	// create path and map variables
@@ -861,8 +873,9 @@ func (a *MessagesApiService) UpdateMessage(ctx context.Context, accountId string
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -873,7 +886,7 @@ func (a *MessagesApiService) UpdateMessage(ctx context.Context, accountId string
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -901,5 +914,7 @@ func (a *MessagesApiService) UpdateMessage(ctx context.Context, accountId string
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
+

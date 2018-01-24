@@ -10,6 +10,7 @@
 package ringcentral
 
 type ExtensionReferenceResource struct {
+
 	Id string `json:"id,omitempty"`
 
 	PartnerId string `json:"partnerId,omitempty"`

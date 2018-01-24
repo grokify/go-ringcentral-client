@@ -10,6 +10,7 @@
 package ringcentral
 
 type BulkAssignItem struct {
+
 	DepartmentId string `json:"departmentId,omitempty"`
 
 	AddedExtensionIds []string `json:"addedExtensionIds,omitempty"`

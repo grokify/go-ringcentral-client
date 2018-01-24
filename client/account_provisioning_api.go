@@ -10,13 +10,13 @@
 package ringcentral
 
 import (
+	"io/ioutil"
+	"net/url"
+	"net/http"
+	"strings"
+	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
-	"golang.org/x/net/context"
-	"io/ioutil"
-	"net/http"
-	"net/url"
-	"strings"
 )
 
 // Linger please
@@ -26,19 +26,20 @@ var (
 
 type AccountProvisioningApiService service
 
+
 /* AccountProvisioningApiService Edit Call Queue Members
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Adds and/or removes multiple call queue members.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "body" (DepartmentBulkAssignResource)
-@return */
-func (a *AccountProvisioningApiService) BulkAssign(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Adds and/or removes multiple call queue members.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "body" (DepartmentBulkAssignResource) 
+ @return */
+func (a *AccountProvisioningApiService) BulkAssign(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -49,8 +50,9 @@ func (a *AccountProvisioningApiService) BulkAssign(ctx context.Context, accountI
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -61,7 +63,7 @@ func (a *AccountProvisioningApiService) BulkAssign(ctx context.Context, accountI
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -91,17 +93,17 @@ func (a *AccountProvisioningApiService) BulkAssign(ctx context.Context, accountI
 }
 
 /* AccountProvisioningApiService Create Account
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Creates the account in Initial state.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Accounts&lt;/td&gt;&lt;td&gt;Managing accounts: creating new accounts, viewing and updating account information, deleting existing accounts&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param body JSON body
-@return GetAccountInfoResponse*/
-func (a *AccountProvisioningApiService) CreateAccount(ctx context.Context, body CreateAccountRequest) (GetAccountInfoResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Creates the account in Initial state.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Accounts&lt;/td&gt;&lt;td&gt;Managing accounts: creating new accounts, viewing and updating account information, deleting existing accounts&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param body JSON body
+ @return GetAccountInfoResponse*/
+func (a *AccountProvisioningApiService) CreateAccount(ctx context.Context, body CreateAccountRequest) (GetAccountInfoResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetAccountInfoResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetAccountInfoResponse
 	)
 
 	// create path and map variables
@@ -111,8 +113,9 @@ func (a *AccountProvisioningApiService) CreateAccount(ctx context.Context, body 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -123,7 +126,7 @@ func (a *AccountProvisioningApiService) CreateAccount(ctx context.Context, body 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -151,24 +154,25 @@ func (a *AccountProvisioningApiService) CreateAccount(ctx context.Context, body 
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Create Device Order
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "async" (bool) Specifies whether a client expects order details to be returned or not. If &#39;True&#39; the server returns a link for tracking order status without waiting for it to be actually created. If &#39;False&#39; the server returns order details once it is created - it may take some time depending on device count. The default value is &#39;False&#39;
-    @param "body" (DeviceResource)
-@return DeviceOrderCreation*/
-func (a *AccountProvisioningApiService) CreateDeviceOrder(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (DeviceOrderCreation, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "async" (bool) Specifies whether a client expects order details to be returned or not. If &#39;True&#39; the server returns a link for tracking order status without waiting for it to be actually created. If &#39;False&#39; the server returns order details once it is created - it may take some time depending on device count. The default value is &#39;False&#39;
+     @param "body" (DeviceResource) 
+ @return DeviceOrderCreation*/
+func (a *AccountProvisioningApiService) CreateDeviceOrder(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (DeviceOrderCreation,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     DeviceOrderCreation
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  DeviceOrderCreation
 	)
 
 	// create path and map variables
@@ -187,7 +191,7 @@ func (a *AccountProvisioningApiService) CreateDeviceOrder(ctx context.Context, a
 		localVarQueryParams.Add("async", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -198,7 +202,7 @@ func (a *AccountProvisioningApiService) CreateDeviceOrder(ctx context.Context, a
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -228,21 +232,22 @@ func (a *AccountProvisioningApiService) CreateDeviceOrder(ctx context.Context, a
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Order Licenses
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Purchases licenses for add-on features: Rooms, Room Connector, Webinar, Live Reports, etc.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param body JSON body
-@return */
-func (a *AccountProvisioningApiService) CreateLicensesOrder(ctx context.Context, accountId string, body OrderLicensesRequest) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Purchases licenses for add-on features: Rooms, Room Connector, Webinar, Live Reports, etc.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param body JSON body
+ @return */
+func (a *AccountProvisioningApiService) CreateLicensesOrder(ctx context.Context, accountId string, body OrderLicensesRequest) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -253,8 +258,9 @@ func (a *AccountProvisioningApiService) CreateLicensesOrder(ctx context.Context,
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -265,7 +271,7 @@ func (a *AccountProvisioningApiService) CreateLicensesOrder(ctx context.Context,
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -293,17 +299,17 @@ func (a *AccountProvisioningApiService) CreateLicensesOrder(ctx context.Context,
 }
 
 /* AccountProvisioningApiService Delete License
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Removes a license for a specific user. Please note: It is not allowed to remove assigned licenses (only Webinars and Large Meetings can be assigned).&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param licenseId Internal identifier of a license
-@return */
-func (a *AccountProvisioningApiService) DeleteLicense(ctx context.Context, accountId string, licenseId string) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Removes a license for a specific user. Please note: It is not allowed to remove assigned licenses (only Webinars and Large Meetings can be assigned).&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating user extension info (includes extension name, number, email and phone number, assigned phone numbers, devices and other extension settings)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param licenseId Internal identifier of a license
+ @return */
+func (a *AccountProvisioningApiService) DeleteLicense(ctx context.Context, accountId string, licenseId string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -315,8 +321,9 @@ func (a *AccountProvisioningApiService) DeleteLicense(ctx context.Context, accou
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -327,7 +334,7 @@ func (a *AccountProvisioningApiService) DeleteLicense(ctx context.Context, accou
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -353,17 +360,17 @@ func (a *AccountProvisioningApiService) DeleteLicense(ctx context.Context, accou
 }
 
 /* AccountProvisioningApiService Delete Phone Number
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.11 (Release 6.3) &lt;/p&gt;&lt;p&gt;Deletes a phone number belonging to a certain account/extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param phoneNumberId
-@param accountId
-@return */
-func (a *AccountProvisioningApiService) DeletePhoneNumberById(ctx context.Context, phoneNumberId int64, accountId string) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.11 (Release 6.3) &lt;/p&gt;&lt;p&gt;Deletes a phone number belonging to a certain account/extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param phoneNumberId 
+ @param accountId 
+ @return */
+func (a *AccountProvisioningApiService) DeletePhoneNumberById(ctx context.Context, phoneNumberId int64, accountId string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -375,8 +382,9 @@ func (a *AccountProvisioningApiService) DeletePhoneNumberById(ctx context.Contex
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -387,7 +395,7 @@ func (a *AccountProvisioningApiService) DeletePhoneNumberById(ctx context.Contex
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -413,16 +421,16 @@ func (a *AccountProvisioningApiService) DeletePhoneNumberById(ctx context.Contex
 }
 
 /* AccountProvisioningApiService Get Brand Info
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param brandId
-@return BrandResource*/
-func (a *AccountProvisioningApiService) GetBrandInfo(ctx context.Context, brandId string) (BrandResource, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param brandId 
+ @return BrandResource*/
+func (a *AccountProvisioningApiService) GetBrandInfo(ctx context.Context, brandId string) (BrandResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     BrandResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  BrandResource
 	)
 
 	// create path and map variables
@@ -433,8 +441,9 @@ func (a *AccountProvisioningApiService) GetBrandInfo(ctx context.Context, brandI
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -445,7 +454,7 @@ func (a *AccountProvisioningApiService) GetBrandInfo(ctx context.Context, brandI
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -471,19 +480,20 @@ func (a *AccountProvisioningApiService) GetBrandInfo(ctx context.Context, brandI
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get Device Catalog
  * @param ctx context.Context for authentication, logging, tracing, etc.
  @return DeviceModelExtsResource*/
-func (a *AccountProvisioningApiService) GetDeviceModels(ctx context.Context) (DeviceModelExtsResource, *http.Response, error) {
+func (a *AccountProvisioningApiService) GetDeviceModels(ctx context.Context) (DeviceModelExtsResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     DeviceModelExtsResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  DeviceModelExtsResource
 	)
 
 	// create path and map variables
@@ -493,8 +503,9 @@ func (a *AccountProvisioningApiService) GetDeviceModels(ctx context.Context) (De
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -505,7 +516,7 @@ func (a *AccountProvisioningApiService) GetDeviceModels(ctx context.Context) (De
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -531,20 +542,21 @@ func (a *AccountProvisioningApiService) GetDeviceModels(ctx context.Context) (De
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get Free Extension Numbers
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@return BulkProvisionUnassignedExtensionsResponseResource*/
-func (a *AccountProvisioningApiService) GetExtensionFreeNumbers(ctx context.Context, accountId string) (BulkProvisionUnassignedExtensionsResponseResource, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @return BulkProvisionUnassignedExtensionsResponseResource*/
+func (a *AccountProvisioningApiService) GetExtensionFreeNumbers(ctx context.Context, accountId string) (BulkProvisionUnassignedExtensionsResponseResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     BulkProvisionUnassignedExtensionsResponseResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  BulkProvisionUnassignedExtensionsResponseResource
 	)
 
 	// create path and map variables
@@ -555,8 +567,9 @@ func (a *AccountProvisioningApiService) GetExtensionFreeNumbers(ctx context.Cont
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -567,7 +580,7 @@ func (a *AccountProvisioningApiService) GetExtensionFreeNumbers(ctx context.Cont
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -593,25 +606,26 @@ func (a *AccountProvisioningApiService) GetExtensionFreeNumbers(ctx context.Cont
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get Paging Only Group Devices
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns the list of paging devices assigned to this group.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@param pagingOnlyGroupId
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-@return PagingOnlyGroupDevices*/
-func (a *AccountProvisioningApiService) GetPagingOnlyGroupDevices(ctx context.Context, accountId string, pagingOnlyGroupId string, localVarOptionals map[string]interface{}) (PagingOnlyGroupDevices, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns the list of paging devices assigned to this group.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @param pagingOnlyGroupId 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+ @return PagingOnlyGroupDevices*/
+func (a *AccountProvisioningApiService) GetPagingOnlyGroupDevices(ctx context.Context, accountId string, pagingOnlyGroupId string, localVarOptionals map[string]interface{}) (PagingOnlyGroupDevices,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     PagingOnlyGroupDevices
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PagingOnlyGroupDevices
 	)
 
 	// create path and map variables
@@ -637,7 +651,7 @@ func (a *AccountProvisioningApiService) GetPagingOnlyGroupDevices(ctx context.Co
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -648,7 +662,7 @@ func (a *AccountProvisioningApiService) GetPagingOnlyGroupDevices(ctx context.Co
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -674,25 +688,26 @@ func (a *AccountProvisioningApiService) GetPagingOnlyGroupDevices(ctx context.Co
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get Paging Only Group Users
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns the list of users allowed to page this group.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@param pagingOnlyGroupId
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-@return PagingOnlyGroupUsers*/
-func (a *AccountProvisioningApiService) GetPagingOnlyGroupUsers(ctx context.Context, accountId string, pagingOnlyGroupId string, localVarOptionals map[string]interface{}) (PagingOnlyGroupUsers, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns the list of users allowed to page this group.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @param pagingOnlyGroupId 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+ @return PagingOnlyGroupUsers*/
+func (a *AccountProvisioningApiService) GetPagingOnlyGroupUsers(ctx context.Context, accountId string, pagingOnlyGroupId string, localVarOptionals map[string]interface{}) (PagingOnlyGroupUsers,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     PagingOnlyGroupUsers
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PagingOnlyGroupUsers
 	)
 
 	// create path and map variables
@@ -718,7 +733,7 @@ func (a *AccountProvisioningApiService) GetPagingOnlyGroupUsers(ctx context.Cont
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -729,7 +744,7 @@ func (a *AccountProvisioningApiService) GetPagingOnlyGroupUsers(ctx context.Cont
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -755,25 +770,26 @@ func (a *AccountProvisioningApiService) GetPagingOnlyGroupUsers(ctx context.Cont
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get Park Location Users
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns the list of users allowed to park and unpark calls to/from the park location extension specified&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@param parkLocationId
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-@return ParkLocationResponse*/
-func (a *AccountProvisioningApiService) GetParkLocationUsers(ctx context.Context, accountId string, parkLocationId string, localVarOptionals map[string]interface{}) (ParkLocationResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Returns the list of users allowed to park and unpark calls to/from the park location extension specified&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @param parkLocationId 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+ @return ParkLocationResponse*/
+func (a *AccountProvisioningApiService) GetParkLocationUsers(ctx context.Context, accountId string, parkLocationId string, localVarOptionals map[string]interface{}) (ParkLocationResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     ParkLocationResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ParkLocationResponse
 	)
 
 	// create path and map variables
@@ -799,7 +815,7 @@ func (a *AccountProvisioningApiService) GetParkLocationUsers(ctx context.Context
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -810,7 +826,7 @@ func (a *AccountProvisioningApiService) GetParkLocationUsers(ctx context.Context
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -836,20 +852,21 @@ func (a *AccountProvisioningApiService) GetParkLocationUsers(ctx context.Context
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get Service Plan
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param servicePlanId
-@return ServicePlanResource*/
-func (a *AccountProvisioningApiService) GetServicePlanInfo(ctx context.Context, servicePlanId string) (ServicePlanResource, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param servicePlanId 
+ @return ServicePlanResource*/
+func (a *AccountProvisioningApiService) GetServicePlanInfo(ctx context.Context, servicePlanId string) (ServicePlanResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     ServicePlanResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ServicePlanResource
 	)
 
 	// create path and map variables
@@ -860,8 +877,9 @@ func (a *AccountProvisioningApiService) GetServicePlanInfo(ctx context.Context, 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -872,7 +890,7 @@ func (a *AccountProvisioningApiService) GetServicePlanInfo(ctx context.Context, 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -898,21 +916,22 @@ func (a *AccountProvisioningApiService) GetServicePlanInfo(ctx context.Context, 
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get Account Devices
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.12 (Release 6.4)&lt;/p&gt;&lt;p&gt;Returns all the devices for a particular extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@return GetAccountDevicesResponse*/
-func (a *AccountProvisioningApiService) ListAccountDevices(ctx context.Context, accountId string) (GetAccountDevicesResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.12 (Release 6.4)&lt;/p&gt;&lt;p&gt;Returns all the devices for a particular extension.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @return GetAccountDevicesResponse*/
+func (a *AccountProvisioningApiService) ListAccountDevices(ctx context.Context, accountId string) (GetAccountDevicesResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetAccountDevicesResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetAccountDevicesResponse
 	)
 
 	// create path and map variables
@@ -923,8 +942,9 @@ func (a *AccountProvisioningApiService) ListAccountDevices(ctx context.Context, 
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -935,7 +955,7 @@ func (a *AccountProvisioningApiService) ListAccountDevices(ctx context.Context, 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -961,25 +981,26 @@ func (a *AccountProvisioningApiService) ListAccountDevices(ctx context.Context, 
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get All Company Phone Numbers
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-    @param "usageType" ([]string) Usage type of the phone number
-@return AccountPhoneNumbers*/
-func (a *AccountProvisioningApiService) ListAccountPhoneNumbers(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (AccountPhoneNumbers, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+     @param "usageType" ([]string) Usage type of the phone number
+ @return AccountPhoneNumbers*/
+func (a *AccountProvisioningApiService) ListAccountPhoneNumbers(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (AccountPhoneNumbers,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     AccountPhoneNumbers
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  AccountPhoneNumbers
 	)
 
 	// create path and map variables
@@ -1007,7 +1028,7 @@ func (a *AccountProvisioningApiService) ListAccountPhoneNumbers(ctx context.Cont
 		localVarQueryParams.Add("usageType", parameterToString(localVarTempParam, "multi"))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1018,7 +1039,7 @@ func (a *AccountProvisioningApiService) ListAccountPhoneNumbers(ctx context.Cont
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1044,25 +1065,26 @@ func (a *AccountProvisioningApiService) ListAccountPhoneNumbers(ctx context.Cont
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get Department Member List
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param departmentId Internal identifier of a Department extension (same as extensionId but only the ID of a department extension is valid)
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
-@return DepartmentMemberList*/
-func (a *AccountProvisioningApiService) ListDepartmentMembers(ctx context.Context, accountId string, departmentId int32, localVarOptionals map[string]interface{}) (DepartmentMemberList, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param departmentId Internal identifier of a Department extension (same as extensionId but only the ID of a department extension is valid)
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "page" (int32) Indicates the page number to retrieve. Only positive number values are allowed. Default value is &#39;1&#39;
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;100&#39; by default
+ @return DepartmentMemberList*/
+func (a *AccountProvisioningApiService) ListDepartmentMembers(ctx context.Context, accountId string, departmentId int32, localVarOptionals map[string]interface{}) (DepartmentMemberList,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     DepartmentMemberList
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  DepartmentMemberList
 	)
 
 	// create path and map variables
@@ -1088,7 +1110,7 @@ func (a *AccountProvisioningApiService) ListDepartmentMembers(ctx context.Contex
 		localVarQueryParams.Add("perPage", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1099,7 +1121,7 @@ func (a *AccountProvisioningApiService) ListDepartmentMembers(ctx context.Contex
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1125,24 +1147,25 @@ func (a *AccountProvisioningApiService) ListDepartmentMembers(ctx context.Contex
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get User Device Info
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.12 (Release 6.4)&lt;/p&gt;&lt;p&gt;Returns all the devices for extension(s) by extension ID(s). Batch request is supported, see Batch Requests for details.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "linePooling" (string) Pooling type of a device
-@return GetExtensionDevicesResponse*/
-func (a *AccountProvisioningApiService) ListExtensionDevices(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (GetExtensionDevicesResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.12 (Release 6.4)&lt;/p&gt;&lt;p&gt;Returns all the devices for extension(s) by extension ID(s). Batch request is supported, see Batch Requests for details.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "linePooling" (string) Pooling type of a device
+ @return GetExtensionDevicesResponse*/
+func (a *AccountProvisioningApiService) ListExtensionDevices(ctx context.Context, accountId string, extensionId string, localVarOptionals map[string]interface{}) (GetExtensionDevicesResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetExtensionDevicesResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetExtensionDevicesResponse
 	)
 
 	// create path and map variables
@@ -1162,7 +1185,7 @@ func (a *AccountProvisioningApiService) ListExtensionDevices(ctx context.Context
 		localVarQueryParams.Add("linePooling", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1173,7 +1196,7 @@ func (a *AccountProvisioningApiService) ListExtensionDevices(ctx context.Context
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1199,20 +1222,21 @@ func (a *AccountProvisioningApiService) ListExtensionDevices(ctx context.Context
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get License Types
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns supported license types.&lt;/p&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@return LicenseTypes*/
-func (a *AccountProvisioningApiService) ListLicenseTypes(ctx context.Context) (LicenseTypes, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns supported license types.&lt;/p&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @return LicenseTypes*/
+func (a *AccountProvisioningApiService) ListLicenseTypes(ctx context.Context) (LicenseTypes,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     LicenseTypes
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  LicenseTypes
 	)
 
 	// create path and map variables
@@ -1222,8 +1246,9 @@ func (a *AccountProvisioningApiService) ListLicenseTypes(ctx context.Context) (L
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1234,7 +1259,7 @@ func (a *AccountProvisioningApiService) ListLicenseTypes(ctx context.Context) (L
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1260,25 +1285,26 @@ func (a *AccountProvisioningApiService) ListLicenseTypes(ctx context.Context) (L
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get License List
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns list of licenses for a specific user.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "page" (int64) Indicates the page number to retrieve. Only positive number values are allowed. The default value is &#39;1&#39;
-    @param "perPage" (int64) Indicates the page size (number of items). If not specified, the value is &#39;25&#39; by default
-    @param "typeId" (int64) Internal identifier of a license type. If not specified account licenses of all types are returned
-@return LicenseList*/
-func (a *AccountProvisioningApiService) ListLicenses(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (LicenseList, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns list of licenses for a specific user.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "page" (int64) Indicates the page number to retrieve. Only positive number values are allowed. The default value is &#39;1&#39;
+     @param "perPage" (int64) Indicates the page size (number of items). If not specified, the value is &#39;25&#39; by default
+     @param "typeId" (int64) Internal identifier of a license type. If not specified account licenses of all types are returned
+ @return LicenseList*/
+func (a *AccountProvisioningApiService) ListLicenses(ctx context.Context, accountId string, localVarOptionals map[string]interface{}) (LicenseList,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     LicenseList
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  LicenseList
 	)
 
 	// create path and map variables
@@ -1309,7 +1335,7 @@ func (a *AccountProvisioningApiService) ListLicenses(ctx context.Context, accoun
 		localVarQueryParams.Add("typeId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1320,7 +1346,7 @@ func (a *AccountProvisioningApiService) ListLicenses(ctx context.Context, accoun
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1346,24 +1372,25 @@ func (a *AccountProvisioningApiService) ListLicenses(ctx context.Context, accoun
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get Shipping Options
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.16 (Release 7.1)&lt;/p&gt;&lt;p&gt;Returns the list of device shipping options with their prices, according to brand, tier, number of ordered devices.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "servicePlanId" (int32)
-    @param "brandId" (int32)
-    @param "quantity" (int32)
-@return DictionaryShippingOptions*/
-func (a *AccountProvisioningApiService) ListShippingOptions(ctx context.Context, localVarOptionals map[string]interface{}) (DictionaryShippingOptions, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.16 (Release 7.1)&lt;/p&gt;&lt;p&gt;Returns the list of device shipping options with their prices, according to brand, tier, number of ordered devices.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "servicePlanId" (int32) 
+     @param "brandId" (int32) 
+     @param "quantity" (int32) 
+ @return DictionaryShippingOptions*/
+func (a *AccountProvisioningApiService) ListShippingOptions(ctx context.Context, localVarOptionals map[string]interface{}) (DictionaryShippingOptions,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     DictionaryShippingOptions
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  DictionaryShippingOptions
 	)
 
 	// create path and map variables
@@ -1393,7 +1420,7 @@ func (a *AccountProvisioningApiService) ListShippingOptions(ctx context.Context,
 		localVarQueryParams.Add("quantity", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1404,7 +1431,7 @@ func (a *AccountProvisioningApiService) ListShippingOptions(ctx context.Context,
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1430,22 +1457,23 @@ func (a *AccountProvisioningApiService) ListShippingOptions(ctx context.Context,
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get Device Info
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.9 (Release 6.1)&lt;/p&gt;&lt;p&gt;Returns account device(s) by their ID(s).&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param deviceId Internal identifier of a device
-@return GetDeviceInfoResponse*/
-func (a *AccountProvisioningApiService) LoadAccountDevice(ctx context.Context, accountId string, deviceId int32) (GetDeviceInfoResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.9 (Release 6.1)&lt;/p&gt;&lt;p&gt;Returns account device(s) by their ID(s).&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param deviceId Internal identifier of a device
+ @return GetDeviceInfoResponse*/
+func (a *AccountProvisioningApiService) LoadAccountDevice(ctx context.Context, accountId string, deviceId int32) (GetDeviceInfoResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     GetDeviceInfoResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  GetDeviceInfoResponse
 	)
 
 	// create path and map variables
@@ -1457,8 +1485,9 @@ func (a *AccountProvisioningApiService) LoadAccountDevice(ctx context.Context, a
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1469,7 +1498,7 @@ func (a *AccountProvisioningApiService) LoadAccountDevice(ctx context.Context, a
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1495,22 +1524,23 @@ func (a *AccountProvisioningApiService) LoadAccountDevice(ctx context.Context, a
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get Phone Number
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param phoneNumberId Internal identifier of a phone number
-@return PhoneNumberInfo*/
-func (a *AccountProvisioningApiService) LoadAccountPhoneNumber(ctx context.Context, accountId string, phoneNumberId int32) (PhoneNumberInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param phoneNumberId Internal identifier of a phone number
+ @return PhoneNumberInfo*/
+func (a *AccountProvisioningApiService) LoadAccountPhoneNumber(ctx context.Context, accountId string, phoneNumberId int32) (PhoneNumberInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     PhoneNumberInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PhoneNumberInfo
 	)
 
 	// create path and map variables
@@ -1522,8 +1552,9 @@ func (a *AccountProvisioningApiService) LoadAccountPhoneNumber(ctx context.Conte
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1534,7 +1565,7 @@ func (a *AccountProvisioningApiService) LoadAccountPhoneNumber(ctx context.Conte
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1560,22 +1591,23 @@ func (a *AccountProvisioningApiService) LoadAccountPhoneNumber(ctx context.Conte
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get Device Order by ID
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param orderId Internal identifier of an order
-@return DeviceOrder*/
-func (a *AccountProvisioningApiService) LoadDeviceOrder(ctx context.Context, accountId string, orderId int32) (DeviceOrder, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param orderId Internal identifier of an order
+ @return DeviceOrder*/
+func (a *AccountProvisioningApiService) LoadDeviceOrder(ctx context.Context, accountId string, orderId int32) (DeviceOrder,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     DeviceOrder
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  DeviceOrder
 	)
 
 	// create path and map variables
@@ -1587,8 +1619,9 @@ func (a *AccountProvisioningApiService) LoadDeviceOrder(ctx context.Context, acc
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1599,7 +1632,7 @@ func (a *AccountProvisioningApiService) LoadDeviceOrder(ctx context.Context, acc
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1625,22 +1658,23 @@ func (a *AccountProvisioningApiService) LoadDeviceOrder(ctx context.Context, acc
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get License
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns license information by its ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param licenseId Internal identifier of a license
-@return LicenseInfo*/
-func (a *AccountProvisioningApiService) LoadLicense(ctx context.Context, accountId string, licenseId string) (LicenseInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Returns license information by its ID.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param licenseId Internal identifier of a license
+ @return LicenseInfo*/
+func (a *AccountProvisioningApiService) LoadLicense(ctx context.Context, accountId string, licenseId string) (LicenseInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     LicenseInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  LicenseInfo
 	)
 
 	// create path and map variables
@@ -1652,8 +1686,9 @@ func (a *AccountProvisioningApiService) LoadLicense(ctx context.Context, account
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1664,7 +1699,7 @@ func (a *AccountProvisioningApiService) LoadLicense(ctx context.Context, account
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1690,34 +1725,35 @@ func (a *AccountProvisioningApiService) LoadLicense(ctx context.Context, account
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Get Numbers
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns the required numbers filtered by criteria.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;NumberLookup&lt;/td&gt;&lt;td&gt;Looking-up and reserving available phone number&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "areaCode" (int32) Area code of the location
-    @param "countryCode" (string) Two-letter country code, complying with the ISO standard
-    @param "countryId" (string) Internal identifier of a country; &#39;1&#39;- the US; &#39;39&#39; - Canada; &#39;224&#39; - the UK. The default value is &#39;1&#39;
-    @param "exclude" (string) A string of digits (one and more) that should not appear among the last four digits (line part) of the phone numbers that will be returned. It is possible to specify severalT?exclude parameters. If specified, it is taken into account in all returned phone numbers both in the phone numbers satisfying to parameters of lookup and in alternative phone numbers (in case when extendedSearch is specified)
-    @param "extendedSearch" (bool) If the value is &#39;False&#39;, then the returned numbers exactly correspond to the specified NXX, NPA and LINE or countryCode, areaCode and numberPattern parameters. If the value is &#39;True&#39;, then the resulting numbers are ranked and returned with the rank attribute values (1-10). The default value is &#39;False&#39;
-    @param "line" (string) LINE pattern for vanity or wildcard search. Digits, Latin characters and asterisks are allowed (usually 4 characters)
-    @param "numberPattern" (string) Phone number pattern (for wildcard or vanity search). For NANP countries (US, Canada) is concatenation of nxx (the first three digits) and line. If the first three characters are specified as not digits (e.g. 5** or CAT) then parameter extendedSearch will be ignored.
-    @param "nxx" (string) NXX pattern for vanity or wildcard search. Digits, Latin characters and asterisks are allowed (usually 3 characters)
-    @param "npa" (string) Area code (mandatory). For example, 800, 844, 855, 866, 877, 888 for North America; and 647 for Canada
-    @param "paymentType" ([]string) Payment type. Default is &#39;Local&#39; (it should correlate with the npa provided)
-    @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;10&#39; by default
-    @param "providerId" (int32) Internal identifier of a phone number provider. Supported if brand is specified. If specified, area code and nxx are optional
-    @param "smsEnabled" (bool) Specifies if SMS activation is available for the number. If specified, it is taken into account in all returned phone numbers both in the phone numbers satisfying to parameters of lookup and in alternative phone numbers (in case when extendedSearch is specified). If not specified, the value is null.
-@return PhoneNumbers*/
-func (a *AccountProvisioningApiService) LookupPhoneNumbers(ctx context.Context, localVarOptionals map[string]interface{}) (PhoneNumbers, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;Returns the required numbers filtered by criteria.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;NumberLookup&lt;/td&gt;&lt;td&gt;Looking-up and reserving available phone number&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "areaCode" (int32) Area code of the location
+     @param "countryCode" (string) Two-letter country code, complying with the ISO standard
+     @param "countryId" (string) Internal identifier of a country; &#39;1&#39;- the US; &#39;39&#39; - Canada; &#39;224&#39; - the UK. The default value is &#39;1&#39;
+     @param "exclude" (string) A string of digits (one and more) that should not appear among the last four digits (line part) of the phone numbers that will be returned. It is possible to specify severalT?exclude parameters. If specified, it is taken into account in all returned phone numbers both in the phone numbers satisfying to parameters of lookup and in alternative phone numbers (in case when extendedSearch is specified)
+     @param "extendedSearch" (bool) If the value is &#39;False&#39;, then the returned numbers exactly correspond to the specified NXX, NPA and LINE or countryCode, areaCode and numberPattern parameters. If the value is &#39;True&#39;, then the resulting numbers are ranked and returned with the rank attribute values (1-10). The default value is &#39;False&#39;
+     @param "line" (string) LINE pattern for vanity or wildcard search. Digits, Latin characters and asterisks are allowed (usually 4 characters)
+     @param "numberPattern" (string) Phone number pattern (for wildcard or vanity search). For NANP countries (US, Canada) is concatenation of nxx (the first three digits) and line. If the first three characters are specified as not digits (e.g. 5** or CAT) then parameter extendedSearch will be ignored.
+     @param "nxx" (string) NXX pattern for vanity or wildcard search. Digits, Latin characters and asterisks are allowed (usually 3 characters)
+     @param "npa" (string) Area code (mandatory). For example, 800, 844, 855, 866, 877, 888 for North America; and 647 for Canada
+     @param "paymentType" ([]string) Payment type. Default is &#39;Local&#39; (it should correlate with the npa provided)
+     @param "perPage" (int32) Indicates the page size (number of items). If not specified, the value is &#39;10&#39; by default
+     @param "providerId" (int32) Internal identifier of a phone number provider. Supported if brand is specified. If specified, area code and nxx are optional
+     @param "smsEnabled" (bool) Specifies if SMS activation is available for the number. If specified, it is taken into account in all returned phone numbers both in the phone numbers satisfying to parameters of lookup and in alternative phone numbers (in case when extendedSearch is specified). If not specified, the value is null.
+ @return PhoneNumbers*/
+func (a *AccountProvisioningApiService) LookupPhoneNumbers(ctx context.Context, localVarOptionals map[string]interface{}) (PhoneNumbers,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     PhoneNumbers
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PhoneNumbers
 	)
 
 	// create path and map variables
@@ -1804,7 +1840,7 @@ func (a *AccountProvisioningApiService) LookupPhoneNumbers(ctx context.Context, 
 		localVarQueryParams.Add("smsEnabled", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1815,7 +1851,7 @@ func (a *AccountProvisioningApiService) LookupPhoneNumbers(ctx context.Context, 
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1841,24 +1877,25 @@ func (a *AccountProvisioningApiService) LookupPhoneNumbers(ctx context.Context, 
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Parse Phone Number
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.13 (Release 6.5)&lt;/p&gt;&lt;p&gt;Returns one or more parsed and/or formatted phone numbers that are passed as a string.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param body JSON body
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "homeCountry" (string) Internal identifier of a home country. The default value is ISO code (ISO 3166) of the user&#39;s home country or brand country, if the user is undefined
-    @param "nationalAsPriority" (bool) The default value is &#39;False&#39;. If &#39;True&#39;, the numbers that are closer to the home country are given higher priority
-@return ParsePhoneNumberResponse*/
-func (a *AccountProvisioningApiService) ParsePhoneNumber(ctx context.Context, body ParsePhoneNumberRequest, localVarOptionals map[string]interface{}) (ParsePhoneNumberResponse, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.13 (Release 6.5)&lt;/p&gt;&lt;p&gt;Returns one or more parsed and/or formatted phone numbers that are passed as a string.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param body JSON body
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "homeCountry" (string) Internal identifier of a home country. The default value is ISO code (ISO 3166) of the user&#39;s home country or brand country, if the user is undefined
+     @param "nationalAsPriority" (bool) The default value is &#39;False&#39;. If &#39;True&#39;, the numbers that are closer to the home country are given higher priority
+ @return ParsePhoneNumberResponse*/
+func (a *AccountProvisioningApiService) ParsePhoneNumber(ctx context.Context, body ParsePhoneNumberRequest, localVarOptionals map[string]interface{}) (ParsePhoneNumberResponse,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     ParsePhoneNumberResponse
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ParsePhoneNumberResponse
 	)
 
 	// create path and map variables
@@ -1882,7 +1919,7 @@ func (a *AccountProvisioningApiService) ParsePhoneNumber(ctx context.Context, bo
 		localVarQueryParams.Add("nationalAsPriority", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1893,7 +1930,7 @@ func (a *AccountProvisioningApiService) ParsePhoneNumber(ctx context.Context, bo
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1921,22 +1958,23 @@ func (a *AccountProvisioningApiService) ParsePhoneNumber(ctx context.Context, bo
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Provision Phone Numbers
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.11 (Release 6.3)&lt;/p&gt;&lt;p&gt;Provisions a phone number.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
-@param body JSON body
-@return PhoneNumberInfo*/
-func (a *AccountProvisioningApiService) ProvisionPhoneNumber(ctx context.Context, accountId string, body ProvisionPhoneNumberRequest) (PhoneNumberInfo, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.11 (Release 6.3)&lt;/p&gt;&lt;p&gt;Provisions a phone number.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
+ @param body JSON body
+ @return PhoneNumberInfo*/
+func (a *AccountProvisioningApiService) ProvisionPhoneNumber(ctx context.Context, accountId string, body ProvisionPhoneNumberRequest) (PhoneNumberInfo,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     PhoneNumberInfo
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PhoneNumberInfo
 	)
 
 	// create path and map variables
@@ -1947,8 +1985,9 @@ func (a *AccountProvisioningApiService) ProvisionPhoneNumber(ctx context.Context
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1959,7 +1998,7 @@ func (a *AccountProvisioningApiService) ProvisionPhoneNumber(ctx context.Context
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -1987,24 +2026,25 @@ func (a *AccountProvisioningApiService) ProvisionPhoneNumber(ctx context.Context
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Reassign Phone Number
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.11 (Release 6.3) &lt;/p&gt;&lt;p&gt;Reassigns the phone number belonging to a certain account/extension. This call reassigns a phone number, currently belonging to some other extension or company (Auto-Receptionist). Please note: numbers with certain usage types &#39;MainCompanyNumber&#39;, &#39;AdditionalCompanyNumber&#39; and &#39;CompanyFaxNumber&#39; cannot be reassigned&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param phoneNumberId
-@param accountId
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "body" (ReassignPhoneNumberResource)
-@return PhoneNumberResource*/
-func (a *AccountProvisioningApiService) ReassignPhoneNumberById(ctx context.Context, phoneNumberId int64, accountId string, localVarOptionals map[string]interface{}) (PhoneNumberResource, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.11 (Release 6.3) &lt;/p&gt;&lt;p&gt;Reassigns the phone number belonging to a certain account/extension. This call reassigns a phone number, currently belonging to some other extension or company (Auto-Receptionist). Please note: numbers with certain usage types &#39;MainCompanyNumber&#39;, &#39;AdditionalCompanyNumber&#39; and &#39;CompanyFaxNumber&#39; cannot be reassigned&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditAccounts&lt;/td&gt;&lt;td&gt;Viewing and updating user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param phoneNumberId 
+ @param accountId 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "body" (ReassignPhoneNumberResource) 
+ @return PhoneNumberResource*/
+func (a *AccountProvisioningApiService) ReassignPhoneNumberById(ctx context.Context, phoneNumberId int64, accountId string, localVarOptionals map[string]interface{}) (PhoneNumberResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     PhoneNumberResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PhoneNumberResource
 	)
 
 	// create path and map variables
@@ -2016,8 +2056,9 @@ func (a *AccountProvisioningApiService) ReassignPhoneNumberById(ctx context.Cont
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2028,7 +2069,7 @@ func (a *AccountProvisioningApiService) ReassignPhoneNumberById(ctx context.Cont
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -2058,21 +2099,22 @@ func (a *AccountProvisioningApiService) ReassignPhoneNumberById(ctx context.Cont
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Reserve/ Un-reserve Numbers
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;NumberLookup&lt;/td&gt;&lt;td&gt;Looking-up and reserving available phone number&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param body JSON body
-@return ReservePhoneNumbersRecordsResource*/
-func (a *AccountProvisioningApiService) ReservePhoneNumbers(ctx context.Context, body NumberPoolPhoneNumberRequest) (ReservePhoneNumbersRecordsResource, *http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.10 (Release 6.2)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;NumberLookup&lt;/td&gt;&lt;td&gt;Looking-up and reserving available phone number&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Medium&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param body JSON body
+ @return ReservePhoneNumbersRecordsResource*/
+func (a *AccountProvisioningApiService) ReservePhoneNumbers(ctx context.Context, body NumberPoolPhoneNumberRequest) (ReservePhoneNumbersRecordsResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     ReservePhoneNumbersRecordsResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  ReservePhoneNumbersRecordsResource
 	)
 
 	// create path and map variables
@@ -2082,8 +2124,9 @@ func (a *AccountProvisioningApiService) ReservePhoneNumbers(ctx context.Context,
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2094,7 +2137,7 @@ func (a *AccountProvisioningApiService) ReservePhoneNumbers(ctx context.Context,
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -2122,23 +2165,24 @@ func (a *AccountProvisioningApiService) ReservePhoneNumbers(ctx context.Context,
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Update Device
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param deviceId
-@param accountId
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "body" (AccountDeviceUpdate)
-@return DeviceResource*/
-func (a *AccountProvisioningApiService) UpdateDevice(ctx context.Context, deviceId string, accountId string, localVarOptionals map[string]interface{}) (DeviceResource, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param deviceId 
+ @param accountId 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "body" (AccountDeviceUpdate) 
+ @return DeviceResource*/
+func (a *AccountProvisioningApiService) UpdateDevice(ctx context.Context, deviceId string, accountId string, localVarOptionals map[string]interface{}) (DeviceResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     DeviceResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  DeviceResource
 	)
 
 	// create path and map variables
@@ -2150,8 +2194,9 @@ func (a *AccountProvisioningApiService) UpdateDevice(ctx context.Context, device
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2162,7 +2207,7 @@ func (a *AccountProvisioningApiService) UpdateDevice(ctx context.Context, device
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -2192,23 +2237,24 @@ func (a *AccountProvisioningApiService) UpdateDevice(ctx context.Context, device
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* AccountProvisioningApiService Edit Paging Group Users &amp; Devices
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Adds and/or removes paging group users and devices.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@param pagingOnlyGroupId
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "body" (EditPagingGroupRequest)
-@return */
-func (a *AccountProvisioningApiService) UpdatePagingOnlyGroupUsersAndDevices(ctx context.Context, accountId string, pagingOnlyGroupId string, localVarOptionals map[string]interface{}) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Adds and/or removes paging group users and devices.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @param pagingOnlyGroupId 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "body" (EditPagingGroupRequest) 
+ @return */
+func (a *AccountProvisioningApiService) UpdatePagingOnlyGroupUsersAndDevices(ctx context.Context, accountId string, pagingOnlyGroupId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -2220,8 +2266,9 @@ func (a *AccountProvisioningApiService) UpdatePagingOnlyGroupUsersAndDevices(ctx
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2232,7 +2279,7 @@ func (a *AccountProvisioningApiService) UpdatePagingOnlyGroupUsersAndDevices(ctx
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -2262,19 +2309,19 @@ func (a *AccountProvisioningApiService) UpdatePagingOnlyGroupUsersAndDevices(ctx
 }
 
 /* AccountProvisioningApiService Adds and/or removes park location users
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Adds and/or removes park location users.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId
-@param parkLocationId
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "body" (EditParkLocationRequest)
-@return */
-func (a *AccountProvisioningApiService) UpdateParkLocationUsers(ctx context.Context, accountId string, parkLocationId string, localVarOptionals map[string]interface{}) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Adds and/or removes park location users.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId 
+ @param parkLocationId 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "body" (EditParkLocationRequest) 
+ @return */
+func (a *AccountProvisioningApiService) UpdateParkLocationUsers(ctx context.Context, accountId string, parkLocationId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -2286,8 +2333,9 @@ func (a *AccountProvisioningApiService) UpdateParkLocationUsers(ctx context.Cont
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -2298,7 +2346,7 @@ func (a *AccountProvisioningApiService) UpdateParkLocationUsers(ctx context.Cont
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -2326,3 +2374,4 @@ func (a *AccountProvisioningApiService) UpdateParkLocationUsers(ctx context.Cont
 
 	return localVarHttpResponse, err
 }
+

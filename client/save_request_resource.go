@@ -10,6 +10,7 @@
 package ringcentral
 
 type SaveRequestResource struct {
+
 	RendererId string `json:"rendererId,omitempty"`
 
 	MessageId string `json:"messageId,omitempty"`

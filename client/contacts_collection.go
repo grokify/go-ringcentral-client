@@ -10,6 +10,7 @@
 package ringcentral
 
 type ContactsCollection struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []PersonalContactResource `json:"records,omitempty"`
