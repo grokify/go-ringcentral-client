@@ -10,7 +10,6 @@
 package ringcentral
 
 type TesterFlagsResource struct {
-
 	Tester bool `json:"tester,omitempty"`
 
 	AutoDelete bool `json:"autoDelete,omitempty"`

@@ -10,6 +10,5 @@
 package ringcentral
 
 type Permission struct {
-
 	Enabled bool `json:"enabled,omitempty"`
 }

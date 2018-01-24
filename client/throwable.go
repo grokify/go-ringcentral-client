@@ -10,7 +10,6 @@
 package ringcentral
 
 type Throwable struct {
-
 	Cause *Throwable `json:"cause,omitempty"`
 
 	StackTrace []StackTraceElement `json:"stackTrace,omitempty"`

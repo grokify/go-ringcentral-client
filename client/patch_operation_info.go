@@ -10,7 +10,6 @@
 package ringcentral
 
 type PatchOperationInfo struct {
-
 	Op string `json:"op"`
 
 	Path string `json:"path,omitempty"`

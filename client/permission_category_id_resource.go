@@ -10,7 +10,6 @@
 package ringcentral
 
 type PermissionCategoryIdResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	Id string `json:"id,omitempty"`

@@ -10,7 +10,6 @@
 package ringcentral
 
 type ServiceProviderConfig struct {
-
 	AuthenticationSchemes *AuthenticationSchemes `json:"authenticationSchemes,omitempty"`
 
 	Bulk *BulkSupported `json:"bulk,omitempty"`

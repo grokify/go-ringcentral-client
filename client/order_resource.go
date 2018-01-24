@@ -10,7 +10,6 @@
 package ringcentral
 
 type OrderResource struct {
-
 	Id string `json:"id,omitempty"`
 
 	Uri string `json:"uri,omitempty"`

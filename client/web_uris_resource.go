@@ -10,7 +10,6 @@
 package ringcentral
 
 type WebUrisResource struct {
-
 	ExpressSetupMobile string `json:"expressSetupMobile,omitempty"`
 
 	SignUp string `json:"signUp,omitempty"`

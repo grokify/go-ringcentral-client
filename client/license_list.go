@@ -11,7 +11,7 @@ package ringcentral
 
 type LicenseList struct {
 
-	// List of licenses 
+	// List of licenses
 	Records []LicenseInfo `json:"records,omitempty"`
 
 	// Information on paging

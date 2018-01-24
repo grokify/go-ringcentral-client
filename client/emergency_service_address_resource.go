@@ -10,7 +10,6 @@
 package ringcentral
 
 type EmergencyServiceAddressResource struct {
-
 	Street string `json:"street,omitempty"`
 
 	Street2 string `json:"street2,omitempty"`

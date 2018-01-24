@@ -10,7 +10,6 @@
 package ringcentral
 
 type ConversationResource struct {
-
 	Id string `json:"id,omitempty"`
 
 	TypingNotifications *DeliveryModeResource `json:"typingNotifications,omitempty"`

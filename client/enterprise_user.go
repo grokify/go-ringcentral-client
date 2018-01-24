@@ -10,6 +10,5 @@
 package ringcentral
 
 type EnterpriseUser struct {
-
 	Department string `json:"department,omitempty"`
 }

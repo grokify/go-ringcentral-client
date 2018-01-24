@@ -14,7 +14,6 @@ import (
 )
 
 type SyncInfo struct {
-
 	SyncType string `json:"syncType,omitempty"`
 
 	SyncToken string `json:"syncToken,omitempty"`

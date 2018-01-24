@@ -10,6 +10,5 @@
 package ringcentral
 
 type ResourceLink struct {
-
 	Uri string `json:"uri,omitempty"`
 }

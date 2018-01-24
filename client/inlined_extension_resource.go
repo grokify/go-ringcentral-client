@@ -10,7 +10,6 @@
 package ringcentral
 
 type InlinedExtensionResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	ExtensionNumber string `json:"extensionNumber,omitempty"`

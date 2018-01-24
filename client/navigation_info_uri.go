@@ -10,6 +10,5 @@
 package ringcentral
 
 type NavigationInfoUri struct {
-
 	Uri string `json:"uri,omitempty"`
 }

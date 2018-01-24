@@ -14,7 +14,6 @@ import (
 )
 
 type PoolResponseResource struct {
-
 	RendererId string `json:"rendererId,omitempty"`
 
 	MessageId string `json:"messageId,omitempty"`

@@ -10,13 +10,13 @@
 package ringcentral
 
 import (
-	"io/ioutil"
-	"net/url"
-	"net/http"
-	"strings"
-	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
+	"golang.org/x/net/context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,20 +26,19 @@ var (
 
 type MeetingsApiService service
 
-
 /* MeetingsApiService Create Meetings
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param extensionId 
- @param accountId 
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "body" (MeetingRequestResource) 
- @return */
-func (a *MeetingsApiService) CreateMeeting(ctx context.Context, extensionId string, accountId string, localVarOptionals map[string]interface{}) ( *http.Response, error) {
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param extensionId
+@param accountId
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "body" (MeetingRequestResource)
+@return */
+func (a *MeetingsApiService) CreateMeeting(ctx context.Context, extensionId string, accountId string, localVarOptionals map[string]interface{}) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 	)
 
 	// create path and map variables
@@ -51,9 +50,8 @@ func (a *MeetingsApiService) CreateMeeting(ctx context.Context, extensionId stri
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -64,7 +62,7 @@ func (a *MeetingsApiService) CreateMeeting(ctx context.Context, extensionId stri
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -94,17 +92,17 @@ func (a *MeetingsApiService) CreateMeeting(ctx context.Context, extensionId stri
 }
 
 /* MeetingsApiService Delete Meeting
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param meetingId 
- @param extensionId 
- @param accountId 
- @return */
-func (a *MeetingsApiService) DeleteMeeting(ctx context.Context, meetingId string, extensionId string, accountId string) ( *http.Response, error) {
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param meetingId
+@param extensionId
+@param accountId
+@return */
+func (a *MeetingsApiService) DeleteMeeting(ctx context.Context, meetingId string, extensionId string, accountId string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 	)
 
 	// create path and map variables
@@ -117,9 +115,8 @@ func (a *MeetingsApiService) DeleteMeeting(ctx context.Context, meetingId string
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -130,7 +127,7 @@ func (a *MeetingsApiService) DeleteMeeting(ctx context.Context, meetingId string
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -156,17 +153,17 @@ func (a *MeetingsApiService) DeleteMeeting(ctx context.Context, meetingId string
 }
 
 /* MeetingsApiService End Meeting
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param meetingId 
- @param extensionId 
- @param accountId 
- @return */
-func (a *MeetingsApiService) EndMeeting(ctx context.Context, meetingId string, extensionId string, accountId string) ( *http.Response, error) {
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param meetingId
+@param extensionId
+@param accountId
+@return */
+func (a *MeetingsApiService) EndMeeting(ctx context.Context, meetingId string, extensionId string, accountId string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 	)
 
 	// create path and map variables
@@ -179,9 +176,8 @@ func (a *MeetingsApiService) EndMeeting(ctx context.Context, meetingId string, e
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -192,7 +188,7 @@ func (a *MeetingsApiService) EndMeeting(ctx context.Context, meetingId string, e
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -218,17 +214,17 @@ func (a *MeetingsApiService) EndMeeting(ctx context.Context, meetingId string, e
 }
 
 /* MeetingsApiService Get Scheduled Meetings
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param extensionId 
- @param accountId 
- @return MeetingsResource*/
-func (a *MeetingsApiService) GetLiveMeetings(ctx context.Context, extensionId string, accountId string) (MeetingsResource,  *http.Response, error) {
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param extensionId
+@param accountId
+@return MeetingsResource*/
+func (a *MeetingsApiService) GetLiveMeetings(ctx context.Context, extensionId string, accountId string) (MeetingsResource, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  MeetingsResource
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     MeetingsResource
 	)
 
 	// create path and map variables
@@ -240,9 +236,8 @@ func (a *MeetingsApiService) GetLiveMeetings(ctx context.Context, extensionId st
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -253,7 +248,7 @@ func (a *MeetingsApiService) GetLiveMeetings(ctx context.Context, extensionId st
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -279,23 +274,22 @@ func (a *MeetingsApiService) GetLiveMeetings(ctx context.Context, extensionId st
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MeetingsApiService Get Meeting Info
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param meetingId 
- @param extensionId 
- @param accountId 
- @return MeetingResponseResource*/
-func (a *MeetingsApiService) GetMeetingDetails(ctx context.Context, meetingId string, extensionId string, accountId string) (MeetingResponseResource,  *http.Response, error) {
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param meetingId
+@param extensionId
+@param accountId
+@return MeetingResponseResource*/
+func (a *MeetingsApiService) GetMeetingDetails(ctx context.Context, meetingId string, extensionId string, accountId string) (MeetingResponseResource, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  MeetingResponseResource
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     MeetingResponseResource
 	)
 
 	// create path and map variables
@@ -308,9 +302,8 @@ func (a *MeetingsApiService) GetMeetingDetails(ctx context.Context, meetingId st
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -321,7 +314,7 @@ func (a *MeetingsApiService) GetMeetingDetails(ctx context.Context, meetingId st
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -347,22 +340,21 @@ func (a *MeetingsApiService) GetMeetingDetails(ctx context.Context, meetingId st
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MeetingsApiService Get Meeting Service Info
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param extensionId 
- @param accountId 
- @return MeetingServiceInfoResource*/
-func (a *MeetingsApiService) GetMeetingServiceInfo(ctx context.Context, extensionId string, accountId string) (MeetingServiceInfoResource,  *http.Response, error) {
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param extensionId
+@param accountId
+@return MeetingServiceInfoResource*/
+func (a *MeetingsApiService) GetMeetingServiceInfo(ctx context.Context, extensionId string, accountId string) (MeetingServiceInfoResource, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  MeetingServiceInfoResource
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     MeetingServiceInfoResource
 	)
 
 	// create path and map variables
@@ -374,9 +366,8 @@ func (a *MeetingsApiService) GetMeetingServiceInfo(ctx context.Context, extensio
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -387,7 +378,7 @@ func (a *MeetingsApiService) GetMeetingServiceInfo(ctx context.Context, extensio
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -413,25 +404,24 @@ func (a *MeetingsApiService) GetMeetingServiceInfo(ctx context.Context, extensio
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* MeetingsApiService Update Meeting
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param meetingId 
- @param extensionId 
- @param accountId 
- @param optional (nil or map[string]interface{}) with one or more of:
-     @param "body" (MeetingRequestResource) 
- @return MeetingResponseResource*/
-func (a *MeetingsApiService) UpdateMeeting(ctx context.Context, meetingId string, extensionId string, accountId string, localVarOptionals map[string]interface{}) (MeetingResponseResource,  *http.Response, error) {
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param meetingId
+@param extensionId
+@param accountId
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "body" (MeetingRequestResource)
+@return MeetingResponseResource*/
+func (a *MeetingsApiService) UpdateMeeting(ctx context.Context, meetingId string, extensionId string, accountId string, localVarOptionals map[string]interface{}) (MeetingResponseResource, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  MeetingResponseResource
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     MeetingResponseResource
 	)
 
 	// create path and map variables
@@ -444,9 +434,8 @@ func (a *MeetingsApiService) UpdateMeeting(ctx context.Context, meetingId string
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -457,7 +446,7 @@ func (a *MeetingsApiService) UpdateMeeting(ctx context.Context, meetingId string
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -487,7 +476,5 @@ func (a *MeetingsApiService) UpdateMeeting(ctx context.Context, meetingId string
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
-

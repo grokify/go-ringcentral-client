@@ -10,7 +10,6 @@
 package ringcentral
 
 type ExtensionGrantsResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	Records []ExtensionGrantResource `json:"records,omitempty"`

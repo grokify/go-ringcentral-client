@@ -10,7 +10,6 @@
 package ringcentral
 
 type Navigation struct {
-
 	NextPage *ResourceLink `json:"nextPage,omitempty"`
 
 	PreviousPage *ResourceLink `json:"previousPage,omitempty"`

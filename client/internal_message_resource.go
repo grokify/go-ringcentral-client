@@ -10,7 +10,6 @@
 package ringcentral
 
 type InternalMessageResource struct {
-
 	To []CallerInfo `json:"to,omitempty"`
 
 	From *CallerInfo `json:"from,omitempty"`
