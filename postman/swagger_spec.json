@@ -82,9 +82,9 @@
       flow: "accessCode"
       authorizationUrl: "https://platform.devtest.ringcentral.com/restapi/oauth/authorize"
       tokenUrl: "https://platform.devtest.ringcentral.com/restapi/oauth/token"
+      scopes: {}
   security: 
-    - 
-      OAuth2: []
+    - OAuth2: []
   paths: 
     /restapi: 
       get: 
@@ -1198,12 +1198,14 @@
             description: "Internal identifier of a RingCentral account (integer) or tilde (~) to indicate the account which was logged-in within the current session."
             required: true
             type: "string"
+            default: "~"
           - 
             name: "extensionId"
             in: "path"
             description: "Internal identifier of an extension (integer) or tilde (~) to indicate the extension assigned to the account logged-in within the current session"
             required: true
             type: "string"
+            default: "~"
           - 
             name: "attachment"
             in: "formData"
@@ -9347,8 +9349,9 @@
     FaxResponse: 
       type: "object"
       properties: 
-        id: 
-          type: "string"
+        id:
+          type: "integer"
+          format: "int64"
           description: "Internal identifier of a message"
         uri: 
           type: "string"
@@ -13863,7 +13866,8 @@
       type: "object"
       properties: 
         id: 
-          type: "string"
+          type: "integer"
+          format: "int64"
           description: "Internal identifier of a message attachment"
         uri: 
           type: "string"
