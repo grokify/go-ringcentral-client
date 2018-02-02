@@ -30,7 +30,7 @@ type GlipApiService service
 /* GlipApiService Upload File
 &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.31 (Release 9.2)&lt;/p&gt;&lt;p&gt;Posts a file.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;Glip&lt;/td&gt;&lt;td&gt;Availability of Glip&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
 * @param ctx context.Context for authentication, logging, tracing, etc.
-@param localVarFile The file to upload
+@param body The file to upload
 @param optional (nil or map[string]interface{}) with one or more of:
     @param "groupId" (string) Internal identifier of a group the post with file attached will be added to
     @param "name" (string) Name of a file attached

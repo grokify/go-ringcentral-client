@@ -10,5 +10,6 @@
 package ringcentral
 
 type Request struct {
+
 	Method string `json:"method,omitempty"`
 }

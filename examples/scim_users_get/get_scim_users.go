@@ -413,7 +413,7 @@ func main() {
 	if 1 == 0 {
 		tryScimClient()
 	}
-	if 1 == 0 {
+	if 1 == 1 {
 		tryRingCentralClient()
 	}
 	fmt.Println("DONE")

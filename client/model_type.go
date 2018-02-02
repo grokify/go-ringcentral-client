@@ -10,5 +10,6 @@
 package ringcentral
 
 type ModelType struct {
+
 	TypeName string `json:"typeName,omitempty"`
 }

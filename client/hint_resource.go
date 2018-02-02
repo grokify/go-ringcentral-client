@@ -10,6 +10,7 @@
 package ringcentral
 
 type HintResource struct {
+
 	ExpiresIn int64 `json:"expiresIn,omitempty"`
 
 	ActionRequired bool `json:"actionRequired,omitempty"`

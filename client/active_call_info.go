@@ -10,6 +10,7 @@
 package ringcentral
 
 type ActiveCallInfo struct {
+
 	Id string `json:"id,omitempty"`
 
 	Direction string `json:"direction,omitempty"`

@@ -10,5 +10,6 @@
 package ringcentral
 
 type UserPresencePermissionsUpdateRequest struct {
+
 	Extensions []PresencePermissionsExtensionInfoRequest `json:"extensions,omitempty"`
 }

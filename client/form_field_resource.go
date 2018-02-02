@@ -10,6 +10,7 @@
 package ringcentral
 
 type FormFieldResource struct {
+
 	Name string `json:"name,omitempty"`
 
 	FieldType string `json:"fieldType,omitempty"`

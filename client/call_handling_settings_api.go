@@ -440,7 +440,7 @@ func (a *CallHandlingSettingsApiService) CreateIVRMenu(ctx context.Context, acco
 &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.32 (Release 9.3)&lt;/p&gt;&lt;p&gt;Creates an IVR prompt.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;ReadAccounts&lt;/td&gt;&lt;td&gt;Viewing user account info (including name, business name, address and phone number/account number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
 * @param ctx context.Context for authentication, logging, tracing, etc.
 @param accountId
-@param localVarFile Audio file that will be used as a prompt. Attachment cannot be empty, only audio files are supported
+@param attachment Audio file that will be used as a prompt. Attachment cannot be empty, only audio files are supported
 @param optional (nil or map[string]interface{}) with one or more of:
     @param "name" (string) Description of file contents.
 @return PromptInfo*/

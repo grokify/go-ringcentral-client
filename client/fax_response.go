@@ -16,7 +16,7 @@ import (
 type FaxResponse struct {
 
 	// Internal identifier of a message
-	Id string `json:"id,omitempty"`
+	Id int64 `json:"id,omitempty"`
 
 	// Canonical URI of a message
 	Uri string `json:"uri,omitempty"`

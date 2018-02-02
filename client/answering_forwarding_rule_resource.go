@@ -10,6 +10,7 @@
 package ringcentral
 
 type AnsweringForwardingRuleResource struct {
+
 	Index int32 `json:"index,omitempty"`
 
 	RingCount int32 `json:"ringCount,omitempty"`

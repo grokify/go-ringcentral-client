@@ -10,5 +10,6 @@
 package ringcentral
 
 type Principal struct {
+
 	Name string `json:"name,omitempty"`
 }

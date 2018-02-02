@@ -10,6 +10,7 @@
 package ringcentral
 
 type DeviceOrderResource struct {
+
 	AccountId string `json:"accountId,omitempty"`
 
 	RequestNumber string `json:"requestNumber,omitempty"`

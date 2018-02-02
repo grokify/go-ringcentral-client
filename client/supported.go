@@ -10,5 +10,6 @@
 package ringcentral
 
 type Supported struct {
+
 	Supported bool `json:"supported,omitempty"`
 }

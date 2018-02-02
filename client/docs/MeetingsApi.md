@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **CreateMeeting**
-> CreateMeeting(ctx, extensionId, accountId, optional)
+> MeetingResponseResource CreateMeeting(ctx, extensionId, accountId, optional)
 Create Meetings
 
 ### Required Parameters
@@ -37,7 +37,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**MeetingResponseResource**](MeetingResponseResource.md)
 
 ### Authorization
 

@@ -10,6 +10,7 @@
 package ringcentral
 
 type MeetingsResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []MeetingResponseResource `json:"records,omitempty"`

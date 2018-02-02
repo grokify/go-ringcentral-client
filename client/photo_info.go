@@ -10,6 +10,7 @@
 package ringcentral
 
 type PhotoInfo struct {
+
 	Value string `json:"value,omitempty"`
 
 	Type_ string `json:"type,omitempty"`

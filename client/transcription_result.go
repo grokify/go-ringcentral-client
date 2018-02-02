@@ -10,6 +10,7 @@
 package ringcentral
 
 type TranscriptionResult struct {
+
 	STTId string `json:"STTId,omitempty"`
 
 	ExternalId string `json:"ExternalId,omitempty"`

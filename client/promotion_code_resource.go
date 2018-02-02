@@ -10,6 +10,7 @@
 package ringcentral
 
 type PromotionCodeResource struct {
+
 	AccountId string `json:"accountId,omitempty"`
 
 	PromotionCode string `json:"promotionCode,omitempty"`

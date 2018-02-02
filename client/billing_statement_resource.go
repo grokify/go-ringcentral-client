@@ -10,6 +10,7 @@
 package ringcentral
 
 type BillingStatementResource struct {
+
 	Fees []FeeChargeResource `json:"fees,omitempty"`
 
 	Charges []FeeChargeResource `json:"charges,omitempty"`

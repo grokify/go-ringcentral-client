@@ -10,13 +10,13 @@
 package ringcentral
 
 import (
+	"io/ioutil"
+	"net/url"
+	"net/http"
+	"strings"
+	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
-	"golang.org/x/net/context"
-	"io/ioutil"
-	"net/http"
-	"net/url"
-	"strings"
 )
 
 // Linger please
@@ -26,21 +26,22 @@ var (
 
 type RolesAndPermissionsApiService service
 
+
 /* RolesAndPermissionsApiService Check User Permissions
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param extensionId
-@param accountId
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "permissionId" (string)
-    @param "targetExtensionId" (string)
-@return AuthProfileCheckResource*/
-func (a *RolesAndPermissionsApiService) CheckPermission(ctx context.Context, extensionId string, accountId string, localVarOptionals map[string]interface{}) (AuthProfileCheckResource, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param extensionId 
+ @param accountId 
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "permissionId" (string) 
+     @param "targetExtensionId" (string) 
+ @return AuthProfileCheckResource*/
+func (a *RolesAndPermissionsApiService) CheckPermission(ctx context.Context, extensionId string, accountId string, localVarOptionals map[string]interface{}) (AuthProfileCheckResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     AuthProfileCheckResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  AuthProfileCheckResource
 	)
 
 	// create path and map variables
@@ -66,7 +67,7 @@ func (a *RolesAndPermissionsApiService) CheckPermission(ctx context.Context, ext
 		localVarQueryParams.Add("targetExtensionId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -77,7 +78,7 @@ func (a *RolesAndPermissionsApiService) CheckPermission(ctx context.Context, ext
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -103,20 +104,21 @@ func (a *RolesAndPermissionsApiService) CheckPermission(ctx context.Context, ext
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RolesAndPermissionsApiService Get Permission Info
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param permissionId
-@return PermissionResource*/
-func (a *RolesAndPermissionsApiService) GetPermission(ctx context.Context, permissionId string) (PermissionResource, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param permissionId 
+ @return PermissionResource*/
+func (a *RolesAndPermissionsApiService) GetPermission(ctx context.Context, permissionId string) (PermissionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     PermissionResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PermissionResource
 	)
 
 	// create path and map variables
@@ -127,8 +129,9 @@ func (a *RolesAndPermissionsApiService) GetPermission(ctx context.Context, permi
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -139,7 +142,7 @@ func (a *RolesAndPermissionsApiService) GetPermission(ctx context.Context, permi
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -165,20 +168,21 @@ func (a *RolesAndPermissionsApiService) GetPermission(ctx context.Context, permi
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RolesAndPermissionsApiService Get Permission Category
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param permissionCategoryId
-@return PermissionCategoryResource*/
-func (a *RolesAndPermissionsApiService) GetPermissionCategory(ctx context.Context, permissionCategoryId string) (PermissionCategoryResource, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param permissionCategoryId 
+ @return PermissionCategoryResource*/
+func (a *RolesAndPermissionsApiService) GetPermissionCategory(ctx context.Context, permissionCategoryId string) (PermissionCategoryResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     PermissionCategoryResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PermissionCategoryResource
 	)
 
 	// create path and map variables
@@ -189,8 +193,9 @@ func (a *RolesAndPermissionsApiService) GetPermissionCategory(ctx context.Contex
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -201,7 +206,7 @@ func (a *RolesAndPermissionsApiService) GetPermissionCategory(ctx context.Contex
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -227,21 +232,22 @@ func (a *RolesAndPermissionsApiService) GetPermissionCategory(ctx context.Contex
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RolesAndPermissionsApiService Get User Permissions
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param extensionId
-@param accountId
-@return AuthProfileResource*/
-func (a *RolesAndPermissionsApiService) GetProfile(ctx context.Context, extensionId string, accountId string) (AuthProfileResource, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param extensionId 
+ @param accountId 
+ @return AuthProfileResource*/
+func (a *RolesAndPermissionsApiService) GetProfile(ctx context.Context, extensionId string, accountId string) (AuthProfileResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     AuthProfileResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  AuthProfileResource
 	)
 
 	// create path and map variables
@@ -253,8 +259,9 @@ func (a *RolesAndPermissionsApiService) GetProfile(ctx context.Context, extensio
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -265,7 +272,7 @@ func (a *RolesAndPermissionsApiService) GetProfile(ctx context.Context, extensio
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -291,20 +298,21 @@ func (a *RolesAndPermissionsApiService) GetProfile(ctx context.Context, extensio
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RolesAndPermissionsApiService Get User Role
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param roleId
-@return RoleResource*/
-func (a *RolesAndPermissionsApiService) GetSystemRole(ctx context.Context, roleId string) (RoleResource, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param roleId 
+ @return RoleResource*/
+func (a *RolesAndPermissionsApiService) GetSystemRole(ctx context.Context, roleId string) (RoleResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     RoleResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  RoleResource
 	)
 
 	// create path and map variables
@@ -315,8 +323,9 @@ func (a *RolesAndPermissionsApiService) GetSystemRole(ctx context.Context, roleI
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -327,7 +336,7 @@ func (a *RolesAndPermissionsApiService) GetSystemRole(ctx context.Context, roleI
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -353,23 +362,24 @@ func (a *RolesAndPermissionsApiService) GetSystemRole(ctx context.Context, roleI
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RolesAndPermissionsApiService Get Permissions Categories
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "page" (string)
-    @param "perPage" (string)
-    @param "servicePlanId" (string)
-@return PermissionCategoryCollectionResource*/
-func (a *RolesAndPermissionsApiService) ListPermissionCategories(ctx context.Context, localVarOptionals map[string]interface{}) (PermissionCategoryCollectionResource, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "page" (string) 
+     @param "perPage" (string) 
+     @param "servicePlanId" (string) 
+ @return PermissionCategoryCollectionResource*/
+func (a *RolesAndPermissionsApiService) ListPermissionCategories(ctx context.Context, localVarOptionals map[string]interface{}) (PermissionCategoryCollectionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     PermissionCategoryCollectionResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PermissionCategoryCollectionResource
 	)
 
 	// create path and map variables
@@ -399,7 +409,7 @@ func (a *RolesAndPermissionsApiService) ListPermissionCategories(ctx context.Con
 		localVarQueryParams.Add("servicePlanId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -410,7 +420,7 @@ func (a *RolesAndPermissionsApiService) ListPermissionCategories(ctx context.Con
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -436,24 +446,25 @@ func (a *RolesAndPermissionsApiService) ListPermissionCategories(ctx context.Con
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RolesAndPermissionsApiService Get Permissions
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "page" (string)
-    @param "perPage" (string)
-    @param "assignable" (bool)
-    @param "servicePlanId" (string)
-@return PermissionCollectionResource*/
-func (a *RolesAndPermissionsApiService) ListPermissions(ctx context.Context, localVarOptionals map[string]interface{}) (PermissionCollectionResource, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "page" (string) 
+     @param "perPage" (string) 
+     @param "assignable" (bool) 
+     @param "servicePlanId" (string) 
+ @return PermissionCollectionResource*/
+func (a *RolesAndPermissionsApiService) ListPermissions(ctx context.Context, localVarOptionals map[string]interface{}) (PermissionCollectionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     PermissionCollectionResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  PermissionCollectionResource
 	)
 
 	// create path and map variables
@@ -489,7 +500,7 @@ func (a *RolesAndPermissionsApiService) ListPermissions(ctx context.Context, loc
 		localVarQueryParams.Add("servicePlanId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -500,7 +511,7 @@ func (a *RolesAndPermissionsApiService) ListPermissions(ctx context.Context, loc
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -526,23 +537,24 @@ func (a *RolesAndPermissionsApiService) ListPermissions(ctx context.Context, loc
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RolesAndPermissionsApiService Get Standard User Roles
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param optional (nil or map[string]interface{}) with one or more of:
-    @param "page" (string)
-    @param "perPage" (string)
-    @param "servicePlanId" (string)
-@return RolesCollectionResource*/
-func (a *RolesAndPermissionsApiService) ListSystemRoles(ctx context.Context, localVarOptionals map[string]interface{}) (RolesCollectionResource, *http.Response, error) {
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param optional (nil or map[string]interface{}) with one or more of:
+     @param "page" (string) 
+     @param "perPage" (string) 
+     @param "servicePlanId" (string) 
+ @return RolesCollectionResource*/
+func (a *RolesAndPermissionsApiService) ListSystemRoles(ctx context.Context, localVarOptionals map[string]interface{}) (RolesCollectionResource,  *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
-		successPayload     RolesCollectionResource
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
+	 	successPayload  RolesCollectionResource
 	)
 
 	// create path and map variables
@@ -572,7 +584,7 @@ func (a *RolesAndPermissionsApiService) ListSystemRoles(ctx context.Context, loc
 		localVarQueryParams.Add("servicePlanId", parameterToString(localVarTempParam, ""))
 	}
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -583,7 +595,7 @@ func (a *RolesAndPermissionsApiService) ListSystemRoles(ctx context.Context, loc
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -609,20 +621,21 @@ func (a *RolesAndPermissionsApiService) ListSystemRoles(ctx context.Context, loc
 		return successPayload, localVarHttpResponse, err
 	}
 
+
 	return successPayload, localVarHttpResponse, err
 }
 
 /* RolesAndPermissionsApiService Get Default User Role
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns account default user role.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RoleManagement&lt;/td&gt;&lt;td&gt;Editing and assignment of user roles&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of an account
-@return */
-func (a *RolesAndPermissionsApiService) LoadUserRole(ctx context.Context, accountId string) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.28 (Release 8.4)&lt;/p&gt;&lt;p&gt;Returns account default user role.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RoleManagement&lt;/td&gt;&lt;td&gt;Editing and assignment of user roles&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of an account
+ @return */
+func (a *RolesAndPermissionsApiService) LoadUserRole(ctx context.Context, accountId string) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -633,8 +646,9 @@ func (a *RolesAndPermissionsApiService) LoadUserRole(ctx context.Context, accoun
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -645,7 +659,7 @@ func (a *RolesAndPermissionsApiService) LoadUserRole(ctx context.Context, accoun
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -671,17 +685,17 @@ func (a *RolesAndPermissionsApiService) LoadUserRole(ctx context.Context, accoun
 }
 
 /* RolesAndPermissionsApiService Set Default User Role
-&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.30 (Release 9.1)&lt;/p&gt;&lt;p&gt;Updates account default user role.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RoleManagement&lt;/td&gt;&lt;td&gt;Editing and assignment of user roles&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
-* @param ctx context.Context for authentication, logging, tracing, etc.
-@param accountId Internal identifier of an account
-@param body JSON body
-@return */
-func (a *RolesAndPermissionsApiService) UpdateUserRole(ctx context.Context, accountId string, body DefaultUserRoleRequest) (*http.Response, error) {
+ &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.30 (Release 9.1)&lt;/p&gt;&lt;p&gt;Updates account default user role.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;RoleManagement&lt;/td&gt;&lt;td&gt;Editing and assignment of user roles&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+ * @param ctx context.Context for authentication, logging, tracing, etc.
+ @param accountId Internal identifier of an account
+ @param body JSON body
+ @return */
+func (a *RolesAndPermissionsApiService) UpdateUserRole(ctx context.Context, accountId string, body DefaultUserRoleRequest) ( *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarPostBody interface{}
+		localVarFileName string
+		localVarFileBytes []byte
 	)
 
 	// create path and map variables
@@ -692,8 +706,9 @@ func (a *RolesAndPermissionsApiService) UpdateUserRole(ctx context.Context, acco
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"application/json"}
+	localVarHttpContentTypes := []string{ "application/json",  }
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -704,7 +719,7 @@ func (a *RolesAndPermissionsApiService) UpdateUserRole(ctx context.Context, acco
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-	}
+		}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -730,3 +745,4 @@ func (a *RolesAndPermissionsApiService) UpdateUserRole(ctx context.Context, acco
 
 	return localVarHttpResponse, err
 }
+

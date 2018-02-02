@@ -10,6 +10,7 @@
 package ringcentral
 
 type IncomingCallInformationResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	AnnouncementWhenDirectCalls string `json:"announcementWhenDirectCalls,omitempty"`

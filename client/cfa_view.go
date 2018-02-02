@@ -10,6 +10,7 @@
 package ringcentral
 
 type CfaView struct {
+
 	Name string `json:"name,omitempty"`
 
 	Schedules []CfaSchedule `json:"schedules,omitempty"`

@@ -10,6 +10,7 @@
 package ringcentral
 
 type AuthenticationScheme struct {
+
 	Description string `json:"description,omitempty"`
 
 	DocumentationUrl string `json:"documentationUrl,omitempty"`

@@ -10,6 +10,7 @@
 package ringcentral
 
 type ShippingResource struct {
+
 	Address *EmergencyServiceAddressResource `json:"address,omitempty"`
 
 	Method *MethodResource `json:"method,omitempty"`

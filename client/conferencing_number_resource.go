@@ -10,6 +10,7 @@
 package ringcentral
 
 type ConferencingNumberResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	PhoneNumber string `json:"phoneNumber,omitempty"`

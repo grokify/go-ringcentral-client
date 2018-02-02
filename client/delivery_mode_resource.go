@@ -10,6 +10,7 @@
 package ringcentral
 
 type DeliveryModeResource struct {
+
 	TransportType string `json:"transportType,omitempty"`
 
 	Encryption bool `json:"encryption,omitempty"`

@@ -10,6 +10,7 @@
 package ringcentral
 
 type ProvisioningResource struct {
+
 	WebUris *WebUrisResource `json:"webUris,omitempty"`
 
 	Hints *HintsResource `json:"hints,omitempty"`

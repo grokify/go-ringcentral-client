@@ -10,6 +10,7 @@
 package ringcentral
 
 type GroupsCollection struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []GroupResource `json:"records,omitempty"`

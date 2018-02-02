@@ -10,5 +10,6 @@
 package ringcentral
 
 type DepartmentBulkAssignResource struct {
+
 	Items []BulkAssignItem `json:"items,omitempty"`
 }

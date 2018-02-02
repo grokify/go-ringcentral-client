@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Internal identifier of a message | [optional] [default to null]
+**Id** | **int64** | Internal identifier of a message | [optional] [default to null]
 **Uri** | **string** | Canonical URI of a message | [optional] [default to null]
 **Type_** | **string** | Message type - &#39;Fax&#39; | [optional] [default to null]
 **From** | [***CallerInfoFrom**](CallerInfoFrom.md) | Sender information | [optional] [default to null]

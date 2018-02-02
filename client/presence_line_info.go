@@ -10,6 +10,7 @@
 package ringcentral
 
 type PresenceLineInfo struct {
+
 	Id string `json:"id,omitempty"`
 
 	Extension *PresenceExtensionInfo `json:"extension,omitempty"`

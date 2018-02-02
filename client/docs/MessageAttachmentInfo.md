@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Internal identifier of a message attachment | [optional] [default to null]
+**Id** | **int64** | Internal identifier of a message attachment | [optional] [default to null]
 **Uri** | **string** | Canonical URI of a message attachment | [optional] [default to null]
 **Type_** | **string** | Type of message attachment | [optional] [default to null]
 **ContentType** | **string** | MIME type for a given attachment, for instance &#39;audio/wav&#39; | [optional] [default to null]

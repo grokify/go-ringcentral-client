@@ -10,6 +10,7 @@
 package ringcentral
 
 type LanguageInfoResources struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Records []LanguageInfoResource `json:"records,omitempty"`

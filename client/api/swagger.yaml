@@ -1316,7 +1316,7 @@ paths:
         \ Plan Group</h4><p>Heavy</p>"
       operationId: "sendFaxMessage"
       consumes:
-      - "multipart/mixed; boundary=Boundary_1_14413901_1361871080888"
+      - "multipart/form-data"
       produces:
       - "application/json"
       parameters:
@@ -1326,6 +1326,7 @@ paths:
           \ (~) to indicate the account which was logged-in within the current session."
         required: true
         type: "string"
+        default: "~"
         x-exportParamName: "AccountId"
       - name: "extensionId"
         in: "path"
@@ -1334,7 +1335,61 @@ paths:
           \ session"
         required: true
         type: "string"
+        default: "~"
         x-exportParamName: "ExtensionId"
+      - name: "attachment"
+        in: "formData"
+        description: "File to upload"
+        required: true
+        type: "file"
+        x-exportParamName: "Attachment"
+      - name: "faxResolution"
+        in: "formData"
+        description: "Resolution of Fax"
+        required: true
+        type: "string"
+        enum:
+        - "High"
+        - "Low"
+        x-exportParamName: "FaxResolution"
+      - name: "to"
+        in: "formData"
+        description: "To Phone Number"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+        x-exportParamName: "To"
+      - name: "sendTime"
+        in: "formData"
+        description: "Optional. Timestamp to send fax at. If not specified (current\
+          \ or the past), the fax is sent immediately"
+        required: false
+        type: "string"
+        format: "date-time"
+        x-exportParamName: "SendTime"
+      - name: "isoCode"
+        in: "formData"
+        description: "ISO Code. e.g UK"
+        required: false
+        type: "string"
+        x-exportParamName: "IsoCode"
+      - name: "coverIndex"
+        in: "formData"
+        description: "Cover page identifier. For the list of available cover page\
+          \ identifiers please call the method Fax Cover Pages. If not specified,\
+          \ the default cover page which is configured in 'Outbound Fax Settings'\
+          \ is attached"
+        required: false
+        type: "integer"
+        x-exportParamName: "CoverIndex"
+      - name: "coverPageText"
+        in: "formData"
+        description: "Cover page text, entered by the fax sender and printed on the\
+          \ cover page. Maximum length is limited to 1024 symbols"
+        required: false
+        type: "string"
+        x-exportParamName: "CoverPageText"
       responses:
         default:
           description: "successful operation"
@@ -3970,6 +4025,8 @@ paths:
       responses:
         default:
           description: "successful operation"
+          schema:
+            $ref: "#/definitions/MeetingResponseResource"
       x-api-group: "extension/meeting"
       x-throttling-group: "Medium"
       x-metered-api: true
@@ -10266,6 +10323,7 @@ securityDefinitions:
     authorizationUrl: "https://platform.devtest.ringcentral.com/restapi/oauth/authorize"
     tokenUrl: "https://platform.devtest.ringcentral.com/restapi/oauth/token"
     flow: "accessCode"
+    scopes: {}
 definitions:
   SCIMUserPatch:
     type: "object"
@@ -10475,7 +10533,8 @@ definitions:
     type: "object"
     properties:
       id:
-        type: "string"
+        type: "integer"
+        format: "int64"
         description: "Internal identifier of a message"
       uri:
         type: "string"
@@ -10568,34 +10627,34 @@ definitions:
       faxResolution: "High"
       attachments:
       - filename: "filename"
-        size: 6
-        vmDuration: 0
-        id: "id"
+        size: 1
+        vmDuration: 6
+        id: 0
         type: "AudioRecording"
         uri: "uri"
         contentType: "contentType"
       - filename: "filename"
-        size: 6
-        vmDuration: 0
-        id: "id"
+        size: 1
+        vmDuration: 6
+        id: 0
         type: "AudioRecording"
         uri: "uri"
         contentType: "contentType"
       lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
       creationTime: "2000-01-23T04:56:07.000+00:00"
-      coverIndex: 6
+      coverIndex: 1
       availability: "Alive"
       type: "type"
       priority: "Normal"
       uri: "uri"
       messageStatus: "Queued"
-      faxPageCount: 0
+      faxPageCount: 6
       coverPageText: "coverPageText"
       from:
         phoneNumber: "phoneNumber"
         name: "name"
         location: "location"
-      id: "id"
+      id: 0
       to:
       - messageStatus: "Sent"
         phoneNumber: "phoneNumber"
@@ -21448,22 +21507,22 @@ definitions:
         faxResolution: "High"
         attachments:
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
         creationTime: "2000-01-23T04:56:07.000+00:00"
-        conversationId: 1
+        conversationId: 5
         deliveryErrorCode: "deliveryErrorCode"
         subject: "subject"
         vmTranscriptionStatus: "NotAvailable"
@@ -21473,7 +21532,7 @@ definitions:
         uri: "uri"
         messageStatus: "Queued"
         faxPageCount: 5
-        smsSendingAttemptsCount: 5
+        smsSendingAttemptsCount: 2
         smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
         pgToDepartment: true
         from:
@@ -21502,22 +21561,22 @@ definitions:
         faxResolution: "High"
         attachments:
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
         creationTime: "2000-01-23T04:56:07.000+00:00"
-        conversationId: 1
+        conversationId: 5
         deliveryErrorCode: "deliveryErrorCode"
         subject: "subject"
         vmTranscriptionStatus: "NotAvailable"
@@ -21527,7 +21586,7 @@ definitions:
         uri: "uri"
         messageStatus: "Queued"
         faxPageCount: 5
-        smsSendingAttemptsCount: 5
+        smsSendingAttemptsCount: 2
         smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
         pgToDepartment: true
         from:
@@ -21696,22 +21755,22 @@ definitions:
       faxResolution: "High"
       attachments:
       - filename: "filename"
-        size: 6
-        vmDuration: 0
-        id: "id"
+        size: 1
+        vmDuration: 6
+        id: 0
         type: "AudioRecording"
         uri: "uri"
         contentType: "contentType"
       - filename: "filename"
-        size: 6
-        vmDuration: 0
-        id: "id"
+        size: 1
+        vmDuration: 6
+        id: 0
         type: "AudioRecording"
         uri: "uri"
         contentType: "contentType"
       lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
       creationTime: "2000-01-23T04:56:07.000+00:00"
-      conversationId: 1
+      conversationId: 5
       deliveryErrorCode: "deliveryErrorCode"
       subject: "subject"
       vmTranscriptionStatus: "NotAvailable"
@@ -21721,7 +21780,7 @@ definitions:
       uri: "uri"
       messageStatus: "Queued"
       faxPageCount: 5
-      smsSendingAttemptsCount: 5
+      smsSendingAttemptsCount: 2
       smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
       pgToDepartment: true
       from:
@@ -21750,7 +21809,8 @@ definitions:
     type: "object"
     properties:
       id:
-        type: "string"
+        type: "integer"
+        format: "int64"
         description: "Internal identifier of a message attachment"
       uri:
         type: "string"
@@ -21779,9 +21839,9 @@ definitions:
         description: "Size of attachment in bytes"
     example:
       filename: "filename"
-      size: 6
-      vmDuration: 0
-      id: "id"
+      size: 1
+      vmDuration: 6
+      id: 0
       type: "AudioRecording"
       uri: "uri"
       contentType: "contentType"
@@ -21878,22 +21938,22 @@ definitions:
         faxResolution: "High"
         attachments:
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
         creationTime: "2000-01-23T04:56:07.000+00:00"
-        conversationId: 1
+        conversationId: 5
         deliveryErrorCode: "deliveryErrorCode"
         subject: "subject"
         vmTranscriptionStatus: "NotAvailable"
@@ -21903,7 +21963,7 @@ definitions:
         uri: "uri"
         messageStatus: "Queued"
         faxPageCount: 5
-        smsSendingAttemptsCount: 5
+        smsSendingAttemptsCount: 2
         smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
         pgToDepartment: true
         from:
@@ -21932,22 +21992,22 @@ definitions:
         faxResolution: "High"
         attachments:
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
         creationTime: "2000-01-23T04:56:07.000+00:00"
-        conversationId: 1
+        conversationId: 5
         deliveryErrorCode: "deliveryErrorCode"
         subject: "subject"
         vmTranscriptionStatus: "NotAvailable"
@@ -21957,7 +22017,7 @@ definitions:
         uri: "uri"
         messageStatus: "Queued"
         faxPageCount: 5
-        smsSendingAttemptsCount: 5
+        smsSendingAttemptsCount: 2
         smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
         pgToDepartment: true
         from:

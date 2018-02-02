@@ -10,6 +10,7 @@
 package ringcentral
 
 type AuthProfileResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Permissions []ActivePermissionResource `json:"permissions,omitempty"`

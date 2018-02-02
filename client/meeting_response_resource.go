@@ -10,6 +10,7 @@
 package ringcentral
 
 type MeetingResponseResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	Uuid string `json:"uuid,omitempty"`

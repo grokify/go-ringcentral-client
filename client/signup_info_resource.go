@@ -10,6 +10,7 @@
 package ringcentral
 
 type SignupInfoResource struct {
+
 	TosAccepted bool `json:"tosAccepted,omitempty"`
 
 	SignupState []string `json:"signupState,omitempty"`

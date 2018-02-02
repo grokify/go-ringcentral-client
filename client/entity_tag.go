@@ -10,6 +10,7 @@
 package ringcentral
 
 type EntityTag struct {
+
 	Value string `json:"value,omitempty"`
 
 	Weak bool `json:"weak,omitempty"`

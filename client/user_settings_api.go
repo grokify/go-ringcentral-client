@@ -1127,7 +1127,7 @@ func (a *UserSettingsApiService) UpdateNotificationSettings(ctx context.Context,
 /* UserSettingsApiService Upload User Profile Image
 &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.26 (Release 8.2)&lt;/p&gt;&lt;p&gt;Returns the extension profile image.&lt;/p&gt;&lt;h4&gt;Required Permissions&lt;/h4&gt;&lt;table class&#x3D;&#39;fullwidth&#39;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Permission&lt;/th&gt;&lt;th&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;code&#39;&gt;EditExtensions&lt;/td&gt;&lt;td&gt;Viewing and updating my extension info (includes extension name, number, email and phone number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Heavy&lt;/p&gt;
 * @param ctx context.Context for authentication, logging, tracing, etc.
-@param localVarFile
+@param image
 @param extensionId
 @param accountId
 @return Binary*/

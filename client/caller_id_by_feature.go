@@ -10,6 +10,7 @@
 package ringcentral
 
 type CallerIdByFeature struct {
+
 	Feature string `json:"feature,omitempty"`
 
 	CallerId *CallerIdByFeatureInfo `json:"callerId,omitempty"`

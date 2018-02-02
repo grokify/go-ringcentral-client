@@ -16,6 +16,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 	"time"
 )
@@ -517,8 +518,16 @@ func (a *MessagesApiService) LoadMessageAttachment(ctx context.Context, accountI
 * @param ctx context.Context for authentication, logging, tracing, etc.
 @param accountId Internal identifier of a RingCentral account (integer) or tilde (~) to indicate the account which was logged-in within the current session.
 @param extensionId Internal identifier of an extension (integer) or tilde (~) to indicate the extension assigned to the account logged-in within the current session
+@param attachment File to upload
+@param faxResolution Resolution of Fax
+@param to To Phone Number
+@param optional (nil or map[string]interface{}) with one or more of:
+    @param "sendTime" (time.Time) Optional. Timestamp to send fax at. If not specified (current or the past), the fax is sent immediately
+    @param "isoCode" (string) ISO Code. e.g UK
+    @param "coverIndex" (int32) Cover page identifier. For the list of available cover page identifiers please call the method Fax Cover Pages. If not specified, the default cover page which is configured in &#39;Outbound Fax Settings&#39; is attached
+    @param "coverPageText" (string) Cover page text, entered by the fax sender and printed on the cover page. Maximum length is limited to 1024 symbols
 @return FaxResponse*/
-func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId string, extensionId string) (FaxResponse, *http.Response, error) {
+func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId string, extensionId string, localVarFile *os.File, faxResolution string, to []string, localVarOptionals map[string]interface{}) (FaxResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -536,8 +545,21 @@ func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId strin
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if err := typeCheckParameter(localVarOptionals["sendTime"], "time.Time", "sendTime"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["isoCode"], "string", "isoCode"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["coverIndex"], "int32", "coverIndex"); err != nil {
+		return successPayload, nil, err
+	}
+	if err := typeCheckParameter(localVarOptionals["coverPageText"], "string", "coverPageText"); err != nil {
+		return successPayload, nil, err
+	}
+
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{"multipart/mixed; boundary=Boundary_1_14413901_1361871080888"}
+	localVarHttpContentTypes := []string{"multipart/form-data"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -554,6 +576,26 @@ func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId strin
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if localVarFile != nil {
+		fbs, _ := ioutil.ReadAll(localVarFile)
+		localVarFileBytes = fbs
+		localVarFileName = localVarFile.Name()
+		localVarFile.Close()
+	}
+	localVarFormParams.Add("faxResolution", parameterToString(faxResolution, ""))
+	localVarFormParams.Add("to", parameterToString(to, "csv"))
+	if localVarTempParam, localVarOk := localVarOptionals["sendTime"].(time.Time); localVarOk {
+		localVarFormParams.Add("sendTime", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["isoCode"].(string); localVarOk {
+		localVarFormParams.Add("isoCode", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["coverIndex"].(int32); localVarOk {
+		localVarFormParams.Add("coverIndex", parameterToString(localVarTempParam, ""))
+	}
+	if localVarTempParam, localVarOk := localVarOptionals["coverPageText"].(string); localVarOk {
+		localVarFormParams.Add("coverPageText", parameterToString(localVarTempParam, ""))
 	}
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
 	if err != nil {

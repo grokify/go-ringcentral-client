@@ -10,6 +10,7 @@
 package ringcentral
 
 type AccessValidationResource struct {
+
 	Uri string `json:"uri,omitempty"`
 
 	ApplicationId string `json:"applicationId,omitempty"`

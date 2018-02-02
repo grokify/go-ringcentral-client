@@ -10,6 +10,7 @@
 package ringcentral
 
 type MeetingRequestResource struct {
+
 	Topic string `json:"topic,omitempty"`
 
 	MeetingType string `json:"meetingType,omitempty"`

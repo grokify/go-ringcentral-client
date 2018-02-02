@@ -10,6 +10,7 @@
 package ringcentral
 
 type RegionalSettingsResource struct {
+
 	Timezone *TimezoneResource `json:"timezone,omitempty"`
 
 	HomeCountry *CountryResource `json:"homeCountry,omitempty"`
