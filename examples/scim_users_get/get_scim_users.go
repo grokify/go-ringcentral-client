@@ -2,8 +2,10 @@ package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/grokify/gotilla/fmt/fmtutil"
 	hum "github.com/grokify/gotilla/net/httputilmore"
@@ -230,7 +232,7 @@ func tryScimClient() {
 	}
 }
 
-func tryRingCentralClient() {
+func tryRingCentralClient(demoConfig DemoConfig) {
 	apiClient, err := rcu.NewApiClient(
 		ro.NewApplicationCredentialsEnv(),
 		ro.NewUserCredentialsEnv(),
@@ -242,19 +244,19 @@ func tryRingCentralClient() {
 	demo := ScimRingCentralDemo{
 		Client:  apiClient,
 		Context: context.Background(),
+		Config:  demoConfig,
 	}
 
 	demo.GetUsers()
 
-	if 1 == 0 {
-		userId := "1"
-		demo.DeleteUser(userId)
+	if demoConfig.DeleteUser {
+		demo.DeleteUser(demoConfig.UserId)
 		demo.GetUsers()
 	}
-	if 1 == 0 {
+	if demoConfig.CreateUser {
 		demo.CreateUser()
 	}
-	if 1 == 0 {
+	if demoConfig.PatchUser {
 		userId := "1"
 		demo.PatchUser(userId)
 	}
@@ -262,7 +264,7 @@ func tryRingCentralClient() {
 		userId := "1"
 		demo.GetUser(userId)
 	}
-	if 1 == 0 {
+	if demoConfig.ReplaceUser {
 		userId := "1"
 		demo.UpdateUser(userId)
 	}
@@ -270,6 +272,7 @@ func tryRingCentralClient() {
 
 type ScimRingCentralDemo struct {
 	Client  *rc.APIClient
+	Config  DemoConfig
 	Context context.Context
 }
 
@@ -386,7 +389,10 @@ func (demo ScimRingCentralDemo) PatchUser(userId string) {
 }
 
 func (demo ScimRingCentralDemo) GetNewUser() rc.UserCreationRequest {
-	email := "john@example.com"
+	email := demo.Config.UserEmail
+	if len(email) == 0 {
+		email = "john@example.com"
+	}
 	user := rc.UserCreationRequest{
 		Name: &rc.NameInfo{
 			GivenName:  "John",
@@ -404,7 +410,50 @@ func (demo ScimRingCentralDemo) GetNewUser() rc.UserCreationRequest {
 	return user
 }
 
+type DemoConfig struct {
+	CreateUser  bool
+	PatchUser   bool
+	ReplaceUser bool
+	DeleteUser  bool
+	UserEmail   string
+	UserId      string
+}
+
 func main() {
+	var createUser = flag.Int("create", 0, "Create user")
+	var patchUser = flag.Int("patch", 0, "Patch user")
+	var replaceUser = flag.Int("replace", 0, "Replace user")
+	var deleteUser = flag.Int("delete", 0, "Delete user")
+
+	var userEmail = flag.String("email", "", "Email address")
+	var userId = flag.String("userid", "", "Email address")
+
+	flag.Parse()
+
+	fmt.Printf("[%v]\n", *createUser)
+
+	cfg := DemoConfig{}
+	if *createUser != 0 {
+		cfg.CreateUser = true
+	}
+	if *patchUser != 0 {
+		cfg.PatchUser = true
+	}
+	if *replaceUser != 0 {
+		cfg.ReplaceUser = true
+	}
+	if *deleteUser != 0 {
+		cfg.DeleteUser = true
+	}
+	if len(*userEmail) > 0 {
+		cfg.UserEmail = strings.TrimSpace(*userEmail)
+	}
+	if len(*userId) > 0 {
+		cfg.UserId = strings.TrimSpace(*userId)
+	}
+
+	fmtutil.PrintJSON(cfg)
+
 	err := loadEnv()
 	if err != nil {
 		log.Fatal(err)
@@ -414,7 +463,7 @@ func main() {
 		tryScimClient()
 	}
 	if 1 == 1 {
-		tryRingCentralClient()
+		tryRingCentralClient(cfg)
 	}
 	fmt.Println("DONE")
 }
