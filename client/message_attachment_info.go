@@ -12,7 +12,7 @@ package ringcentral
 type MessageAttachmentInfo struct {
 
 	// Internal identifier of a message attachment
-	Id int64 `json:"id,omitempty"`
+	Id string `json:"id,omitempty"`
 
 	// Canonical URI of a message attachment
 	Uri string `json:"uri,omitempty"`

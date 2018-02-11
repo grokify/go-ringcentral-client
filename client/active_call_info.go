@@ -11,19 +11,26 @@ package ringcentral
 
 type ActiveCallInfo struct {
 
+	// Internal identifier of a call
 	Id string `json:"id,omitempty"`
 
+	// Call direction
 	Direction string `json:"direction,omitempty"`
 
+	// Phone number or extension number of a caller
 	From string `json:"from,omitempty"`
 
+	// Phone number or extension number of a callee
 	To string `json:"to,omitempty"`
 
+	// Telephony call status
 	TelephonyStatus string `json:"telephonyStatus,omitempty"`
 
 	SipData *DetailedCallInfo `json:"sipData,omitempty"`
 
+	// Internal identifier of a call session
 	SessionId string `json:"sessionId,omitempty"`
 
+	// Type of call termination. Supported for calls in 'NoCall' status. If the returned termination type is 'intermediate' it means the call is not actually ended, the connection is established on one of the devices
 	TerminationType string `json:"terminationType,omitempty"`
 }

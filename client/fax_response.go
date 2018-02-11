@@ -40,7 +40,7 @@ type FaxResponse struct {
 	Priority string `json:"priority,omitempty"`
 
 	// The list of message attachments
-	Attachments []MessageAttachmentInfo `json:"attachments,omitempty"`
+	Attachments []MessageAttachmentInfoIntId `json:"attachments,omitempty"`
 
 	// Message direction
 	Direction string `json:"direction,omitempty"`

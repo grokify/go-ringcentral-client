@@ -16,4 +16,10 @@ type CompanyDirectoryPhoneNumberInfo struct {
 
 	// Type of a phone number
 	Type_ string `json:"type,omitempty"`
+
+	// Specifies if a phone number should be hidden or not. Returned only if the value is 'True'
+	Hidden bool `json:"hidden,omitempty"`
+
+	// Usage type of a phone number
+	UsageType string `json:"usageType,omitempty"`
 }

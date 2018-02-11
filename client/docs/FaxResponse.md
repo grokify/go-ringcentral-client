@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **CreationTime** | [**time.Time**](time.Time.md) | Message creation datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z | [optional] [default to null]
 **ReadStatus** | **string** | Message read status | [optional] [default to null]
 **Priority** | **string** | Message priority | [optional] [default to null]
-**Attachments** | [**[]MessageAttachmentInfo**](MessageAttachmentInfo.md) | The list of message attachments | [optional] [default to null]
+**Attachments** | [**[]MessageAttachmentInfoIntId**](MessageAttachmentInfoIntId.md) | The list of message attachments | [optional] [default to null]
 **Direction** | **string** | Message direction | [optional] [default to null]
 **Availability** | **string** | Message availability status. Message in &#39;Deleted&#39; state is still preserved with all its attachments and can be restored. &#39;Purged&#39; means that all attachments are already deleted and the message itself is about to be physically deleted shortly | [optional] [default to null]
 **MessageStatus** | **string** | Message status. &#39;Queued&#39; - the message is queued for sending; &#39;Sent&#39; - a message is successfully sent; &#39;SendingFailed&#39; - a message sending attempt has failed; &#39;Received&#39; - a message is received (inbound messages have this status by default) | [optional] [default to null]

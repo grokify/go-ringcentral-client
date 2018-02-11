@@ -10571,7 +10571,7 @@ definitions:
         type: "array"
         description: "The list of message attachments"
         items:
-          $ref: "#/definitions/MessageAttachmentInfo"
+          $ref: "#/definitions/MessageAttachmentInfoIntId"
       direction:
         type: "string"
         description: "Message direction"
@@ -10627,28 +10627,28 @@ definitions:
       faxResolution: "High"
       attachments:
       - filename: "filename"
-        size: 1
-        vmDuration: 6
-        id: 0
+        size: 5
+        vmDuration: 1
+        id: 6
         type: "AudioRecording"
         uri: "uri"
         contentType: "contentType"
       - filename: "filename"
-        size: 1
-        vmDuration: 6
-        id: 0
+        size: 5
+        vmDuration: 1
+        id: 6
         type: "AudioRecording"
         uri: "uri"
         contentType: "contentType"
       lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
       creationTime: "2000-01-23T04:56:07.000+00:00"
-      coverIndex: 1
+      coverIndex: 2
       availability: "Alive"
       type: "type"
       priority: "Normal"
       uri: "uri"
       messageStatus: "Queued"
-      faxPageCount: 6
+      faxPageCount: 5
       coverPageText: "coverPageText"
       from:
         phoneNumber: "phoneNumber"
@@ -12382,8 +12382,8 @@ definitions:
             toTag: "toTag"
             localUri: "localUri"
             rcSessionId: "rcSessionId"
-          telephonyStatus: "telephonyStatus"
-          terminationType: "terminationType"
+          telephonyStatus: "NoCall"
+          terminationType: "final"
           from: "from"
           id: "id"
           to: "to"
@@ -12396,8 +12396,8 @@ definitions:
             toTag: "toTag"
             localUri: "localUri"
             rcSessionId: "rcSessionId"
-          telephonyStatus: "telephonyStatus"
-          terminationType: "terminationType"
+          telephonyStatus: "NoCall"
+          terminationType: "final"
           from: "from"
           id: "id"
           to: "to"
@@ -12424,8 +12424,8 @@ definitions:
             toTag: "toTag"
             localUri: "localUri"
             rcSessionId: "rcSessionId"
-          telephonyStatus: "telephonyStatus"
-          terminationType: "terminationType"
+          telephonyStatus: "NoCall"
+          terminationType: "final"
           from: "from"
           id: "id"
           to: "to"
@@ -12438,8 +12438,8 @@ definitions:
             toTag: "toTag"
             localUri: "localUri"
             rcSessionId: "rcSessionId"
-          telephonyStatus: "telephonyStatus"
-          terminationType: "terminationType"
+          telephonyStatus: "NoCall"
+          terminationType: "final"
           from: "from"
           id: "id"
           to: "to"
@@ -13412,9 +13412,13 @@ definitions:
         id: "id"
       phoneNumbers:
       - phoneNumber: "phoneNumber"
+        hidden: true
         type: "VoiceFax"
+        usageType: "MobileNumber"
       - phoneNumber: "phoneNumber"
+        hidden: true
         type: "VoiceFax"
+        usageType: "MobileNumber"
       status: "Enabled"
   CompanyDirectoryAccountInfo:
     type: "object"
@@ -13437,9 +13441,23 @@ definitions:
         - "VoiceFax"
         - "FaxOnly"
         - "VoiceOnly"
+      hidden:
+        type: "boolean"
+        description: "Specifies if a phone number should be hidden or not. Returned\
+          \ only if the value is 'True'"
+      usageType:
+        type: "string"
+        description: "Usage type of a phone number"
+        enum:
+        - "MobileNumber"
+        - "ContactNumber"
+        - "DirectNumber"
+        - "ForwardedNumber"
     example:
       phoneNumber: "phoneNumber"
+      hidden: true
       type: "VoiceFax"
+      usageType: "MobileNumber"
   CompanyDirectoryProfileImageInfo:
     type: "object"
     properties:
@@ -13483,9 +13501,13 @@ definitions:
           id: "id"
         phoneNumbers:
         - phoneNumber: "phoneNumber"
+          hidden: true
           type: "VoiceFax"
+          usageType: "MobileNumber"
         - phoneNumber: "phoneNumber"
+          hidden: true
           type: "VoiceFax"
+          usageType: "MobileNumber"
         status: "Enabled"
       - firstName: "firstName"
         lastName: "lastName"
@@ -13502,9 +13524,13 @@ definitions:
           id: "id"
         phoneNumbers:
         - phoneNumber: "phoneNumber"
+          hidden: true
           type: "VoiceFax"
+          usageType: "MobileNumber"
         - phoneNumber: "phoneNumber"
+          hidden: true
           type: "VoiceFax"
+          usageType: "MobileNumber"
         status: "Enabled"
       paging:
         perPage: 5
@@ -21507,22 +21533,22 @@ definitions:
         faxResolution: "High"
         attachments:
         - filename: "filename"
-          size: 1
-          vmDuration: 6
-          id: 0
+          size: 6
+          vmDuration: 0
+          id: "id"
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         - filename: "filename"
-          size: 1
-          vmDuration: 6
-          id: 0
+          size: 6
+          vmDuration: 0
+          id: "id"
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
         creationTime: "2000-01-23T04:56:07.000+00:00"
-        conversationId: 5
+        conversationId: 1
         deliveryErrorCode: "deliveryErrorCode"
         subject: "subject"
         vmTranscriptionStatus: "NotAvailable"
@@ -21532,7 +21558,7 @@ definitions:
         uri: "uri"
         messageStatus: "Queued"
         faxPageCount: 5
-        smsSendingAttemptsCount: 2
+        smsSendingAttemptsCount: 5
         smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
         pgToDepartment: true
         from:
@@ -21561,22 +21587,22 @@ definitions:
         faxResolution: "High"
         attachments:
         - filename: "filename"
-          size: 1
-          vmDuration: 6
-          id: 0
+          size: 6
+          vmDuration: 0
+          id: "id"
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         - filename: "filename"
-          size: 1
-          vmDuration: 6
-          id: 0
+          size: 6
+          vmDuration: 0
+          id: "id"
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
         creationTime: "2000-01-23T04:56:07.000+00:00"
-        conversationId: 5
+        conversationId: 1
         deliveryErrorCode: "deliveryErrorCode"
         subject: "subject"
         vmTranscriptionStatus: "NotAvailable"
@@ -21586,7 +21612,7 @@ definitions:
         uri: "uri"
         messageStatus: "Queued"
         faxPageCount: 5
-        smsSendingAttemptsCount: 2
+        smsSendingAttemptsCount: 5
         smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
         pgToDepartment: true
         from:
@@ -21755,22 +21781,22 @@ definitions:
       faxResolution: "High"
       attachments:
       - filename: "filename"
-        size: 1
-        vmDuration: 6
-        id: 0
+        size: 6
+        vmDuration: 0
+        id: "id"
         type: "AudioRecording"
         uri: "uri"
         contentType: "contentType"
       - filename: "filename"
-        size: 1
-        vmDuration: 6
-        id: 0
+        size: 6
+        vmDuration: 0
+        id: "id"
         type: "AudioRecording"
         uri: "uri"
         contentType: "contentType"
       lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
       creationTime: "2000-01-23T04:56:07.000+00:00"
-      conversationId: 5
+      conversationId: 1
       deliveryErrorCode: "deliveryErrorCode"
       subject: "subject"
       vmTranscriptionStatus: "NotAvailable"
@@ -21780,7 +21806,7 @@ definitions:
       uri: "uri"
       messageStatus: "Queued"
       faxPageCount: 5
-      smsSendingAttemptsCount: 2
+      smsSendingAttemptsCount: 5
       smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
       pgToDepartment: true
       from:
@@ -21806,6 +21832,45 @@ definitions:
         location: "location"
       direction: "Inbound"
   MessageAttachmentInfo:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        description: "Internal identifier of a message attachment"
+      uri:
+        type: "string"
+        description: "Canonical URI of a message attachment"
+      type:
+        type: "string"
+        description: "Type of message attachment"
+        enum:
+        - "AudioRecording"
+        - "AudioTranscription"
+        - "Text"
+        - "SourceDocument"
+        - "RenderedDocument"
+        - "MmsAttachment"
+      contentType:
+        type: "string"
+        description: "MIME type for a given attachment, for instance 'audio/wav'"
+      vmDuration:
+        type: "integer"
+        description: "Voicemail only Duration of the voicemail in seconds"
+      filename:
+        type: "string"
+        description: "Name of a file attached"
+      size:
+        type: "integer"
+        description: "Size of attachment in bytes"
+    example:
+      filename: "filename"
+      size: 6
+      vmDuration: 0
+      id: "id"
+      type: "AudioRecording"
+      uri: "uri"
+      contentType: "contentType"
+  MessageAttachmentInfoIntId:
     type: "object"
     properties:
       id:
@@ -21839,9 +21904,9 @@ definitions:
         description: "Size of attachment in bytes"
     example:
       filename: "filename"
-      size: 1
-      vmDuration: 6
-      id: 0
+      size: 5
+      vmDuration: 1
+      id: 6
       type: "AudioRecording"
       uri: "uri"
       contentType: "contentType"
@@ -21938,22 +22003,22 @@ definitions:
         faxResolution: "High"
         attachments:
         - filename: "filename"
-          size: 1
-          vmDuration: 6
-          id: 0
+          size: 6
+          vmDuration: 0
+          id: "id"
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         - filename: "filename"
-          size: 1
-          vmDuration: 6
-          id: 0
+          size: 6
+          vmDuration: 0
+          id: "id"
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
         creationTime: "2000-01-23T04:56:07.000+00:00"
-        conversationId: 5
+        conversationId: 1
         deliveryErrorCode: "deliveryErrorCode"
         subject: "subject"
         vmTranscriptionStatus: "NotAvailable"
@@ -21963,7 +22028,7 @@ definitions:
         uri: "uri"
         messageStatus: "Queued"
         faxPageCount: 5
-        smsSendingAttemptsCount: 2
+        smsSendingAttemptsCount: 5
         smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
         pgToDepartment: true
         from:
@@ -21992,22 +22057,22 @@ definitions:
         faxResolution: "High"
         attachments:
         - filename: "filename"
-          size: 1
-          vmDuration: 6
-          id: 0
+          size: 6
+          vmDuration: 0
+          id: "id"
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         - filename: "filename"
-          size: 1
-          vmDuration: 6
-          id: 0
+          size: 6
+          vmDuration: 0
+          id: "id"
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
         creationTime: "2000-01-23T04:56:07.000+00:00"
-        conversationId: 5
+        conversationId: 1
         deliveryErrorCode: "deliveryErrorCode"
         subject: "subject"
         vmTranscriptionStatus: "NotAvailable"
@@ -22017,7 +22082,7 @@ definitions:
         uri: "uri"
         messageStatus: "Queued"
         faxPageCount: 5
-        smsSendingAttemptsCount: 2
+        smsSendingAttemptsCount: 5
         smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
         pgToDepartment: true
         from:
@@ -22157,8 +22222,8 @@ definitions:
           toTag: "toTag"
           localUri: "localUri"
           rcSessionId: "rcSessionId"
-        telephonyStatus: "telephonyStatus"
-        terminationType: "terminationType"
+        telephonyStatus: "NoCall"
+        terminationType: "final"
         from: "from"
         id: "id"
         to: "to"
@@ -22171,8 +22236,8 @@ definitions:
           toTag: "toTag"
           localUri: "localUri"
           rcSessionId: "rcSessionId"
-        telephonyStatus: "telephonyStatus"
-        terminationType: "terminationType"
+        telephonyStatus: "NoCall"
+        terminationType: "final"
         from: "from"
         id: "id"
         to: "to"
@@ -24765,8 +24830,8 @@ definitions:
           toTag: "toTag"
           localUri: "localUri"
           rcSessionId: "rcSessionId"
-        telephonyStatus: "telephonyStatus"
-        terminationType: "terminationType"
+        telephonyStatus: "NoCall"
+        terminationType: "final"
         from: "from"
         id: "id"
         to: "to"
@@ -24779,8 +24844,8 @@ definitions:
           toTag: "toTag"
           localUri: "localUri"
           rcSessionId: "rcSessionId"
-        telephonyStatus: "telephonyStatus"
-        terminationType: "terminationType"
+        telephonyStatus: "NoCall"
+        terminationType: "final"
         from: "from"
         id: "id"
         to: "to"
@@ -29730,23 +29795,41 @@ definitions:
     properties:
       id:
         type: "string"
+        description: "Internal identifier of a call"
       direction:
         type: "string"
+        description: "Call direction"
         enum:
         - "Inbound"
         - "Outbound"
       from:
         type: "string"
+        description: "Phone number or extension number of a caller"
       to:
         type: "string"
+        description: "Phone number or extension number of a callee"
       telephonyStatus:
         type: "string"
+        description: "Telephony call status"
+        enum:
+        - "NoCall"
+        - "CallConnected"
+        - "Ringing"
+        - "OnHold"
+        - "ParkedCall"
       sipData:
         $ref: "#/definitions/DetailedCallInfo"
       sessionId:
         type: "string"
+        description: "Internal identifier of a call session"
       terminationType:
         type: "string"
+        description: "Type of call termination. Supported for calls in 'NoCall' status.\
+          \ If the returned termination type is 'intermediate' it means the call is\
+          \ not actually ended, the connection is established on one of the devices"
+        enum:
+        - "final"
+        - "intermediate"
     example:
       sipData:
         callId: "callId"
@@ -29755,13 +29838,51 @@ definitions:
         toTag: "toTag"
         localUri: "localUri"
         rcSessionId: "rcSessionId"
-      telephonyStatus: "telephonyStatus"
-      terminationType: "terminationType"
+      telephonyStatus: "NoCall"
+      terminationType: "final"
       from: "from"
       id: "id"
       to: "to"
       sessionId: "sessionId"
       direction: "Inbound"
+  ActiveCallInfoWithoutSIP:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        description: "Internal identifier of a call"
+      direction:
+        type: "string"
+        description: "Call direction"
+        enum:
+        - "Inbound"
+        - "Outbound"
+      from:
+        type: "string"
+        description: "Phone number or extension number of a caller"
+      to:
+        type: "string"
+        description: "Phone number or extension number of a callee"
+      telephonyStatus:
+        type: "string"
+        description: "Telephony call status"
+        enum:
+        - "NoCall"
+        - "CallConnected"
+        - "Ringing"
+        - "OnHold"
+        - "ParkedCall"
+      sessionId:
+        type: "string"
+        description: "Internal identifier of a call session"
+      terminationType:
+        type: "string"
+        description: "Type of call termination. Supported for calls in 'NoCall' status.\
+          \ If the returned termination type is 'intermediate' it means the call is\
+          \ not actually ended, the connection is established on one of the devices"
+        enum:
+        - "final"
+        - "intermediate"
   DeviceToRegister:
     type: "object"
     properties:
@@ -32448,3 +32569,958 @@ definitions:
         - "AccountCreated"
         - "AccountCreated"
         verificationReason: "CC_Failed"
+  SiteInfo:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        description: "Internal Identifier of a site"
+      name:
+        type: "string"
+        description: "custom name of a site"
+  ContactDirectoryEvent:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        description: "Internal identifier of an extension"
+      eventType:
+        type: "string"
+        description: "Type of change"
+      type:
+        type: "string"
+        description: "Extension Type"
+      status:
+        type: "string"
+        description: "Status of an extension"
+        enum:
+        - "Disabled"
+        - "Enabled"
+        - "NotActivated"
+      firstName:
+        type: "string"
+        description: "First name of an extension user"
+      lastName:
+        type: "string"
+        description: "Last name of an extension user"
+      department:
+        type: "string"
+        description: "Department Name"
+      email:
+        type: "string"
+        description: "Email of an extension user"
+      extensionNumber:
+        type: "string"
+        description: "Extension number"
+      account:
+        description: "Account data of an extension"
+        $ref: "#/definitions/CompanyDirectoryAccountInfo"
+      phoneNumbers:
+        description: "Extension phone number information"
+        $ref: "#/definitions/CompanyDirectoryPhoneNumberInfo"
+      site:
+        description: "Site Data"
+        $ref: "#/definitions/SiteInfo"
+      profileImage:
+        description: "Extension profile image information. Not returned if profile\
+          \ images are absent for an extension"
+        $ref: "#/definitions/CompanyDirectoryProfileImageInfo"
+  ExtensionListEvent:
+    type: "object"
+    properties:
+      extensionId:
+        type: "string"
+        description: "Internal identifier of an extension"
+      eventType:
+        type: "string"
+        description: "Type of extension info change"
+        enum:
+        - "Create"
+        - "Update"
+        - "Delete"
+  ExtensionInfoEvent:
+    type: "object"
+    properties:
+      extensionId:
+        type: "string"
+        description: "Internal identifier of an extension"
+      eventType:
+        type: "string"
+        description: "Type of extension info change"
+        enum:
+        - "Update"
+        - "Delete"
+      hints:
+        type: "array"
+        description: "Returned for 'Update' event type only. The possible values are:\
+          \ /nAccountInfo - change of account parameters/nExtensionInfo - change of\
+          \ contact info, service features, departments, status/nPhoneNumber - change\
+          \ of phone numbers/nRole - change of permissions/nProfileImage - change\
+          \ of profile image"
+        items:
+          type: "string"
+  ExtensionGrantListEvent:
+    type: "object"
+    properties:
+      extensionId:
+        type: "string"
+        description: "Internal identifier of an extension"
+  ExtensionFavoritesEvent:
+    type: "object"
+    properties:
+      extensionId:
+        type: "string"
+        description: "Internal identifier of an extension"
+  MessageEvent:
+    type: "object"
+    properties:
+      extensionId:
+        type: "string"
+        description: "Internal identifier of an extension"
+      lastUpdated:
+        type: "string"
+        format: "date-time"
+        description: "Datetime when the message was last modified in ISO 8601 format\
+          \ including timezone, for example 2016-03-10T18:07:52.534Z"
+      changes:
+        description: "Message Changes"
+        $ref: "#/definitions/MessageChanges"
+  MessageChanges:
+    type: "object"
+    properties:
+      type:
+        type: "string"
+        description: "Message type"
+        enum:
+        - "Voicemail"
+        - "SMS"
+        - "Fax"
+        - "Pager"
+      newCount:
+        type: "integer"
+        description: "The number of new messages. Can be omitted if the value is zero"
+      updatedCount:
+        type: "integer"
+        description: "The number of updated messages. Can be omitted if the value\
+          \ is zero"
+  NotificationInfo:
+    type: "object"
+    properties:
+      alerts:
+        description: "Alert information"
+        $ref: "#/definitions/AlertInfo"
+      badge:
+        type: "string"
+        description: "Number of incoming messages"
+      sound:
+        type: "string"
+        description: "Message sound"
+      content-available:
+        type: "string"
+        description: "Content availability"
+      category:
+        type: "string"
+        description: "Category of a message"
+  AlertInfo:
+    type: "object"
+    properties:
+      title:
+        type: "string"
+        description: "Title of a message"
+      body:
+        type: "string"
+        description: "Message Description"
+  InboundMessageEvent:
+    type: "object"
+    properties:
+      aps:
+        description: "Information on a notification"
+        $ref: "#/definitions/NotificationInfo"
+      messageId:
+        type: "string"
+        description: "Internal identifier of an message"
+      conversationId:
+        type: "string"
+        description: "Internal identifier of an conversation"
+      from:
+        type: "string"
+        description: "Sender phone number"
+      to:
+        type: "string"
+        description: "Receiver phone number"
+  NotificationRecipientInfo:
+    type: "object"
+    properties:
+      phoneNumber:
+        type: "string"
+        description: "Phone number in E.164 (with '+' sign) format"
+      extensionNumber:
+        type: "string"
+        description: "Extension number"
+      target:
+        type: "boolean"
+        description: "'True' specifies that message is sent exactly to this recipient.\
+          \ Returned in to field for group MMS. Useful if one extension has several\
+          \ phone numbers"
+      location:
+        type: "string"
+        description: "Contains party location (city, state) if one can be determined\
+          \ from phoneNumber. This property is filled only when phoneNumber is not\
+          \ empty and server can calculate location information from it (for example,\
+          \ this information is unavailable for US toll-free numbers)"
+      name:
+        type: "string"
+        description: "Symbolic name associated with a caller/callee. If the phone\
+          \ does not belong to the known extension, only the location is returned,\
+          \ the name is not determined then"
+  SenderInfo:
+    type: "object"
+    properties:
+      phoneNumber:
+        type: "string"
+        description: "Phone number in E.164 (with '+' sign) format"
+      extensionNumber:
+        type: "string"
+        description: "Extension number"
+      location:
+        type: "string"
+        description: "Contains party location (city, state) if one can be determined\
+          \ from phoneNumber. This property is filled only when phoneNumber is not\
+          \ empty and server can calculate location information from it (for example,\
+          \ this information is unavailable for US toll-free numbers)"
+      name:
+        type: "string"
+        description: "Symbolic name associated with a caller/callee. If the phone\
+          \ does not belong to the known extension, only the location is returned,\
+          \ the name is not determined then"
+  InstantMessageEvent:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        description: "Internal identifier of an message"
+      to:
+        type: "array"
+        description: "Message receiver(s) information"
+        items:
+          $ref: "#/definitions/NotificationRecipientInfo"
+      from:
+        description: "Extension Type"
+        $ref: "#/definitions/SenderInfo"
+      type:
+        type: "string"
+        description: "Type of a message. The default value is 'SMS'"
+      creationTime:
+        type: "string"
+        format: "date-time"
+        description: "Message creation datetime in ISO 8601 format including timezone,\
+          \ for example 2016-03-10T18:07:52.534Z"
+      lastModifiedTime:
+        type: "string"
+        format: "date-time"
+        description: "Datetime when the message was modified in ISO 8601 format including\
+          \ timezone, for example 2016-03-10T18:07:52.534Z"
+      readStatus:
+        type: "string"
+        description: "Status of a message. The default value is 'Unread'"
+      priority:
+        type: "string"
+        description: "The default value is 'Normal'"
+      attachments:
+        type: "array"
+        description: "Message attachment data"
+        items:
+          $ref: "#/definitions/MessageAttachmentInfo"
+      direction:
+        type: "string"
+        description: "Message direction. The default value is 'Inbound'"
+      availability:
+        type: "string"
+        description: "Message availability status. The default value is 'Alive'"
+      subject:
+        type: "string"
+        description: "Message subject. It replicates message text which is also returned\
+          \ as an attachment"
+      messageStatus:
+        type: "string"
+        description: "Status of a message. The default value is 'Received'"
+      conversationId:
+        type: "string"
+        description: "Identifier of the conversation the message belongs to"
+  AccountPresenceEvent:
+    type: "object"
+    properties:
+      extensionId:
+        type: "string"
+        description: "Internal identifier of an extension. Optional parameter"
+        default: "~"
+      telephonyStatus:
+        type: "string"
+        description: "Telephony presence status. Returned if telephony status is changed."
+        enum:
+        - "NoCall"
+        - "CallConnected"
+        - "Ringing"
+        - "OnHold"
+        - "ParkedCall"
+      sequence:
+        type: "integer"
+        description: "Order number of a notification to state the chronology"
+      presenceStatus:
+        type: "string"
+        description: "Aggregated presence status, calculated from a number of sources"
+        enum:
+        - "Offline"
+        - "Busy"
+        - "Available"
+      userStatus:
+        type: "string"
+        description: "User-defined presence status (as previously published by the\
+          \ user)"
+        enum:
+        - "Offline"
+        - "Busy"
+        - "Available"
+      dndStatus:
+        type: "string"
+        description: "Extended DnD (Do not Disturb) status"
+        enum:
+        - "TakeAllCalls"
+        - "DoNotAcceptAnyCalls"
+        - "DoNotAcceptDepartmentCalls"
+        - "TakeDepartmentCallsOnly"
+      allowSeeMyPresence:
+        type: "boolean"
+        description: "If 'True' enables other extensions to see the extension presence\
+          \ status"
+      ringOnMonitoredCall:
+        type: "boolean"
+        description: "If 'True' enables to ring extension phone, if any user monitored\
+          \ by this extension is ringing"
+      pickUpCallsOnHold:
+        type: "boolean"
+        description: "If 'True' enables the extension user to pick up a monitored\
+          \ line on hold"
+  ExtensionPresenceEvent:
+    type: "object"
+    properties:
+      extensionId:
+        type: "string"
+        description: "Internal identifier of an extension. Optional parameter"
+        default: "~"
+      telephonyStatus:
+        type: "string"
+        description: "Telephony presence status. Returned if telephony status is changed."
+        enum:
+        - "NoCall"
+        - "CallConnected"
+        - "Ringing"
+        - "OnHold"
+        - "ParkedCall"
+      sequence:
+        type: "integer"
+        description: "Order number of a notification to state the chronology"
+      presenceStatus:
+        type: "string"
+        description: "Aggregated presence status, calculated from a number of sources"
+        enum:
+        - "Offline"
+        - "Busy"
+        - "Available"
+      userStatus:
+        type: "string"
+        description: "User-defined presence status (as previously published by the\
+          \ user)"
+        enum:
+        - "Offline"
+        - "Busy"
+        - "Available"
+      dndStatus:
+        type: "string"
+        description: "Extended DnD (Do not Disturb) status"
+        enum:
+        - "TakeAllCalls"
+        - "DoNotAcceptAnyCalls"
+        - "DoNotAcceptDepartmentCalls"
+        - "TakeDepartmentCallsOnly"
+      allowSeeMyPresence:
+        type: "boolean"
+        description: "If 'True' enables other extensions to see the extension presence\
+          \ status"
+      ringOnMonitoredCall:
+        type: "boolean"
+        description: "If 'True' enables to ring extension phone, if any user monitored\
+          \ by this extension is ringing"
+      pickUpCallsOnHold:
+        type: "boolean"
+        description: "If 'True' enables the extension user to pick up a monitored\
+          \ line on hold"
+  DetailedExtensionPresenceEvent:
+    type: "object"
+    properties:
+      extensionId:
+        type: "string"
+        description: "Internal identifier of an extension. Optional parameter"
+        default: "~"
+      telephonyStatus:
+        type: "string"
+        description: "Telephony presence status. Returned if telephony status is changed."
+        enum:
+        - "NoCall"
+        - "CallConnected"
+        - "Ringing"
+        - "OnHold"
+        - "ParkedCall"
+      activeCalls:
+        type: "array"
+        description: "Collection of Active Call Info"
+        items:
+          $ref: "#/definitions/ActiveCallInfoWithoutSIP"
+      sequence:
+        type: "integer"
+        description: "Order number of a notification to state the chronology"
+      presenceStatus:
+        type: "string"
+        description: "Aggregated presence status, calculated from a number of sources"
+        enum:
+        - "Offline"
+        - "Busy"
+        - "Available"
+      userStatus:
+        type: "string"
+        description: "User-defined presence status (as previously published by the\
+          \ user)"
+        enum:
+        - "Offline"
+        - "Busy"
+        - "Available"
+      dndStatus:
+        type: "string"
+        description: "Extended DnD (Do not Disturb) status"
+        enum:
+        - "TakeAllCalls"
+        - "DoNotAcceptAnyCalls"
+        - "DoNotAcceptDepartmentCalls"
+        - "TakeDepartmentCallsOnly"
+      allowSeeMyPresence:
+        type: "boolean"
+        description: "If 'True' enables other extensions to see the extension presence\
+          \ status"
+      ringOnMonitoredCall:
+        type: "boolean"
+        description: "If 'True' enables to ring extension phone, if any user monitored\
+          \ by this extension is ringing"
+      pickUpCallsOnHold:
+        type: "boolean"
+        description: "If 'True' enables the extension user to pick up a monitored\
+          \ line on hold"
+  DetailedExtensionPresenceWithSIPEvent:
+    type: "object"
+    properties:
+      extensionId:
+        type: "string"
+        description: "Internal identifier of an extension. Optional parameter"
+        default: "~"
+      telephonyStatus:
+        type: "string"
+        description: "Telephony presence status. Returned if telephony status is changed."
+        enum:
+        - "NoCall"
+        - "CallConnected"
+        - "Ringing"
+        - "OnHold"
+        - "ParkedCall"
+      activeCalls:
+        type: "array"
+        description: "Collection of Active Call Info"
+        items:
+          $ref: "#/definitions/ActiveCallInfo"
+      sequence:
+        type: "integer"
+        description: "Order number of a notification to state the chronology"
+      presenceStatus:
+        type: "string"
+        description: "Aggregated presence status, calculated from a number of sources"
+        enum:
+        - "Offline"
+        - "Busy"
+        - "Available"
+      userStatus:
+        type: "string"
+        description: "User-defined presence status (as previously published by the\
+          \ user)"
+        enum:
+        - "Offline"
+        - "Busy"
+        - "Available"
+      dndStatus:
+        type: "string"
+        description: "Extended DnD (Do not Disturb) status"
+        enum:
+        - "TakeAllCalls"
+        - "DoNotAcceptAnyCalls"
+        - "DoNotAcceptDepartmentCalls"
+        - "TakeDepartmentCallsOnly"
+      allowSeeMyPresence:
+        type: "boolean"
+        description: "If 'True' enables other extensions to see the extension presence\
+          \ status"
+      ringOnMonitoredCall:
+        type: "boolean"
+        description: "If 'True' enables to ring extension phone, if any user monitored\
+          \ by this extension is ringing"
+      pickUpCallsOnHold:
+        type: "boolean"
+        description: "If 'True' enables the extension user to pick up a monitored\
+          \ line on hold"
+  ExtensionFavoritesPresenceEvent:
+    type: "object"
+    properties:
+      extensionId:
+        type: "string"
+        description: "Internal identifier of an extension. Optional parameter"
+        default: "~"
+      telephonyStatus:
+        type: "string"
+        description: "Telephony presence status. Returned if telephony status is changed."
+        enum:
+        - "NoCall"
+        - "CallConnected"
+        - "Ringing"
+        - "OnHold"
+        - "ParkedCall"
+      sequence:
+        type: "integer"
+        description: "Order number of a notification to state the chronology"
+      presenceStatus:
+        type: "string"
+        description: "Aggregated presence status, calculated from a number of sources"
+        enum:
+        - "Offline"
+        - "Busy"
+        - "Available"
+      userStatus:
+        type: "string"
+        description: "User-defined presence status (as previously published by the\
+          \ user)"
+        enum:
+        - "Offline"
+        - "Busy"
+        - "Available"
+      dndStatus:
+        type: "string"
+        description: "Extended DnD (Do not Disturb) status"
+        enum:
+        - "TakeAllCalls"
+        - "DoNotAcceptAnyCalls"
+        - "DoNotAcceptDepartmentCalls"
+        - "TakeDepartmentCallsOnly"
+      allowSeeMyPresence:
+        type: "boolean"
+        description: "If 'True' enables other extensions to see the extension presence\
+          \ status"
+      ringOnMonitoredCall:
+        type: "boolean"
+        description: "If 'True' enables to ring extension phone, if any user monitored\
+          \ by this extension is ringing"
+      pickUpCallsOnHold:
+        type: "boolean"
+        description: "If 'True' enables the extension user to pick up a monitored\
+          \ line on hold"
+  ExtensionPresenceLineEvent:
+    type: "object"
+    properties:
+      extension:
+        description: "Extension information"
+        $ref: "#/definitions/ExtensionNotificationInfo"
+      sequence:
+        type: "integer"
+        description: "Order number of a notification to state the chronology"
+  ExtensionNotificationInfo:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        description: "Internal identifier of the extension"
+  APSInfo:
+    type: "object"
+    properties:
+      content-available:
+        type: "integer"
+        description: "If the value is '1' then notification is turned on even if the\
+          \ application is in background"
+  APNSInfo:
+    type: "object"
+    properties:
+      aps:
+        description: "Notification priority data"
+        $ref: "#/definitions/APSInfo"
+  IncomingCallEvent:
+    type: "object"
+    properties:
+      aps:
+        description: "Apple Push Notification Service Info"
+        $ref: "#/definitions/APSInfo"
+      event:
+        type: "string"
+        description: "Event filter URI"
+      uuid:
+        type: "string"
+        description: "Universally unique identifier of a notification"
+      subscriptionId:
+        type: "string"
+        description: "Internal identifier of a subscription"
+      timestamp:
+        type: "string"
+        format: "date-time"
+        description: "The datetime of a call action in ISO 8601 format including timezone,\
+          \ for example 2016-03-10T18:07:52.534Z"
+      extensionId:
+        type: "string"
+        description: "Internal identifier of an extension"
+        default: "~"
+      action:
+        type: "string"
+        description: "Calling action, for example 'StartRing'"
+      sessionId:
+        type: "string"
+        description: "Identifier of a call session"
+      serverId:
+        type: "string"
+        description: "Identifier of a server"
+      from:
+        type: "string"
+        description: "Phone number of a caller"
+      fromName:
+        type: "string"
+        description: "Caller name"
+      to:
+        type: "string"
+        description: "Phone number of a callee"
+      toName:
+        type: "string"
+        description: "Callee name"
+      sid:
+        type: "string"
+        description: "Unique identifier of a session"
+      toUrl:
+        type: "string"
+        description: "SIP proxy registration name"
+      srvLvl:
+        type: "string"
+        description: "User data"
+      srvLvlExt:
+        type: "string"
+        description: "User data"
+      recUrl:
+        type: "string"
+        description: "File containing recorded caller name"
+      pn_ttl:
+        type: "integer"
+        description: "Notification lifetime value in seconds, the default value is\
+          \ 30 seconds"
+  MissedCallEvent:
+    type: "object"
+    properties:
+      uuid:
+        type: "string"
+        description: "Universally unique identifier of a notification"
+      pn_apns:
+        description: "APNS service info"
+        $ref: "#/definitions/APNSInfo"
+      event:
+        type: "string"
+        description: "Event filter URI"
+      subscriptionId:
+        type: "string"
+        description: "Internal identifier of a subscription"
+      timestamp:
+        type: "string"
+        format: "date-time"
+        description: "The datetime of a call action in ISO 8601 format including timezone,\
+          \ for example 2016-03-10T18:07:52.534Z"
+      extensionId:
+        type: "string"
+        description: "Internal identifier of an extension"
+        default: "~"
+      action:
+        type: "string"
+        description: "Calling action, for example 'StartRing'"
+      sessionId:
+        type: "string"
+        description: "Identifier of a call session"
+      serverId:
+        type: "string"
+        description: "Identifier of a server"
+      from:
+        type: "string"
+        description: "Phone number of a caller"
+      fromName:
+        type: "string"
+        description: "Caller name"
+      to:
+        type: "string"
+        description: "Phone number of a callee"
+      toName:
+        type: "string"
+        description: "Callee name"
+      sid:
+        type: "string"
+        description: "Unique identifier of a session"
+      toUrl:
+        type: "string"
+        description: "SIP proxy registration name"
+      srvLvl:
+        type: "string"
+        description: "User data"
+      srvLvlExt:
+        type: "string"
+        description: "User data"
+      recUrl:
+        type: "string"
+        description: "File containing recorded caller name"
+      pn_ttl:
+        type: "integer"
+        description: "Notification lifetime value in seconds, the default value is\
+          \ 30 seconds"
+  GCMInfo:
+    type: "object"
+    properties:
+      priority:
+        type: "string"
+        description: "Notification priority, if the value is 'high' then notification\
+          \ is turned on even if the application is in background"
+        enum:
+        - "high"
+        - "normal"
+      time_to_live:
+        type: "integer"
+        description: "Notification lifetime value in seconds, the default value is\
+          \ 30 seconds"
+      data:
+        description: "GCM data"
+        $ref: "#/definitions/GCMData"
+  GCMData:
+    type: "object"
+    properties:
+      event:
+        type: "string"
+        description: "Event filter URI"
+      subscriptionId:
+        type: "string"
+        description: "Internal identifier of a subscription"
+      timestamp:
+        type: "string"
+        format: "date-time"
+        description: "The datetime of a call action in ISO 8601 format including timezone,\
+          \ for example 2016-03-10T18:07:52.534Z"
+      extensionId:
+        type: "string"
+        description: "Internal identifier of an extension"
+        default: "~"
+      action:
+        type: "string"
+        description: "Calling action, for example 'StartRing'"
+      sessionId:
+        type: "string"
+        description: "Identifier of a call session"
+      serverId:
+        type: "string"
+        description: "Identifier of a server"
+      _from:
+        type: "string"
+        description: "Phone number of a caller"
+      fromName:
+        type: "string"
+        description: "Caller name"
+      to:
+        type: "string"
+        description: "Phone number of a callee"
+      toName:
+        type: "string"
+        description: "Callee name"
+      sid:
+        type: "string"
+        description: "Unique identifier of a session"
+      toUrl:
+        type: "string"
+        description: "SIP proxy registration name"
+      srvLvl:
+        type: "string"
+        description: "User data"
+      srvLvlExt:
+        type: "string"
+        description: "User data"
+  RCVideoNotificationsEvent:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        description: "Identifier of a meeting"
+      name:
+        type: "string"
+        description: "Meeting Name"
+      start:
+        type: "string"
+        description: "Datetime of meeting start in ISO 8601 format including timezone,\
+          \ for example 2016-03-10T18:07:52.534Z"
+      duration:
+        type: "integer"
+        description: "Meeting duration"
+      participants:
+        description: "Meeting participants information"
+        $ref: "#/definitions/RCVParticipantsInfo"
+      recorded:
+        type: "boolean"
+        description: "Specifies whether a meeting is recorded or not"
+      recording:
+        description: "Meeting recording information, if recorded value is 'True'"
+        $ref: "#/definitions/RCVRecordingInfo"
+  RCVParticipantsInfo:
+    type: "object"
+    properties:
+      account:
+        type: "string"
+        description: "Participant account"
+      extension:
+        type: "string"
+        description: "Participant extension"
+      name:
+        type: "string"
+        description: "Participant name"
+      img:
+        type: "string"
+        description: "Participant profile image"
+  RCVRecordingInfo:
+    type: "object"
+    properties:
+      size:
+        type: "integer"
+        description: "Meeting record size in bytes"
+      duration:
+        type: "integer"
+        description: "Meeting duration in seconds"
+      url:
+        type: "string"
+        description: "Link to a meeting record"
+  GlipGroupsEvent:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        description: "Internal identifier of a group"
+      type:
+        type: "string"
+        description: "Type of a group. 'PrivateChat' is a group of 2 members. 'Group'\
+          \ is a chat of 2 and more participants, the membership cannot be changed\
+          \ after group creation. 'Team' is a chat of 1 and more participants, the\
+          \ membership can be modified in future. 'PersonalChat' is a private chat\
+          \ thread of a user"
+        enum:
+        - "PrivateChat"
+        - "Group"
+        - "Team"
+        - "PersonalChat"
+      isPublic:
+        type: "boolean"
+        description: "For 'Team' group type only. Team access level"
+      name:
+        type: "string"
+        description: "For 'Team' group type only. Team name"
+      description:
+        type: "string"
+        description: "For 'Team' group type only. Team description"
+      members:
+        type: "array"
+        description: "Identifier(s) of group members"
+        items:
+          type: "string"
+      creationTime:
+        type: "string"
+        format: "date-time"
+        description: "Group creation datetime in ISO 8601 format"
+      lastModifiedTime:
+        type: "string"
+        format: "date-time"
+        description: "Group last change datetime in ISO 8601 format"
+      eventType:
+        type: "string"
+        description: "Type of a group event. Only the person who joined/was added\
+          \ to a group will receive 'GroupJoined' notification. Only the person who\
+          \ left/was removed from a group will receive 'GroupLeft' notification"
+        enum:
+        - "GroupRenamed"
+        - "GroupJoined"
+        - "GroupLeft"
+        - "GroupChanged"
+  GlipPostEvent:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        description: "Internal identifier of a post"
+      eventType:
+        type: "string"
+        description: "Type of a post event"
+        enum:
+        - "PostAdded"
+        - "PostChanged"
+        - "PostRemoved"
+      groupId:
+        type: "string"
+        description: "Internal identifier of a group a post belongs to"
+      type:
+        type: "string"
+        description: "Type of a post. 'TextMessage' - an incoming text message; 'PersonJoined'\
+          \ - a message notifying that person has joined a conversation; 'PersonsAdded'\
+          \ - a message notifying that a person(s) were added to a conversation"
+        enum:
+        - "TextMessage"
+        - "PersonJoined"
+        - "PersonsAdded"
+        - "Card"
+      text:
+        type: "string"
+        description: "For 'TextMessage' post type only. Message text"
+      creatorId:
+        type: "string"
+        description: "Internal identifier of a user - author of a post"
+      addedPersonIds:
+        type: "array"
+        description: "For PersonsAdded post type only. Identifiers of persons added\
+          \ to a group"
+        items:
+          type: "string"
+      removedPersonIds:
+        type: "array"
+        description: "For PersonsRemoved post type only. Identifiers of persons removed\
+          \ from a group"
+        items:
+          type: "string"
+      creationTime:
+        type: "string"
+        format: "date-time"
+        description: "Post creation datetime in ISO 8601 format"
+      lastModifiedTime:
+        type: "string"
+        format: "date-time"
+        description: "Post last change datetime in ISO 8601 format"
+  GlipUnreadMessageCountEvent:
+    type: "object"
+    properties:
+      uuid:
+        type: "string"
+        description: "Universally unique identifier of a notification"
+      pn_apns:
+        description: "Apple notification data"
+        $ref: "#/definitions/GlipAPNSInfo"
+      pn_gcm:
+        description: "GCM data"
+        $ref: "#/definitions/GCMInfo"
+  GlipAPNSInfo: {}
+  GlipUnreadMessageCountInfo:
+    type: "object"
+    properties:
+      unread:
+        type: "integer"
+        description: "Count of glip unread messages"
