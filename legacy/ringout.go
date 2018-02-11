@@ -10,8 +10,9 @@ import (
 )
 
 const (
-	RingOutURL = "https://service.ringcentral.com/ringout.asp"
-	CmdCall    = "call"
+	DocumentationURL = "https://success.ringcentral.com/articles/RC_Knowledge_Article/2080"
+	RingOutURL       = "https://service.ringcentral.com/ringout.asp"
+	CmdCall          = "call"
 )
 
 func Call(params CallRequestInfo) (*CallResponseInfo, *http.Response, error) {
