@@ -78,7 +78,7 @@ func main() {
 	fmtutil.PrintJSON(deviceList)
 
 	// UpdateDevice
-	if 1 == 1 {
+	if 1 == 0 {
 		deviceId := "12345678"
 		getPrintDeviceE911Address(apiClient, deviceId)
 
