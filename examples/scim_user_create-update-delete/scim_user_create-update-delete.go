@@ -61,7 +61,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	apiClient, err := rcu.NewApiClientEnv()
+	apiClient, err := rcu.NewApiClientPasswordEnv()
 	if err != nil {
 		panic(err)
 	}

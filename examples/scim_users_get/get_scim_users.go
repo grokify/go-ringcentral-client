@@ -56,7 +56,7 @@ func mainClient() {
 	if err != nil {
 		panic(err)
 	}
-	apiClient, err := rcu.NewApiClientEnv()
+	apiClient, err := rcu.NewApiClientPasswordEnv()
 	if err != nil {
 		panic(err)
 	}
@@ -233,7 +233,7 @@ func tryScimClient() {
 }
 
 func tryRingCentralClient(demoConfig DemoConfig) {
-	apiClient, err := rcu.NewApiClient(
+	apiClient, err := rcu.NewApiClientPassword(
 		ro.NewApplicationCredentialsEnv(),
 		ro.NewUserCredentialsEnv(),
 	)

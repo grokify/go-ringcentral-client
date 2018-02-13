@@ -170,7 +170,7 @@ func main() {
 	}
 	groupId := os.Getenv("GLIP_POST_GROUP_ID")
 
-	apiClient, err := rcu.NewApiClientEnv()
+	apiClient, err := rcu.NewApiClientPasswordEnv()
 	if err != nil {
 		panic(err)
 	}
