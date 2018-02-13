@@ -16,30 +16,6 @@ const (
 	ThisDir = "src/github.com/grokify/go-ringcentral/clientutil"
 )
 
-// Events is an array of event structs for reference.
-var Events = []string{
-	"AccountPresenceEvent",
-	"ContactDirectoryEvent",
-	"DetailedExtensionPresenceEvent",
-	"DetailedExtensionPresenceWithSIPEvent",
-	"ExtensionFavoritesPresenceEvent",
-	"ExtensionListEvent",
-	"ExtensionInfoEvent",
-	"ExtensionGrantListEvent",
-	"ExtensionFavoritesEvent",
-	"ExtensionPresenceEvent",
-	"ExtensionPresenceLineEvent",
-	"GlipGroupsEvent",
-	"GlipPostEvent",
-	"GlipUnreadMessageCountEvent",
-	"InboundMessageEvent",
-	"IncomingCallEvent",
-	"InstantMessageEvent",
-	"MessageEvent",
-	"MissedCallEvent",
-	"RCVideoNotificationsEvent",
-}
-
 // EventSimple is a event for Instant SMS for testing purposes
 type EventSimple struct {
 	UUID           string    `json:"uuid,omitempty"`
@@ -60,8 +36,17 @@ type Event struct {
 	Body           EventBodyWrapper `json:"body,omitempty"`
 }
 
+func (evt *Event) IsEventType(eventType EventType) bool {
+	switch eventType {
+	case InstantMessageEvent:
+		return IsInstantMessageSMS(evt.Event)
+	}
+	return false
+}
+
 type EventBodyWrapper struct {
-	Raw string `json:"raw"`
+	Raw    string      `json:"raw"`
+	Parsed interface{} `json:"parsed"`
 }
 
 func (w *EventBodyWrapper) UnmarshalJSON(data []byte) error {

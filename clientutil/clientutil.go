@@ -19,7 +19,7 @@ func LoadEnv() error {
 	return godotenv.Load(envPaths...)
 }
 
-func NewApiClient(app ro.ApplicationCredentials, user ro.UserCredentials) (*rc.APIClient, error) {
+func NewApiClientPassword(app ro.ApplicationCredentials, user ro.UserCredentials) (*rc.APIClient, error) {
 	httpClient, err := ro.NewClientPassword(app, user)
 	if err != nil {
 		return nil, err
@@ -31,8 +31,8 @@ func NewApiClient(app ro.ApplicationCredentials, user ro.UserCredentials) (*rc.A
 	return apiClient, nil
 }
 
-func NewApiClientEnv() (*rc.APIClient, error) {
-	return NewApiClient(
+func NewApiClientPasswordEnv() (*rc.APIClient, error) {
+	return NewApiClientPassword(
 		ro.NewApplicationCredentialsEnv(),
 		ro.NewUserCredentialsEnv())
 }
