@@ -10,7 +10,6 @@
 package ringcentral
 
 type PermissionCollectionResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	Records []PermissionResource `json:"records,omitempty"`

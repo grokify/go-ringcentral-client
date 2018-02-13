@@ -10,13 +10,13 @@
 package ringcentral
 
 import (
-	"io/ioutil"
-	"net/url"
-	"net/http"
-	"strings"
-	"golang.org/x/net/context"
 	"encoding/json"
 	"fmt"
+	"golang.org/x/net/context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"strings"
 )
 
 // Linger please
@@ -26,18 +26,17 @@ var (
 
 type APIInfoApiService service
 
-
 /* APIInfoApiService Get API Versions
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.0&lt;/p&gt;&lt;p&gt;Returns current API version(s) and server info.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @return GetVersionsResponse*/
-func (a *APIInfoApiService) GetAPIVersion(ctx context.Context) (GetVersionsResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.0&lt;/p&gt;&lt;p&gt;Returns current API version(s) and server info.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@return GetVersionsResponse*/
+func (a *APIInfoApiService) GetAPIVersion(ctx context.Context) (GetVersionsResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetVersionsResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetVersionsResponse
 	)
 
 	// create path and map variables
@@ -47,9 +46,8 @@ func (a *APIInfoApiService) GetAPIVersion(ctx context.Context) (GetVersionsRespo
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -60,7 +58,7 @@ func (a *APIInfoApiService) GetAPIVersion(ctx context.Context) (GetVersionsRespo
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -86,22 +84,21 @@ func (a *APIInfoApiService) GetAPIVersion(ctx context.Context) (GetVersionsRespo
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* APIInfoApiService Get Version Info
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.0&lt;/p&gt;&lt;p&gt;Returns current API version info by apiVersion.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @param apiVersion API version to be requested, for example &#39;v1.0&#39;
- @return GetVersionResponse*/
-func (a *APIInfoApiService) GetVersionInfo(ctx context.Context, apiVersion string) (GetVersionResponse,  *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.0&lt;/p&gt;&lt;p&gt;Returns current API version info by apiVersion.&lt;/p&gt;&lt;h4&gt;Usage Plan Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@param apiVersion API version to be requested, for example &#39;v1.0&#39;
+@return GetVersionResponse*/
+func (a *APIInfoApiService) GetVersionInfo(ctx context.Context, apiVersion string) (GetVersionResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
-	 	successPayload  GetVersionResponse
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		successPayload     GetVersionResponse
 	)
 
 	// create path and map variables
@@ -112,9 +109,8 @@ func (a *APIInfoApiService) GetVersionInfo(ctx context.Context, apiVersion strin
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -125,7 +121,7 @@ func (a *APIInfoApiService) GetVersionInfo(ctx context.Context, apiVersion strin
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -151,20 +147,19 @@ func (a *APIInfoApiService) GetVersionInfo(ctx context.Context, apiVersion strin
 		return successPayload, localVarHttpResponse, err
 	}
 
-
 	return successPayload, localVarHttpResponse, err
 }
 
 /* APIInfoApiService Get Status
- &lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.27 (Release 8.3)&lt;/p&gt;&lt;p&gt;Returns the API status; status &#39;200&#39; means the API is working fine, and &#39;503&#39; means it is temporary unavailable.&lt;/p&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
- * @param ctx context.Context for authentication, logging, tracing, etc.
- @return */
-func (a *APIInfoApiService) LoadAPIStatus(ctx context.Context) ( *http.Response, error) {
+&lt;p style&#x3D;&#39;font-style:italic;&#39;&gt;Since 1.0.27 (Release 8.3)&lt;/p&gt;&lt;p&gt;Returns the API status; status &#39;200&#39; means the API is working fine, and &#39;503&#39; means it is temporary unavailable.&lt;/p&gt;&lt;h4&gt;API Group&lt;/h4&gt;&lt;p&gt;Light&lt;/p&gt;
+* @param ctx context.Context for authentication, logging, tracing, etc.
+@return */
+func (a *APIInfoApiService) LoadAPIStatus(ctx context.Context) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody interface{}
-		localVarFileName string
-		localVarFileBytes []byte
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
 	)
 
 	// create path and map variables
@@ -174,9 +169,8 @@ func (a *APIInfoApiService) LoadAPIStatus(ctx context.Context) ( *http.Response,
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{ "application/json",  }
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -187,7 +181,7 @@ func (a *APIInfoApiService) LoadAPIStatus(ctx context.Context) ( *http.Response,
 	// to determine the Accept header
 	localVarHttpHeaderAccepts := []string{
 		"application/json",
-		}
+	}
 
 	// set Accept header
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
@@ -211,4 +205,3 @@ func (a *APIInfoApiService) LoadAPIStatus(ctx context.Context) ( *http.Response,
 
 	return localVarHttpResponse, err
 }
-

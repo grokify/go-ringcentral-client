@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **Serial** | **string** | Serial number for HardPhone (is returned only when the phone is shipped and provisioned); endpoint_id for softphone and mobile applications | [optional] [default to null]
 **ComputerName** | **string** | PC name for softphone | [optional] [default to null]
 **Model** | [***ModelInfo**](ModelInfo.md) | HardPhone model information | [optional] [default to null]
-**Extension** | [***ExtensionInfo**](ExtensionInfo.md) | This attribute can be omitted for unassigned devices | [optional] [default to null]
+**Extension** | [***ExtensionInfoIntId**](ExtensionInfoIntId.md) | This attribute can be omitted for unassigned devices | [optional] [default to null]
 **EmergencyServiceAddress** | [***EmergencyAddressInfo**](EmergencyAddressInfo.md) | Address for emergency cases. The same emergency address is assigned to all the numbers of one device | [optional] [default to null]
-**PhoneLines** | [***PhoneLinesInfo**](PhoneLinesInfo.md) | Phone lines information | [optional] [default to null]
+**PhoneLines** | [**[]PhoneLinesInfo**](PhoneLinesInfo.md) | Phone lines information | [optional] [default to null]
 **Shipping** | [***ShippingInfo**](ShippingInfo.md) | Shipping information, according to which devices (in case of HardPhone ) or e911 stickers (in case of  SoftPhone  and  OtherPhone ) will be delivered to the customer | [optional] [default to null]
 **BoxBillingId** | **int32** | Box billing identifier of a device. Applicable only for HardPhones. It is an alternative way to identify the device to be ordered. EitherT? model  structure, or  boxBillingId  must be specified forT?HardPhone | [optional] [default to null]
 

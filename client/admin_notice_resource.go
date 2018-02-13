@@ -10,7 +10,6 @@
 package ringcentral
 
 type AdminNoticeResource struct {
-
 	SubjectCode string `json:"subjectCode,omitempty"`
 
 	Message string `json:"message,omitempty"`

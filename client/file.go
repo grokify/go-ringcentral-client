@@ -10,7 +10,6 @@
 package ringcentral
 
 type File struct {
-
 	SourceFile string `json:"sourceFile,omitempty"`
 
 	OriginalFileName string `json:"originalFileName,omitempty"`

@@ -14,7 +14,6 @@ import (
 )
 
 type StatusInfo struct {
-
 	Reason string `json:"reason,omitempty"`
 
 	Till time.Time `json:"till,omitempty"`

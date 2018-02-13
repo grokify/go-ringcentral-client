@@ -10,7 +10,6 @@
 package ringcentral
 
 type FilterSupported struct {
-
 	MaxResults int32 `json:"maxResults,omitempty"`
 
 	Supported bool `json:"supported,omitempty"`

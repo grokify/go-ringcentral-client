@@ -10,7 +10,6 @@
 package ringcentral
 
 type TouchRequestResource struct {
-
 	RendererId string `json:"rendererId,omitempty"`
 
 	MessageId string `json:"messageId,omitempty"`

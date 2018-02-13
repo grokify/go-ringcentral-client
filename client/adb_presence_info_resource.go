@@ -10,7 +10,6 @@
 package ringcentral
 
 type AdbPresenceInfoResource struct {
-
 	AccountId string `json:"accountId,omitempty"`
 
 	ExtensionId string `json:"extensionId,omitempty"`

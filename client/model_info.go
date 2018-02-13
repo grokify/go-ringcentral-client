@@ -18,5 +18,5 @@ type ModelInfo struct {
 	Name string `json:"name,omitempty"`
 
 	// Addons description
-	Addons *AddonInfo `json:"addons"`
+	Addons []AddonInfo `json:"addons"`
 }

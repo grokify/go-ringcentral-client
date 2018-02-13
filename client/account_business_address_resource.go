@@ -10,7 +10,6 @@
 package ringcentral
 
 type AccountBusinessAddressResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	BusinessAddress *ContactAddressInfo `json:"businessAddress,omitempty"`

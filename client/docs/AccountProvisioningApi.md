@@ -706,7 +706,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **accountId** | **string**| Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session | 
-  **deviceId** | **int32**| Internal identifier of a device | 
+  **deviceId** | **string**| Internal identifier of a device | 
 
 ### Return type
 
@@ -992,7 +992,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateDevice**
-> DeviceResource UpdateDevice(ctx, deviceId, accountId, optional)
+> DeviceResource UpdateDevice(ctx, accountId, deviceId, body)
 Update Device
 
 ### Required Parameters
@@ -1000,18 +1000,9 @@ Update Device
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **deviceId** | **string**|  | 
   **accountId** | **string**|  | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **deviceId** | **string**|  | 
- **accountId** | **string**|  | 
- **body** | [**AccountDeviceUpdate**](AccountDeviceUpdate.md)|  | 
+  **deviceId** | **string**|  | 
+  **body** | [**AccountDeviceUpdate**](AccountDeviceUpdate.md)|  | 
 
 ### Return type
 

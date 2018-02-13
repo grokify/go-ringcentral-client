@@ -10,6 +10,5 @@
 package ringcentral
 
 type TransferredExtensionInfo struct {
-
 	Extension *ExtensionInfo `json:"extension,omitempty"`
 }

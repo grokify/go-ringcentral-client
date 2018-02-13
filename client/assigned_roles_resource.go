@@ -10,7 +10,6 @@
 package ringcentral
 
 type AssignedRolesResource struct {
-
 	Uri string `json:"uri,omitempty"`
 
 	Records []AssignedRoleResource `json:"records,omitempty"`

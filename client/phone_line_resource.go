@@ -10,10 +10,9 @@
 package ringcentral
 
 type PhoneLineResource struct {
-
 	LineType string `json:"lineType,omitempty"`
 
-	PhoneInfo *PhoneNumberResource `json:"phoneInfo,omitempty"`
+	PhoneInfo *PhoneNumberResourceIntId `json:"phoneInfo,omitempty"`
 
 	EmergencyAddress *EmergencyAddress `json:"emergencyAddress,omitempty"`
 }

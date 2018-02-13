@@ -8908,7 +8908,7 @@ paths:
         in: "path"
         description: "Internal identifier of a device"
         required: true
-        type: "integer"
+        type: "string"
         x-exportParamName: "DeviceId"
       responses:
         default:
@@ -8932,6 +8932,11 @@ paths:
       produces:
       - "application/json"
       parameters:
+      - name: "accountId"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "AccountId"
       - name: "deviceId"
         in: "path"
         required: true
@@ -8939,15 +8944,10 @@ paths:
         x-exportParamName: "DeviceId"
       - in: "body"
         name: "body"
-        required: false
+        required: true
         schema:
           $ref: "#/definitions/AccountDeviceUpdate"
         x-exportParamName: "Body"
-      - name: "accountId"
-        in: "path"
-        required: true
-        type: "string"
-        x-exportParamName: "AccountId"
       responses:
         default:
           description: "successful operation"
@@ -10935,7 +10935,7 @@ definitions:
               id: "id"
               uri: "http://example.com/aeiou"
               loginAllowed: false
-          id: "id"
+          id: 6
           partnerId: "partnerId"
           departments:
           - extensionNumber: "extensionNumber"
@@ -10946,7 +10946,7 @@ definitions:
             uri: "http://example.com/aeiou"
           status: "Enabled"
         phoneLines:
-          lineType: "Unknown"
+        - lineType: "Unknown"
           phoneInfo:
             country:
               callingCode: "callingCode"
@@ -11049,7 +11049,119 @@ definitions:
               status: "Enabled"
             phoneNumber: "phoneNumber"
             location: "location"
-            id: "id"
+            id: 1
+            label: "label"
+            type: "VoiceFax"
+            paymentType: "External"
+            status: "status"
+            usageType: "CompanyNumber"
+          emergencyAddress:
+            localOnly: true
+            required: true
+        - lineType: "Unknown"
+          phoneInfo:
+            country:
+              callingCode: "callingCode"
+              numberSelling: false
+              isoCode: "isoCode"
+              emergencyCalling: false
+              name: "name"
+              id: "id"
+              uri: "http://example.com/aeiou"
+              loginAllowed: false
+            extension:
+              setupWizardState: "NotStarted"
+              statusInfo:
+                reason: "reason"
+                till: "2000-01-23T04:56:07.000+00:00"
+                comment: "comment"
+              references:
+              - ref: "ref"
+                type: "PartnerId"
+              - ref: "ref"
+                type: "PartnerId"
+              profileImage:
+                scales:
+                - uri: "http://example.com/aeiou"
+                - uri: "http://example.com/aeiou"
+                etag: "etag"
+                lastModified: "2000-01-23T04:56:07.000+00:00"
+                uri: "http://example.com/aeiou"
+                contentType: "contentType"
+              type: "Unknown"
+              uri: "http://example.com/aeiou"
+              ivrPin: "ivrPin"
+              password: "password"
+              serviceFeatures:
+              - reason: "Available"
+                featureName: "featureName"
+                enabled: false
+              - reason: "Available"
+                featureName: "featureName"
+                enabled: false
+              extensionNumber: "extensionNumber"
+              permissions:
+                admin:
+                  enabled: false
+                uri: "http://example.com/aeiou"
+                internationalCalling:
+                  enabled: false
+                freeSoftPhoneDigitalLine:
+                  enabled: false
+              loginName: "loginName"
+              contact:
+                firstName: "firstName"
+                lastName: "lastName"
+                company: "company"
+                businessPhone: "businessPhone"
+                businessAddress:
+                  zip: "zip"
+                  country: "country"
+                  city: "city"
+                  street: "street"
+                  state: "state"
+                email: "email"
+              name: "name"
+              regionalSettings:
+                timezone:
+                  name: "name"
+                  description: "description"
+                  id: "id"
+                  uri: "http://example.com/aeiou"
+                greetingLanguage:
+                  localeCode: "localeCode"
+                  name: "name"
+                  id: "id"
+                formattingLocale:
+                  localeCode: "localeCode"
+                  name: "name"
+                  id: "id"
+                language:
+                  localeCode: "localeCode"
+                  name: "name"
+                  id: "id"
+                homeCountry:
+                  callingCode: "callingCode"
+                  numberSelling: false
+                  isoCode: "isoCode"
+                  emergencyCalling: false
+                  name: "name"
+                  id: "id"
+                  uri: "http://example.com/aeiou"
+                  loginAllowed: false
+              id: "id"
+              partnerId: "partnerId"
+              departments:
+              - extensionNumber: "extensionNumber"
+                id: "id"
+                uri: "http://example.com/aeiou"
+              - extensionNumber: "extensionNumber"
+                id: "id"
+                uri: "http://example.com/aeiou"
+              status: "Enabled"
+            phoneNumber: "phoneNumber"
+            location: "location"
+            id: 1
             label: "label"
             type: "VoiceFax"
             paymentType: "External"
@@ -11083,7 +11195,7 @@ definitions:
             id: "id"
           trackingNumber: "trackingNumber"
           status: "status"
-        boxBillingId: 6
+        boxBillingId: 5
         serial: "serial"
         computerName: "computerName"
         linePooling: "Host"
@@ -11181,7 +11293,7 @@ definitions:
               id: "id"
               uri: "http://example.com/aeiou"
               loginAllowed: false
-          id: "id"
+          id: 6
           partnerId: "partnerId"
           departments:
           - extensionNumber: "extensionNumber"
@@ -11192,7 +11304,7 @@ definitions:
             uri: "http://example.com/aeiou"
           status: "Enabled"
         phoneLines:
-          lineType: "Unknown"
+        - lineType: "Unknown"
           phoneInfo:
             country:
               callingCode: "callingCode"
@@ -11295,7 +11407,119 @@ definitions:
               status: "Enabled"
             phoneNumber: "phoneNumber"
             location: "location"
-            id: "id"
+            id: 1
+            label: "label"
+            type: "VoiceFax"
+            paymentType: "External"
+            status: "status"
+            usageType: "CompanyNumber"
+          emergencyAddress:
+            localOnly: true
+            required: true
+        - lineType: "Unknown"
+          phoneInfo:
+            country:
+              callingCode: "callingCode"
+              numberSelling: false
+              isoCode: "isoCode"
+              emergencyCalling: false
+              name: "name"
+              id: "id"
+              uri: "http://example.com/aeiou"
+              loginAllowed: false
+            extension:
+              setupWizardState: "NotStarted"
+              statusInfo:
+                reason: "reason"
+                till: "2000-01-23T04:56:07.000+00:00"
+                comment: "comment"
+              references:
+              - ref: "ref"
+                type: "PartnerId"
+              - ref: "ref"
+                type: "PartnerId"
+              profileImage:
+                scales:
+                - uri: "http://example.com/aeiou"
+                - uri: "http://example.com/aeiou"
+                etag: "etag"
+                lastModified: "2000-01-23T04:56:07.000+00:00"
+                uri: "http://example.com/aeiou"
+                contentType: "contentType"
+              type: "Unknown"
+              uri: "http://example.com/aeiou"
+              ivrPin: "ivrPin"
+              password: "password"
+              serviceFeatures:
+              - reason: "Available"
+                featureName: "featureName"
+                enabled: false
+              - reason: "Available"
+                featureName: "featureName"
+                enabled: false
+              extensionNumber: "extensionNumber"
+              permissions:
+                admin:
+                  enabled: false
+                uri: "http://example.com/aeiou"
+                internationalCalling:
+                  enabled: false
+                freeSoftPhoneDigitalLine:
+                  enabled: false
+              loginName: "loginName"
+              contact:
+                firstName: "firstName"
+                lastName: "lastName"
+                company: "company"
+                businessPhone: "businessPhone"
+                businessAddress:
+                  zip: "zip"
+                  country: "country"
+                  city: "city"
+                  street: "street"
+                  state: "state"
+                email: "email"
+              name: "name"
+              regionalSettings:
+                timezone:
+                  name: "name"
+                  description: "description"
+                  id: "id"
+                  uri: "http://example.com/aeiou"
+                greetingLanguage:
+                  localeCode: "localeCode"
+                  name: "name"
+                  id: "id"
+                formattingLocale:
+                  localeCode: "localeCode"
+                  name: "name"
+                  id: "id"
+                language:
+                  localeCode: "localeCode"
+                  name: "name"
+                  id: "id"
+                homeCountry:
+                  callingCode: "callingCode"
+                  numberSelling: false
+                  isoCode: "isoCode"
+                  emergencyCalling: false
+                  name: "name"
+                  id: "id"
+                  uri: "http://example.com/aeiou"
+                  loginAllowed: false
+              id: "id"
+              partnerId: "partnerId"
+              departments:
+              - extensionNumber: "extensionNumber"
+                id: "id"
+                uri: "http://example.com/aeiou"
+              - extensionNumber: "extensionNumber"
+                id: "id"
+                uri: "http://example.com/aeiou"
+              status: "Enabled"
+            phoneNumber: "phoneNumber"
+            location: "location"
+            id: 1
             label: "label"
             type: "VoiceFax"
             paymentType: "External"
@@ -11329,7 +11553,7 @@ definitions:
             id: "id"
           trackingNumber: "trackingNumber"
           status: "status"
-        boxBillingId: 6
+        boxBillingId: 5
         serial: "serial"
         computerName: "computerName"
         linePooling: "Host"
@@ -11448,7 +11672,7 @@ definitions:
               id: "id"
               uri: "http://example.com/aeiou"
               loginAllowed: false
-          id: "id"
+          id: 6
           partnerId: "partnerId"
           departments:
           - extensionNumber: "extensionNumber"
@@ -11459,7 +11683,7 @@ definitions:
             uri: "http://example.com/aeiou"
           status: "Enabled"
         phoneLines:
-          lineType: "Unknown"
+        - lineType: "Unknown"
           phoneInfo:
             country:
               callingCode: "callingCode"
@@ -11562,7 +11786,119 @@ definitions:
               status: "Enabled"
             phoneNumber: "phoneNumber"
             location: "location"
-            id: "id"
+            id: 1
+            label: "label"
+            type: "VoiceFax"
+            paymentType: "External"
+            status: "status"
+            usageType: "CompanyNumber"
+          emergencyAddress:
+            localOnly: true
+            required: true
+        - lineType: "Unknown"
+          phoneInfo:
+            country:
+              callingCode: "callingCode"
+              numberSelling: false
+              isoCode: "isoCode"
+              emergencyCalling: false
+              name: "name"
+              id: "id"
+              uri: "http://example.com/aeiou"
+              loginAllowed: false
+            extension:
+              setupWizardState: "NotStarted"
+              statusInfo:
+                reason: "reason"
+                till: "2000-01-23T04:56:07.000+00:00"
+                comment: "comment"
+              references:
+              - ref: "ref"
+                type: "PartnerId"
+              - ref: "ref"
+                type: "PartnerId"
+              profileImage:
+                scales:
+                - uri: "http://example.com/aeiou"
+                - uri: "http://example.com/aeiou"
+                etag: "etag"
+                lastModified: "2000-01-23T04:56:07.000+00:00"
+                uri: "http://example.com/aeiou"
+                contentType: "contentType"
+              type: "Unknown"
+              uri: "http://example.com/aeiou"
+              ivrPin: "ivrPin"
+              password: "password"
+              serviceFeatures:
+              - reason: "Available"
+                featureName: "featureName"
+                enabled: false
+              - reason: "Available"
+                featureName: "featureName"
+                enabled: false
+              extensionNumber: "extensionNumber"
+              permissions:
+                admin:
+                  enabled: false
+                uri: "http://example.com/aeiou"
+                internationalCalling:
+                  enabled: false
+                freeSoftPhoneDigitalLine:
+                  enabled: false
+              loginName: "loginName"
+              contact:
+                firstName: "firstName"
+                lastName: "lastName"
+                company: "company"
+                businessPhone: "businessPhone"
+                businessAddress:
+                  zip: "zip"
+                  country: "country"
+                  city: "city"
+                  street: "street"
+                  state: "state"
+                email: "email"
+              name: "name"
+              regionalSettings:
+                timezone:
+                  name: "name"
+                  description: "description"
+                  id: "id"
+                  uri: "http://example.com/aeiou"
+                greetingLanguage:
+                  localeCode: "localeCode"
+                  name: "name"
+                  id: "id"
+                formattingLocale:
+                  localeCode: "localeCode"
+                  name: "name"
+                  id: "id"
+                language:
+                  localeCode: "localeCode"
+                  name: "name"
+                  id: "id"
+                homeCountry:
+                  callingCode: "callingCode"
+                  numberSelling: false
+                  isoCode: "isoCode"
+                  emergencyCalling: false
+                  name: "name"
+                  id: "id"
+                  uri: "http://example.com/aeiou"
+                  loginAllowed: false
+              id: "id"
+              partnerId: "partnerId"
+              departments:
+              - extensionNumber: "extensionNumber"
+                id: "id"
+                uri: "http://example.com/aeiou"
+              - extensionNumber: "extensionNumber"
+                id: "id"
+                uri: "http://example.com/aeiou"
+              status: "Enabled"
+            phoneNumber: "phoneNumber"
+            location: "location"
+            id: 1
             label: "label"
             type: "VoiceFax"
             paymentType: "External"
@@ -11596,7 +11932,7 @@ definitions:
             id: "id"
           trackingNumber: "trackingNumber"
           status: "status"
-        boxBillingId: 6
+        boxBillingId: 5
         serial: "serial"
         computerName: "computerName"
         linePooling: "Host"
@@ -11694,7 +12030,7 @@ definitions:
               id: "id"
               uri: "http://example.com/aeiou"
               loginAllowed: false
-          id: "id"
+          id: 6
           partnerId: "partnerId"
           departments:
           - extensionNumber: "extensionNumber"
@@ -11705,7 +12041,7 @@ definitions:
             uri: "http://example.com/aeiou"
           status: "Enabled"
         phoneLines:
-          lineType: "Unknown"
+        - lineType: "Unknown"
           phoneInfo:
             country:
               callingCode: "callingCode"
@@ -11808,7 +12144,119 @@ definitions:
               status: "Enabled"
             phoneNumber: "phoneNumber"
             location: "location"
-            id: "id"
+            id: 1
+            label: "label"
+            type: "VoiceFax"
+            paymentType: "External"
+            status: "status"
+            usageType: "CompanyNumber"
+          emergencyAddress:
+            localOnly: true
+            required: true
+        - lineType: "Unknown"
+          phoneInfo:
+            country:
+              callingCode: "callingCode"
+              numberSelling: false
+              isoCode: "isoCode"
+              emergencyCalling: false
+              name: "name"
+              id: "id"
+              uri: "http://example.com/aeiou"
+              loginAllowed: false
+            extension:
+              setupWizardState: "NotStarted"
+              statusInfo:
+                reason: "reason"
+                till: "2000-01-23T04:56:07.000+00:00"
+                comment: "comment"
+              references:
+              - ref: "ref"
+                type: "PartnerId"
+              - ref: "ref"
+                type: "PartnerId"
+              profileImage:
+                scales:
+                - uri: "http://example.com/aeiou"
+                - uri: "http://example.com/aeiou"
+                etag: "etag"
+                lastModified: "2000-01-23T04:56:07.000+00:00"
+                uri: "http://example.com/aeiou"
+                contentType: "contentType"
+              type: "Unknown"
+              uri: "http://example.com/aeiou"
+              ivrPin: "ivrPin"
+              password: "password"
+              serviceFeatures:
+              - reason: "Available"
+                featureName: "featureName"
+                enabled: false
+              - reason: "Available"
+                featureName: "featureName"
+                enabled: false
+              extensionNumber: "extensionNumber"
+              permissions:
+                admin:
+                  enabled: false
+                uri: "http://example.com/aeiou"
+                internationalCalling:
+                  enabled: false
+                freeSoftPhoneDigitalLine:
+                  enabled: false
+              loginName: "loginName"
+              contact:
+                firstName: "firstName"
+                lastName: "lastName"
+                company: "company"
+                businessPhone: "businessPhone"
+                businessAddress:
+                  zip: "zip"
+                  country: "country"
+                  city: "city"
+                  street: "street"
+                  state: "state"
+                email: "email"
+              name: "name"
+              regionalSettings:
+                timezone:
+                  name: "name"
+                  description: "description"
+                  id: "id"
+                  uri: "http://example.com/aeiou"
+                greetingLanguage:
+                  localeCode: "localeCode"
+                  name: "name"
+                  id: "id"
+                formattingLocale:
+                  localeCode: "localeCode"
+                  name: "name"
+                  id: "id"
+                language:
+                  localeCode: "localeCode"
+                  name: "name"
+                  id: "id"
+                homeCountry:
+                  callingCode: "callingCode"
+                  numberSelling: false
+                  isoCode: "isoCode"
+                  emergencyCalling: false
+                  name: "name"
+                  id: "id"
+                  uri: "http://example.com/aeiou"
+                  loginAllowed: false
+              id: "id"
+              partnerId: "partnerId"
+              departments:
+              - extensionNumber: "extensionNumber"
+                id: "id"
+                uri: "http://example.com/aeiou"
+              - extensionNumber: "extensionNumber"
+                id: "id"
+                uri: "http://example.com/aeiou"
+              status: "Enabled"
+            phoneNumber: "phoneNumber"
+            location: "location"
+            id: 1
             label: "label"
             type: "VoiceFax"
             paymentType: "External"
@@ -11842,7 +12290,7 @@ definitions:
             id: "id"
           trackingNumber: "trackingNumber"
           status: "status"
-        boxBillingId: 6
+        boxBillingId: 5
         serial: "serial"
         computerName: "computerName"
         linePooling: "Host"
@@ -18176,6 +18624,80 @@ definitions:
       paymentType: "External"
       status: "status"
       usageType: "MainCompanyNumber"
+  PhoneNumberInfoIntId:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+        description: "Internal identifier of a phone number"
+      country:
+        description: "Brief information on a phone number country"
+        $ref: "#/definitions/CountryInfo"
+      extension:
+        description: "Information on the extension, to which the phone number is assigned.\
+          \ Returned only for the request of Account phone number list"
+        $ref: "#/definitions/ExtensionInfo"
+      label:
+        type: "string"
+        description: "Custom user name of a phone number, if any. Supported for numbers\
+          \ assigned to Auto-Receptionist, with usage type 'CompanyNumber'"
+      location:
+        type: "string"
+        description: "Location (City, State). Filled for local US numbers"
+      paymentType:
+        type: "string"
+        description: "Payment type. 'External' is returned for forwarded numbers which\
+          \ are not terminated in the RingCentral phone system"
+        enum:
+        - "External"
+        - "TollFree"
+        - "Local"
+      phoneNumber:
+        type: "string"
+        description: "Phone number"
+      status:
+        type: "string"
+        description: "Status of a phone number. If the value is 'Normal', the phone\
+          \ number is ready to be used. Otherwise it is an external number not yet\
+          \ ported to RingCentral"
+      type:
+        type: "string"
+        description: "Phone number type"
+        enum:
+        - "VoiceFax"
+        - "FaxOnly"
+        - "VoiceOnly"
+      usageType:
+        type: "string"
+        description: "Usage type of the phone number"
+        enum:
+        - "MainCompanyNumber"
+        - "AdditionalCompanyNumber"
+        - "CompanyNumber"
+        - "DirectNumber"
+        - "CompanyFaxNumber"
+        - "ForwardedNumber"
+        - "ForwardedCompanyNumber"
+        - "ContactCenterNumber"
+    example:
+      country:
+        name: "name"
+        id: "id"
+        uri: "uri"
+      extension:
+        extensionNumber: "extensionNumber"
+        id: "id"
+        partnerId: "partnerId"
+        uri: "uri"
+      phoneNumber: "phoneNumber"
+      location: "location"
+      id: 6
+      label: "label"
+      type: "VoiceFax"
+      paymentType: "External"
+      status: "status"
+      usageType: "MainCompanyNumber"
   ExtensionInfo:
     type: "object"
     properties:
@@ -18201,6 +18723,34 @@ definitions:
     example:
       extensionNumber: "extensionNumber"
       id: "id"
+      partnerId: "partnerId"
+      uri: "uri"
+  ExtensionInfoIntId:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+        description: "Internal identifier of an extension"
+      uri:
+        type: "string"
+        description: "Canonical URI of an extension"
+      extensionNumber:
+        type: "string"
+        description: "Number of department extension"
+      partnerId:
+        type: "string"
+        description: "For Partner Applications Internal identifier of an extension\
+          \ created by partner. The RingCentral supports the mapping of accounts and\
+          \ stores the corresponding account ID/extension ID for each partner ID of\
+          \ a client application. In request URIs partner IDs are accepted instead\
+          \ of regular RingCentral native IDs as path parameters using pid = XXX clause.\
+          \ Though in response URIs contain the corresponding account IDs and extension\
+          \ IDs. In all request and response bodies these values are reflected via\
+          \ partnerId attributes of account and extension"
+    example:
+      extensionNumber: "extensionNumber"
+      id: 0
       partnerId: "partnerId"
       uri: "uri"
   GetExtensionGrantListResponse:
@@ -20800,11 +21350,11 @@ definitions:
       records:
       - extension:
           extensionNumber: "extensionNumber"
-          id: "id"
+          id: 0
           partnerId: "partnerId"
           uri: "uri"
         phoneLines:
-          lineType: "Standalone"
+        - lineType: "Standalone"
           phoneInfo:
             country:
               name: "name"
@@ -20817,7 +21367,26 @@ definitions:
               uri: "uri"
             phoneNumber: "phoneNumber"
             location: "location"
-            id: "id"
+            id: 6
+            label: "label"
+            type: "VoiceFax"
+            paymentType: "External"
+            status: "status"
+            usageType: "MainCompanyNumber"
+        - lineType: "Standalone"
+          phoneInfo:
+            country:
+              name: "name"
+              id: "id"
+              uri: "uri"
+            extension:
+              extensionNumber: "extensionNumber"
+              id: "id"
+              partnerId: "partnerId"
+              uri: "uri"
+            phoneNumber: "phoneNumber"
+            location: "location"
+            id: 6
             label: "label"
             type: "VoiceFax"
             paymentType: "External"
@@ -20848,13 +21417,15 @@ definitions:
             id: "1"
           trackingNumber: "trackingNumber"
           status: "Initial"
-        boxBillingId: 0
+        boxBillingId: 1
         serial: "serial"
         computerName: "computerName"
         name: "name"
         model:
           addons:
-            count: "count"
+          - count: "count"
+            id: "id"
+          - count: "count"
             id: "id"
           name: "name"
           id: "id"
@@ -20862,11 +21433,11 @@ definitions:
         sku: "sku"
       - extension:
           extensionNumber: "extensionNumber"
-          id: "id"
+          id: 0
           partnerId: "partnerId"
           uri: "uri"
         phoneLines:
-          lineType: "Standalone"
+        - lineType: "Standalone"
           phoneInfo:
             country:
               name: "name"
@@ -20879,7 +21450,26 @@ definitions:
               uri: "uri"
             phoneNumber: "phoneNumber"
             location: "location"
-            id: "id"
+            id: 6
+            label: "label"
+            type: "VoiceFax"
+            paymentType: "External"
+            status: "status"
+            usageType: "MainCompanyNumber"
+        - lineType: "Standalone"
+          phoneInfo:
+            country:
+              name: "name"
+              id: "id"
+              uri: "uri"
+            extension:
+              extensionNumber: "extensionNumber"
+              id: "id"
+              partnerId: "partnerId"
+              uri: "uri"
+            phoneNumber: "phoneNumber"
+            location: "location"
+            id: 6
             label: "label"
             type: "VoiceFax"
             paymentType: "External"
@@ -20910,13 +21500,15 @@ definitions:
             id: "1"
           trackingNumber: "trackingNumber"
           status: "Initial"
-        boxBillingId: 0
+        boxBillingId: 1
         serial: "serial"
         computerName: "computerName"
         name: "name"
         model:
           addons:
-            count: "count"
+          - count: "count"
+            id: "id"
+          - count: "count"
             id: "id"
           name: "name"
           id: "id"
@@ -20968,14 +21560,16 @@ definitions:
         $ref: "#/definitions/ModelInfo"
       extension:
         description: "This attribute can be omitted for unassigned devices"
-        $ref: "#/definitions/ExtensionInfo"
+        $ref: "#/definitions/ExtensionInfoIntId"
       emergencyServiceAddress:
         description: "Address for emergency cases. The same emergency address is assigned\
           \ to all the numbers of one device"
         $ref: "#/definitions/EmergencyAddressInfo"
       phoneLines:
+        type: "array"
         description: "Phone lines information"
-        $ref: "#/definitions/PhoneLinesInfo"
+        items:
+          $ref: "#/definitions/PhoneLinesInfo"
       shipping:
         description: "Shipping information, according to which devices (in case of\
           \ HardPhone ) or e911 stickers (in case of  SoftPhone  and  OtherPhone )\
@@ -20989,11 +21583,11 @@ definitions:
     example:
       extension:
         extensionNumber: "extensionNumber"
-        id: "id"
+        id: 0
         partnerId: "partnerId"
         uri: "uri"
       phoneLines:
-        lineType: "Standalone"
+      - lineType: "Standalone"
         phoneInfo:
           country:
             name: "name"
@@ -21006,7 +21600,26 @@ definitions:
             uri: "uri"
           phoneNumber: "phoneNumber"
           location: "location"
-          id: "id"
+          id: 6
+          label: "label"
+          type: "VoiceFax"
+          paymentType: "External"
+          status: "status"
+          usageType: "MainCompanyNumber"
+      - lineType: "Standalone"
+        phoneInfo:
+          country:
+            name: "name"
+            id: "id"
+            uri: "uri"
+          extension:
+            extensionNumber: "extensionNumber"
+            id: "id"
+            partnerId: "partnerId"
+            uri: "uri"
+          phoneNumber: "phoneNumber"
+          location: "location"
+          id: 6
           label: "label"
           type: "VoiceFax"
           paymentType: "External"
@@ -21037,13 +21650,15 @@ definitions:
           id: "1"
         trackingNumber: "trackingNumber"
         status: "Initial"
-      boxBillingId: 0
+      boxBillingId: 1
       serial: "serial"
       computerName: "computerName"
       name: "name"
       model:
         addons:
-          count: "count"
+        - count: "count"
+          id: "id"
+        - count: "count"
           id: "id"
         name: "name"
         id: "id"
@@ -21062,11 +21677,15 @@ definitions:
         type: "string"
         description: "Device name"
       addons:
+        type: "array"
         description: "Addons description"
-        $ref: "#/definitions/AddonInfo"
+        items:
+          $ref: "#/definitions/AddonInfo"
     example:
       addons:
-        count: "count"
+      - count: "count"
+        id: "id"
+      - count: "count"
         id: "id"
       name: "name"
       id: "id"
@@ -21139,7 +21758,7 @@ definitions:
         - "BlaSecondary"
       phoneInfo:
         description: "Phone number information"
-        $ref: "#/definitions/PhoneNumberInfo"
+        $ref: "#/definitions/PhoneNumberInfoIntId"
     example:
       lineType: "Standalone"
       phoneInfo:
@@ -21154,7 +21773,7 @@ definitions:
           uri: "uri"
         phoneNumber: "phoneNumber"
         location: "location"
-        id: "id"
+        id: 6
         label: "label"
         type: "VoiceFax"
         paymentType: "External"
@@ -21294,11 +21913,11 @@ definitions:
       records:
       - extension:
           extensionNumber: "extensionNumber"
-          id: "id"
+          id: 0
           partnerId: "partnerId"
           uri: "uri"
         phoneLines:
-          lineType: "Standalone"
+        - lineType: "Standalone"
           phoneInfo:
             country:
               name: "name"
@@ -21311,7 +21930,26 @@ definitions:
               uri: "uri"
             phoneNumber: "phoneNumber"
             location: "location"
-            id: "id"
+            id: 6
+            label: "label"
+            type: "VoiceFax"
+            paymentType: "External"
+            status: "status"
+            usageType: "MainCompanyNumber"
+        - lineType: "Standalone"
+          phoneInfo:
+            country:
+              name: "name"
+              id: "id"
+              uri: "uri"
+            extension:
+              extensionNumber: "extensionNumber"
+              id: "id"
+              partnerId: "partnerId"
+              uri: "uri"
+            phoneNumber: "phoneNumber"
+            location: "location"
+            id: 6
             label: "label"
             type: "VoiceFax"
             paymentType: "External"
@@ -21342,13 +21980,15 @@ definitions:
             id: "1"
           trackingNumber: "trackingNumber"
           status: "Initial"
-        boxBillingId: 0
+        boxBillingId: 1
         serial: "serial"
         computerName: "computerName"
         name: "name"
         model:
           addons:
-            count: "count"
+          - count: "count"
+            id: "id"
+          - count: "count"
             id: "id"
           name: "name"
           id: "id"
@@ -21356,11 +21996,11 @@ definitions:
         sku: "sku"
       - extension:
           extensionNumber: "extensionNumber"
-          id: "id"
+          id: 0
           partnerId: "partnerId"
           uri: "uri"
         phoneLines:
-          lineType: "Standalone"
+        - lineType: "Standalone"
           phoneInfo:
             country:
               name: "name"
@@ -21373,7 +22013,26 @@ definitions:
               uri: "uri"
             phoneNumber: "phoneNumber"
             location: "location"
-            id: "id"
+            id: 6
+            label: "label"
+            type: "VoiceFax"
+            paymentType: "External"
+            status: "status"
+            usageType: "MainCompanyNumber"
+        - lineType: "Standalone"
+          phoneInfo:
+            country:
+              name: "name"
+              id: "id"
+              uri: "uri"
+            extension:
+              extensionNumber: "extensionNumber"
+              id: "id"
+              partnerId: "partnerId"
+              uri: "uri"
+            phoneNumber: "phoneNumber"
+            location: "location"
+            id: 6
             label: "label"
             type: "VoiceFax"
             paymentType: "External"
@@ -21404,13 +22063,15 @@ definitions:
             id: "1"
           trackingNumber: "trackingNumber"
           status: "Initial"
-        boxBillingId: 0
+        boxBillingId: 1
         serial: "serial"
         computerName: "computerName"
         name: "name"
         model:
           addons:
-            count: "count"
+          - count: "count"
+            id: "id"
+          - count: "count"
             id: "id"
           name: "name"
           id: "id"
@@ -24687,6 +25348,171 @@ definitions:
       paymentType: "External"
       status: "status"
       usageType: "CompanyNumber"
+  PhoneNumberResourceIntId:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+        description: "Internal identifier of a phone number"
+      country:
+        description: "Brief information on a phone number country"
+        $ref: "#/definitions/CountryResource"
+      extension:
+        description: "Information on an extension to which the phone number is assigned"
+        $ref: "#/definitions/ExtensionResource"
+      label:
+        type: "string"
+        description: "Custom user name of a phone number, if any. Supported for numbers\
+          \ assigned to Auto-Receptionist, with usage type 'CompanyNumber'"
+      location:
+        type: "string"
+        description: "Location (City, State). Filled for local US numbers"
+      paymentType:
+        type: "string"
+        description: "Payment type. 'External' is returned for forwarded numbers which\
+          \ are not terminated in the RingCentral phone system = ['External', 'TollFree',\
+          \ 'Local'],"
+        enum:
+        - "External"
+        - "TollFree"
+        - "Local"
+      phoneNumber:
+        type: "string"
+        description: "Phone number"
+        minLength: 0
+        maxLength: 128
+      status:
+        type: "string"
+        description: "Status of a phone number. If the value is 'Normal', the phone\
+          \ number is ready to be used. Otherwise it is an external number not yet\
+          \ ported to RingCentral ,"
+      usageType:
+        type: "string"
+        enum:
+        - "CompanyNumber"
+        - "MainCompanyNumber"
+        - "AdditionalCompanyNumber"
+        - "DirectNumber"
+        - "CompanyFaxNumber"
+        - "ForwardedNumber"
+        - "ForwardedCompanyNumber"
+        - "ContactCenterNumber"
+      type:
+        type: "string"
+        description: "Type of a phone number"
+        enum:
+        - "VoiceFax"
+        - "FaxOnly"
+        - "VoiceOnly"
+    example:
+      country:
+        callingCode: "callingCode"
+        numberSelling: false
+        isoCode: "isoCode"
+        emergencyCalling: false
+        name: "name"
+        id: "id"
+        uri: "http://example.com/aeiou"
+        loginAllowed: false
+      extension:
+        setupWizardState: "NotStarted"
+        statusInfo:
+          reason: "reason"
+          till: "2000-01-23T04:56:07.000+00:00"
+          comment: "comment"
+        references:
+        - ref: "ref"
+          type: "PartnerId"
+        - ref: "ref"
+          type: "PartnerId"
+        profileImage:
+          scales:
+          - uri: "http://example.com/aeiou"
+          - uri: "http://example.com/aeiou"
+          etag: "etag"
+          lastModified: "2000-01-23T04:56:07.000+00:00"
+          uri: "http://example.com/aeiou"
+          contentType: "contentType"
+        type: "Unknown"
+        uri: "http://example.com/aeiou"
+        ivrPin: "ivrPin"
+        password: "password"
+        serviceFeatures:
+        - reason: "Available"
+          featureName: "featureName"
+          enabled: false
+        - reason: "Available"
+          featureName: "featureName"
+          enabled: false
+        extensionNumber: "extensionNumber"
+        permissions:
+          admin:
+            enabled: false
+          uri: "http://example.com/aeiou"
+          internationalCalling:
+            enabled: false
+          freeSoftPhoneDigitalLine:
+            enabled: false
+        loginName: "loginName"
+        contact:
+          firstName: "firstName"
+          lastName: "lastName"
+          company: "company"
+          businessPhone: "businessPhone"
+          businessAddress:
+            zip: "zip"
+            country: "country"
+            city: "city"
+            street: "street"
+            state: "state"
+          email: "email"
+        name: "name"
+        regionalSettings:
+          timezone:
+            name: "name"
+            description: "description"
+            id: "id"
+            uri: "http://example.com/aeiou"
+          greetingLanguage:
+            localeCode: "localeCode"
+            name: "name"
+            id: "id"
+          formattingLocale:
+            localeCode: "localeCode"
+            name: "name"
+            id: "id"
+          language:
+            localeCode: "localeCode"
+            name: "name"
+            id: "id"
+          homeCountry:
+            callingCode: "callingCode"
+            numberSelling: false
+            isoCode: "isoCode"
+            emergencyCalling: false
+            name: "name"
+            id: "id"
+            uri: "http://example.com/aeiou"
+            loginAllowed: false
+        id: "id"
+        partnerId: "partnerId"
+        departments:
+        - extensionNumber: "extensionNumber"
+          id: "id"
+          uri: "http://example.com/aeiou"
+        - extensionNumber: "extensionNumber"
+          id: "id"
+          uri: "http://example.com/aeiou"
+        status: "Enabled"
+      phoneNumber: "phoneNumber"
+      location: "location"
+      id: 1
+      label: "label"
+      type: "VoiceFax"
+      paymentType: "External"
+      status: "status"
+      usageType: "CompanyNumber"
   TesterFlagsResource:
     type: "object"
     properties:
@@ -25109,7 +25935,7 @@ definitions:
         - "BLF"
         - "StandaloneFree"
       phoneInfo:
-        $ref: "#/definitions/PhoneNumberResource"
+        $ref: "#/definitions/PhoneNumberResourceIntId"
       emergencyAddress:
         $ref: "#/definitions/EmergencyAddress"
     example:
@@ -25216,7 +26042,7 @@ definitions:
           status: "Enabled"
         phoneNumber: "phoneNumber"
         location: "location"
-        id: "id"
+        id: 1
         label: "label"
         type: "VoiceFax"
         paymentType: "External"
@@ -25483,6 +26309,173 @@ definitions:
           uri: "http://example.com/aeiou"
           loginAllowed: false
       id: "id"
+      partnerId: "partnerId"
+      departments:
+      - extensionNumber: "extensionNumber"
+        id: "id"
+        uri: "http://example.com/aeiou"
+      - extensionNumber: "extensionNumber"
+        id: "id"
+        uri: "http://example.com/aeiou"
+      status: "Enabled"
+  ExtensionResourceIntId:
+    type: "object"
+    properties:
+      uri:
+        type: "string"
+        format: "uri"
+      id:
+        type: "integer"
+        format: "int64"
+      partnerId:
+        type: "string"
+        minLength: 0
+        maxLength: 128
+        pattern: "^[\\p{Alnum}\\.\\-_]*$"
+      extensionNumber:
+        type: "string"
+      loginName:
+        type: "string"
+      contact:
+        $ref: "#/definitions/ContactInfo"
+      references:
+        type: "array"
+        items:
+          $ref: "#/definitions/Reference"
+      name:
+        type: "string"
+      type:
+        type: "string"
+        enum:
+        - "Unknown"
+        - "User"
+        - "Department"
+        - "Announcement"
+        - "Voicemail"
+        - "DigitalUser"
+        - "VirtualUser"
+        - "FaxUser"
+        - "PagingOnly"
+        - "SharedLinesGroup"
+        - "IvrMenu"
+        - "ApplicationExtension"
+        - "ParkLocation"
+      status:
+        type: "string"
+        enum:
+        - "Enabled"
+        - "Disabled"
+        - "Frozen"
+        - "NotActivated"
+        - "Unassigned"
+      statusInfo:
+        $ref: "#/definitions/StatusInfo"
+      departments:
+        type: "array"
+        items:
+          $ref: "#/definitions/DepartmentResource"
+      serviceFeatures:
+        type: "array"
+        items:
+          $ref: "#/definitions/ServiceFeatureValue"
+      regionalSettings:
+        $ref: "#/definitions/RegionalSettingsResource"
+      setupWizardState:
+        type: "string"
+        enum:
+        - "NotStarted"
+        - "Incomplete"
+        - "Completed"
+        - "Unknown"
+      permissions:
+        $ref: "#/definitions/ExtensionPermissionsResource"
+      password:
+        type: "string"
+      ivrPin:
+        type: "string"
+      profileImage:
+        $ref: "#/definitions/ProfileImageResource"
+    example:
+      setupWizardState: "NotStarted"
+      statusInfo:
+        reason: "reason"
+        till: "2000-01-23T04:56:07.000+00:00"
+        comment: "comment"
+      references:
+      - ref: "ref"
+        type: "PartnerId"
+      - ref: "ref"
+        type: "PartnerId"
+      profileImage:
+        scales:
+        - uri: "http://example.com/aeiou"
+        - uri: "http://example.com/aeiou"
+        etag: "etag"
+        lastModified: "2000-01-23T04:56:07.000+00:00"
+        uri: "http://example.com/aeiou"
+        contentType: "contentType"
+      type: "Unknown"
+      uri: "http://example.com/aeiou"
+      ivrPin: "ivrPin"
+      password: "password"
+      serviceFeatures:
+      - reason: "Available"
+        featureName: "featureName"
+        enabled: false
+      - reason: "Available"
+        featureName: "featureName"
+        enabled: false
+      extensionNumber: "extensionNumber"
+      permissions:
+        admin:
+          enabled: false
+        uri: "http://example.com/aeiou"
+        internationalCalling:
+          enabled: false
+        freeSoftPhoneDigitalLine:
+          enabled: false
+      loginName: "loginName"
+      contact:
+        firstName: "firstName"
+        lastName: "lastName"
+        company: "company"
+        businessPhone: "businessPhone"
+        businessAddress:
+          zip: "zip"
+          country: "country"
+          city: "city"
+          street: "street"
+          state: "state"
+        email: "email"
+      name: "name"
+      regionalSettings:
+        timezone:
+          name: "name"
+          description: "description"
+          id: "id"
+          uri: "http://example.com/aeiou"
+        greetingLanguage:
+          localeCode: "localeCode"
+          name: "name"
+          id: "id"
+        formattingLocale:
+          localeCode: "localeCode"
+          name: "name"
+          id: "id"
+        language:
+          localeCode: "localeCode"
+          name: "name"
+          id: "id"
+        homeCountry:
+          callingCode: "callingCode"
+          numberSelling: false
+          isoCode: "isoCode"
+          emergencyCalling: false
+          name: "name"
+          id: "id"
+          uri: "http://example.com/aeiou"
+          loginAllowed: false
+      id: 6
       partnerId: "partnerId"
       departments:
       - extensionNumber: "extensionNumber"
@@ -28820,10 +29813,12 @@ definitions:
         $ref: "#/definitions/DeviceModelResource"
       extension:
         description: "This attribute can be omitted for unassigned devices"
-        $ref: "#/definitions/ExtensionResource"
+        $ref: "#/definitions/ExtensionResourceIntId"
       phoneLines:
+        type: "array"
         description: "Phone lines information"
-        $ref: "#/definitions/PhoneLineResource"
+        items:
+          $ref: "#/definitions/PhoneLineResource"
       emergencyServiceAddress:
         description: " Address for emergency cases. The same emergency address is\
           \ assigned to all numbers of a single device ,"
@@ -28929,7 +29924,7 @@ definitions:
             id: "id"
             uri: "http://example.com/aeiou"
             loginAllowed: false
-        id: "id"
+        id: 6
         partnerId: "partnerId"
         departments:
         - extensionNumber: "extensionNumber"
@@ -28940,7 +29935,7 @@ definitions:
           uri: "http://example.com/aeiou"
         status: "Enabled"
       phoneLines:
-        lineType: "Unknown"
+      - lineType: "Unknown"
         phoneInfo:
           country:
             callingCode: "callingCode"
@@ -29043,7 +30038,119 @@ definitions:
             status: "Enabled"
           phoneNumber: "phoneNumber"
           location: "location"
-          id: "id"
+          id: 1
+          label: "label"
+          type: "VoiceFax"
+          paymentType: "External"
+          status: "status"
+          usageType: "CompanyNumber"
+        emergencyAddress:
+          localOnly: true
+          required: true
+      - lineType: "Unknown"
+        phoneInfo:
+          country:
+            callingCode: "callingCode"
+            numberSelling: false
+            isoCode: "isoCode"
+            emergencyCalling: false
+            name: "name"
+            id: "id"
+            uri: "http://example.com/aeiou"
+            loginAllowed: false
+          extension:
+            setupWizardState: "NotStarted"
+            statusInfo:
+              reason: "reason"
+              till: "2000-01-23T04:56:07.000+00:00"
+              comment: "comment"
+            references:
+            - ref: "ref"
+              type: "PartnerId"
+            - ref: "ref"
+              type: "PartnerId"
+            profileImage:
+              scales:
+              - uri: "http://example.com/aeiou"
+              - uri: "http://example.com/aeiou"
+              etag: "etag"
+              lastModified: "2000-01-23T04:56:07.000+00:00"
+              uri: "http://example.com/aeiou"
+              contentType: "contentType"
+            type: "Unknown"
+            uri: "http://example.com/aeiou"
+            ivrPin: "ivrPin"
+            password: "password"
+            serviceFeatures:
+            - reason: "Available"
+              featureName: "featureName"
+              enabled: false
+            - reason: "Available"
+              featureName: "featureName"
+              enabled: false
+            extensionNumber: "extensionNumber"
+            permissions:
+              admin:
+                enabled: false
+              uri: "http://example.com/aeiou"
+              internationalCalling:
+                enabled: false
+              freeSoftPhoneDigitalLine:
+                enabled: false
+            loginName: "loginName"
+            contact:
+              firstName: "firstName"
+              lastName: "lastName"
+              company: "company"
+              businessPhone: "businessPhone"
+              businessAddress:
+                zip: "zip"
+                country: "country"
+                city: "city"
+                street: "street"
+                state: "state"
+              email: "email"
+            name: "name"
+            regionalSettings:
+              timezone:
+                name: "name"
+                description: "description"
+                id: "id"
+                uri: "http://example.com/aeiou"
+              greetingLanguage:
+                localeCode: "localeCode"
+                name: "name"
+                id: "id"
+              formattingLocale:
+                localeCode: "localeCode"
+                name: "name"
+                id: "id"
+              language:
+                localeCode: "localeCode"
+                name: "name"
+                id: "id"
+              homeCountry:
+                callingCode: "callingCode"
+                numberSelling: false
+                isoCode: "isoCode"
+                emergencyCalling: false
+                name: "name"
+                id: "id"
+                uri: "http://example.com/aeiou"
+                loginAllowed: false
+            id: "id"
+            partnerId: "partnerId"
+            departments:
+            - extensionNumber: "extensionNumber"
+              id: "id"
+              uri: "http://example.com/aeiou"
+            - extensionNumber: "extensionNumber"
+              id: "id"
+              uri: "http://example.com/aeiou"
+            status: "Enabled"
+          phoneNumber: "phoneNumber"
+          location: "location"
+          id: 1
           label: "label"
           type: "VoiceFax"
           paymentType: "External"
@@ -29077,7 +30184,7 @@ definitions:
           id: "id"
         trackingNumber: "trackingNumber"
         status: "status"
-      boxBillingId: 6
+      boxBillingId: 5
       serial: "serial"
       computerName: "computerName"
       linePooling: "Host"

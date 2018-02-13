@@ -10,6 +10,5 @@
 package ringcentral
 
 type VersionedResource struct {
-
 	Uri string `json:"uri,omitempty"`
 }

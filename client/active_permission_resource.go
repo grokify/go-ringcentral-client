@@ -10,7 +10,6 @@
 package ringcentral
 
 type ActivePermissionResource struct {
-
 	Permission *PermissionIdResource `json:"permission,omitempty"`
 
 	EffectiveRole *RoleIdResource `json:"effectiveRole,omitempty"`

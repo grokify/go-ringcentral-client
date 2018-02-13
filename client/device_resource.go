@@ -39,10 +39,10 @@ type DeviceResource struct {
 	Model *DeviceModelResource `json:"model,omitempty"`
 
 	// This attribute can be omitted for unassigned devices
-	Extension *ExtensionResource `json:"extension,omitempty"`
+	Extension *ExtensionResourceIntId `json:"extension,omitempty"`
 
 	// Phone lines information
-	PhoneLines *PhoneLineResource `json:"phoneLines,omitempty"`
+	PhoneLines []PhoneLineResource `json:"phoneLines,omitempty"`
 
 	//  Address for emergency cases. The same emergency address is assigned to all numbers of a single device ,
 	EmergencyServiceAddress *EmergencyServiceAddressResource `json:"emergencyServiceAddress,omitempty"`

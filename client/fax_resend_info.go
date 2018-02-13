@@ -14,7 +14,6 @@ import (
 )
 
 type FaxResendInfo struct {
-
 	OriginalMessageId int64 `json:"originalMessageId"`
 
 	SendTime time.Time `json:"sendTime,omitempty"`

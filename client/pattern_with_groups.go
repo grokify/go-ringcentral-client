@@ -10,7 +10,6 @@
 package ringcentral
 
 type PatternWithGroups struct {
-
 	Regex string `json:"regex,omitempty"`
 
 	GroupIndexes []int32 `json:"groupIndexes,omitempty"`

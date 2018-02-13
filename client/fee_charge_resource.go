@@ -10,7 +10,6 @@
 package ringcentral
 
 type FeeChargeResource struct {
-
 	Description string `json:"description,omitempty"`
 
 	Amount float32 `json:"amount,omitempty"`

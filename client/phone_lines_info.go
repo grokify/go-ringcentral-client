@@ -15,5 +15,5 @@ type PhoneLinesInfo struct {
 	LineType string `json:"lineType,omitempty"`
 
 	// Phone number information
-	PhoneInfo *PhoneNumberInfo `json:"phoneInfo,omitempty"`
+	PhoneInfo *PhoneNumberInfoIntId `json:"phoneInfo,omitempty"`
 }

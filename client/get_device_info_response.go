@@ -36,13 +36,13 @@ type GetDeviceInfoResponse struct {
 	Model *ModelInfo `json:"model,omitempty"`
 
 	// This attribute can be omitted for unassigned devices
-	Extension *ExtensionInfo `json:"extension,omitempty"`
+	Extension *ExtensionInfoIntId `json:"extension,omitempty"`
 
 	// Address for emergency cases. The same emergency address is assigned to all the numbers of one device
 	EmergencyServiceAddress *EmergencyAddressInfo `json:"emergencyServiceAddress,omitempty"`
 
 	// Phone lines information
-	PhoneLines *PhoneLinesInfo `json:"phoneLines,omitempty"`
+	PhoneLines []PhoneLinesInfo `json:"phoneLines,omitempty"`
 
 	// Shipping information, according to which devices (in case of HardPhone ) or e911 stickers (in case of  SoftPhone  and  OtherPhone ) will be delivered to the customer
 	Shipping *ShippingInfo `json:"shipping,omitempty"`

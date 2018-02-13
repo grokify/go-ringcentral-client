@@ -10,6 +10,5 @@
 package ringcentral
 
 type UpdatePresenceLinesRequest struct {
-
 	Records []PresenceLineInfo `json:"records,omitempty"`
 }
