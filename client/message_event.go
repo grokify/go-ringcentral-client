@@ -22,5 +22,5 @@ type MessageEvent struct {
 	LastUpdated time.Time `json:"lastUpdated,omitempty"`
 
 	// Message Changes
-	Changes *MessageChanges `json:"changes,omitempty"`
+	Changes []MessageChanges `json:"changes,omitempty"`
 }

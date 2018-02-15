@@ -33790,8 +33790,10 @@ definitions:
         description: "Datetime when the message was last modified in ISO 8601 format\
           \ including timezone, for example 2016-03-10T18:07:52.534Z"
       changes:
+        type: "array"
         description: "Message Changes"
-        $ref: "#/definitions/MessageChanges"
+        items:
+          $ref: "#/definitions/MessageChanges"
   MessageChanges:
     type: "object"
     properties:
@@ -34624,7 +34626,29 @@ definitions:
       pn_gcm:
         description: "GCM data"
         $ref: "#/definitions/GCMInfo"
-  GlipAPNSInfo: {}
+  GlipAPNSInfo:
+    type: "object"
+    properties:
+      aps:
+        description: "Apple Push Notification Service Info"
+        $ref: "#/definitions/APSInfo"
+      timestamp:
+        type: "string"
+        format: "date-time"
+        description: "Datetime of a call action in ISO 8601 format including timezone,\
+          \ for example 2016-03-10T18:07:52.534Z"
+      uuid:
+        type: "string"
+        description: "Universally unique identifier of a notification"
+      event:
+        type: "string"
+        description: "Event filter URI"
+      subscriptionId:
+        type: "string"
+        description: "Internal identifier of a subscription"
+      body:
+        description: "Unread messages data"
+        $ref: "#/definitions/GlipUnreadMessageCountInfo"
   GlipUnreadMessageCountInfo:
     type: "object"
     properties:

@@ -247,6 +247,10 @@ func tryRingCentralClient(demoConfig DemoConfig) {
 		Config:  demoConfig,
 	}
 
+	if demoConfig.GetServiceProviderConfig {
+		demo.GetServiceProviderConfig()
+	}
+
 	demo.GetUsers()
 
 	if demoConfig.DeleteUser {
@@ -274,6 +278,16 @@ type ScimRingCentralDemo struct {
 	Client  *rc.APIClient
 	Config  DemoConfig
 	Context context.Context
+}
+
+func (demo ScimRingCentralDemo) GetServiceProviderConfig() {
+	cfg, resp, err := demo.Client.SCIMApi.GetServiceProviderConfig(demo.Context)
+	if err != nil {
+		log.Fatal(err)
+	} else if resp.StatusCode >= 300 {
+		log.Fatal(fmt.Sprintf("StatusCode: %v", resp.StatusCode))
+	}
+	fmtutil.PrintJSON(cfg)
 }
 
 func (demo ScimRingCentralDemo) GetUsers() {
@@ -411,12 +425,13 @@ func (demo ScimRingCentralDemo) GetNewUser() rc.UserCreationRequest {
 }
 
 type DemoConfig struct {
-	CreateUser  bool
-	PatchUser   bool
-	ReplaceUser bool
-	DeleteUser  bool
-	UserEmail   string
-	UserId      string
+	GetServiceProviderConfig bool
+	CreateUser               bool
+	PatchUser                bool
+	ReplaceUser              bool
+	DeleteUser               bool
+	UserEmail                string
+	UserId                   string
 }
 
 func main() {
@@ -432,7 +447,9 @@ func main() {
 
 	fmt.Printf("[%v]\n", *createUser)
 
-	cfg := DemoConfig{}
+	cfg := DemoConfig{
+		GetServiceProviderConfig: true,
+	}
 	if *createUser != 0 {
 		cfg.CreateUser = true
 	}

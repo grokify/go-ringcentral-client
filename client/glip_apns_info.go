@@ -9,5 +9,27 @@
 
 package ringcentral
 
+import (
+	"time"
+)
+
 type GlipApnsInfo struct {
+
+	// Apple Push Notification Service Info
+	Aps *ApsInfo `json:"aps,omitempty"`
+
+	// Datetime of a call action in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
+	Timestamp time.Time `json:"timestamp,omitempty"`
+
+	// Universally unique identifier of a notification
+	Uuid string `json:"uuid,omitempty"`
+
+	// Event filter URI
+	Event string `json:"event,omitempty"`
+
+	// Internal identifier of a subscription
+	SubscriptionId string `json:"subscriptionId,omitempty"`
+
+	// Unread messages data
+	Body *GlipUnreadMessageCountInfo `json:"body,omitempty"`
 }
