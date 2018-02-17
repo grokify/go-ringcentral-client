@@ -16,14 +16,6 @@ import (
 	ro "github.com/grokify/oauth2more/ringcentral"
 )
 
-/*
-type AnsweringRulesResponse struct {
-	URI        string              `json:"uri,omitempty"`
-	Records    []AnsweringRuleMeta `json:"records,omitempty"`
-	Paging     PagingInfo          `json:"paging,omitempty"`
-	Navigation NavigationInfo      `json:"navigation,omitempty"`
-}
-*/
 func loadEnv() error {
 	envPaths := []string{}
 	if len(os.Getenv("ENV_PATH")) > 0 {
