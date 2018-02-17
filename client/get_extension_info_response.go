@@ -12,7 +12,7 @@ package ringcentral
 type GetExtensionInfoResponse struct {
 
 	// Internal identifier of an extension
-	Id int32 `json:"id"`
+	Id int64 `json:"id"`
 
 	// Canonical URI of an extension
 	Uri string `json:"uri"`

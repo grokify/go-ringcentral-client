@@ -9,10 +9,10 @@
 
 package ringcentral
 
-type GetRingOutStatusResponse struct {
+type GetRingOutStatusResponseIntId struct {
 
 	// Internal identifier of a RingOut call
-	Id string `json:"id,omitempty"`
+	Id int64 `json:"id,omitempty"`
 
 	Uri string `json:"uri,omitempty"`
 

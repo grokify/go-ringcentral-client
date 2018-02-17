@@ -1816,7 +1816,7 @@
           default:
             description: "Success"
             schema:
-              $ref: "#/definitions/GetRingOutStatusResponse"
+              $ref: "#/definitions/GetRingOutStatusResponseIntId"
         x-api-group: "extension/ringout"
         x-throttling-group: "Heavy"
         x-metered-api: true
@@ -12082,6 +12082,7 @@
       properties:
         id:
           type: "integer"
+          format: "int64"
           description: "Internal identifier of an extension"
         uri:
           type: "string"
@@ -14319,6 +14320,20 @@
         id:
           type: "string"
           description: "Internal identifier of a RingOut call"
+        uri:
+          type: "string"
+        status:
+          description: "RingOut status information"
+          $ref: "#/definitions/RingOutStatusInfo"
+    GetRingOutStatusResponseIntId:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+          description: "Internal identifier of a RingOut call"
+        uri:
+          type: "string"
         status:
           description: "RingOut status information"
           $ref: "#/definitions/RingOutStatusInfo"

@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **MakeRingOutCall**
-> GetRingOutStatusResponse MakeRingOutCall(ctx, accountId, extensionId, body)
+> GetRingOutStatusResponseIntId MakeRingOutCall(ctx, accountId, extensionId, body)
 Make RingOut Call
 
 <p style='font-style:italic;'>Since 1.0.7 (Release 5.16)</p><p>Makes a 2-leg RingOut call.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>RingOut</td><td>Performing two-legged ring-out phone calls</td></tr></tbody></table><h4>Usage Plan Group</h4><p>Heavy</p>
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetRingOutStatusResponse**](GetRingOutStatusResponse.md)
+[**GetRingOutStatusResponseIntId**](GetRingOutStatusResponseIntId.md)
 
 ### Authorization
 

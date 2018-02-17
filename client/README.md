@@ -557,6 +557,7 @@ Class | Method | HTTP request | Description
  - [GetPresenceInfo](docs/GetPresenceInfo.md)
  - [GetReportingSettingsResponse](docs/GetReportingSettingsResponse.md)
  - [GetRingOutStatusResponse](docs/GetRingOutStatusResponse.md)
+ - [GetRingOutStatusResponseIntId](docs/GetRingOutStatusResponseIntId.md)
  - [GetSecretQuestionListResponse](docs/GetSecretQuestionListResponse.md)
  - [GetServiceInfoResponse](docs/GetServiceInfoResponse.md)
  - [GetStateInfoResponse](docs/GetStateInfoResponse.md)

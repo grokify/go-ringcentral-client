@@ -1,9 +1,9 @@
-# GetRingOutStatusResponse
+# GetRingOutStatusResponseIntId
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Internal identifier of a RingOut call | [optional] [default to null]
+**Id** | **int64** | Internal identifier of a RingOut call | [optional] [default to null]
 **Uri** | **string** |  | [optional] [default to null]
 **Status** | [***RingOutStatusInfo**](RingOutStatusInfo.md) | RingOut status information | [optional] [default to null]
 

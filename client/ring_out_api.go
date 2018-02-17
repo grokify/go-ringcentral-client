@@ -420,14 +420,14 @@ func (a *RingOutApiService) GetRingOutCallStatusNew(ctx context.Context, account
 @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
 @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
 @param body JSON body
-@return GetRingOutStatusResponse*/
-func (a *RingOutApiService) MakeRingOutCall(ctx context.Context, accountId string, extensionId string, body MakeRingOutRequest) (GetRingOutStatusResponse, *http.Response, error) {
+@return GetRingOutStatusResponseIntId*/
+func (a *RingOutApiService) MakeRingOutCall(ctx context.Context, accountId string, extensionId string, body MakeRingOutRequest) (GetRingOutStatusResponseIntId, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		successPayload     GetRingOutStatusResponse
+		successPayload     GetRingOutStatusResponseIntId
 	)
 
 	// create path and map variables

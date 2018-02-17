@@ -2027,7 +2027,7 @@ paths:
         default:
           description: "Success"
           schema:
-            $ref: "#/definitions/GetRingOutStatusResponse"
+            $ref: "#/definitions/GetRingOutStatusResponseIntId"
       deprecated: true
       x-api-group: "extension/ringout"
       x-throttling-group: "Heavy"
@@ -17955,6 +17955,7 @@ definitions:
     properties:
       id:
         type: "integer"
+        format: "int64"
         description: "Internal identifier of an extension"
       uri:
         type: "string"
@@ -23212,11 +23213,33 @@ definitions:
       id:
         type: "string"
         description: "Internal identifier of a RingOut call"
+      uri:
+        type: "string"
       status:
         description: "RingOut status information"
         $ref: "#/definitions/RingOutStatusInfo"
     example:
       id: "id"
+      uri: "uri"
+      status:
+        calleeStatus: "Invalid"
+        callStatus: "Invalid"
+        callerStatus: "Invalid"
+  GetRingOutStatusResponseIntId:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+        description: "Internal identifier of a RingOut call"
+      uri:
+        type: "string"
+      status:
+        description: "RingOut status information"
+        $ref: "#/definitions/RingOutStatusInfo"
+    example:
+      id: 0
+      uri: "uri"
       status:
         calleeStatus: "Invalid"
         callStatus: "Invalid"
