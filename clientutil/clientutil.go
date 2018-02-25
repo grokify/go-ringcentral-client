@@ -19,8 +19,20 @@ func LoadEnv() error {
 	return godotenv.Load(envPaths...)
 }
 
-func NewApiClientPassword(app ro.ApplicationCredentials, user ro.UserCredentials) (*rc.APIClient, error) {
-	httpClient, err := ro.NewClientPassword(app, user)
+func NewApiClientPassword(app ro.ApplicationCredentials, pwd ro.PasswordCredentials) (*rc.APIClient, error) {
+	httpClient, err := ro.NewClientPassword(app, pwd)
+	if err != nil {
+		return nil, err
+	}
+	apiConfig := rc.NewConfiguration()
+	apiConfig.BasePath = app.ServerURL
+	apiConfig.HTTPClient = httpClient
+	apiClient := rc.NewAPIClient(apiConfig)
+	return apiClient, nil
+}
+
+func NewApiClientPasswordSimple(app ro.ApplicationCredentials, user ro.UserCredentials) (*rc.APIClient, error) {
+	httpClient, err := ro.NewClientPasswordSimple(app, user)
 	if err != nil {
 		return nil, err
 	}
@@ -34,11 +46,11 @@ func NewApiClientPassword(app ro.ApplicationCredentials, user ro.UserCredentials
 func NewApiClientPasswordEnv() (*rc.APIClient, error) {
 	return NewApiClientPassword(
 		ro.NewApplicationCredentialsEnv(),
-		ro.NewUserCredentialsEnv())
+		ro.NewPasswordCredentialsEnv())
 }
 
-func NewScimApiClient(app ro.ApplicationCredentials, user ro.UserCredentials) (*rs.APIClient, error) {
-	httpClient, err := ro.NewClientPassword(app, user)
+func NewScimApiClient(app ro.ApplicationCredentials, pwd ro.PasswordCredentials) (*rs.APIClient, error) {
+	httpClient, err := ro.NewClientPassword(app, pwd)
 	if err != nil {
 		return nil, err
 	}

@@ -15,6 +15,8 @@ func main() {
 		panic(err)
 	}
 
+	legacy.RingOutURL = "http://localhost:8080/ringout.asp"
+
 	reqS := legacy.CallRequestInfoStrings{
 		Username:  os.Getenv("RINGCENTRAL_USERNAME"),
 		Extension: os.Getenv("RINGCENTRAL_EXTENSION"),

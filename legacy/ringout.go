@@ -11,12 +11,14 @@ import (
 
 const (
 	DocumentationURL = "https://success.ringcentral.com/articles/RC_Knowledge_Article/2080"
-	RingOutURL       = "https://service.ringcentral.com/ringout.asp"
 	CmdCall          = "call"
 )
 
+var RingOutURL = "https://service.ringcentral.com/ringout.asp"
+
 func Call(params CallRequestInfo) (*CallResponseInfo, *http.Response, error) {
 	params.Command = CmdCall
+
 	resp, err := http.Get(uu.BuildURLQueryString(RingOutURL, params))
 	if err != nil {
 		return nil, resp, err

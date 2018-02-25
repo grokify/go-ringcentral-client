@@ -63,7 +63,7 @@ func main() {
 
 	apiClient, err := rcu.NewApiClientPassword(
 		ro.NewApplicationCredentialsEnv(),
-		ro.NewUserCredentialsEnv(),
+		ro.NewPasswordCredentialsEnv(),
 	)
 	if err != nil {
 		log.Fatal(err)

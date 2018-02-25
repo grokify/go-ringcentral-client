@@ -23,7 +23,7 @@ func NewApiClient() (*rc.APIClient, error) {
 			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
 			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
 			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET")},
-		ro.UserCredentials{
+		ro.PasswordCredentials{
 			Username:  os.Getenv("RINGCENTRAL_USERNAME"),
 			Extension: os.Getenv("RINGCENTRAL_EXTENSION"),
 			Password:  os.Getenv("RINGCENTRAL_PASSWORD")})
