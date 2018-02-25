@@ -13,7 +13,7 @@ import (
 	"github.com/joho/godotenv"
 
 	rc "github.com/grokify/go-ringcentral/client"
-	cu "github.com/grokify/go-ringcentral/clientutil"
+	ru "github.com/grokify/go-ringcentral/clientutil"
 	ro "github.com/grokify/oauth2more/ringcentral"
 )
 
@@ -24,24 +24,24 @@ type Handler struct {
 }
 
 func (h *Handler) RingOut(res http.ResponseWriter, req *http.Request) {
-	ru := nhu.RequestUtil{Request: req}
+	reqUtil := nhu.RequestUtil{Request: req}
 
 	pwdCredentials := ro.PasswordCredentials{
-		Username:        ru.QueryParamString("username"),
-		Extension:       ru.QueryParamString("ext"),
-		Password:        ru.QueryParamString("password"),
+		Username:        reqUtil.QueryParamString("username"),
+		Extension:       reqUtil.QueryParamString("ext"),
+		Password:        reqUtil.QueryParamString("password"),
 		RefreshTokenTTL: int64(-1),
 	}
 
-	ringOut := cu.RingOutRequest{
-		To:       ru.QueryParamString("to"),
-		From:     ru.QueryParamString("from"),
-		CallerId: ru.QueryParamString("clid"),
+	ringOut := ru.RingOutRequest{
+		To:       reqUtil.QueryParamString("to"),
+		From:     reqUtil.QueryParamString("from"),
+		CallerId: reqUtil.QueryParamString("clid"),
 	}
 
 	log.Printf("%v\n", ringOut)
 
-	apiClient, err := cu.NewApiClientPassword(*h.AppCredentials, pwdCredentials)
+	apiClient, err := ru.NewApiClientPassword(*h.AppCredentials, pwdCredentials)
 	if err != nil {
 		res.WriteHeader(http.StatusBadRequest)
 		return
@@ -78,7 +78,11 @@ func serveNetHttp(handler Handler) {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/ringout.asp", http.HandlerFunc(handler.RingOut))
 	mux.HandleFunc("/ringout.asp/", http.HandlerFunc(handler.RingOut))
-	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%v", handler.AppPort), mux))
+
+	done := make(chan bool)
+	go http.ListenAndServe(fmt.Sprintf(":%v", handler.AppPort), mux)
+	log.Printf("Server listening on port %v", handler.AppPort)
+	<-done
 }
 
 func main() {
