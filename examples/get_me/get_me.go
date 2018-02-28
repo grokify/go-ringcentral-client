@@ -34,7 +34,7 @@ func main() {
 	info, resp, err := apiClient.UserSettingsApi.LoadExtensionInfo(context.Background(), "~", "~")
 	if err != nil {
 		panic(err)
-	} else if resp.StatusCode > 299 {
+	} else if resp.StatusCode >= 300 {
 		panic(fmt.Errorf("API Status %v", resp.StatusCode))
 	}
 	fmtutil.PrintJSON(info)
