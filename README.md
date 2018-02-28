@@ -26,7 +26,7 @@ This API client does not include auth and relies on [`oauth2more/ringcentral`](h
 
 ## Usage
 
-See examples in the [`examples`](examples) directory. You can use [`examples/get_me/get_me.go`](examples/get_me/get_me.go) to get started. 
+See examples in the [`examples`](examples) directory. To get started, you can use [`examples/get_me/get_me.go`](examples/get_me/get_me.go).
 
 By default, these use a `.env` file which can be specified by the `ENV_PATH` environment variable or a local `./.env` file. Using one `.env` file specified by `ENV_PATH` is useful so you only need one file to run all the examples.
 
