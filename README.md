@@ -36,6 +36,6 @@ The auto-generated Swagger files are in the [`client`](client) folder and you ca
 
 ## Related Packages
 
-In addition to [`oauth2more/ringcentral`](https://github.com/grokify/oauth2more/ringcentral), the following project provides a website with OAuth 2.0 authorization code flow example:
+In addition to [`oauth2more/ringcentral`](https://github.com/grokify/oauth2more/tree/master/ringcentral), the following project provides a website with OAuth 2.0 authorization code flow example:
 
 [`grokify/beego-oauth2-demo`](https://github.com/grokify/beego-oauth2-demo)
