@@ -6,31 +6,27 @@ import (
 	"os"
 
 	"github.com/grokify/gotilla/fmt/fmtutil"
+	iom "github.com/grokify/gotilla/io/ioutilmore"
 	"github.com/joho/godotenv"
 
 	rc "github.com/grokify/go-ringcentral/client"
-	rcu "github.com/grokify/go-ringcentral/clientutil"
+	ru "github.com/grokify/go-ringcentral/clientutil"
 	ro "github.com/grokify/oauth2more/ringcentral"
 )
+
+var LocalEnvFile = "./.env"
 
 func loadEnv() error {
 	envPaths := []string{}
 	if len(os.Getenv("ENV_PATH")) > 0 {
 		envPaths = append(envPaths, os.Getenv("ENV_PATH"))
+	} else {
+		isGood, err := iom.IsFileWithSizeGtZero(LocalEnvFile)
+		if err == nil && isGood {
+			envPaths = append(envPaths, LocalEnvFile)
+		}
 	}
 	return godotenv.Load(envPaths...)
-}
-
-func newApiClient() (*rc.APIClient, error) {
-	return rcu.NewApiClientPassword(
-		ro.ApplicationCredentials{
-			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
-			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
-			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET")},
-		ro.PasswordCredentials{
-			Username:  os.Getenv("RINGCENTRAL_USERNAME"),
-			Extension: os.Getenv("RINGCENTRAL_EXTENSION"),
-			Password:  os.Getenv("RINGCENTRAL_PASSWORD")})
 }
 
 func getAccountDeviceList(apiClient *rc.APIClient, accountId string) (rc.GetAccountDevicesResponse, error) {
@@ -60,13 +56,16 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	ac := ro.ApplicationCredentials{
-		ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
-		ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
-		ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET")}
-	fmtutil.PrintJSON(ac)
 
-	apiClient, err := newApiClient()
+	apiClient, err := ru.NewApiClientPassword(
+		ro.ApplicationCredentials{
+			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
+			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
+			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET")},
+		ro.PasswordCredentials{
+			Username:  os.Getenv("RINGCENTRAL_USERNAME"),
+			Extension: os.Getenv("RINGCENTRAL_EXTENSION"),
+			Password:  os.Getenv("RINGCENTRAL_PASSWORD")})
 	if err != nil {
 		panic(err)
 	}
