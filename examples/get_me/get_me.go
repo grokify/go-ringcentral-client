@@ -5,31 +5,15 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/grokify/gotilla/config"
 	"github.com/grokify/gotilla/fmt/fmtutil"
-	iom "github.com/grokify/gotilla/io/ioutilmore"
-	"github.com/joho/godotenv"
 
 	ru "github.com/grokify/go-ringcentral/clientutil"
 	ro "github.com/grokify/oauth2more/ringcentral"
 )
 
-var LocalEnvFile = "./.env"
-
-func loadEnv() error {
-	envPaths := []string{}
-	if len(os.Getenv("ENV_PATH")) > 0 {
-		envPaths = append(envPaths, os.Getenv("ENV_PATH"))
-	} else {
-		isGood, err := iom.IsFileWithSizeGtZero(LocalEnvFile)
-		if err == nil && isGood {
-			envPaths = append(envPaths, LocalEnvFile)
-		}
-	}
-	return godotenv.Load(envPaths...)
-}
-
 func main() {
-	err := loadEnv()
+	err := config.LoadDotEnvSkipEmpty(os.Getenv("ENV_PATH"), "./.env")
 	if err != nil {
 		panic(err)
 	}

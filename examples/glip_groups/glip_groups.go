@@ -3,23 +3,33 @@ package main
 import (
 	"context"
 	"fmt"
+	"os"
 
+	"github.com/grokify/gotilla/config"
 	"github.com/grokify/gotilla/fmt/fmtutil"
 
-	rcu "github.com/grokify/go-ringcentral/clientutil"
+	ru "github.com/grokify/go-ringcentral/clientutil"
+	ro "github.com/grokify/oauth2more/ringcentral"
 )
 
 func main() {
-	err := rcu.LoadEnv()
+	err := config.LoadDotEnvSkipEmpty(os.Getenv("ENV_PATH"), "./.env")
 	if err != nil {
 		panic(err)
 	}
 
-	apiClient, err := rcu.NewApiClientPasswordEnv()
+	apiClient, err := ru.NewApiClientPassword(
+		ro.ApplicationCredentials{
+			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
+			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
+			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET")},
+		ro.PasswordCredentials{
+			Username:  os.Getenv("RINGCENTRAL_USERNAME"),
+			Extension: os.Getenv("RINGCENTRAL_EXTENSION"),
+			Password:  os.Getenv("RINGCENTRAL_PASSWORD")})
 	if err != nil {
 		panic(err)
 	}
-
 	info, resp, err := apiClient.GlipApi.LoadGroupList(
 		context.Background(), map[string]interface{}{},
 	)
