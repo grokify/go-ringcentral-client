@@ -14,6 +14,7 @@ import (
 	ro "github.com/grokify/oauth2more/ringcentral"
 )
 
+// example: $ go run fax_send.go -to=+16505550100 -file=$GOPATH/src/github.com/grokify/go-ringcentral/examples/fax_send/test_file.pdf
 func main() {
 	var toPhoneNumber = flag.String("to", "", "Recipient fax number")
 	var filename = flag.String("file", "", "Path to file, leave blank for empty")
@@ -21,7 +22,11 @@ func main() {
 	flag.Parse()
 
 	if len(*toPhoneNumber) == 0 {
-		fmt.Println("Usage: fax_send.go -to=+16505550100 [-file=/path/to/file -coverPageText='Hello World!']\nexiting...")
+		fmt.Println("Usage: fax_send.go -to=+16505550100 -file=/path/to/file [-coverPageText='Hello World!']\nexiting...")
+		return
+	}
+	if len(*filename) == 0 {
+		fmt.Println("Usage: fax_send.go -to=+16505550100 -file=/path/to/file [-coverPageText='Hello World!']\nexiting...")
 		return
 	}
 
@@ -44,15 +49,9 @@ func main() {
 	}
 	fmt.Println(filename)
 
-	file := &os.File{}
-
-	if len(*filename) > 0 {
-		file, err = os.Open(*filename)
-		if err != nil {
-			log.Fatal(err)
-		}
-	} else {
-		file = nil
+	file, err := os.Open(*filename)
+	if err != nil {
+		log.Fatal(err)
 	}
 
 	params := map[string]interface{}{}
@@ -66,7 +65,8 @@ func main() {
 		"~",
 		file,
 		"High",
-		[]string{*toPhoneNumber}, params,
+		[]string{*toPhoneNumber},
+		params,
 	)
 
 	if err != nil {
