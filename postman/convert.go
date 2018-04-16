@@ -13,7 +13,7 @@ func main() {
 	pmanSpecFilepath := "ringcentral.postman2.basic.json"
 
 	cfg := swaggman.Configuration{
-		PostmanURLHostname: "{{RC_SERVER_HOSTNAME}}",
+		PostmanURLHostname: "{{RINGCENTRAL_SERVER_HOSTNAME}}",
 		PostmanHeaders: []postman2.Header{{
 			Key:   "Authorization",
 			Value: "Bearer {{my_access_token}}"}}}

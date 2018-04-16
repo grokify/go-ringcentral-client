@@ -32,10 +32,10 @@
                 "type": "text/javascript",
                 "exec": [
                   "// Populate the Postman environment with:",
-                  "// RC_SERVER_HOSTNAME, RC_APP_KEY, RC_APP_SECRET,",
-                  "// RC_USERNAME, RC_EXTENSION, RC_PASSWORD",
-                  "var appKey = environment[\"RC_APP_KEY\"];",
-                  "var appSecret = environment[\"RC_APP_SECRET\"];",
+                  "// RINGCENTRAL_SERVER_HOSTNAME, RINGCENTRAL_CLIENT_ID, RINGCENTRAL_CLIENT_SECRET,",
+                  "// RINGCENTRAL_USERNAME, RINGCENTRAL_EXTENSION, RINGCENTRAL_PASSWORD",
+                  "var appKey = environment[\"RINGCENTRAL_CLIENT_ID\"];",
+                  "var appSecret = environment[\"RINGCENTRAL_CLIENT_SECRET\"];",
                   "var apiKey = encodeBasicAuthHeader(appKey, appSecret);",
                   "",
                   "postman.setEnvironmentVariable(\"basic_auth_header\", \"Basic \".concat(apiKey));",
@@ -50,11 +50,11 @@
           ],
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/oauth/token",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/oauth/token",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -88,19 +88,19 @@
                 },
                 {
                   "key": "username",
-                  "value": "{{RC_USERNAME}}",
+                  "value": "{{RINGCENTRAL_USERNAME}}",
                   "type": "text",
                   "enabled": true
                 },
                 {
                   "key": "password",
-                  "value": "{{RC_PASSWORD}}",
+                  "value": "{{RINGCENTRAL_PASSWORD}}",
                   "type": "text",
                   "enabled": true
                 },
                 {
                   "key": "extension",
-                  "value": "{{RC_EXTENSION}}",
+                  "value": "{{RINGCENTRAL_EXTENSION}}",
                   "type": "text",
                   "enabled": true
                 }
@@ -118,11 +118,11 @@
           "name": "Get API Versions",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi"
@@ -150,11 +150,11 @@
           "name": "Get Status",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/status",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/status",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -184,11 +184,11 @@
           "name": "Get Version Info",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/:apiVersion",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/:apiVersion",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -227,11 +227,11 @@
           "name": "Create Account",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -261,11 +261,11 @@
           "name": "Edit Call Queue Members",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/department/bulk-assign",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/department/bulk-assign",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -304,11 +304,11 @@
           "name": "Get Department Member List",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/department/:departmentId/members",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/department/:departmentId/members",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -351,11 +351,11 @@
           "name": "Get Account Devices",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/device",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/device",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -393,11 +393,11 @@
           "name": "Get Device Info",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/device/:deviceId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/device/:deviceId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -439,11 +439,11 @@
           "name": "Update Device",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/device/:deviceId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/device/:deviceId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -484,11 +484,11 @@
           "name": "Get Free Extension Numbers",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/free-numbers",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/free-numbers",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -526,11 +526,11 @@
           "name": "Get User Device Info",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/device",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/device",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -574,11 +574,11 @@
           "name": "Get License List",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/licenses",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/licenses",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -616,11 +616,11 @@
           "name": "Order Licenses",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/licenses/bulk-purchase",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/licenses/bulk-purchase",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -659,11 +659,11 @@
           "name": "Get License",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/licenses/:licenseId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/licenses/:licenseId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -705,11 +705,11 @@
           "name": "Delete License",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/licenses/:licenseId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/licenses/:licenseId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -751,11 +751,11 @@
           "name": "Create Device Order",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/order",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/order",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -793,11 +793,11 @@
           "name": "Get Device Order by ID",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/order/:orderId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/order/:orderId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -839,11 +839,11 @@
           "name": "Edit Paging Group Users \u0026 Devices",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/paging-only-groups/:pagingOnlyGroupId/bulk-assign",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/paging-only-groups/:pagingOnlyGroupId/bulk-assign",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -885,11 +885,11 @@
           "name": "Get Paging Only Group Devices",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/paging-only-groups/:pagingOnlyGroupId/devices",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/paging-only-groups/:pagingOnlyGroupId/devices",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -931,11 +931,11 @@
           "name": "Get Paging Only Group Users",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/paging-only-groups/:pagingOnlyGroupId/users",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/paging-only-groups/:pagingOnlyGroupId/users",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -977,11 +977,11 @@
           "name": "Adds and/or removes park location users",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/park-locations/:parkLocationId/bulk-assign",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/park-locations/:parkLocationId/bulk-assign",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1023,11 +1023,11 @@
           "name": "Get Park Location Users",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/park-locations/:parkLocationId/users",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/park-locations/:parkLocationId/users",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1069,11 +1069,11 @@
           "name": "Get All Company Phone Numbers",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/phone-number",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/phone-number",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1111,11 +1111,11 @@
           "name": "Provision Phone Numbers",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/phone-number",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/phone-number",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1153,11 +1153,11 @@
           "name": "Get Phone Number",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/phone-number/:phoneNumberId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/phone-number/:phoneNumberId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1199,11 +1199,11 @@
           "name": "Reassign Phone Number",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/phone-number/:phoneNumberId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/phone-number/:phoneNumberId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1244,11 +1244,11 @@
           "name": "Delete Phone Number",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/phone-number/:phoneNumberId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/phone-number/:phoneNumberId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1289,11 +1289,11 @@
           "name": "Get Brand Info",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/brand/:brandId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/brand/:brandId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1330,11 +1330,11 @@
           "name": "Get Device Catalog",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/device",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/device",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1365,11 +1365,11 @@
           "name": "Get License Types",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/license-types",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/license-types",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1400,11 +1400,11 @@
           "name": "Get Service Plan",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/service-plan/:servicePlanId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/service-plan/:servicePlanId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1441,11 +1441,11 @@
           "name": "Get Shipping Options",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/shipping-options",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/shipping-options",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1476,11 +1476,11 @@
           "name": "Parse Phone Number",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/number-parser/parse",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/number-parser/parse",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1511,11 +1511,11 @@
           "name": "Get Numbers",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/number-pool/lookup",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/number-pool/lookup",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1546,11 +1546,11 @@
           "name": "Reserve/ Un-reserve Numbers",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/number-pool/reserve",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/number-pool/reserve",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1586,11 +1586,11 @@
           "name": "Get Company Info",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1627,11 +1627,11 @@
           "name": "Update Company",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1667,11 +1667,11 @@
           "name": "Delete Account",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1707,11 +1707,11 @@
           "name": "Get Company Business Address",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/business-address",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/business-address",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1749,11 +1749,11 @@
           "name": "Update Company Business Address",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/business-address",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/business-address",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1791,11 +1791,11 @@
           "name": "Get Available Dialing Plans",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/dialing-plan",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/dialing-plan",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1833,11 +1833,11 @@
           "name": "Get Account Service Info",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/service-info",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/service-info",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1875,11 +1875,11 @@
           "name": "Update Account Service Info [Beta]",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/service-info",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/service-info",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1922,11 +1922,11 @@
           "name": "Get User Active Calls",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/active-calls",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/active-calls",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -1964,11 +1964,11 @@
           "name": "Get Call Log Records by Filter",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/call-log",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/call-log",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2006,11 +2006,11 @@
           "name": "Delete Call Log Records by Filter",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/call-log",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/call-log",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2048,11 +2048,11 @@
           "name": "Call Log Synchronization",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/call-log-sync",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/call-log-sync",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2090,11 +2090,11 @@
           "name": "Get Account Call Log Record(s) by ID",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/call-log/:callRecordId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/call-log/:callRecordId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2136,11 +2136,11 @@
           "name": "Delete Account Call Log Record(s) by ID",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/call-log/:callRecordId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/call-log/:callRecordId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2182,11 +2182,11 @@
           "name": "Get User Active Calls",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/active-calls",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/active-calls",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2230,11 +2230,11 @@
           "name": "Get Call Log Records by Filter",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/call-log",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/call-log",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2278,11 +2278,11 @@
           "name": "Delete Call Log Records by Filter",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/call-log",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/call-log",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2326,11 +2326,11 @@
           "name": "Call Log Synchronization",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/call-log-sync",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/call-log-sync",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2374,11 +2374,11 @@
           "name": "Get Call Records by ID",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/call-log/:callRecordId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/call-log/:callRecordId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2424,11 +2424,11 @@
           "name": "Get Call Recordings",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/recording/:recordingId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/recording/:recordingId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2470,11 +2470,11 @@
           "name": "Get Call Recordings Data",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/recording/:recordingId/content",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/recording/:recordingId/content",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2522,11 +2522,11 @@
           "name": "Get Company Call Handling Rules",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/answering-rule",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/answering-rule",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2564,11 +2564,11 @@
           "name": "Create Company Call Handling Rule",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/answering-rule",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/answering-rule",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2606,11 +2606,11 @@
           "name": "Get Company Call Handling Rule",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/answering-rule/:ruleId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/answering-rule/:ruleId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2652,11 +2652,11 @@
           "name": "Update Company Call Handling Rule",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/answering-rule/:ruleId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/answering-rule/:ruleId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2698,11 +2698,11 @@
           "name": "Get Company Business Hours",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/business-hours",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/business-hours",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2740,11 +2740,11 @@
           "name": "Update Company Business Hours",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/business-hours",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/business-hours",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2782,11 +2782,11 @@
           "name": "Get Call Handling Rules",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/answering-rule",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/answering-rule",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2830,11 +2830,11 @@
           "name": "Create Custom Call Handling Rules",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/answering-rule",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/answering-rule",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2878,11 +2878,11 @@
           "name": "Get Call Handling Rule",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/answering-rule/:ruleId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/answering-rule/:ruleId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2930,11 +2930,11 @@
           "name": "Update Custom Call Handling Rule",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/answering-rule/:ruleId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/answering-rule/:ruleId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -2982,11 +2982,11 @@
           "name": "Delete Call Handling Rule",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/answering-rule/:ruleId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/answering-rule/:ruleId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3034,11 +3034,11 @@
           "name": "Get Blocked Numbers",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/blocked-number",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/blocked-number",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3082,11 +3082,11 @@
           "name": "Add Blocked Numbers",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/blocked-number",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/blocked-number",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3130,11 +3130,11 @@
           "name": "Get Blocked Number",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/blocked-number/:blockedNumberId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/blocked-number/:blockedNumberId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3182,11 +3182,11 @@
           "name": "Update Blocked Number",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/blocked-number/:blockedNumberId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/blocked-number/:blockedNumberId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3234,11 +3234,11 @@
           "name": "Delete Blocked Number",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/blocked-number/:blockedNumberId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/blocked-number/:blockedNumberId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3286,11 +3286,11 @@
           "name": "Get User Business Hours",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/business-hours",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/business-hours",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3334,11 +3334,11 @@
           "name": "Update User Business Hours",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/business-hours",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/business-hours",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3382,11 +3382,11 @@
           "name": "Get Forwarding Numbers",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/forwarding-number",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/forwarding-number",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3430,11 +3430,11 @@
           "name": "Create Forwarding Numbers",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/forwarding-number",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/forwarding-number",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3478,11 +3478,11 @@
           "name": "Get Forwarding Number",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/forwarding-number/:forwardingNumberId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/forwarding-number/:forwardingNumberId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3528,11 +3528,11 @@
           "name": "Update Forwarding Numbers",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/forwarding-number/:forwardingNumberId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/forwarding-number/:forwardingNumberId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3580,11 +3580,11 @@
           "name": "Delete Forwarding Number",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/forwarding-number/:forwardingNumberId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/forwarding-number/:forwardingNumberId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3632,11 +3632,11 @@
           "name": "Create User Custom Greeting",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/greeting",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/greeting",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3680,11 +3680,11 @@
           "name": "Get Custom Greeting Info",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/greeting/:greetingId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/greeting/:greetingId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3732,11 +3732,11 @@
           "name": "Create Custom Company Greeting",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/greeting",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/greeting",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3774,11 +3774,11 @@
           "name": "Create IVR Menu",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-menus",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-menus",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3815,11 +3815,11 @@
           "name": "Get IVR Menu",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-menus/:ivrMenuId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-menus/:ivrMenuId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3860,11 +3860,11 @@
           "name": "Update IVR Menu",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-menus/:ivrMenuId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-menus/:ivrMenuId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3905,11 +3905,11 @@
           "name": "Get IVR Prompts",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-prompts",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-prompts",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3946,11 +3946,11 @@
           "name": "Create IVR Prompt",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-prompts",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-prompts",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -3987,11 +3987,11 @@
           "name": "Get IVR Prompt",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-prompts/:promptId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-prompts/:promptId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4032,11 +4032,11 @@
           "name": "Delete IVR Prompt",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-prompts/:promptId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-prompts/:promptId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4077,11 +4077,11 @@
           "name": "Get IVR Prompt Content",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-prompts/:promptId/content",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/ivr-prompts/:promptId/content",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4123,11 +4123,11 @@
           "name": "Get Standard Greetings",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/greeting",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/greeting",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4158,11 +4158,11 @@
           "name": "Get Greeting Info",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/greeting/:greetingId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/greeting/:greetingId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4204,11 +4204,11 @@
           "name": "Create Bot Extension",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/bot",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/bot",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4246,11 +4246,11 @@
           "name": "Get Company Directory",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/directory/contacts",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/directory/contacts",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4289,11 +4289,11 @@
           "name": "Get Company Directory Contact",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/directory/contacts/:contactId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/directory/contacts/:contactId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4336,11 +4336,11 @@
           "name": "Get Existing Extension Numbers",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/directory/extension-numbers",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/directory/extension-numbers",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4379,11 +4379,11 @@
           "name": "Get Account Federation",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/directory/federation",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/directory/federation",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4422,11 +4422,11 @@
           "name": "Get Account Federation Conflicts",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/directory/federation-conflicts",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/directory/federation-conflicts",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4465,11 +4465,11 @@
           "name": "Get Extensions",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4507,11 +4507,11 @@
           "name": "Create Extension",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4554,11 +4554,11 @@
           "name": "Get Extension Info",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4601,11 +4601,11 @@
           "name": "Update Extension",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4648,11 +4648,11 @@
           "name": "Delete Extension",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4693,11 +4693,11 @@
           "name": "Get Extension Caller ID",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/caller-id",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/caller-id",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4741,11 +4741,11 @@
           "name": "Update Extension Caller ID",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/caller-id",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/caller-id",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4789,11 +4789,11 @@
           "name": "Get User Conferencing Settings",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/conferencing",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/conferencing",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4837,11 +4837,11 @@
           "name": "Update User Conferencing Settings",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/conferencing",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/conferencing",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4885,11 +4885,11 @@
           "name": "Get User Credentials",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/credentials",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/credentials",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4933,11 +4933,11 @@
           "name": "Update User Credentials",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/credentials",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/credentials",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -4981,11 +4981,11 @@
           "name": "Validate User Credentials",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/credentials/validate",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/credentials/validate",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5030,11 +5030,11 @@
           "name": "Verify Extension User Credentials",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/credentials/verify",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/credentials/verify",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5079,11 +5079,11 @@
           "name": "Get Extension Grants",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/grant",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/grant",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5127,11 +5127,11 @@
           "name": "Get Notification Settings",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/notification-settings",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/notification-settings",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5174,11 +5174,11 @@
           "name": "Update Notification Settings",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/notification-settings",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/notification-settings",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5221,11 +5221,11 @@
           "name": "Get User Profile Image",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/profile-image",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/profile-image",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5267,11 +5267,11 @@
           "name": "Upload User Profile Image",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/profile-image",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/profile-image",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5313,11 +5313,11 @@
           "name": "Update User Profile Image",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/profile-image",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/profile-image",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5359,11 +5359,11 @@
           "name": "Get Extension Profile Image (Scaled)",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/profile-image/:scaleSize",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/profile-image/:scaleSize",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5411,11 +5411,11 @@
           "name": "Get Secret Questions",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/secret-question",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/secret-question",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5446,11 +5446,11 @@
           "name": "Get Secret Question",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/secret-question/:questionId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/secret-question/:questionId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5492,11 +5492,11 @@
           "name": "Address Book Synchronization",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/address-book-sync",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/address-book-sync",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5540,11 +5540,11 @@
           "name": "Get Contacts",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/address-book/contact",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/address-book/contact",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5589,11 +5589,11 @@
           "name": "Create Contact",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/address-book/contact",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/address-book/contact",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5638,11 +5638,11 @@
           "name": "Get Contact(s) by ID",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/address-book/contact/:contactId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/address-book/contact/:contactId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5691,11 +5691,11 @@
           "name": "Update Contact(s) by ID",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/address-book/contact/:contactId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/address-book/contact/:contactId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5744,11 +5744,11 @@
           "name": "Delete Contact(s) by ID",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/address-book/contact/:contactId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/address-book/contact/:contactId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5797,11 +5797,11 @@
           "name": "Get Favorite Contacts",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/favorite",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/favorite",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5845,11 +5845,11 @@
           "name": "Update Favorite Contacts",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/favorite",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/favorite",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5898,11 +5898,11 @@
           "name": "Get User Permissions",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/authz-profile",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/authz-profile",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5944,11 +5944,11 @@
           "name": "Check User Permissions",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/authz-profile/check",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/authz-profile/check",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -5991,11 +5991,11 @@
           "name": "Get Default User Role",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/user-role/default",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/user-role/default",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6034,11 +6034,11 @@
           "name": "Set Default User Role",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/user-role/default",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/user-role/default",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6077,11 +6077,11 @@
           "name": "Get Permissions",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/permission",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/permission",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6112,11 +6112,11 @@
           "name": "Get Permissions Categories",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/permission-category",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/permission-category",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6147,11 +6147,11 @@
           "name": "Get Permission Category",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/permission-category/:permissionCategoryId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/permission-category/:permissionCategoryId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6188,11 +6188,11 @@
           "name": "Get Permission Info",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/permission/:permissionId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/permission/:permissionId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6229,11 +6229,11 @@
           "name": "Get Standard User Roles",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/user-role",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/user-role",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6264,11 +6264,11 @@
           "name": "Get User Role",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/user-role/:roleId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/user-role/:roleId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6310,11 +6310,11 @@
           "name": "Create Pager Message",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/company-pager",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/company-pager",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6358,11 +6358,11 @@
           "name": "Create Fax Message",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/fax",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/fax",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6406,11 +6406,11 @@
           "name": "Get Message List",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/message-store",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/message-store",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6454,11 +6454,11 @@
           "name": "Delete Conversations by ID's",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/message-store",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/message-store",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6500,11 +6500,11 @@
           "name": "Get Message(s) by ID",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/message-store/:messageId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/message-store/:messageId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6552,11 +6552,11 @@
           "name": "Update Message(s) by ID",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/message-store/:messageId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/message-store/:messageId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6604,11 +6604,11 @@
           "name": "Delete Message(s) by ID",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/message-store/:messageId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/message-store/:messageId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6656,11 +6656,11 @@
           "name": "Get Message Attachment",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/message-store/:messageId/content/:attachmentId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/message-store/:messageId/content/:attachmentId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6713,11 +6713,11 @@
           "name": "Get Message Sync",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/message-sync",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/message-sync",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6761,11 +6761,11 @@
           "name": "Create SMS Message",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/sms",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/sms",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6809,11 +6809,11 @@
           "name": "Get Fax Cover Pages",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/fax-cover-page",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/fax-cover-page",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6849,11 +6849,11 @@
           "name": "Make Direct RingOut Call",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/direct-ring-out",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/direct-ring-out",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6895,11 +6895,11 @@
           "name": "Make RingOut Call",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/ring-out",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/ring-out",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6943,11 +6943,11 @@
           "name": "Get Status of RingOut Call",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/ring-out/:ringoutId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/ring-out/:ringoutId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -6995,11 +6995,11 @@
           "name": "Cancel RingOut Call",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/ring-out/:ringoutId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/ring-out/:ringoutId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7047,11 +7047,11 @@
           "name": "Make RingOut Call",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/ringout",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/ringout",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7094,11 +7094,11 @@
         {
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/ringout/direct",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/ringout/direct",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7141,11 +7141,11 @@
           "name": "Get Status of RingOut Call",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/ringout/:ringoutId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/ringout/:ringoutId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7193,11 +7193,11 @@
           "name": "Cancel RingOut Call",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/ringout/:ringoutId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/ringout/:ringoutId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7250,11 +7250,11 @@
           "name": "Get Scheduled Meetings",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/meeting",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/meeting",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7296,11 +7296,11 @@
           "name": "Create Meetings",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/meeting",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/meeting",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7342,11 +7342,11 @@
           "name": "Get Meeting Service Info",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/meeting/service-info",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/meeting/service-info",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7389,11 +7389,11 @@
           "name": "Get Meeting Info",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/meeting/:meetingId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/meeting/:meetingId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7439,11 +7439,11 @@
           "name": "Update Meeting",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/meeting/:meetingId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/meeting/:meetingId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7489,11 +7489,11 @@
           "name": "Delete Meeting",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/meeting/:meetingId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/meeting/:meetingId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7539,11 +7539,11 @@
           "name": "End Meeting",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/meeting/:meetingId/end",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/meeting/:meetingId/end",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7595,11 +7595,11 @@
           "name": "Get Extension Phone Number List",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/phone-number",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/phone-number",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7648,11 +7648,11 @@
           "name": "Get User Status",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/presence",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/presence",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7696,11 +7696,11 @@
           "name": "Update User Status",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/presence",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/presence",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7744,11 +7744,11 @@
           "name": "Get Monitored Extensions",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/presence/line",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/presence/line",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7793,11 +7793,11 @@
           "name": "Update Monitored Extensions",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/presence/line",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/presence/line",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7842,11 +7842,11 @@
           "name": "Get Monitored Extensions by Id",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/presence/line/:lineId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/presence/line/:lineId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7895,11 +7895,11 @@
           "name": "Get User Presence Permissions",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/presence/permission",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/presence/permission",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7943,11 +7943,11 @@
           "name": "Update User Presence Permissions",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/presence/permission",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/presence/permission",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -7991,11 +7991,11 @@
           "name": "Get all user statuses",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/presence",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/presence",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8037,11 +8037,11 @@
           "name": "Get Reporting Settings",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/reporting/settings",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/reporting/settings",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8086,11 +8086,11 @@
           "name": "Update Reporting Settings",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/reporting/settings",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/account/:accountId/extension/:extensionId/reporting/settings",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8140,11 +8140,11 @@
           "name": "Get App Settings",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/client-info",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/client-info",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8174,11 +8174,11 @@
           "name": "Get In Product Message List",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/client-info/banners",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/client-info/banners",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8209,11 +8209,11 @@
           "name": "Get Custom Data",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/client-info/custom-data/:key",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/client-info/custom-data/:key",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8250,11 +8250,11 @@
           "name": "Create/Update Custom Data",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/client-info/custom-data/:key",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/client-info/custom-data/:key",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8291,11 +8291,11 @@
           "name": "Delete Custom Data",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/client-info/custom-data/:key",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/client-info/custom-data/:key",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8332,11 +8332,11 @@
           "name": "Get Custom Data Attachment",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/client-info/custom-data/:key/content",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/client-info/custom-data/:key/content",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8374,11 +8374,11 @@
           "name": "Register SIP Device",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/client-info/sip-provision",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/client-info/sip-provision",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8409,11 +8409,11 @@
           "name": "Get Special Numbers Calling Limitation",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/client-info/special-number-rule",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/client-info/special-number-rule",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8444,11 +8444,11 @@
           "name": "Get Phonedata",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/number-parser/phonedata.xml",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/number-parser/phonedata.xml",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8484,11 +8484,11 @@
           "name": "Get Country List",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/country",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/country",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8519,11 +8519,11 @@
           "name": "Get Country",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/country/:countryId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/country/:countryId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8560,11 +8560,11 @@
           "name": "Get Language List",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/language",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/language",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8595,11 +8595,11 @@
           "name": "Get Language",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/language/:languageId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/language/:languageId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8636,11 +8636,11 @@
           "name": "Get Location List",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/location",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/location",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8671,11 +8671,11 @@
           "name": "Get State List",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/state",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/state",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8706,11 +8706,11 @@
           "name": "Get State",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/state/:stateId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/state/:stateId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8747,11 +8747,11 @@
           "name": "Get Timezone List",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/timezone",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/timezone",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8782,11 +8782,11 @@
           "name": "Get Timezone",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/timezone/:timezoneId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/dictionary/timezone/:timezoneId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8828,11 +8828,11 @@
           "name": "Get Company Info",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/glip/companies/:companyId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/glip/companies/:companyId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8869,11 +8869,11 @@
           "name": "Upload File",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/glip/files",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/glip/files",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8904,11 +8904,11 @@
           "name": "Get File Info",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/glip/files/:fileId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/glip/files/:fileId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8945,11 +8945,11 @@
           "name": "Get User Groups",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/glip/groups",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/glip/groups",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -8980,11 +8980,11 @@
           "name": "Create Group",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/glip/groups",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/glip/groups",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -9015,11 +9015,11 @@
           "name": "Get Group",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/glip/groups/:groupId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/glip/groups/:groupId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -9056,11 +9056,11 @@
           "name": "Edit Group Members",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/glip/groups/:groupId/bulk-assign",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/glip/groups/:groupId/bulk-assign",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -9098,11 +9098,11 @@
           "name": "Get Posts",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/glip/groups/:groupId/posts",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/glip/groups/:groupId/posts",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -9140,11 +9140,11 @@
           "name": "Create Post",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/glip/groups/:groupId/posts",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/glip/groups/:groupId/posts",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -9182,11 +9182,11 @@
           "name": "Get Person",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/glip/persons/:personId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/glip/persons/:personId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -9223,11 +9223,11 @@
           "name": "Glip Unread Message Count",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/glip/profile",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/glip/profile",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -9263,11 +9263,11 @@
           "name": "Get Subscriptions",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/subscription",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/subscription",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -9297,11 +9297,11 @@
           "name": "Create Subscription",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/subscription",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/subscription",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -9331,11 +9331,11 @@
           "name": "Get Subscription",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/subscription/:subscriptionId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/subscription/:subscriptionId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -9371,11 +9371,11 @@
           "name": "Renew Subscription / Update Event Filters",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/subscription/:subscriptionId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/subscription/:subscriptionId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -9411,11 +9411,11 @@
           "name": "Cancel Subscription",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/subscription/:subscriptionId",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/subscription/:subscriptionId",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -9451,11 +9451,11 @@
           "name": "Renew Subscription",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/restapi/v1.0/subscription/:subscriptionId/renew",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/restapi/v1.0/subscription/:subscriptionId/renew",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "restapi",
@@ -9497,11 +9497,11 @@
           "name": "Get Service Provider Config",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/scim/v2/ServiceProviderConfig",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/scim/v2/ServiceProviderConfig",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "scim",
@@ -9531,11 +9531,11 @@
           "name": "Get User List",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/scim/v2/Users",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/scim/v2/Users",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "scim",
@@ -9565,11 +9565,11 @@
           "name": "Create User",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/scim/v2/Users",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/scim/v2/Users",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "scim",
@@ -9599,11 +9599,11 @@
           "name": "search or list users",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/scim/v2/Users/.search",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/scim/v2/Users/.search",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "scim",
@@ -9634,11 +9634,11 @@
           "name": "Get User",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/scim/v2/Users/:id",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/scim/v2/Users/:id",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "scim",
@@ -9674,11 +9674,11 @@
           "name": "Partially update/patch a user",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/scim/v2/Users/:id",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/scim/v2/Users/:id",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "scim",
@@ -9714,11 +9714,11 @@
           "name": "Update or replace user",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/scim/v2/Users/:id",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/scim/v2/Users/:id",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "scim",
@@ -9754,11 +9754,11 @@
           "name": "Delete User",
           "request": {
             "url": {
-              "raw": "https://{{RC_SERVER_HOSTNAME}}/scim/v2/Users/:id",
+              "raw": "https://{{RINGCENTRAL_SERVER_HOSTNAME}}/scim/v2/Users/:id",
               "protocol": "https",
               "auth": null,
               "host": [
-                "{{RC_SERVER_HOSTNAME}}"
+                "{{RINGCENTRAL_SERVER_HOSTNAME}}"
               ],
               "path": [
                 "scim",
