@@ -1,7 +1,10 @@
 package clientutil
 
 import (
+	"fmt"
+	"net/http"
 	"os"
+	"strings"
 
 	"github.com/grokify/gotilla/net/urlutil"
 	"github.com/joho/godotenv"
@@ -19,16 +22,23 @@ func LoadEnv() error {
 	return godotenv.Load(envPaths...)
 }
 
+func NewApiClientHttpClientBaseURL(httpClient *http.Client, serverUrl string) (*rc.APIClient, error) {
+	if len(strings.TrimSpace(serverUrl)) == 0 {
+		return nil, fmt.Errorf("No RingCentral API Server URL provided")
+	}
+	apiConfig := rc.NewConfiguration()
+	apiConfig.BasePath = strings.TrimSpace(serverUrl)
+	apiConfig.HTTPClient = httpClient
+	apiClient := rc.NewAPIClient(apiConfig)
+	return apiClient, nil
+}
+
 func NewApiClientPassword(app ro.ApplicationCredentials, pwd ro.PasswordCredentials) (*rc.APIClient, error) {
 	httpClient, err := ro.NewClientPassword(app, pwd)
 	if err != nil {
 		return nil, err
 	}
-	apiConfig := rc.NewConfiguration()
-	apiConfig.BasePath = app.ServerURL
-	apiConfig.HTTPClient = httpClient
-	apiClient := rc.NewAPIClient(apiConfig)
-	return apiClient, nil
+	return NewApiClientHttpClientBaseURL(httpClient, app.ServerURL)
 }
 
 func NewApiClientPasswordSimple(app ro.ApplicationCredentials, user ro.UserCredentials) (*rc.APIClient, error) {
@@ -36,11 +46,7 @@ func NewApiClientPasswordSimple(app ro.ApplicationCredentials, user ro.UserCrede
 	if err != nil {
 		return nil, err
 	}
-	apiConfig := rc.NewConfiguration()
-	apiConfig.BasePath = app.ServerURL
-	apiConfig.HTTPClient = httpClient
-	apiClient := rc.NewAPIClient(apiConfig)
-	return apiClient, nil
+	return NewApiClientHttpClientBaseURL(httpClient, app.ServerURL)
 }
 
 func NewApiClientPasswordEnv() (*rc.APIClient, error) {
