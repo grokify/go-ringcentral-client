@@ -2,6 +2,7 @@ package clientutil
 
 import (
 	"fmt"
+	"regexp"
 	"strings"
 )
 
@@ -9,6 +10,7 @@ const (
 	InstantMessageSMSExample   = "/restapi/v1.0/account/~/extension/12345678/message-store/instant?type=SMS"
 	InstantMessageSMSPattern   = `message-store/instant?type=SMS`
 	GlipPostEventFilterPattern = `/restapi/v1.0/glip/posts`
+	SubscriptionRenewalFilter  = `/restapi/v1.0/subscription/.+\?threshold=`
 )
 
 type EventType int
@@ -34,6 +36,7 @@ const (
 	MessageEvent
 	MissedCallEvent
 	RCVideoNotificationsEvent
+	SubscriptionRenewalEvent
 )
 
 // Events is an array of event structs for reference.
@@ -58,6 +61,7 @@ var Events = []string{
 	"MessageEvent",
 	"MissedCallEvent",
 	"RCVideoNotificationsEvent",
+	"SubscriptionRenewalEvent",
 }
 
 func (d EventType) String() string { return Events[d] }
@@ -72,6 +76,11 @@ func IsInstantMessageSMS(s string) bool {
 func ParseEventTypeForFilter(eventFilter string) (EventType, error) {
 	if strings.Index(eventFilter, GlipPostEventFilterPattern) > -1 {
 		return GlipPostEvent, nil
+	}
+	rx := regexp.MustCompile(SubscriptionRenewalFilter)
+	m := rx.FindString(eventFilter)
+	if len(m) > 0 {
+		return SubscriptionRenewalEvent, nil
 	}
 	return GlipPostEvent, fmt.Errorf("No Event found for filter %v", eventFilter)
 }
