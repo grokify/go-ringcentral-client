@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **CreatorId** | **string** | Internal identifier of a user - author of a post | [optional] [default to null]
 **AddedPersonIds** | **[]string** | For PersonsAdded post type only. Identifiers of persons added to a group | [optional] [default to null]
 **RemovedPersonIds** | **[]string** | For PersonsRemoved post type only. Identifiers of persons removed from a group | [optional] [default to null]
+**Mentions** | [**[]GlipMentionsInfo**](GlipMentionsInfo.md) | List of at mentions in post text with names. | [optional] [default to null]
 **CreationTime** | [**time.Time**](time.Time.md) | Post creation datetime in ISO 8601 format | [optional] [default to null]
 **LastModifiedTime** | [**time.Time**](time.Time.md) | Post last change datetime in ISO 8601 format | [optional] [default to null]
 

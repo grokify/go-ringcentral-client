@@ -21514,6 +21514,11 @@
           description: "For PersonsRemoved post type only. Identifiers of persons removed from a group"
           items:
             type: "string"
+        mentions:
+          type: "array"
+          description: "List of at mentions in post text with names."
+          items:
+            $ref: "#/definitions/GlipMentionsInfo"
         creationTime:
           type: "string"
           format: "date-time"

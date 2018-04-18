@@ -39,6 +39,9 @@ type GlipPostEvent struct {
 	// For PersonsRemoved post type only. Identifiers of persons removed from a group
 	RemovedPersonIds []string `json:"removedPersonIds,omitempty"`
 
+	// List of at mentions in post text with names.
+	Mentions []GlipMentionsInfo `json:"mentions,omitempty"`
+
 	// Post creation datetime in ISO 8601 format
 	CreationTime time.Time `json:"creationTime,omitempty"`
 
