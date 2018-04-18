@@ -37,9 +37,12 @@ type Event struct {
 }
 
 func (evt *Event) IsEventType(eventType EventType) bool {
-	switch eventType {
-	case InstantMessageEvent:
-		return IsInstantMessageSMS(evt.Event)
+	parsedEvtType, err := ParseEventTypeForFilter(evt.Event)
+	if err != nil {
+		return false
+	}
+	if eventType == parsedEvtType {
+		return true
 	}
 	return false
 }
@@ -66,6 +69,18 @@ func (evt *Event) GetInstantMessageBody() (*rc.InstantMessageEvent, error) {
 	}
 	body := &rc.InstantMessageEvent{}
 	err := json.Unmarshal([]byte(evt.Body.Raw), body)
+	return body, err
+}
+
+func (evt *Event) GetGlipPostEventBody() (*rc.GlipPostEvent, error) {
+	evtType, err := ParseEventTypeForFilter(evt.Event)
+	if err != nil {
+		return nil, fmt.Errorf("Cannot parse event: %v", evt.Event)
+	} else if evtType != GlipPostEvent {
+		return nil, fmt.Errorf("Incorrect event type: %v", evtType.String())
+	}
+	body := &rc.GlipPostEvent{}
+	err = json.Unmarshal([]byte(evt.Body.Raw), body)
 	return body, err
 }
 

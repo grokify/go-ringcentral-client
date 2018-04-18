@@ -1,12 +1,14 @@
 package clientutil
 
 import (
+	"fmt"
 	"strings"
 )
 
 const (
-	InstantMessageSMSExample = "/restapi/v1.0/account/~/extension/12345678/message-store/instant?type=SMS"
-	InstantMessageSMSPattern = `message-store/instant?type=SMS`
+	InstantMessageSMSExample   = "/restapi/v1.0/account/~/extension/12345678/message-store/instant?type=SMS"
+	InstantMessageSMSPattern   = `message-store/instant?type=SMS`
+	GlipPostEventFilterPattern = `/restapi/v1.0/glip/posts`
 )
 
 type EventType int
@@ -65,4 +67,11 @@ func IsInstantMessageSMS(s string) bool {
 		return false
 	}
 	return true
+}
+
+func ParseEventTypeForFilter(eventFilter string) (EventType, error) {
+	if strings.Index(eventFilter, GlipPostEventFilterPattern) > -1 {
+		return GlipPostEvent, nil
+	}
+	return GlipPostEvent, fmt.Errorf("No Event found for filter %v", eventFilter)
 }
