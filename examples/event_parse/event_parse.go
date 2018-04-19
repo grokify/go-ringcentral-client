@@ -3,10 +3,14 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"os"
+	"path/filepath"
 
 	"github.com/grokify/gotilla/fmt/fmtutil"
 
-	rcu "github.com/grokify/go-ringcentral/clientutil"
+	rc "github.com/grokify/go-ringcentral/client"
+	ru "github.com/grokify/go-ringcentral/clientutil"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -37,46 +41,63 @@ func main() {
 	}
 	fmtutil.PrintJSON(body)
 
-	if 1 == 0 {
-		msg, err := rcu.GetFileBytesForEventType("instant_message_sms")
+	if 1 == 1 {
+		msg, err := ru.GetFileBytesForEventType("instant_message_sms")
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Println(string(msg))
 
-		evt, err := rcu.EventParseBytes(msg)
+		evt, err := ru.EventParseBytes(msg)
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmtutil.PrintJSON(evt)
-		if evt.IsEventType(rcu.InstantMessageEvent) {
+
+		if evt.IsEventType(ru.InstantMessageEvent) {
 			body, err := evt.GetInstantMessageBody()
 			if err != nil {
 				log.Fatal(err)
 			}
 			fmtutil.PrintJSON(body)
+		} else {
+			log.Fatal("is not InstantMessageEvent")
 		}
 	}
 
-	if 1 == 1 {
-		msg, err := rcu.GetFileBytesForEventType("glip_post")
+	if 1 == 0 {
+		msg, err := ru.GetFileBytesForEventType("glip_post")
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Println(string(msg))
+		//fmt.Println(string(msg))
 
-		evt, err := rcu.EventParseBytes(msg)
+		evt, err := ru.EventParseBytes(msg)
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmtutil.PrintJSON(evt)
-		if evt.IsEventType(rcu.GlipPostEvent) {
+		//fmtutil.PrintJSON(evt)
+		if evt.IsEventType(ru.GlipPostEvent) {
 			body, err := evt.GetGlipPostEventBody()
 			if err != nil {
 				log.Fatal(err)
 			}
 			fmtutil.PrintJSON(body)
 		}
+	}
+	if 1 == 1 {
+		file := filepath.Join(
+			os.Getenv("GOPATH"),
+			"/src/github.com/grokify/go-ringcentral/clientutil/example_api-response_list-messages.json")
+		resp, err := ioutil.ReadFile(file)
+		if err != nil {
+			log.Fatal(err)
+		}
+		//fmt.Println(string(resp))
+		info := &rc.GetMessageList{}
+		err = json.Unmarshal(resp, info)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmtutil.PrintJSON(info)
 	}
 
 	fmt.Println("DONE")

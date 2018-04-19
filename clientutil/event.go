@@ -42,6 +42,9 @@ func (evt *Event) IsEventType(eventType EventType) bool {
 		return false
 	}
 	if eventType == parsedEvtType {
+		fmt.Println(evt.Event)
+		fmt.Println(parsedEvtType.String())
+		//panic("AA")
 		return true
 	}
 	return false
@@ -64,11 +67,14 @@ func EventParseBytes(data []byte) (*Event, error) {
 }
 
 func (evt *Event) GetInstantMessageBody() (*rc.InstantMessageEvent, error) {
-	if !IsInstantMessageSMS(evt.Event) {
-		return nil, fmt.Errorf("Event filter is not Instant SMS %v", evt.Event)
+	evtType, err := ParseEventTypeForFilter(evt.Event)
+	if err != nil {
+		return nil, fmt.Errorf("Cannot parse event: %v", evt.Event)
+	} else if evtType != InstantMessageEvent {
+		return nil, fmt.Errorf("Incorrect event type: %v", evtType.String())
 	}
 	body := &rc.InstantMessageEvent{}
-	err := json.Unmarshal([]byte(evt.Body.Raw), body)
+	err = json.Unmarshal([]byte(evt.Body.Raw), body)
 	return body, err
 }
 

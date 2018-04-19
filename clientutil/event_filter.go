@@ -8,7 +8,8 @@ import (
 
 const (
 	InstantMessageSMSExample   = "/restapi/v1.0/account/~/extension/12345678/message-store/instant?type=SMS"
-	InstantMessageSMSPattern   = `message-store/instant?type=SMS`
+	InstantMessageSMSPattern   = `message-store/instant.+type=SMS`
+	InstantMessageSMSPatternX  = `message-store/instant`
 	GlipPostEventFilterPattern = `/restapi/v1.0/glip/posts`
 	SubscriptionRenewalFilter  = `/restapi/v1.0/subscription/.+\?threshold=`
 )
@@ -66,13 +67,14 @@ var Events = []string{
 
 func (d EventType) String() string { return Events[d] }
 
+/*
 func IsInstantMessageSMS(s string) bool {
 	if strings.Index(s, InstantMessageSMSPattern) == -1 {
 		return false
 	}
 	return true
 }
-
+*/
 func ParseEventTypeForFilter(eventFilter string) (EventType, error) {
 	if strings.Index(eventFilter, GlipPostEventFilterPattern) > -1 {
 		return GlipPostEvent, nil
@@ -82,5 +84,13 @@ func ParseEventTypeForFilter(eventFilter string) (EventType, error) {
 	if len(m) > 0 {
 		return SubscriptionRenewalEvent, nil
 	}
+	fmt.Printf("EVT_FILTER: %v\n", eventFilter)
+	m2 := regexp.MustCompile(InstantMessageSMSPattern).FindString(eventFilter)
+	if len(m2) > 0 {
+		fmt.Println("HERE")
+		return InstantMessageEvent, nil
+	}
+	fmt.Println("NODICE")
+
 	return GlipPostEvent, fmt.Errorf("No Event found for filter %v", eventFilter)
 }
