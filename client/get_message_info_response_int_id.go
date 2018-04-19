@@ -13,10 +13,10 @@ import (
 	"time"
 )
 
-type GetMessageInfoResponse struct {
+type GetMessageInfoResponseIntId struct {
 
 	// Internal identifier of a message
-	Id string `json:"id,omitempty"`
+	Id int64 `json:"id,omitempty"`
 
 	// Canonical URI of a message
 	Uri string `json:"uri,omitempty"`
@@ -28,7 +28,7 @@ type GetMessageInfoResponse struct {
 	Availability string `json:"availability,omitempty"`
 
 	// SMS and Pager only. Identifier of the conversation the message belongs to
-	ConversationId int32 `json:"conversationId,omitempty"`
+	ConversationId int64 `json:"conversationId,omitempty"`
 
 	// Message creation datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z
 	CreationTime time.Time `json:"creationTime,omitempty"`

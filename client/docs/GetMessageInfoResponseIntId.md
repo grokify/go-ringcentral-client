@@ -1,13 +1,13 @@
-# GetMessageInfoResponse
+# GetMessageInfoResponseIntId
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Internal identifier of a message | [optional] [default to null]
+**Id** | **int64** | Internal identifier of a message | [optional] [default to null]
 **Uri** | **string** | Canonical URI of a message | [optional] [default to null]
 **Attachments** | [**[]MessageAttachmentInfoIntId**](MessageAttachmentInfoIntId.md) | The list of message attachments | [optional] [default to null]
 **Availability** | **string** | Message availability status. Message in &#39;Deleted&#39; state is still preserved with all its attachments and can be restored. &#39;Purged&#39; means that all attachments are already deleted and the message itself is about to be physically deleted shortly | [optional] [default to null]
-**ConversationId** | **int32** | SMS and Pager only. Identifier of the conversation the message belongs to | [optional] [default to null]
+**ConversationId** | **int64** | SMS and Pager only. Identifier of the conversation the message belongs to | [optional] [default to null]
 **CreationTime** | [**time.Time**](time.Time.md) | Message creation datetime in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z | [optional] [default to null]
 **DeliveryErrorCode** | **string** | SMS only. Delivery error code returned by gateway | [optional] [default to null]
 **Direction** | **string** | Message direction. Note that for some message types not all directions are allowed. For example voicemail messages can be only inbound | [optional] [default to null]

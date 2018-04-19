@@ -10627,28 +10627,28 @@ definitions:
       faxResolution: "High"
       attachments:
       - filename: "filename"
-        size: 5
-        vmDuration: 1
-        id: 6
+        size: 1
+        vmDuration: 6
+        id: 0
         type: "AudioRecording"
         uri: "uri"
         contentType: "contentType"
       - filename: "filename"
-        size: 5
-        vmDuration: 1
-        id: 6
+        size: 1
+        vmDuration: 6
+        id: 0
         type: "AudioRecording"
         uri: "uri"
         contentType: "contentType"
       lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
       creationTime: "2000-01-23T04:56:07.000+00:00"
-      coverIndex: 2
+      coverIndex: 1
       availability: "Alive"
       type: "type"
       priority: "Normal"
       uri: "uri"
       messageStatus: "Queued"
-      faxPageCount: 5
+      faxPageCount: 6
       coverPageText: "coverPageText"
       from:
         phoneNumber: "phoneNumber"
@@ -22173,7 +22173,7 @@ definitions:
         type: "array"
         description: "List of records with message information"
         items:
-          $ref: "#/definitions/GetMessageInfoResponse"
+          $ref: "#/definitions/GetMessageInfoResponseIntId"
       navigation:
         description: "Information on navigation"
         $ref: "#/definitions/NavigationInfo"
@@ -22195,22 +22195,22 @@ definitions:
         faxResolution: "High"
         attachments:
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
         creationTime: "2000-01-23T04:56:07.000+00:00"
-        conversationId: 1
+        conversationId: 6
         deliveryErrorCode: "deliveryErrorCode"
         subject: "subject"
         vmTranscriptionStatus: "NotAvailable"
@@ -22219,7 +22219,7 @@ definitions:
         type: "Fax"
         uri: "uri"
         messageStatus: "Queued"
-        faxPageCount: 5
+        faxPageCount: 1
         smsSendingAttemptsCount: 5
         smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
         pgToDepartment: true
@@ -22230,7 +22230,7 @@ definitions:
           extensionNumber: "extensionNumber"
           name: "name"
           location: "location"
-        id: "id"
+        id: 0
         to:
         - messageStatus: "Queued"
           faxErrorCode: "Undefined"
@@ -22249,22 +22249,22 @@ definitions:
         faxResolution: "High"
         attachments:
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
         creationTime: "2000-01-23T04:56:07.000+00:00"
-        conversationId: 1
+        conversationId: 6
         deliveryErrorCode: "deliveryErrorCode"
         subject: "subject"
         vmTranscriptionStatus: "NotAvailable"
@@ -22273,7 +22273,7 @@ definitions:
         type: "Fax"
         uri: "uri"
         messageStatus: "Queued"
-        faxPageCount: 5
+        faxPageCount: 1
         smsSendingAttemptsCount: 5
         smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
         pgToDepartment: true
@@ -22284,7 +22284,7 @@ definitions:
           extensionNumber: "extensionNumber"
           name: "name"
           location: "location"
-        id: "id"
+        id: 0
         to:
         - messageStatus: "Queued"
           faxErrorCode: "Undefined"
@@ -22319,7 +22319,7 @@ definitions:
         type: "array"
         description: "The list of message attachments"
         items:
-          $ref: "#/definitions/MessageAttachmentInfo"
+          $ref: "#/definitions/MessageAttachmentInfoIntId"
       availability:
         type: "string"
         description: "Message availability status. Message in 'Deleted' state is still\
@@ -22443,22 +22443,22 @@ definitions:
       faxResolution: "High"
       attachments:
       - filename: "filename"
-        size: 6
-        vmDuration: 0
-        id: "id"
+        size: 1
+        vmDuration: 6
+        id: 0
         type: "AudioRecording"
         uri: "uri"
         contentType: "contentType"
       - filename: "filename"
-        size: 6
-        vmDuration: 0
-        id: "id"
+        size: 1
+        vmDuration: 6
+        id: 0
         type: "AudioRecording"
         uri: "uri"
         contentType: "contentType"
       lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
       creationTime: "2000-01-23T04:56:07.000+00:00"
-      conversationId: 1
+      conversationId: 5
       deliveryErrorCode: "deliveryErrorCode"
       subject: "subject"
       vmTranscriptionStatus: "NotAvailable"
@@ -22468,7 +22468,7 @@ definitions:
       uri: "uri"
       messageStatus: "Queued"
       faxPageCount: 5
-      smsSendingAttemptsCount: 5
+      smsSendingAttemptsCount: 2
       smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
       pgToDepartment: true
       from:
@@ -22479,6 +22479,195 @@ definitions:
         name: "name"
         location: "location"
       id: "id"
+      to:
+      - messageStatus: "Queued"
+        faxErrorCode: "Undefined"
+        phoneNumber: "phoneNumber"
+        extensionNumber: "extensionNumber"
+        name: "name"
+        location: "location"
+      - messageStatus: "Queued"
+        faxErrorCode: "Undefined"
+        phoneNumber: "phoneNumber"
+        extensionNumber: "extensionNumber"
+        name: "name"
+        location: "location"
+      direction: "Inbound"
+  GetMessageInfoResponseIntId:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+        description: "Internal identifier of a message"
+      uri:
+        type: "string"
+        description: "Canonical URI of a message"
+      attachments:
+        type: "array"
+        description: "The list of message attachments"
+        items:
+          $ref: "#/definitions/MessageAttachmentInfoIntId"
+      availability:
+        type: "string"
+        description: "Message availability status. Message in 'Deleted' state is still\
+          \ preserved with all its attachments and can be restored. 'Purged' means\
+          \ that all attachments are already deleted and the message itself is about\
+          \ to be physically deleted shortly"
+        enum:
+        - "Alive"
+        - "Deleted"
+        - "Purged"
+      conversationId:
+        type: "integer"
+        format: "int64"
+        description: "SMS and Pager only. Identifier of the conversation the message\
+          \ belongs to"
+      creationTime:
+        type: "string"
+        format: "date-time"
+        description: "Message creation datetime in ISO 8601 format including timezone,\
+          \ for example 2016-03-10T18:07:52.534Z"
+      deliveryErrorCode:
+        type: "string"
+        description: "SMS only. Delivery error code returned by gateway"
+      direction:
+        type: "string"
+        description: "Message direction. Note that for some message types not all\
+          \ directions are allowed. For example voicemail messages can be only inbound"
+        enum:
+        - "Inbound"
+        - "Outbound"
+      faxPageCount:
+        type: "integer"
+        description: "Fax only. Page count in fax message"
+      faxResolution:
+        type: "string"
+        description: "Fax only. Resolution of fax message. ('High' for black and white\
+          \ image scanned at 200 dpi, 'Low' for black and white image scanned at 100\
+          \ dpi)"
+        enum:
+        - "High"
+        - "Low"
+      from:
+        description: "Sender information"
+        $ref: "#/definitions/MessageStoreCallerInfoResponse"
+      lastModifiedTime:
+        type: "string"
+        format: "date-time"
+        description: "The datetime when the message was modified on server in ISO\
+          \ 8601 format including timezone, for example 2016-03-10T18:07:52.534Z"
+      messageStatus:
+        type: "string"
+        description: "Message status. Different message types may have different allowed\
+          \ status values.For outbound faxes the aggregated message status is returned:\
+          \ If status for at least one recipient is 'Queued', then 'Queued' value\
+          \ is returned If status for at least one recipient is 'SendingFailed', then\
+          \ 'SendingFailed' value is returned In other cases Sent status is returned"
+        enum:
+        - "Queued"
+        - "Sent"
+        - "Delivered"
+        - "DeliveryFailed"
+        - "SendingFailed"
+        - "Received"
+      pgToDepartment:
+        type: "boolean"
+        description: "Pager only True if at least one of the message recipients is\
+          \ Department extension"
+      priority:
+        type: "string"
+        description: "Message priority"
+        enum:
+        - "Normal"
+        - "High"
+      readStatus:
+        type: "string"
+        description: "Message read status"
+        enum:
+        - "Read"
+        - "Unread"
+      smsDeliveryTime:
+        type: "string"
+        format: "date-time"
+        description: "SMS only. The datetime when outbound SMS was delivered to recipient's\
+          \ handset in ISO 8601 format including timezone, for example 2016-03-10T18:07:52.534Z.\
+          \ It is filled only if the carrier sends a delivery receipt to RingCentral"
+      smsSendingAttemptsCount:
+        type: "integer"
+        description: "SMS only. Number of attempts made to send an outbound SMS to\
+          \ the gateway (if gateway is temporary unavailable)"
+      subject:
+        type: "string"
+        description: "Message subject. For SMS and Pager messages it replicates message\
+          \ text which is also returned as an attachment"
+      to:
+        type: "array"
+        description: "Recipient information"
+        items:
+          $ref: "#/definitions/MessageStoreCallerInfoResponse"
+      type:
+        type: "string"
+        description: "Message type"
+        enum:
+        - "Fax"
+        - "SMS"
+        - "VoiceMail"
+        - "Pager"
+        - "Text"
+      vmTranscriptionStatus:
+        type: "string"
+        description: "Voicemail only. Status of voicemail to text transcription. If\
+          \ VoicemailToText feature is not activated for account, the 'NotAvailable'\
+          \ value is returned"
+        enum:
+        - "NotAvailable"
+        - "InProgress"
+        - "TimedOut"
+        - "Completed"
+        - "CompletedPartially"
+        - "Failed"
+    example:
+      readStatus: "Read"
+      faxResolution: "High"
+      attachments:
+      - filename: "filename"
+        size: 1
+        vmDuration: 6
+        id: 0
+        type: "AudioRecording"
+        uri: "uri"
+        contentType: "contentType"
+      - filename: "filename"
+        size: 1
+        vmDuration: 6
+        id: 0
+        type: "AudioRecording"
+        uri: "uri"
+        contentType: "contentType"
+      lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
+      creationTime: "2000-01-23T04:56:07.000+00:00"
+      conversationId: 6
+      deliveryErrorCode: "deliveryErrorCode"
+      subject: "subject"
+      vmTranscriptionStatus: "NotAvailable"
+      availability: "Alive"
+      priority: "Normal"
+      type: "Fax"
+      uri: "uri"
+      messageStatus: "Queued"
+      faxPageCount: 1
+      smsSendingAttemptsCount: 5
+      smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
+      pgToDepartment: true
+      from:
+        messageStatus: "Queued"
+        faxErrorCode: "Undefined"
+        phoneNumber: "phoneNumber"
+        extensionNumber: "extensionNumber"
+        name: "name"
+        location: "location"
+      id: 0
       to:
       - messageStatus: "Queued"
         faxErrorCode: "Undefined"
@@ -22524,14 +22713,6 @@ definitions:
       size:
         type: "integer"
         description: "Size of attachment in bytes"
-    example:
-      filename: "filename"
-      size: 6
-      vmDuration: 0
-      id: "id"
-      type: "AudioRecording"
-      uri: "uri"
-      contentType: "contentType"
   MessageAttachmentInfoIntId:
     type: "object"
     properties:
@@ -22566,9 +22747,9 @@ definitions:
         description: "Size of attachment in bytes"
     example:
       filename: "filename"
-      size: 5
-      vmDuration: 1
-      id: 6
+      size: 1
+      vmDuration: 6
+      id: 0
       type: "AudioRecording"
       uri: "uri"
       contentType: "contentType"
@@ -22665,22 +22846,22 @@ definitions:
         faxResolution: "High"
         attachments:
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
         creationTime: "2000-01-23T04:56:07.000+00:00"
-        conversationId: 1
+        conversationId: 5
         deliveryErrorCode: "deliveryErrorCode"
         subject: "subject"
         vmTranscriptionStatus: "NotAvailable"
@@ -22690,7 +22871,7 @@ definitions:
         uri: "uri"
         messageStatus: "Queued"
         faxPageCount: 5
-        smsSendingAttemptsCount: 5
+        smsSendingAttemptsCount: 2
         smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
         pgToDepartment: true
         from:
@@ -22719,22 +22900,22 @@ definitions:
         faxResolution: "High"
         attachments:
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         - filename: "filename"
-          size: 6
-          vmDuration: 0
-          id: "id"
+          size: 1
+          vmDuration: 6
+          id: 0
           type: "AudioRecording"
           uri: "uri"
           contentType: "contentType"
         lastModifiedTime: "2000-01-23T04:56:07.000+00:00"
         creationTime: "2000-01-23T04:56:07.000+00:00"
-        conversationId: 1
+        conversationId: 5
         deliveryErrorCode: "deliveryErrorCode"
         subject: "subject"
         vmTranscriptionStatus: "NotAvailable"
@@ -22744,7 +22925,7 @@ definitions:
         uri: "uri"
         messageStatus: "Queued"
         faxPageCount: 5
-        smsSendingAttemptsCount: 5
+        smsSendingAttemptsCount: 2
         smsDeliveryTime: "2000-01-23T04:56:07.000+00:00"
         pgToDepartment: true
         from:

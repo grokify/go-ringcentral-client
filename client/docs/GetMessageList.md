@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Records** | [**[]GetMessageInfoResponse**](GetMessageInfoResponse.md) | List of records with message information | [default to null]
+**Records** | [**[]GetMessageInfoResponseIntId**](GetMessageInfoResponseIntId.md) | List of records with message information | [default to null]
 **Navigation** | [***NavigationInfo**](NavigationInfo.md) | Information on navigation | [default to null]
 **Paging** | [***PagingInfo**](PagingInfo.md) | Information on paging | [default to null]
 

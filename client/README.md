@@ -550,6 +550,7 @@ Class | Method | HTTP request | Description
  - [GetExtensionPhoneNumbersResponse](docs/GetExtensionPhoneNumbersResponse.md)
  - [GetLocationListResponse](docs/GetLocationListResponse.md)
  - [GetMessageInfoResponse](docs/GetMessageInfoResponse.md)
+ - [GetMessageInfoResponseIntId](docs/GetMessageInfoResponseIntId.md)
  - [GetMessageList](docs/GetMessageList.md)
  - [GetMessageSyncResponse](docs/GetMessageSyncResponse.md)
  - [GetMonitoredExtensionsResponse](docs/GetMonitoredExtensionsResponse.md)

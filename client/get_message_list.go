@@ -12,7 +12,7 @@ package ringcentral
 type GetMessageList struct {
 
 	// List of records with message information
-	Records []GetMessageInfoResponse `json:"records"`
+	Records []GetMessageInfoResponseIntId `json:"records"`
 
 	// Information on navigation
 	Navigation *NavigationInfo `json:"navigation"`
