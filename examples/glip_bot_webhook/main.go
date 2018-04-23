@@ -37,8 +37,7 @@ func main() {
 		EventFilters: []string{"/restapi/v1.0/glip/posts"},
 		DeliveryMode: &rc.NotificationDeliveryModeRequest{
 			TransportType: "WebHook",
-			Address:       os.Getenv("RINGCENTRAL_WEBHOOK_URL"),
-		},
+			Address:       os.Getenv("RINGCENTRAL_WEBHOOK_URL")},
 		ExpiresIn: int32(500000000)}
 
 	info, resp, err := apiClient.PushNotificationsApi.CreateSubscription(
