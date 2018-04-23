@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/caarlos0/env"
 	"github.com/grokify/gotilla/config"
 	"github.com/grokify/gotilla/fmt/fmtutil"
 	om "github.com/grokify/oauth2more"
@@ -14,6 +15,12 @@ import (
 	ru "github.com/grokify/go-ringcentral/clientutil"
 )
 
+type RingCentralConfig struct {
+	TokenJSON  string `env:"RINGCENTRAL_TOKEN_JSON"`
+	ServerURL  string `env:"RINGCENTRAL_SERVER_URL"`
+	WebhookURL string `env:"RINGCENTRAL_WEBHOOK_URL"`
+}
+
 // This code takes a bot token and creates a permanent webhook.
 func main() {
 	err := config.LoadDotEnvSkipEmpty(os.Getenv("ENV_PATH"), "./.env")
@@ -21,14 +28,20 @@ func main() {
 		log.Fatal(err)
 	}
 
+	appCfg := RingCentralConfig{}
+	err = env.Parse(&appCfg)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	httpClient, err := om.NewClientTokenJSON(
-		context.Background(), []byte(os.Getenv("RINGCENTRAL_TOKEN_JSON")))
+		context.Background(), []byte(appCfg.TokenJSON))
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	apiClient, err := ru.NewApiClientHttpClientBaseURL(
-		httpClient, os.Getenv("RINGCENTRAL_SERVER_URL"))
+		httpClient, appCfg.ServerURL)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -37,7 +50,7 @@ func main() {
 		EventFilters: []string{"/restapi/v1.0/glip/posts"},
 		DeliveryMode: &rc.NotificationDeliveryModeRequest{
 			TransportType: "WebHook",
-			Address:       os.Getenv("RINGCENTRAL_WEBHOOK_URL")},
+			Address:       appCfg.WebhookURL},
 		ExpiresIn: int32(500000000)}
 
 	info, resp, err := apiClient.PushNotificationsApi.CreateSubscription(
