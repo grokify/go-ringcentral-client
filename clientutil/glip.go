@@ -3,6 +3,7 @@ package clientutil
 import (
 	"context"
 	"fmt"
+	"regexp"
 	"strings"
 
 	rc "github.com/grokify/go-ringcentral/client"
@@ -56,4 +57,11 @@ func GlipCreatePostIsEmpty(post rc.GlipCreatePost) bool {
 		return false
 	}
 	return true
+}
+
+func StripAtMention(id, text string) string {
+	rx := regexp.MustCompile(fmt.Sprintf("!\\[:Person\\]\\(%v\\)", id))
+	noAtMention := rx.ReplaceAllString(text, " ")
+	noAtMention = regexp.MustCompile(`\\s+`).ReplaceAllString(noAtMention, " ")
+	return strings.TrimSpace(noAtMention)
 }
