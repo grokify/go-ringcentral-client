@@ -155,7 +155,8 @@ func main() {
 
 		if len(opts.Recreate) > 0 {
 			for _, subscription := range info.Records {
-				if subscription.Id == opts.Recreate {
+				if opts.Recreate == subscription.Id ||
+					opts.Recreate == subscription.DeliveryMode.Address {
 					err := ReplaceSubscription(apiClient, subscription)
 					if err != nil {
 						log.Fatal(err)
