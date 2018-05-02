@@ -13,6 +13,10 @@ type GlipApiUtil struct {
 	ApiClient *rc.APIClient
 }
 
+func AtMention(personId string) string {
+	return fmt.Sprintf("![:Person](%v)", personId)
+}
+
 func (apiUtil *GlipApiUtil) GlipGroupMemberCount(groupId string) (int64, error) {
 	if apiUtil.ApiClient == nil {
 		return int64(-1), fmt.Errorf("GlipApiUtil is missing RingCentral ApiClient")
