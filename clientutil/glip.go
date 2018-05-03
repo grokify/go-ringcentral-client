@@ -9,6 +9,8 @@ import (
 	rc "github.com/grokify/go-ringcentral/client"
 )
 
+var rxMultiSpace = regexp.MustCompile(`\\s+`)
+
 type GlipApiUtil struct {
 	ApiClient *rc.APIClient
 }
@@ -29,6 +31,40 @@ func (apiUtil *GlipApiUtil) GlipGroupMemberCount(groupId string) (int64, error) 
 		return int64(-1), fmt.Errorf("Glip API Response Code [%v]", resp.StatusCode)
 	}
 	return int64(len(grp.Members)), nil
+}
+
+type GlipInfoAtMentionOrGroupOfTwoInfo struct {
+	PersonId       string
+	AtMentions     []rc.GlipMentionsInfo
+	PersonName     string
+	FuzzyAtMention bool
+	TextRaw        string
+	GroupId        string
+}
+
+func (apiUtil *GlipApiUtil) AtMentionedOrGroupOfTwoFuzzy(info GlipInfoAtMentionOrGroupOfTwoInfo) (bool, error) {
+	if IsAtMentioned(info.PersonId, info.AtMentions) ||
+		IsAtMentionedFuzzy(info.PersonName, info.TextRaw) {
+		return true, nil
+	}
+	count, err := apiUtil.GlipGroupMemberCount(info.GroupId)
+	if err != nil || count != int64(2) {
+		return false, err
+	}
+	return true, nil
+}
+
+func IsAtMentionedFuzzy(personName, textRaw string) bool {
+	personName = strings.ToLower(strings.TrimSpace(personName))
+	rx, err := regexp.Compile(`(\A|\W)@` + personName + `\b`)
+	if err != nil {
+		return false
+	}
+	str := rx.FindString(strings.ToLower(textRaw))
+	if len(str) > 0 {
+		return true
+	}
+	return false
 }
 
 // DirectMessage means a group of 2 or a team of 2
@@ -63,9 +99,22 @@ func GlipCreatePostIsEmpty(post rc.GlipCreatePost) bool {
 	return true
 }
 
+func StripAtMentionAll(id, personName, text string) string {
+	noAtMention := StripAtMention(id, text)
+	return StripAtMentionFuzzy(personName, noAtMention)
+}
+
 func StripAtMention(id, text string) string {
 	rx := regexp.MustCompile(fmt.Sprintf("!\\[:Person\\]\\(%v\\)", id))
 	noAtMention := rx.ReplaceAllString(text, " ")
-	noAtMention = regexp.MustCompile(`\\s+`).ReplaceAllString(noAtMention, " ")
-	return strings.TrimSpace(noAtMention)
+	return strings.TrimSpace(rxMultiSpace.ReplaceAllString(noAtMention, " "))
+}
+
+func StripAtMentionFuzzy(personName, text string) string {
+	rx, err := regexp.Compile(`(?i)(\A|\W)@` + personName + `\b`)
+	if err != nil {
+		return text
+	}
+	noAtMention := rx.ReplaceAllString(text, " ")
+	return strings.TrimSpace(rxMultiSpace.ReplaceAllString(noAtMention, " "))
 }
