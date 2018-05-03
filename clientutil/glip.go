@@ -67,6 +67,22 @@ func IsAtMentionedFuzzy(personName, textRaw string) bool {
 	return false
 }
 
+func IsAtMentionedGlipdown(personId, textRaw string) bool {
+	personIdMarkdownLc := strings.ToLower(AtMention(personId))
+	if strings.Index(strings.ToLower(textRaw), personIdMarkdownLc) == -1 {
+		return false
+	}
+	return true
+}
+
+func PrefixAtMentionUnlessMentioned(personId, text string) string {
+	personId = strings.TrimSpace(personId)
+	if len(personId) > 0 && !IsAtMentionedGlipdown(personId, text) {
+		return AtMention(atMentionId) + " " + text
+	}
+	return text
+}
+
 // DirectMessage means a group of 2 or a team of 2
 func (apiUtil *GlipApiUtil) AtMentionedOrGroupOfTwo(userId, groupId string, mentions []rc.GlipMentionsInfo) (bool, error) {
 	if IsAtMentioned(userId, mentions) {
