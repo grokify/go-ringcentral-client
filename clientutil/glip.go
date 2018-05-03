@@ -78,7 +78,7 @@ func IsAtMentionedGlipdown(personId, textRaw string) bool {
 func PrefixAtMentionUnlessMentioned(personId, text string) string {
 	personId = strings.TrimSpace(personId)
 	if len(personId) > 0 && !IsAtMentionedGlipdown(personId, text) {
-		return AtMention(atMentionId) + " " + text
+		return AtMention(personId) + " " + text
 	}
 	return text
 }
