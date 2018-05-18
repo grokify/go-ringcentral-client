@@ -22110,15 +22110,19 @@ definitions:
         nextPage:
           uri: "uri"
       records:
-      - features: "CallFlip"
+      - features:
+        - "CallFlip"
+        - "CallFlip"
         phoneNumber: "phoneNumber"
-        flipNumber: 0
+        flipNumber: "flipNumber"
         id: "id"
         label: "label"
         uri: "uri"
-      - features: "CallFlip"
+      - features:
+        - "CallFlip"
+        - "CallFlip"
         phoneNumber: "phoneNumber"
-        flipNumber: 0
+        flipNumber: "flipNumber"
         id: "id"
         label: "label"
         uri: "uri"
@@ -22145,20 +22149,24 @@ definitions:
         type: "string"
         description: "Forwarding/Call flip number title"
       features:
-        type: "string"
+        type: "array"
         description: "Type of option this phone number is used for. Multiple values\
           \ are accepted"
-        enum:
-        - "CallFlip"
-        - "CallForwarding"
+        items:
+          type: "string"
+          enum:
+          - "CallFlip"
+          - "CallForwarding"
       flipNumber:
-        type: "integer"
+        type: "string"
         description: "Number assigned to the call flip phone number, corresponds to\
           \ the shortcut dial number"
     example:
-      features: "CallFlip"
+      features:
+      - "CallFlip"
+      - "CallFlip"
       phoneNumber: "phoneNumber"
-      flipNumber: 0
+      flipNumber: "flipNumber"
       id: "id"
       label: "label"
       uri: "uri"

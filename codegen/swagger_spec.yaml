@@ -13806,13 +13806,15 @@
           type: "string"
           description: "Forwarding/Call flip number title"
         features:
-          type: "string"
+          type: "array"
           description: "Type of option this phone number is used for. Multiple values are accepted"
-          enum:
-            - "CallFlip"
-            - "CallForwarding"
+          items:
+            type: "string"
+            enum:
+              - "CallFlip"
+              - "CallForwarding"
         flipNumber:
-          type: "integer"
+          type: "string"
           description: "Number assigned to the call flip phone number, corresponds to the shortcut dial number"
     GetMessageList:
       type: "object"

@@ -24,8 +24,8 @@ type ForwardingNumberInfo struct {
 	Label string `json:"label,omitempty"`
 
 	// Type of option this phone number is used for. Multiple values are accepted
-	Features string `json:"features,omitempty"`
+	Features []string `json:"features,omitempty"`
 
 	// Number assigned to the call flip phone number, corresponds to the shortcut dial number
-	FlipNumber int32 `json:"flipNumber,omitempty"`
+	FlipNumber string `json:"flipNumber,omitempty"`
 }
