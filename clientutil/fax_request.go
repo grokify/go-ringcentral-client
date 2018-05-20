@@ -99,10 +99,10 @@ func (fax *FaxRequest) Post(httpClient *http.Client, url string) (*http.Response
 	}
 
 	req, err := http.NewRequest(http.MethodPost, url, ioutil.NopCloser(builder.Buffer))
-	req.Header.Set(hum.HeaderContentType, builder.ContentType())
 	if err != nil {
 		return nil, err
 	}
+	req.Header.Set(hum.HeaderContentType, builder.ContentType())
 	return httpClient.Do(req)
 }
 
