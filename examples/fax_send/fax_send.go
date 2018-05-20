@@ -2,78 +2,134 @@ package main
 
 import (
 	"context"
-	"flag"
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 
+	"github.com/caarlos0/env"
 	"github.com/grokify/gotilla/config"
 	"github.com/grokify/gotilla/fmt/fmtutil"
+	hum "github.com/grokify/gotilla/net/httputilmore"
+	"github.com/jessevdk/go-flags"
 
 	ru "github.com/grokify/go-ringcentral/clientutil"
 	ro "github.com/grokify/oauth2more/ringcentral"
 )
 
-// example: $ go run fax_send.go -to=+16505550100 -file=$GOPATH/src/github.com/grokify/go-ringcentral/examples/fax_send/test_file.pdf
-func main() {
-	var toPhoneNumber = flag.String("to", "", "Recipient fax number")
-	var filename = flag.String("file", "", "Path to file, leave blank for empty")
-	var coverPageText = flag.String("coverPageText", "Hello World!", "Cover page text")
-	flag.Parse()
+type CliOptions struct {
+	EnvFile       string   `short:"e" long:"env" description:"Env filepath"`
+	To            []string `short:"t" long:"to" description:"Recipients"`
+	Files         []string `short:"f" long:"file" description:"Files to send"`
+	CoverPageText string   `short:"c" long:"coverpagetext" description:"Cover Page Text"`
+}
 
-	if len(*toPhoneNumber) == 0 {
-		fmt.Println("Usage: fax_send.go -to=+16505550100 -file=/path/to/file [-coverPageText='Hello World!']\nexiting...")
-		return
-	}
-	if len(*filename) == 0 {
-		fmt.Println("Usage: fax_send.go -to=+16505550100 -file=/path/to/file [-coverPageText='Hello World!']\nexiting...")
-		return
-	}
+type RingCentralConfig struct {
+	ServerURL    string `env:"RINGCENTRAL_SERVER_URL"`
+	ClientID     string `env:"RINGCENTRAL_CLIENT_ID"`
+	ClientSecret string `env:"RINGCENTRAL_CLIENT_SECRET"`
+	Username     string `env:"RINGCENTRAL_USERNAME"`
+	Extension    string `env:"RINGCENTRAL_EXTENSION"`
+	Password     string `env:"RINGCENTRAL_PASSWORD"`
+}
 
-	err := config.LoadDotEnvSkipEmpty(os.Getenv("ENV_PATH"), "./.env")
-	if err != nil {
-		log.Fatal(err)
-	}
+func NewRingCentralConfigEnv() (*RingCentralConfig, error) {
+	appCfg := &RingCentralConfig{}
+	return appCfg, env.Parse(appCfg)
+}
 
-	apiClient, err := ru.NewApiClientPassword(
-		ro.ApplicationCredentials{
-			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
-			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
-			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET")},
-		ro.PasswordCredentials{
-			Username:  os.Getenv("RINGCENTRAL_USERNAME"),
-			Extension: os.Getenv("RINGCENTRAL_EXTENSION"),
-			Password:  os.Getenv("RINGCENTRAL_PASSWORD")})
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(filename)
+func (cfg *RingCentralConfig) ApplicationCredentials() ro.ApplicationCredentials {
+	return ro.ApplicationCredentials{
+		ServerURL:    cfg.ServerURL,
+		ClientID:     cfg.ClientID,
+		ClientSecret: cfg.ClientSecret}
+}
 
-	file, err := os.Open(*filename)
-	if err != nil {
-		log.Fatal(err)
-	}
+func (cfg *RingCentralConfig) PasswordCredentials() ro.PasswordCredentials {
+	return ro.PasswordCredentials{
+		Username:  cfg.Username,
+		Extension: cfg.Extension,
+		Password:  cfg.Password}
+}
 
-	params := map[string]interface{}{}
-	if len(*coverPageText) > 0 {
-		params["coverPageText"] = *coverPageText
+func sendFaxRaw(opts CliOptions, httpClient *http.Client) {
+	fax := ru.FaxRequest{
+		To:            opts.To,
+		CoverPageText: opts.CoverPageText,
+		Resolution:    "High",
+		FilePaths:     opts.Files,
 	}
 
-	info, resp, err := apiClient.MessagesApi.SendFaxMessage(
-		context.Background(),
-		"~",
-		"~",
-		file,
-		"High",
-		[]string{*toPhoneNumber},
-		params,
-	)
+	url := "https://platform.devtest.ringcentral.com/restapi/v1.0/account/~/extension/~/fax"
 
+	resp, err := fax.Post(httpClient, url)
 	if err != nil {
 		panic(err)
-	} else if resp.StatusCode > 299 {
-		panic(fmt.Errorf("API Status %v", resp.StatusCode))
 	}
-	fmtutil.PrintJSON(info)
+	err = hum.PrintResponse(resp, true)
+	if err != nil {
+		panic(err)
+	}
+}
+
+// example: $ go run fax_send.go -to=+16505550100 -file=$GOPATH/src/github.com/grokify/go-ringcentral/examples/fax_send/test_file.pdf
+func main() {
+	opts := CliOptions{}
+	_, err := flags.Parse(&opts)
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = config.LoadDotEnvFirst(opts.EnvFile, os.Getenv("ENV_PATH"), "./.env")
+	if err != nil {
+		log.Fatal(err)
+	}
+	rcCfg, err := NewRingCentralConfigEnv()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmtutil.PrintJSON(opts)
+	fmtutil.PrintJSON(rcCfg)
+
+	apiClient, err := ru.NewApiClientPassword(
+		rcCfg.ApplicationCredentials(),
+		rcCfg.PasswordCredentials())
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	httpClient := apiClient.HTTPClient()
+	sendFaxRaw(opts, httpClient)
+
+	if 1 == 0 {
+		fmt.Println(opts.Files[0])
+
+		file, err := os.Open(opts.Files[0])
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		params := map[string]interface{}{}
+		if len(opts.CoverPageText) > 0 {
+			params["coverPageText"] = opts.CoverPageText
+		}
+
+		info, resp, err := apiClient.MessagesApi.SendFaxMessage(
+			context.Background(),
+			"~",
+			"~",
+			file,
+			"High",
+			opts.To,
+			params,
+		)
+
+		if err != nil {
+			panic(err)
+		} else if resp.StatusCode > 299 {
+			panic(fmt.Errorf("API Status %v", resp.StatusCode))
+		}
+		fmtutil.PrintJSON(info)
+	}
 	fmt.Println("DONE")
 }
