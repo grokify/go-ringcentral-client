@@ -461,3 +461,5 @@ func CacheExpires(r *http.Response) time.Time {
 func strlen(s string) int {
 	return utf8.RuneCountInString(s)
 }
+
+func (apiClient *APIClient) HTTPClient() *http.Client { return apiClient.cfg.HTTPClient }
