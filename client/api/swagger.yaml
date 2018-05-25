@@ -26797,7 +26797,10 @@ definitions:
         type: "integer"
         format: "int64"
       deliveryMode:
+        description: "Delivery mode data"
         $ref: "#/definitions/DeliveryModeResource"
+      blacklistedData:
+        $ref: "#/definitions/NotificationBlacklistedData"
     example:
       expiresIn: 0
       eventFilters:
@@ -26817,9 +26820,27 @@ definitions:
         publisherKey: "publisherKey"
         encryptionAlgorithm: "encryptionAlgorithm"
       expirationTime: "2000-01-23T04:56:07.000+00:00"
+      blacklistedData:
+        blacklistedAt: "2000-01-23T04:56:07.000+00:00"
+        reason: "reason"
       id: "id"
       uri: "http://example.com/aeiou"
       status: "status"
+  NotificationBlacklistedData:
+    type: "object"
+    properties:
+      blacklistedAt:
+        type: "string"
+        format: "date-time"
+        description: "Time of adding subscrition to a black list in (ISO 8601)[https://en.wikipedia.org/wiki/ISO_8601]\
+          \ format including timezone, for example *2016-03-10T18:07:52.534Z*"
+      reason:
+        type: "string"
+        description: "Reason of adding subscrition to a black list"
+    description: "Returned if WebHook subscription is blacklisted"
+    example:
+      blacklistedAt: "2000-01-23T04:56:07.000+00:00"
+      reason: "reason"
   MeetingScheduleResource:
     type: "object"
     properties:
@@ -28924,6 +28945,9 @@ definitions:
           publisherKey: "publisherKey"
           encryptionAlgorithm: "encryptionAlgorithm"
         expirationTime: "2000-01-23T04:56:07.000+00:00"
+        blacklistedData:
+          blacklistedAt: "2000-01-23T04:56:07.000+00:00"
+          reason: "reason"
         id: "id"
         uri: "http://example.com/aeiou"
         status: "status"
@@ -28945,6 +28969,9 @@ definitions:
           publisherKey: "publisherKey"
           encryptionAlgorithm: "encryptionAlgorithm"
         expirationTime: "2000-01-23T04:56:07.000+00:00"
+        blacklistedData:
+          blacklistedAt: "2000-01-23T04:56:07.000+00:00"
+          reason: "reason"
         id: "id"
         uri: "http://example.com/aeiou"
         status: "status"

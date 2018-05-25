@@ -16491,7 +16491,21 @@
           type: "integer"
           format: "int64"
         deliveryMode:
+          description: "Delivery mode data"
           $ref: "#/definitions/DeliveryModeResource"
+        blacklistedData:
+          $ref: "#/definitions/NotificationBlacklistedData"
+    NotificationBlacklistedData:
+      description: "Returned if WebHook subscription is blacklisted"
+      type: "object"
+      properties:
+        blacklistedAt:
+          type: "string"
+          format: "date-time"
+          description: "Time of adding subscrition to a black list in (ISO 8601)[https://en.wikipedia.org/wiki/ISO_8601] format including timezone, for example *2016-03-10T18:07:52.534Z*"
+        reason:
+          type: "string"
+          description: "Reason of adding subscrition to a black list"
     MeetingScheduleResource:
       type: "object"
       properties:

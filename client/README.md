@@ -677,6 +677,7 @@ Class | Method | HTTP request | Description
  - [NavigationInfo](docs/NavigationInfo.md)
  - [NavigationInfoUri](docs/NavigationInfoUri.md)
  - [NewCookie](docs/NewCookie.md)
+ - [NotificationBlacklistedData](docs/NotificationBlacklistedData.md)
  - [NotificationDeliveryMode](docs/NotificationDeliveryMode.md)
  - [NotificationDeliveryModeRequest](docs/NotificationDeliveryModeRequest.md)
  - [NotificationInfo](docs/NotificationInfo.md)

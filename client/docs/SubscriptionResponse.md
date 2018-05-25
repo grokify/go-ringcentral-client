@@ -10,7 +10,8 @@ Name | Type | Description | Notes
 **EventFilters** | **[]string** |  | [optional] [default to null]
 **ExpirationTime** | [**time.Time**](time.Time.md) |  | [optional] [default to null]
 **ExpiresIn** | **int64** |  | [optional] [default to null]
-**DeliveryMode** | [***DeliveryModeResource**](DeliveryModeResource.md) |  | [optional] [default to null]
+**DeliveryMode** | [***DeliveryModeResource**](DeliveryModeResource.md) | Delivery mode data | [optional] [default to null]
+**BlacklistedData** | [***NotificationBlacklistedData**](NotificationBlacklistedData.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
