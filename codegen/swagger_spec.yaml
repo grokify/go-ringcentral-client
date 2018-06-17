@@ -1207,21 +1207,6 @@
             type: "string"
             default: "~"
           -
-            name: "attachment"
-            in: "formData"
-            description: "File to upload"
-            required: true
-            type: "file"
-          -
-            name: "faxResolution"
-            in: "formData"
-            description: "Resolution of Fax"
-            required: true
-            type: "string"
-            enum:
-             - High
-             - Low
-          -
             name: "to"
             in: "formData"
             description: "To Phone Number"
@@ -1230,25 +1215,44 @@
             items:
               type: "string"
           -
+            name: "attachment"
+            in: "formData"
+            description: "File to upload"
+            required: false
+            type: "file"
+          -
+            name: "faxResolution"
+            in: "formData"
+            description: "Resolution of Fax"
+            required: false
+            type: "string"
+            enum:
+             - High
+             - Low
+          -
             name: "sendTime"
             in: "formData"
             description: "Optional. Timestamp to send fax at. If not specified (current or the past), the fax is sent immediately"
+            required: false
             type: "string"
             format: date-time
           -
             name: "isoCode"
             in: "formData"
             description: "ISO Code. e.g UK"
+            required: false
             type: "string"
           -
             name: "coverIndex"
             in: "formData"
             description: "Cover page identifier. For the list of available cover page identifiers please call the method Fax Cover Pages. If not specified, the default cover page which is configured in 'Outbound Fax Settings' is attached"
+            required: false
             type: "integer"
           -
             name: "coverPageText"
             in: "formData"
             description: "Cover page text, entered by the fax sender and printed on the cover page. Maximum length is limited to 1024 symbols"
+            required: false
             type: "string"
         responses:
           default:
@@ -11620,7 +11624,7 @@
           description: "The audio prompt that the calling party hears when the call is connected"
         country:
           description: "Optional. Dialing plan country data. If not specified, then extension home country is applied by default"
-          $ref: "#/definitions/MakeRingOutCoutryInfo"
+          $ref: "#/definitions/MakeRingOutCountryInfo"
     MakeRingOutCallerInfoRequestFrom:
       type: "object"
       properties:
@@ -11636,7 +11640,7 @@
         phoneNumber:
           type: "string"
           description: "Phone number in E.164 format"
-    MakeRingOutCoutryInfo:
+    MakeRingOutCountryInfo:
       type: "object"
       properties:
         id:
@@ -13847,7 +13851,7 @@
           type: "array"
           description: "The list of message attachments"
           items:
-            $ref: "#/definitions/MessageAttachmentInfoIntId"
+            $ref: "#/definitions/MessageAttachmentInfo"
         availability:
           type: "string"
           description: "Message availability status. Message in 'Deleted' state is still preserved with all its attachments and can be restored. 'Purged' means that all attachments are already deleted and the message itself is about to be physically deleted shortly"
