@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"fmt"
 	"log"
 	"net/http"
@@ -11,6 +10,7 @@ import (
 	"github.com/grokify/gotilla/config"
 	"github.com/grokify/gotilla/fmt/fmtutil"
 	hum "github.com/grokify/gotilla/net/httputilmore"
+	uu "github.com/grokify/gotilla/net/urlutil"
 	"github.com/jessevdk/go-flags"
 
 	ru "github.com/grokify/go-ringcentral/clientutil"
@@ -60,7 +60,7 @@ func sendFaxRaw(opts CliOptions, httpClient *http.Client) {
 		FilePaths:     opts.Files,
 	}
 
-	url := "https://platform.devtest.ringcentral.com/restapi/v1.0/account/~/extension/~/fax"
+	url := uu.JoinAbsolute(os.Getenv("RINGCENTRAL_SERVER_URL"), "/restapi/v1.0/account/~/extension/~/fax")
 
 	resp, err := fax.Post(httpClient, url)
 	if err != nil {
@@ -101,6 +101,7 @@ func main() {
 	httpClient := apiClient.HTTPClient()
 	sendFaxRaw(opts, httpClient)
 
+	/* TBD
 	if 1 == 0 {
 		fmt.Println(opts.Files[0])
 
@@ -131,5 +132,6 @@ func main() {
 		}
 		fmtutil.PrintJSON(info)
 	}
+	*/
 	fmt.Println("DONE")
 }
