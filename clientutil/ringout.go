@@ -28,7 +28,7 @@ func (ro *RingOutRequest) Body() *rc.MakeRingOutRequest {
 		}
 	}
 	if len(ro.CountryId) > 0 {
-		req.Country = &rc.MakeRingOutCoutryInfo{
+		req.Country = &rc.MakeRingOutCountryInfo{
 			Id: ro.CountryId,
 		}
 	}

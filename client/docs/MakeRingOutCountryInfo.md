@@ -1,4 +1,4 @@
-# MakeRingOutCoutryInfo
+# MakeRingOutCountryInfo
 
 ## Properties
 Name | Type | Description | Notes

@@ -24,5 +24,5 @@ type MakeRingOutRequest struct {
 	PlayPrompt bool `json:"playPrompt,omitempty"`
 
 	// Optional. Dialing plan country data. If not specified, then extension home country is applied by default
-	Country *MakeRingOutCoutryInfo `json:"country,omitempty"`
+	Country *MakeRingOutCountryInfo `json:"country,omitempty"`
 }

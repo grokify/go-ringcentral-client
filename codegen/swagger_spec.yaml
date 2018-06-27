@@ -1127,7 +1127,7 @@
           default:
             description: "Success"
             schema:
-              $ref: "#/definitions/GetMessageInfoResponse"
+              $ref: "#/definitions/GetMessageInfoResponseIntId"
         x-api-group: "extension/sms"
         x-throttling-group: "Medium"
         x-metered-api: true
@@ -11526,8 +11526,6 @@
             $ref: "#/definitions/MessageStoreCallerInfoRequest"
     MessageStoreCallerInfoRequest:
       type: "object"
-      required:
-        - "extensionNumber"
       properties:
         extensionNumber:
           type: "string"

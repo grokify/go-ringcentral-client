@@ -518,16 +518,16 @@ func (a *MessagesApiService) LoadMessageAttachment(ctx context.Context, accountI
 * @param ctx context.Context for authentication, logging, tracing, etc.
 @param accountId Internal identifier of a RingCentral account (integer) or tilde (~) to indicate the account which was logged-in within the current session.
 @param extensionId Internal identifier of an extension (integer) or tilde (~) to indicate the extension assigned to the account logged-in within the current session
-@param attachment File to upload
-@param faxResolution Resolution of Fax
 @param to To Phone Number
 @param optional (nil or map[string]interface{}) with one or more of:
+    @param "attachment" (*os.File) File to upload
+    @param "faxResolution" (string) Resolution of Fax
     @param "sendTime" (time.Time) Optional. Timestamp to send fax at. If not specified (current or the past), the fax is sent immediately
     @param "isoCode" (string) ISO Code. e.g UK
     @param "coverIndex" (int32) Cover page identifier. For the list of available cover page identifiers please call the method Fax Cover Pages. If not specified, the default cover page which is configured in &#39;Outbound Fax Settings&#39; is attached
     @param "coverPageText" (string) Cover page text, entered by the fax sender and printed on the cover page. Maximum length is limited to 1024 symbols
 @return FaxResponse*/
-func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId string, extensionId string, localVarFile *os.File, faxResolution string, to []string, localVarOptionals map[string]interface{}) (FaxResponse, *http.Response, error) {
+func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId string, extensionId string, to []string, localVarOptionals map[string]interface{}) (FaxResponse, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -545,6 +545,9 @@ func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId strin
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
+	if err := typeCheckParameter(localVarOptionals["faxResolution"], "string", "faxResolution"); err != nil {
+		return successPayload, nil, err
+	}
 	if err := typeCheckParameter(localVarOptionals["sendTime"], "time.Time", "sendTime"); err != nil {
 		return successPayload, nil, err
 	}
@@ -577,14 +580,20 @@ func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
+	localVarFormParams.Add("to", parameterToString(to, "csv"))
+	var localVarFile (*os.File)
+	if localVarTempParam, localVarOk := localVarOptionals["attachment"].(*os.File); localVarOk {
+		localVarFile = localVarTempParam
+	}
 	if localVarFile != nil {
 		fbs, _ := ioutil.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	localVarFormParams.Add("faxResolution", parameterToString(faxResolution, ""))
-	localVarFormParams.Add("to", parameterToString(to, "csv"))
+	if localVarTempParam, localVarOk := localVarOptionals["faxResolution"].(string); localVarOk {
+		localVarFormParams.Add("faxResolution", parameterToString(localVarTempParam, ""))
+	}
 	if localVarTempParam, localVarOk := localVarOptionals["sendTime"].(time.Time); localVarOk {
 		localVarFormParams.Add("sendTime", parameterToString(localVarTempParam, ""))
 	}
@@ -693,14 +702,14 @@ func (a *MessagesApiService) SendInternalMessage(ctx context.Context, accountId 
 @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
 @param extensionId Internal identifier of an extension or tilde (~) to indicate the extension assigned to the account logged-in within the current session
 @param body JSON body
-@return GetMessageInfoResponse*/
-func (a *MessagesApiService) SendSMS(ctx context.Context, accountId string, extensionId string, body CreateSmsMessage) (GetMessageInfoResponse, *http.Response, error) {
+@return GetMessageInfoResponseIntId*/
+func (a *MessagesApiService) SendSMS(ctx context.Context, accountId string, extensionId string, body CreateSmsMessage) (GetMessageInfoResponseIntId, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		successPayload     GetMessageInfoResponse
+		successPayload     GetMessageInfoResponseIntId
 	)
 
 	// create path and map variables

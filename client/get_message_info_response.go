@@ -22,7 +22,7 @@ type GetMessageInfoResponse struct {
 	Uri string `json:"uri,omitempty"`
 
 	// The list of message attachments
-	Attachments []MessageAttachmentInfoIntId `json:"attachments,omitempty"`
+	Attachments []MessageAttachmentInfo `json:"attachments,omitempty"`
 
 	// Message availability status. Message in 'Deleted' state is still preserved with all its attachments and can be restored. 'Purged' means that all attachments are already deleted and the message itself is about to be physically deleted shortly
 	Availability string `json:"availability,omitempty"`

@@ -639,7 +639,7 @@ Class | Method | HTTP request | Description
  - [LookupPhoneNumberInfo](docs/LookupPhoneNumberInfo.md)
  - [MakeRingOutCallerInfoRequestFrom](docs/MakeRingOutCallerInfoRequestFrom.md)
  - [MakeRingOutCallerInfoRequestTo](docs/MakeRingOutCallerInfoRequestTo.md)
- - [MakeRingOutCoutryInfo](docs/MakeRingOutCoutryInfo.md)
+ - [MakeRingOutCountryInfo](docs/MakeRingOutCountryInfo.md)
  - [MakeRingOutRequest](docs/MakeRingOutRequest.md)
  - [MatchingEntityTag](docs/MatchingEntityTag.md)
  - [MediaType](docs/MediaType.md)
