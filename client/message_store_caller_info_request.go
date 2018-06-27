@@ -12,7 +12,7 @@ package ringcentral
 type MessageStoreCallerInfoRequest struct {
 
 	// Extension short number (usually 3 or 4 digits). This property is filled when parties communicate by means of short internal numbers, for example when calling to other extension or sending/receiving Company Pager message
-	ExtensionNumber string `json:"extensionNumber"`
+	ExtensionNumber string `json:"extensionNumber,omitempty"`
 
 	// Contains party location (city, state) if one can be determined from phoneNumber. This property is filled only when phoneNumber is not empty and server can calculate location information from it (for example, this information is unavailable for US toll-free numbers)
 	Location string `json:"location,omitempty"`
