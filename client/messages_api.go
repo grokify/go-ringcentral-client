@@ -12,13 +12,14 @@ package ringcentral
 import (
 	"encoding/json"
 	"fmt"
-	"golang.org/x/net/context"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"os"
 	"strings"
 	"time"
+
+	"golang.org/x/net/context"
 )
 
 // Linger please
@@ -757,9 +758,10 @@ func (a *MessagesApiService) SendSMS(ctx context.Context, accountId string, exte
 		return successPayload, localVarHttpResponse, reportError("Status: %v, Body: %s", localVarHttpResponse.Status, bodyBytes)
 	}
 
-	if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
-		return successPayload, localVarHttpResponse, err
-	}
+	// this fails with `json: cannot unmarshal number into Go struct field GetMessageInfoResponse.id of type string`
+	// if err = json.NewDecoder(localVarHttpResponse.Body).Decode(&successPayload); err != nil {
+	// 	return successPayload, localVarHttpResponse, err
+	// }
 
 	return successPayload, localVarHttpResponse, err
 }
