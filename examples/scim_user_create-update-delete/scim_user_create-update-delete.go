@@ -36,8 +36,8 @@ func (su *ScimApiUtil) GetSCIMUserById(userId string) (rc.UserInfo, error) {
 	return uinfo, nil
 }
 
-func (su *ScimApiUtil) ListScimUsers(params map[string]interface{}) (rc.GetUserListResponse, error) {
-	info, resp, err := su.ApiClient.SCIMApi.ListUsers(su.Context, params)
+func (su *ScimApiUtil) ListScimUsers(params rc.ListUsersOpts) (rc.GetUserListResponse, error) {
+	info, resp, err := su.ApiClient.SCIMApi.ListUsers(su.Context, &params)
 	if err != nil {
 		return info, err
 	} else if resp.StatusCode >= 300 {
@@ -118,7 +118,7 @@ func main() {
 	}
 	if 1 == 0 {
 		// Retrieve a list of users
-		info, err := scimUtil.ListScimUsers(map[string]interface{}{})
+		info, err := scimUtil.ListScimUsers(rc.ListUsersOpts{})
 		if err != nil {
 			panic(err)
 		}

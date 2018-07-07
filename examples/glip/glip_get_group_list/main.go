@@ -12,6 +12,7 @@ import (
 	om "github.com/grokify/oauth2more"
 	"github.com/jessevdk/go-flags"
 
+	rc "github.com/grokify/go-ringcentral/client"
 	ru "github.com/grokify/go-ringcentral/clientutil"
 )
 
@@ -56,8 +57,9 @@ func main() {
 		log.Fatal(err)
 	}
 
-	msi := map[string]interface{}{}
-	groups, resp, err := apiClient.GlipApi.LoadGroupList(context.Background(), msi)
+	//msi := map[string]interface{}{}
+	groups, resp, err := apiClient.GlipApi.LoadGroupList(context.Background(),
+		&rc.LoadGroupListOpts{})
 	if err != nil {
 		log.Fatal(err)
 	} else if resp.StatusCode >= 300 {

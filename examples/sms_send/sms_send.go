@@ -72,7 +72,7 @@ func main() {
 	}
 
 	params := rc.CreateSmsMessage{
-		From: &rc.MessageStoreCallerInfoRequest{
+		From: rc.MessageStoreCallerInfoRequest{
 			PhoneNumber: os.Getenv("RINGCENTRAL_DEMO_SMS_FROM")},
 		To: []rc.MessageStoreCallerInfoRequest{
 			rc.MessageStoreCallerInfoRequest{

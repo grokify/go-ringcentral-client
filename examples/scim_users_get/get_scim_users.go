@@ -7,6 +7,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/antihax/optional"
 	"github.com/grokify/gotilla/fmt/fmtutil"
 	hum "github.com/grokify/gotilla/net/httputilmore"
 	"github.com/joho/godotenv"
@@ -41,8 +42,8 @@ func (su *ScimApiUtil) GetSCIMUserById(userId string) (rc.UserInfo, error) {
 	return uinfo, nil
 }
 
-func (su *ScimApiUtil) ListScimUsers(params map[string]interface{}) (rc.GetUserListResponse, error) {
-	info, resp, err := su.ApiClient.SCIMApi.ListUsers(su.Context, params)
+func (su *ScimApiUtil) ListScimUsers(params rc.ListUsersOpts) (rc.GetUserListResponse, error) {
+	info, resp, err := su.ApiClient.SCIMApi.ListUsers(su.Context, &params)
 	if err != nil {
 		return info, err
 	} else if resp.StatusCode >= 300 {
@@ -67,7 +68,7 @@ func mainClient() {
 	}
 
 	// Retrieve a list of users
-	info, err := scimUtil.ListScimUsers(map[string]interface{}{})
+	info, err := scimUtil.ListScimUsers(rc.ListUsersOpts{})
 	if err != nil {
 		panic(err)
 	}
@@ -292,7 +293,7 @@ func (demo ScimRingCentralDemo) GetServiceProviderConfig() {
 
 func (demo ScimRingCentralDemo) GetUsers() {
 	users, resp, err := demo.Client.SCIMApi.ListUsers(
-		demo.Context, map[string]interface{}{})
+		demo.Context, &rc.ListUsersOpts{})
 	if err != nil {
 		log.Fatal(err)
 	} else if resp.StatusCode >= 300 {
@@ -373,10 +374,11 @@ func (demo ScimRingCentralDemo) PatchUser(userId string) {
 		Operations: []rc.PatchOperationInfo{
 			{
 				Op: "add",
-				Value: rc.UserInfo{
-					Addresses: []rc.AddressInfo{
+				Value: map[string]interface{}{
+
+					"addresses": []rc.AddressInfo{
 						{
-							Type_:         "work",
+							Type:          "work",
 							StreetAddress: "100 Main Street",
 							Locality:      "South Park",
 							Region:        "CO",
@@ -392,8 +394,7 @@ func (demo ScimRingCentralDemo) PatchUser(userId string) {
 	fmtutil.PrintJSON(body)
 
 	info, resp, err := demo.Client.SCIMApi.PatchUser(demo.Context, userId,
-		map[string]interface{}{"body": body},
-	)
+		&rc.PatchUserOpts{ScimUserPatch: optional.NewInterface(body)})
 	if err != nil {
 		log.Fatal(err)
 	} else if resp.StatusCode >= 300 {
@@ -408,14 +409,14 @@ func (demo ScimRingCentralDemo) GetNewUser() rc.UserCreationRequest {
 		email = "john@example.com"
 	}
 	user := rc.UserCreationRequest{
-		Name: &rc.NameInfo{
+		Name: rc.NameInfo{
 			GivenName:  "John",
 			FamilyName: "RingCentral",
 		},
 		Emails: []rc.EmailInfo{
 			{
 				Value: email,
-				Type_: "work",
+				Type:  "work",
 			},
 		},
 		Schemas:  []string{"urn:ietf:params:scim:schemas:core:2.0:User"},

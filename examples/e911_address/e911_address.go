@@ -66,7 +66,7 @@ func main() {
 		getPrintDeviceE911Address(apiClient, deviceId)
 
 		body := rc.AccountDeviceUpdate{
-			EmergencyServiceAddress: &rc.EmergencyAddressInfoRequest{
+			EmergencyServiceAddress: rc.EmergencyAddressInfoRequest{
 				CustomerName: "RingForce",
 				Street:       "20 DAVIS DR",
 				Street2:      "",

@@ -16,7 +16,7 @@
 
 ## Overview
 
-This is a API client built using [swagger-codegen](https://github.com/swagger-api/swagger-codegen) using this RingCentral API spec [`swagger_spec.yaml`](swagger_spec.yaml).
+This is a API client built using [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) using this RingCentral API spec [`swagger_spec.yaml`](codegen/swagger_spec.yaml).
 
 This API client does not include auth and relies on [`oauth2more/ringcentral`](https://github.com/grokify/oauth2more/tree/master/ringcentral) to create an `*http.Client` to use as a dependency injection.
 

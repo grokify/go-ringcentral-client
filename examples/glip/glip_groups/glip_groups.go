@@ -8,6 +8,7 @@ import (
 	"github.com/grokify/gotilla/config"
 	"github.com/grokify/gotilla/fmt/fmtutil"
 
+	rc "github.com/grokify/go-ringcentral/client"
 	ru "github.com/grokify/go-ringcentral/clientutil"
 	ro "github.com/grokify/oauth2more/ringcentral"
 )
@@ -31,8 +32,7 @@ func main() {
 		panic(err)
 	}
 	info, resp, err := apiClient.GlipApi.LoadGroupList(
-		context.Background(), map[string]interface{}{},
-	)
+		context.Background(), &rc.LoadGroupListOpts{})
 
 	if err != nil {
 		panic(err)

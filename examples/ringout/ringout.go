@@ -14,10 +14,10 @@ import (
 
 func ringoutBodyEnv() *rc.MakeRingOutRequest {
 	return &rc.MakeRingOutRequest{
-		From: &rc.MakeRingOutCallerInfoRequestFrom{
+		From: rc.MakeRingOutCallerInfoRequestFrom{
 			PhoneNumber: os.Getenv("RINGCENTRAL_DEMO_RINGOUT_FROM"),
 		},
-		To: &rc.MakeRingOutCallerInfoRequestTo{
+		To: rc.MakeRingOutCallerInfoRequestTo{
 			PhoneNumber: os.Getenv("RINGCENTRAL_DEMO_RINGOUT_TO"),
 		},
 		PlayPrompt: scu.MustParseBool(os.Getenv("RINGCENTRAL_DEMO_RINGOUT_PROMPT")),

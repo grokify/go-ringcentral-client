@@ -17,10 +17,10 @@ func getDemoMessage() rc.GlipCreatePost {
 		Text: "Body of the post",
 		Attachments: []rc.GlipMessageAttachmentInfoRequest{
 			{
-				Type_: "Card",
+				Type:  "Card",
 				Title: "Attachment Title",
 				Color: "#00ff2a",
-				Author: &rc.GlipMessageAttachmentAuthorInfo{
+				Author: rc.GlipMessageAttachmentAuthorInfo{
 					Name:    "Author Name",
 					Uri:     "https://example.com/author_link",
 					IconUri: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/000080_Navy_Blue_Square.svg/1200px-000080_Navy_Blue_Square.svg.png",
@@ -47,7 +47,7 @@ func getDemoMessage() rc.GlipCreatePost {
 						Style: "Long",
 					},
 				},
-				Footnote: &rc.GlipMessageAttachmentFootnoteInfo{
+				Footnote: rc.GlipMessageAttachmentFootnoteInfo{
 					Text:    "Attachment footer and timestamp",
 					IconUri: "http://www.iconsdb.com/icons/preview/red/square-ios-app-xxl.png",
 					Time:    time.Now(),
@@ -62,7 +62,7 @@ func getDemoMessageSalesforce() rc.GlipCreatePost {
 		Text: "**Top Opportunities**\n\nFull report: https://my.salesforce.com/00O80000007MOgS",
 		Attachments: []rc.GlipMessageAttachmentInfoRequest{
 			{
-				Type_:    "Card",
+				Type:     "Card",
 				Color:    "#00ff2a",
 				Fallback: "Attachment fallback text",
 				Fields: []rc.GlipMessageAttachmentFieldsInfo{
@@ -93,7 +93,7 @@ func getDemoMessageSalesforce() rc.GlipCreatePost {
 				},
 			},
 			{
-				Type_:    "Card",
+				Type:     "Card",
 				Color:    "#dfdd13",
 				Fallback: "Attachment fallback text",
 				Fields: []rc.GlipMessageAttachmentFieldsInfo{
@@ -129,7 +129,7 @@ func getDemoMessageSalesforce() rc.GlipCreatePost {
 				},
 			},
 			{
-				Type_:    "Card",
+				Type:     "Card",
 				Color:    "#ff0000",
 				Fallback: "Attachment fallback text",
 				Fields: []rc.GlipMessageAttachmentFieldsInfo{

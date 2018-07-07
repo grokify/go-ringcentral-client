@@ -63,11 +63,9 @@ func main() {
 	}
 
 	req := rc.ExtensionUpdateRequest{
-		Contact: &rc.ContactInfoUpdateRequest{
+		Contact: rc.ContactInfoUpdateRequest{
 			FirstName: opts.FirstName,
-			LastName:  opts.LastName,
-		},
-	}
+			LastName:  opts.LastName}}
 
 	info, resp, err := apiClient.UserSettingsApi.UpdateExtension(
 		context.Background(), "~", "~", req)

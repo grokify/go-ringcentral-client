@@ -7,9 +7,11 @@ import (
 	"os"
 	"time"
 
+	"github.com/antihax/optional"
 	"github.com/grokify/gotilla/config"
 	"github.com/grokify/gotilla/fmt/fmtutil"
 
+	rc "github.com/grokify/go-ringcentral/client"
 	ru "github.com/grokify/go-ringcentral/clientutil"
 	ro "github.com/grokify/oauth2more/ringcentral"
 )
@@ -37,8 +39,12 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	opts := &rc.ListMessagesOpts{
+		DateFrom: optional.NewTime(dt)}
+
 	info, resp, err := apiClient.MessagesApi.ListMessages(
-		context.Background(), "~", "~", map[string]interface{}{"dateFrom": dt})
+		context.Background(), "~", "~", opts)
 	if err != nil {
 		panic(err)
 	} else if resp.StatusCode >= 300 {

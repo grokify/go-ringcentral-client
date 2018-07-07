@@ -27,7 +27,7 @@ func loadEnv() error {
 func listRules(apiClient *rc.APIClient) {
 	ctx := context.Background()
 	resp, err := apiClient.CallHandlingSettingsApi.LoadAnsweringRulesList(
-		ctx, "~", "~", map[string]interface{}{})
+		ctx, "~", "~", &rc.LoadAnsweringRulesListOpts{})
 	if err != nil {
 		panic(err)
 	}
