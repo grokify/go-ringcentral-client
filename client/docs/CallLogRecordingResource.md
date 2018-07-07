@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Uri** | **string** |  | [optional] [default to null]
-**Id** | **string** |  | [optional] [default to null]
-**Type_** | **string** |  | [optional] [default to null]
-**ContentUri** | **string** |  | [optional] [default to null]
+**Uri** | **string** |  | [optional] 
+**Id** | **string** |  | [optional] 
+**Type** | **string** |  | [optional] 
+**ContentUri** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

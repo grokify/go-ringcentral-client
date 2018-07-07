@@ -1,6 +1,6 @@
 # \PushNotificationsApi
 
-All URIs are relative to *https://platform.devtest.ringcentral.com*
+All URIs are relative to *https://platform.devtest.ringcentral.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **CreateSubscription**
-> SubscriptionInfo CreateSubscription(ctx, body)
+> SubscriptionInfo CreateSubscription(ctx, createSubscriptionRequest)
 Create Subscription
 
 <p style='font-style:italic;'>Since 1.0.6 (Release 5.15)</p><p>Creates a new subscription.</p><h4>Usage Plan Group</h4><p>Medium</p>
@@ -22,8 +22,8 @@ Create Subscription
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **body** | [**CreateSubscriptionRequest**](CreateSubscriptionRequest.md)| JSON body | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **createSubscriptionRequest** | [**CreateSubscriptionRequest**](CreateSubscriptionRequest.md)| JSON body | 
 
 ### Return type
 
@@ -50,7 +50,7 @@ Cancel Subscription
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **subscriptionId** | **string**| Internal identifier of a subscription | 
 
 ### Return type
@@ -63,8 +63,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -85,7 +85,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -100,7 +100,7 @@ Get Subscription
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **subscriptionId** | **int32**| Internal identifier of a subscription | 
 
 ### Return type
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -128,7 +128,7 @@ Renew Subscription
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **subscriptionId** | **string**|  | 
 
 ### Return type
@@ -141,13 +141,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateSubscription**
-> SubscriptionInfo UpdateSubscription(ctx, subscriptionId, body, optional)
+> SubscriptionInfo UpdateSubscription(ctx, subscriptionId, modifySubscriptionRequest, optional)
 Renew Subscription / Update Event Filters
 
 <p style='font-style:italic;'>Since 1.0.6 (Release 5.15)</p><p>Renews the existent subscription if the request body is empty. If event filters are specified, calling this method modifies the event filters for the existing subscription. The client application can extend or narrow the events for which it receives notifications in the frame of one subscription.</p><h4>Usage Plan Group</h4><p>Medium</p>
@@ -156,19 +156,19 @@ Renew Subscription / Update Event Filters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **subscriptionId** | **string**| Internal identifier of a subscription | 
-  **body** | [**ModifySubscriptionRequest**](ModifySubscriptionRequest.md)| JSON body | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+  **modifySubscriptionRequest** | [**ModifySubscriptionRequest**](ModifySubscriptionRequest.md)| JSON body | 
+ **optional** | ***UpdateSubscriptionOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
+Optional parameters are passed through a pointer to a UpdateSubscriptionOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **subscriptionId** | **string**| Internal identifier of a subscription | 
- **body** | [**ModifySubscriptionRequest**](ModifySubscriptionRequest.md)| JSON body | 
- **aggregated** | **bool**| If &#39;True&#39; then aggregated presence status is returned in a notification payload | 
+
+
+ **aggregated** | **optional.Bool**| If &#39;True&#39; then aggregated presence status is returned in a notification payload | 
 
 ### Return type
 

@@ -3,15 +3,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Uri** | **string** |  | [optional] [default to null]
-**PhoneNumber** | **string** |  | [optional] [default to null]
-**HostCode** | **string** |  | [optional] [default to null]
-**ParticipantCode** | **string** |  | [optional] [default to null]
-**AllowJoinBeforeHost** | **bool** |  | [optional] [default to null]
-**TapToJoinUri** | **string** |  | [optional] [default to null]
-**SupportUri** | **string** |  | [optional] [default to null]
-**Mode** | **string** |  | [optional] [default to null]
-**PhoneNumbers** | [**[]ConferencingNumberResource**](ConferencingNumberResource.md) |  | [optional] [default to null]
+**Uri** | **string** |  | [optional] 
+**PhoneNumber** | **string** |  | [optional] 
+**HostCode** | **string** |  | [optional] 
+**ParticipantCode** | **string** |  | [optional] 
+**AllowJoinBeforeHost** | **bool** |  | [optional] [default to false]
+**TapToJoinUri** | **string** |  | [optional] 
+**SupportUri** | **string** |  | [optional] 
+**Mode** | **string** |  | [optional] 
+**PhoneNumbers** | [**[]ConferencingNumberResource**](ConferencingNumberResource.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,6 +1,6 @@
 # \GlipApi
 
-All URIs are relative to *https://platform.devtest.ringcentral.com*
+All URIs are relative to *https://platform.devtest.ringcentral.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,18 +27,18 @@ Upload File
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **body** | ***os.File**| The file to upload | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **body** | ***os.File*****os.File**| The file to upload | 
+ **optional** | ***CreateGlipFileOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
+Optional parameters are passed through a pointer to a CreateGlipFileOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | ***os.File**| The file to upload | 
- **groupId** | **string**| Internal identifier of a group the post with file attached will be added to | 
- **name** | **string**| Name of a file attached | 
+
+ **groupId** | **optional.String**| Internal identifier of a group the post with file attached will be added to | 
+ **name** | **optional.String**| Name of a file attached | 
 
 ### Return type
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateGroup**
-> GlipGroupInfo CreateGroup(ctx, body)
+> GlipGroupInfo CreateGroup(ctx, glipCreateGroup)
 Create Group
 
 <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Creates a group.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
@@ -65,8 +65,8 @@ Create Group
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **body** | [**GlipCreateGroup**](GlipCreateGroup.md)| JSON body | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **glipCreateGroup** | [**GlipCreateGroup**](GlipCreateGroup.md)| JSON body | 
 
 ### Return type
 
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreatePost**
-> GlipPostInfo CreatePost(ctx, groupId, body)
+> GlipPostInfo CreatePost(ctx, groupId, glipCreatePost)
 Create Post
 
 <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Creates a post.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Light</p>
@@ -93,9 +93,9 @@ Create Post
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **groupId** | **string**| Id of a group to send post | 
-  **body** | [**GlipCreatePost**](GlipCreatePost.md)| JSON body | 
+  **glipCreatePost** | [**GlipCreatePost**](GlipCreatePost.md)| JSON body | 
 
 ### Return type
 
@@ -122,7 +122,7 @@ Get Company Info
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **companyId** | **string**| Internal identifier of an RC account/Glip company, or tilde (~) to indicate a company the current user belongs to | 
 
 ### Return type
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -150,7 +150,7 @@ Get File Info
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **fileId** | **string**| Internal identifier of file. | 
 
 ### Return type
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -178,7 +178,7 @@ Get Group
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **groupId** | **string**| Internal identifier of a group to be returned, the maximum number of IDs is 30 | 
 
 ### Return type
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -206,17 +206,17 @@ Get User Groups
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***LoadGroupListOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
+Optional parameters are passed through a pointer to a LoadGroupListOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type_** | [**[]string**](string.md)| Type of a group. &#39;PrivateChat&#39; is a group of 2 members. &#39;Group&#39; is a chat of 2 and more participants, the membership cannot be changed after group creation. &#39;Team&#39; is a chat of 1 and more participants, the membership can be modified in future | 
- **pageToken** | **string**| Token of a page to be returned, see Glip Navigation Info | 
- **recordCount** | **int64**| Max numbers of records to be returned. The default/maximum value is 250 | 
+ **type_** | [**optional.Interface of []string**](string.md)| Type of a group. &#39;PrivateChat&#39; is a group of 2 members. &#39;Group&#39; is a chat of 2 and more participants, the membership cannot be changed after group creation. &#39;Team&#39; is a chat of 1 and more participants, the membership can be modified in future | 
+ **pageToken** | **optional.String**| Token of a page to be returned, see Glip Navigation Info | 
+ **recordCount** | **optional.Int64**| Max numbers of records to be returned. The default/maximum value is 250 | 
 
 ### Return type
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -243,7 +243,7 @@ Get Person
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **personId** | **string**| Internal identifier of a user to be returned, the maximum number of IDs is 30 | 
 
 ### Return type
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -271,18 +271,18 @@ Get Posts
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **groupId** | **string**| Identifier of a group to filter posts | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+ **optional** | ***LoadPostsOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
+Optional parameters are passed through a pointer to a LoadPostsOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **groupId** | **string**| Identifier of a group to filter posts | 
- **pageToken** | **string**| Token of a page to be returned, see Glip Navigation Info | 
- **recordCount** | **int64**| Max numbers of records to be returned. The default/maximum value is 250 | 
+
+ **pageToken** | **optional.String**| Token of a page to be returned, see Glip Navigation Info | 
+ **recordCount** | **optional.Int64**| Max numbers of records to be returned. The default/maximum value is 250 | 
 
 ### Return type
 
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -309,15 +309,15 @@ Glip Unread Message Count
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***LoadUnreadMessageCountOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
+Optional parameters are passed through a pointer to a LoadUnreadMessageCountOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fields** | **string**| List of attributes to be returned. To return unread message count &#39;unreadPostsCount&#39; and &#39;tooManyUnreadPosts&#39; should be specified | 
+ **fields** | **optional.String**| List of attributes to be returned. To return unread message count &#39;unreadPostsCount&#39; and &#39;tooManyUnreadPosts&#39; should be specified | 
 
 ### Return type
 
@@ -329,13 +329,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateGroup**
-> GlipGroupInfo UpdateGroup(ctx, groupId, body)
+> GlipGroupInfo UpdateGroup(ctx, groupId, editGroupRequest)
 Edit Group Members
 
 <p style='font-style:italic;'>Since 1.0.28 (Release 8.4)</p><p>Updates group members. Please note: Only groups of 'Team' type can be updated. Currently only one operation at a time (either adding or removal) is supported.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>Glip</td><td>Availability of Glip</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
@@ -344,9 +344,9 @@ Edit Group Members
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **groupId** | **string**| Internal identifier of a group to be edited | 
-  **body** | [**EditGroupRequest**](EditGroupRequest.md)| JSON body | 
+  **editGroupRequest** | [**EditGroupRequest**](EditGroupRequest.md)| JSON body | 
 
 ### Return type
 

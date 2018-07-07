@@ -1,6 +1,6 @@
 # \SCIMApi
 
-All URIs are relative to *https://platform.devtest.ringcentral.com*
+All URIs are relative to *https://platform.devtest.ringcentral.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **CreateUser**
-> UserInfo CreateUser(ctx, body)
+> UserInfo CreateUser(ctx, userCreationRequest)
 Create User
 
 <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p>Creates a user.</p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditAccounts</td><td>Viewing and updating user account info (including name, business name, address and phone number/account number)</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
@@ -24,8 +24,8 @@ Create User
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **body** | [**UserCreationRequest**](UserCreationRequest.md)| a new user without &#39;id&#39; | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **userCreationRequest** | [**UserCreationRequest**](UserCreationRequest.md)| a new user without &#39;id&#39; | 
 
 ### Return type
 
@@ -52,7 +52,7 @@ Delete User
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | **string**| Internal identifier of a user | 
 
 ### Return type
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/scim+json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/scim+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -89,7 +89,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/scim+json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/scim+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -104,7 +104,7 @@ Get User
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | **string**| Internal identifier of a user | 
 
 ### Return type
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/scim+json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/scim+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -132,17 +132,17 @@ Get User List
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***ListUsersOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
+Optional parameters are passed through a pointer to a ListUsersOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filter** | **string**| only support &#39;userName&#39; or &#39;email&#39; filter expressions for now | 
- **count** | **int32**| page size | [default to 100]
- **startIndex** | **int32**| start index (1-based) | [default to 1]
+ **filter** | **optional.String**| only support &#39;userName&#39; or &#39;email&#39; filter expressions for now | 
+ **count** | **optional.Int32**| page size | [default to 100]
+ **startIndex** | **optional.Int32**| start index (1-based) | [default to 1]
 
 ### Return type
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, application/scim+json
+ - **Content-Type**: Not defined
  - **Accept**: application/json, application/scim+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -169,17 +169,17 @@ Partially update/patch a user
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | **string**| Internal identifier of a user | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+ **optional** | ***PatchUserOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
+Optional parameters are passed through a pointer to a PatchUserOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| Internal identifier of a user | 
- **body** | [**ScimUserPatch**](ScimUserPatch.md)| patch operations list | 
+
+ **scimUserPatch** | [**optional.Interface of ScimUserPatch**](ScimUserPatch.md)| patch operations list | 
 
 ### Return type
 
@@ -206,15 +206,15 @@ search or list users
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***SearchUsersViaPostOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
+Optional parameters are passed through a pointer to a SearchUsersViaPostOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ScimSearchRequestInfo**](ScimSearchRequestInfo.md)| search parameters | 
+ **scimSearchRequestInfo** | [**optional.Interface of ScimSearchRequestInfo**](ScimSearchRequestInfo.md)| search parameters | 
 
 ### Return type
 
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateUser**
-> UserInfo UpdateUser(ctx, id, body)
+> UserInfo UpdateUser(ctx, id, userUpdateRequest)
 Update or replace user
 
 <p style='font-style:italic;'>Since 1.0.31 (Release 9.2)</p><p></p><h4>Required Permissions</h4><table class='fullwidth'><thead><tr><th>Permission</th><th>Description</th></tr></thead><tbody><tr><td class='code'>EditExtensions</td><td>Updating User using SCIM</td></tr></tbody></table><h4>API Group</h4><p>Medium</p>
@@ -241,9 +241,9 @@ Update or replace user
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **id** | **string**| Internal identifier of a user | 
-  **body** | [**UserUpdateRequest**](UserUpdateRequest.md)| An Exisiting User | 
+  **userUpdateRequest** | [**UserUpdateRequest**](UserUpdateRequest.md)| An Exisiting User | 
 
 ### Return type
 

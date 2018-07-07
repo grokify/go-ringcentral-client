@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Records** | [**[]PresenceLineInfo**](PresenceLineInfo.md) |  | [optional] [default to null]
+**Records** | [**[]PresenceLineInfo**](PresenceLineInfo.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,0 +1,11 @@
+$ unzip -p openapi-generator-cli.jar META-INF/MANIFEST.MF
+Manifest-Version: 1.0
+mode: development
+package: org.openapitools
+implementation-version: 3.1.0
+Built-By: travis
+Created-By: Apache Maven 3.5.2
+Build-Jdk: 1.8.0_141
+url: https://github.com/openapitools/openapi-generator/modules/openapi
+ -generator-cli
+Main-Class: org.openapitools.codegen.OpenAPIGenerator

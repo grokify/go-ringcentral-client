@@ -1,6 +1,6 @@
 # \MeetingsApi
 
-All URIs are relative to *https://platform.devtest.ringcentral.com*
+All URIs are relative to *https://platform.devtest.ringcentral.com/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,26 +14,17 @@ Method | HTTP request | Description
 
 
 # **CreateMeeting**
-> MeetingResponseResource CreateMeeting(ctx, extensionId, accountId, optional)
+> MeetingResponseResource CreateMeeting(ctx, accountId, extensionId, meetingRequestResource)
 Create Meetings
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **extensionId** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **accountId** | **string**|  | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **extensionId** | **string**|  | 
- **accountId** | **string**|  | 
- **body** | [**MeetingRequestResource**](MeetingRequestResource.md)|  | 
+  **extensionId** | **string**|  | 
+  **meetingRequestResource** | [**MeetingRequestResource**](MeetingRequestResource.md)|  | 
 
 ### Return type
 
@@ -58,7 +49,7 @@ Delete Meeting
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **meetingId** | **string**|  | 
   **extensionId** | **string**|  | 
   **accountId** | **string**|  | 
@@ -73,8 +64,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -86,7 +77,7 @@ End Meeting
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **meetingId** | **string**|  | 
   **extensionId** | **string**|  | 
   **accountId** | **string**|  | 
@@ -101,22 +92,22 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetLiveMeetings**
-> MeetingsResource GetLiveMeetings(ctx, extensionId, accountId)
+> MeetingsResource GetLiveMeetings(ctx, accountId, extensionId)
 Get Scheduled Meetings
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **extensionId** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **accountId** | **string**|  | 
+  **extensionId** | **string**|  | 
 
 ### Return type
 
@@ -128,23 +119,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetMeetingDetails**
-> MeetingResponseResource GetMeetingDetails(ctx, meetingId, extensionId, accountId)
+> MeetingResponseResource GetMeetingDetails(ctx, accountId, extensionId, meetingId)
 Get Meeting Info
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **meetingId** | **string**|  | 
-  **extensionId** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **accountId** | **string**|  | 
+  **extensionId** | **string**|  | 
+  **meetingId** | **string**|  | 
 
 ### Return type
 
@@ -156,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -169,7 +160,7 @@ Get Meeting Service Info
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **extensionId** | **string**|  | 
   **accountId** | **string**|  | 
 
@@ -183,34 +174,24 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateMeeting**
-> MeetingResponseResource UpdateMeeting(ctx, meetingId, extensionId, accountId, optional)
+> MeetingResponseResource UpdateMeeting(ctx, accountId, extensionId, meetingId, meetingRequestResource)
 Update Meeting
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
-  **meetingId** | **string**|  | 
-  **extensionId** | **string**|  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **accountId** | **string**|  | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **meetingId** | **string**|  | 
- **extensionId** | **string**|  | 
- **accountId** | **string**|  | 
- **body** | [**MeetingRequestResource**](MeetingRequestResource.md)|  | 
+  **extensionId** | **string**|  | 
+  **meetingId** | **string**|  | 
+  **meetingRequestResource** | [**MeetingRequestResource**](MeetingRequestResource.md)|  | 
 
 ### Return type
 

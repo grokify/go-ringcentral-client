@@ -3,14 +3,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Uri** | **string** |  | [optional] [default to null]
-**Id** | **string** |  | [optional] [default to null]
-**Name** | **string** |  | [optional] [default to null]
-**IsoCode** | **string** |  | [optional] [default to null]
-**LocaleCode** | **string** |  | [optional] [default to null]
-**Ui** | **bool** |  | [optional] [default to null]
-**Greeting** | **bool** |  | [optional] [default to null]
-**FormattingLocale** | **bool** |  | [optional] [default to null]
+**Uri** | **string** |  | [optional] 
+**Id** | **string** |  | [optional] 
+**Name** | **string** |  | [optional] 
+**IsoCode** | **string** |  | [optional] 
+**LocaleCode** | **string** |  | [optional] 
+**Ui** | **bool** |  | [optional] [default to false]
+**Greeting** | **bool** |  | [optional] [default to false]
+**FormattingLocale** | **bool** |  | [optional] [default to false]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Company** | **string** | Company business name | [optional] [default to null]
-**Email** | **string** | Company business email address | [optional] [default to null]
-**BusinessAddress** | [***BusinessAddressInfo**](BusinessAddressInfo.md) | Company business address | [default to null]
+**Company** | **string** | Company business name | [optional] 
+**Email** | **string** | Company business email address | [optional] 
+**BusinessAddress** | [**BusinessAddressInfo**](BusinessAddressInfo.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

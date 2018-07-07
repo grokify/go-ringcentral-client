@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type_** | **string** |  | [optional] [default to null]
-**Subtype** | **string** |  | [optional] [default to null]
-**Quality** | **int32** |  | [optional] [default to null]
-**WildcardType** | **bool** |  | [optional] [default to null]
-**WildcardSubtype** | **bool** |  | [optional] [default to null]
+**Type** | **string** |  | [optional] 
+**Subtype** | **string** |  | [optional] 
+**Quality** | **int32** |  | [optional] 
+**WildcardType** | **bool** |  | [optional] [default to false]
+**WildcardSubtype** | **bool** |  | [optional] [default to false]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

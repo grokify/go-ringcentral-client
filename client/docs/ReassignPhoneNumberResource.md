@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Uri** | **string** |  | [optional] [default to null]
-**Id** | **string** |  | [optional] [default to null]
-**UsageType** | **string** |  | [optional] [default to null]
-**Extension** | [***ExtensionReferenceResource**](ExtensionReferenceResource.md) |  | [optional] [default to null]
+**Uri** | **string** |  | [optional] 
+**Id** | **string** |  | [optional] 
+**UsageType** | **string** |  | [optional] 
+**Extension** | [**ExtensionReferenceResource**](ExtensionReferenceResource.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

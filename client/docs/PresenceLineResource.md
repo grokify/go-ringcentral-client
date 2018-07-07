@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | [optional] [default to null]
-**Extension** | [***InlinedExtensionResource**](InlinedExtensionResource.md) |  | [optional] [default to null]
+**Id** | **string** |  | [optional] 
+**Extension** | [**InlinedExtensionResource**](InlinedExtensionResource.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Uri** | **string** | Canonical URI of API versions | [optional] [default to null]
-**VersionString** | **string** | Version of the RingCentral REST API | [optional] [default to null]
-**ReleaseDate** | **string** | Release date of this version | [optional] [default to null]
-**UriString** | **string** | URI part determining the current version | [optional] [default to null]
+**Uri** | **string** | Canonical URI of API versions | [optional] 
+**VersionString** | **string** | Version of the RingCentral REST API | [optional] 
+**ReleaseDate** | **string** | Release date of this version | [optional] 
+**UriString** | **string** | URI part determining the current version | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

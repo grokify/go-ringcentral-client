@@ -3,13 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type_** | **string** |  | [optional] [default to null]
-**FileName** | **string** |  | [optional] [default to null]
-**CreationDate** | [**time.Time**](time.Time.md) |  | [optional] [default to null]
-**ModificationDate** | [**time.Time**](time.Time.md) |  | [optional] [default to null]
-**ReadDate** | [**time.Time**](time.Time.md) |  | [optional] [default to null]
-**Size** | **int64** |  | [optional] [default to null]
-**Name** | **string** |  | [optional] [default to null]
+**Type** | **string** |  | [optional] 
+**FileName** | **string** |  | [optional] 
+**CreationDate** | [**time.Time**](time.Time.md) |  | [optional] 
+**ModificationDate** | [**time.Time**](time.Time.md) |  | [optional] 
+**ReadDate** | [**time.Time**](time.Time.md) |  | [optional] 
+**Size** | **int64** |  | [optional] 
+**Name** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

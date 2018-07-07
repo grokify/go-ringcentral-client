@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Components** | [**[]ResourceModelComponent**](ResourceModelComponent.md) |  | [optional] [default to null]
+**Components** | [**[]ResourceModelComponent**](ResourceModelComponent.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

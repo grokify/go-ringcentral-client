@@ -3,14 +3,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Uri** | **string** |  | [optional] [default to null]
-**ServicePlanName** | **string** |  | [optional] [default to null]
-**Brand** | [***Brand**](Brand.md) |  | [optional] [default to null]
-**ServicePlan** | [***ServicePlan**](ServicePlan.md) |  | [optional] [default to null]
-**TargetServicePlan** | [***ServicePlan**](ServicePlan.md) |  | [optional] [default to null]
-**BillingPlan** | [***BillingPlanResource**](BillingPlanResource.md) |  | [optional] [default to null]
-**ServiceFeatures** | [**[]ServiceFeatureValue**](ServiceFeatureValue.md) |  | [optional] [default to null]
-**Limits** | [***AccountLimitsResource**](AccountLimitsResource.md) |  | [optional] [default to null]
+**Uri** | **string** |  | [optional] 
+**ServicePlanName** | **string** |  | [optional] 
+**Brand** | [**Brand**](Brand.md) |  | [optional] 
+**ServicePlan** | [**ServicePlan**](ServicePlan.md) |  | [optional] 
+**TargetServicePlan** | [**ServicePlan**](ServicePlan.md) |  | [optional] 
+**BillingPlan** | [**BillingPlanResource**](BillingPlanResource.md) |  | [optional] 
+**ServiceFeatures** | [**[]ServiceFeatureValue**](ServiceFeatureValue.md) |  | [optional] 
+**Limits** | [**AccountLimitsResource**](AccountLimitsResource.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

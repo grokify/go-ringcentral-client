@@ -3,13 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**UserStatus** | **string** |  | [optional] [default to null]
-**DndStatus** | **string** |  | [optional] [default to null]
-**Message** | **string** |  | [optional] [default to null]
-**AllowSeeMyPresence** | **bool** |  | [optional] [default to null]
-**RingOnMonitoredCall** | **bool** |  | [optional] [default to null]
-**PickUpCallsOnHold** | **bool** |  | [optional] [default to null]
-**ActiveCalls** | [**[]ActiveCallInfo**](ActiveCallInfo.md) |  | [optional] [default to null]
+**UserStatus** | **string** |  | [optional] 
+**DndStatus** | **string** |  | [optional] 
+**Message** | **string** |  | [optional] 
+**AllowSeeMyPresence** | **bool** |  | [optional] [default to false]
+**RingOnMonitoredCall** | **bool** |  | [optional] [default to false]
+**PickUpCallsOnHold** | **bool** |  | [optional] [default to false]
+**ActiveCalls** | [**[]ActiveCallInfo**](ActiveCallInfo.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

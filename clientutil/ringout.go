@@ -14,23 +14,19 @@ type RingOutRequest struct {
 
 func (ro *RingOutRequest) Body() *rc.MakeRingOutRequest {
 	req := &rc.MakeRingOutRequest{
-		From: &rc.MakeRingOutCallerInfoRequestFrom{
-			PhoneNumber: ro.From,
-		},
-		To: &rc.MakeRingOutCallerInfoRequestTo{
-			PhoneNumber: ro.To,
-		},
+		From: rc.MakeRingOutCallerInfoRequestFrom{
+			PhoneNumber: ro.From},
+		To: rc.MakeRingOutCallerInfoRequestTo{
+			PhoneNumber: ro.To},
 		PlayPrompt: ro.PlayPrompt,
 	}
 	if len(ro.CallerId) > 0 {
-		req.CallerId = &rc.MakeRingOutCallerInfoRequestTo{
-			PhoneNumber: ro.CallerId,
-		}
+		req.CallerId = rc.MakeRingOutCallerInfoRequestTo{
+			PhoneNumber: ro.CallerId}
 	}
 	if len(ro.CountryId) > 0 {
-		req.Country = &rc.MakeRingOutCountryInfo{
-			Id: ro.CountryId,
-		}
+		req.Country = rc.MakeRingOutCountryInfo{
+			Id: ro.CountryId}
 	}
 	return req
 }

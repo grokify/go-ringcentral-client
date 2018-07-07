@@ -3,20 +3,20 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountId** | **string** |  | [optional] [default to null]
-**ExtensionId** | **string** |  | [optional] [default to null]
-**ExtensionType** | **string** |  | [optional] [default to null]
-**ExtensionStatus** | **string** |  | [optional] [default to null]
-**DndStatus** | **string** |  | [optional] [default to null]
-**UserStatus** | **string** |  | [optional] [default to null]
-**Message** | **string** |  | [optional] [default to null]
-**AgentStatus** | **string** |  | [optional] [default to null]
-**ExtensionNumber** | **string** |  | [optional] [default to null]
-**AllowSeeMyPresence** | **bool** |  | [optional] [default to null]
-**RingOnMonitoredCall** | **bool** |  | [optional] [default to null]
-**PickUpCallsOnHold** | **bool** |  | [optional] [default to null]
-**PresenceFeatureAvailable** | **bool** |  | [optional] [default to null]
-**DndFeatureAvailable** | **bool** |  | [optional] [default to null]
+**AccountId** | **string** |  | [optional] 
+**ExtensionId** | **string** |  | [optional] 
+**ExtensionType** | **string** |  | [optional] 
+**ExtensionStatus** | **string** |  | [optional] 
+**DndStatus** | **string** |  | [optional] 
+**UserStatus** | **string** |  | [optional] 
+**Message** | **string** |  | [optional] 
+**AgentStatus** | **string** |  | [optional] 
+**ExtensionNumber** | **string** |  | [optional] 
+**AllowSeeMyPresence** | **bool** |  | [optional] [default to false]
+**RingOnMonitoredCall** | **bool** |  | [optional] [default to false]
+**PickUpCallsOnHold** | **bool** |  | [optional] [default to false]
+**PresenceFeatureAvailable** | **bool** |  | [optional] [default to false]
+**DndFeatureAvailable** | **bool** |  | [optional] [default to false]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

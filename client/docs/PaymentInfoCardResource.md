@@ -3,12 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CardType** | **string** |  | [optional] [default to null]
-**Number** | **string** |  | [optional] [default to null]
-**SecurityCode** | **string** |  | [optional] [default to null]
-**Expiry** | **string** |  | [optional] [default to null]
-**Token** | **string** |  | [optional] [default to null]
-**Holder** | [***PaymentInfoCardHolderResource**](PaymentInfoCardHolderResource.md) |  | [optional] [default to null]
+**CardType** | **string** |  | [optional] 
+**Number** | **string** |  | [optional] 
+**SecurityCode** | **string** |  | [optional] 
+**Expiry** | **string** |  | [optional] 
+**Token** | **string** |  | [optional] 
+**Holder** | [**PaymentInfoCardHolderResource**](PaymentInfoCardHolderResource.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

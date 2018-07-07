@@ -3,15 +3,15 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Uri** | **string** |  | [optional] [default to null]
-**Id** | **string** |  | [optional] [default to null]
-**CreationTime** | [**time.Time**](time.Time.md) |  | [optional] [default to null]
-**Status** | **string** |  | [optional] [default to null]
-**EventFilters** | **[]string** |  | [optional] [default to null]
-**ExpirationTime** | [**time.Time**](time.Time.md) |  | [optional] [default to null]
-**ExpiresIn** | **int64** |  | [optional] [default to null]
-**DeliveryMode** | [***DeliveryModeResource**](DeliveryModeResource.md) | Delivery mode data | [optional] [default to null]
-**BlacklistedData** | [***NotificationBlacklistedData**](NotificationBlacklistedData.md) |  | [optional] [default to null]
+**Uri** | **string** |  | [optional] 
+**Id** | **string** |  | [optional] 
+**CreationTime** | [**time.Time**](time.Time.md) |  | [optional] 
+**Status** | **string** |  | [optional] 
+**EventFilters** | **[]string** |  | [optional] 
+**ExpirationTime** | [**time.Time**](time.Time.md) |  | [optional] 
+**ExpiresIn** | **int64** |  | [optional] 
+**DeliveryMode** | [**DeliveryModeResource**](DeliveryModeResource.md) |  | [optional] 
+**BlacklistedData** | [**NotificationBlacklistedData**](NotificationBlacklistedData.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

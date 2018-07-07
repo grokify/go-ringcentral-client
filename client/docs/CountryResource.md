@@ -3,14 +3,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Uri** | **string** |  | [optional] [default to null]
-**Id** | **string** |  | [optional] [default to null]
-**Name** | **string** |  | [optional] [default to null]
-**IsoCode** | **string** |  | [optional] [default to null]
-**CallingCode** | **string** |  | [optional] [default to null]
-**EmergencyCalling** | **bool** |  | [optional] [default to null]
-**NumberSelling** | **bool** |  | [optional] [default to null]
-**LoginAllowed** | **bool** |  | [optional] [default to null]
+**Uri** | **string** |  | [optional] 
+**Id** | **string** |  | [optional] 
+**Name** | **string** |  | [optional] 
+**IsoCode** | **string** |  | [optional] 
+**CallingCode** | **string** |  | [optional] 
+**EmergencyCalling** | **bool** |  | [optional] [default to false]
+**NumberSelling** | **bool** |  | [optional] [default to false]
+**LoginAllowed** | **bool** |  | [optional] [default to false]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

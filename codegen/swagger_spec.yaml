@@ -1839,6 +1839,11 @@
           - "application/json"
         parameters:
           -
+            name: "accountId"
+            in: "path"
+            required: true
+            type: "string"
+          -
             name: "extensionId"
             in: "path"
             required: true
@@ -1846,14 +1851,9 @@
           -
             in: "body"
             name: "body"
-            required: false
+            required: true
             schema:
               $ref: "#/definitions/RingOutResource"
-          -
-            name: "accountId"
-            in: "path"
-            required: true
-            type: "string"
         responses:
           default:
             description: "successful operation"
@@ -2004,6 +2004,11 @@
           - "application/json"
         parameters:
           -
+            name: "accountId"
+            in: "path"
+            required: true
+            type: "string"
+          -
             name: "extensionId"
             in: "path"
             required: true
@@ -2011,14 +2016,9 @@
           -
             in: "body"
             name: "body"
-            required: false
+            required: true
             schema:
               $ref: "#/definitions/RingOutResource"
-          -
-            name: "accountId"
-            in: "path"
-            required: true
-            type: "string"
         responses:
           default:
             description: "successful operation"
@@ -2928,11 +2928,12 @@
           - "application/json"
         parameters:
           -
-            in: "body"
-            name: "body"
-            required: false
-            schema:
-              $ref: "#/definitions/PresenceInfoResource"
+            name: "accountId"
+            in: "path"
+            description: "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session"
+            required: true
+            type: "string"
+            default: "~"
           -
             name: "extensionId"
             in: "path"
@@ -2941,12 +2942,11 @@
             type: "string"
             default: "~"
           -
-            name: "accountId"
-            in: "path"
-            description: "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session"
+            in: "body"
+            name: "body"
             required: true
-            type: "string"
-            default: "~"
+            schema:
+              $ref: "#/definitions/PresenceInfoResource"
         responses:
           default:
             description: "successful operation"
@@ -3007,11 +3007,12 @@
           - "application/json"
         parameters:
           -
-            in: "body"
-            name: "body"
-            required: false
-            schema:
-              $ref: "#/definitions/UpdatePresenceLinesRequest"
+            name: "accountId"
+            in: "path"
+            description: "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session"
+            required: true
+            type: "string"
+            default: "~"
           -
             name: "extensionId"
             in: "path"
@@ -3020,12 +3021,11 @@
             type: "string"
             default: "~"
           -
-            name: "accountId"
-            in: "path"
-            description: "Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session"
+            in: "body"
+            name: "body"
             required: true
-            type: "string"
-            default: "~"
+            schema:
+              $ref: "#/definitions/UpdatePresenceLinesRequest"
         responses:
           default:
             description: "successful operation"
@@ -3556,12 +3556,12 @@
           - "application/json"
         parameters:
           -
-            name: "extensionId"
+            name: "accountId"
             in: "path"
             required: true
             type: "string"
           -
-            name: "accountId"
+            name: "extensionId"
             in: "path"
             required: true
             type: "string"
@@ -3588,21 +3588,21 @@
           - "application/json"
         parameters:
           -
-            in: "body"
-            name: "body"
-            required: false
-            schema:
-              $ref: "#/definitions/MeetingRequestResource"
+            name: "accountId"
+            in: "path"
+            required: true
+            type: "string"
           -
             name: "extensionId"
             in: "path"
             required: true
             type: "string"
           -
-            name: "accountId"
-            in: "path"
+            in: "body"
+            name: "body"
             required: true
-            type: "string"
+            schema:
+              $ref: "#/definitions/MeetingRequestResource"
         responses:
           default:
             description: "successful operation"
@@ -3627,7 +3627,7 @@
           - "application/json"
         parameters:
           -
-            name: "meetingId"
+            name: "accountId"
             in: "path"
             required: true
             type: "string"
@@ -3637,7 +3637,7 @@
             required: true
             type: "string"
           -
-            name: "accountId"
+            name: "meetingId"
             in: "path"
             required: true
             type: "string"
@@ -3664,6 +3664,16 @@
           - "application/json"
         parameters:
           -
+            name: "accountId"
+            in: "path"
+            required: true
+            type: "string"
+          -
+            name: "extensionId"
+            in: "path"
+            required: true
+            type: "string"
+          -
             name: "meetingId"
             in: "path"
             required: true
@@ -3671,19 +3681,9 @@
           -
             in: "body"
             name: "body"
-            required: false
+            required: true
             schema:
               $ref: "#/definitions/MeetingRequestResource"
-          -
-            name: "extensionId"
-            in: "path"
-            required: true
-            type: "string"
-          -
-            name: "accountId"
-            in: "path"
-            required: true
-            type: "string"
         responses:
           default:
             description: "successful operation"
@@ -19096,23 +19096,6 @@
           default: false
         details:
           $ref: "#/definitions/ActivePermissionResource"
-    Throwable:
-      type: "object"
-      properties:
-        cause:
-          $ref: "#/definitions/Throwable"
-        stackTrace:
-          type: "array"
-          items:
-            $ref: "#/definitions/StackTraceElement"
-        localizedMessage:
-          type: "string"
-        message:
-          type: "string"
-        suppressed:
-          type: "array"
-          items:
-            $ref: "#/definitions/Throwable"
     CfaSchedule:
       type: "object"
       properties:

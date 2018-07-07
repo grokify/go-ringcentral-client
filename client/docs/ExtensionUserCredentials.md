@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SecretQuestion** | [***SecretQuestionInfo**](SecretQuestionInfo.md) | Secret question of an extension user | [optional] [default to null]
+**SecretQuestion** | [**SecretQuestionInfo**](SecretQuestionInfo.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

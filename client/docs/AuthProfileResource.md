@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Uri** | **string** |  | [optional] [default to null]
-**Permissions** | [**[]ActivePermissionResource**](ActivePermissionResource.md) |  | [optional] [default to null]
+**Uri** | **string** |  | [optional] 
+**Permissions** | [**[]ActivePermissionResource**](ActivePermissionResource.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
