@@ -33,11 +33,12 @@ PresenceApiService Get all user statuses
 */
 func (a *PresenceApiService) AccountPresence(ctx context.Context, accountId string) (AccountPresenceInfo, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue AccountPresenceInfo
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  AccountPresenceInfo
 	)
 
 	// create path and map variables
@@ -65,7 +66,7 @@ func (a *PresenceApiService) AccountPresence(ctx context.Context, accountId stri
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -119,11 +120,12 @@ PresenceApiService Get User Presence Permissions
 */
 func (a *PresenceApiService) GetMonitoringExtensions(ctx context.Context, extensionId string, accountId string) (MonitoringExtensionsResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue MonitoringExtensionsResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  MonitoringExtensionsResource
 	)
 
 	// create path and map variables
@@ -152,7 +154,7 @@ func (a *PresenceApiService) GetMonitoringExtensions(ctx context.Context, extens
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -207,11 +209,12 @@ PresenceApiService Get Monitored Extensions by Id
 */
 func (a *PresenceApiService) GetPresenceLine(ctx context.Context, lineId string, extensionId string, accountId string) (PresenceLineResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue PresenceLineResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PresenceLineResource
 	)
 
 	// create path and map variables
@@ -241,7 +244,7 @@ func (a *PresenceApiService) GetPresenceLine(ctx context.Context, lineId string,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -296,11 +299,12 @@ PresenceApiService Get User Status
 */
 func (a *PresenceApiService) GetPresenceStatus(ctx context.Context, accountId string, extensionId string) (GetPresenceInfo, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetPresenceInfo
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetPresenceInfo
 	)
 
 	// create path and map variables
@@ -329,7 +333,7 @@ func (a *PresenceApiService) GetPresenceStatus(ctx context.Context, accountId st
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -384,11 +388,12 @@ PresenceApiService Get Monitored Extensions
 */
 func (a *PresenceApiService) ListMonitoredExtensions(ctx context.Context, accountId string, extensionId string) (GetMonitoredExtensionsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetMonitoredExtensionsResponse
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetMonitoredExtensionsResponse
 	)
 
 	// create path and map variables
@@ -417,7 +422,7 @@ func (a *PresenceApiService) ListMonitoredExtensions(ctx context.Context, accoun
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -472,11 +477,12 @@ PresenceApiService Update User Presence Permissions
 */
 func (a *PresenceApiService) PutMonitoringExtensions(ctx context.Context, extensionId string, accountId string, userPresencePermissionsUpdateRequest UserPresencePermissionsUpdateRequest) (MonitoringExtensionsResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue MonitoringExtensionsResource
+		localVarHttpMethod   = strings.ToUpper("Put")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  MonitoringExtensionsResource
 	)
 
 	// create path and map variables
@@ -507,7 +513,7 @@ func (a *PresenceApiService) PutMonitoringExtensions(ctx context.Context, extens
 	}
 	// body params
 	localVarPostBody = &userPresencePermissionsUpdateRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -562,11 +568,12 @@ PresenceApiService Update Monitored Extensions
 */
 func (a *PresenceApiService) UpdatePresenceLines(ctx context.Context, accountId string, extensionId string, updatePresenceLinesRequest UpdatePresenceLinesRequest) (UpdatePresenceLinesResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue UpdatePresenceLinesResponse
+		localVarHttpMethod   = strings.ToUpper("Put")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  UpdatePresenceLinesResponse
 	)
 
 	// create path and map variables
@@ -597,7 +604,7 @@ func (a *PresenceApiService) UpdatePresenceLines(ctx context.Context, accountId 
 	}
 	// body params
 	localVarPostBody = &updatePresenceLinesRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -652,11 +659,12 @@ PresenceApiService Update User Status
 */
 func (a *PresenceApiService) UpdatePresenceStatus(ctx context.Context, accountId string, extensionId string, presenceInfoResource PresenceInfoResource) (PresenceInfoResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue PresenceInfoResource
+		localVarHttpMethod   = strings.ToUpper("Put")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PresenceInfoResource
 	)
 
 	// create path and map variables
@@ -687,7 +695,7 @@ func (a *PresenceApiService) UpdatePresenceStatus(ctx context.Context, accountId
 	}
 	// body params
 	localVarPostBody = &presenceInfoResource
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

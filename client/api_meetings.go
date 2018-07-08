@@ -35,11 +35,12 @@ MeetingsApiService Create Meetings
 */
 func (a *MeetingsApiService) CreateMeeting(ctx context.Context, accountId string, extensionId string, meetingRequestResource MeetingRequestResource) (MeetingResponseResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue MeetingResponseResource
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  MeetingResponseResource
 	)
 
 	// create path and map variables
@@ -70,7 +71,7 @@ func (a *MeetingsApiService) CreateMeeting(ctx context.Context, accountId string
 	}
 	// body params
 	localVarPostBody = &meetingRequestResource
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -124,10 +125,11 @@ MeetingsApiService Delete Meeting
 */
 func (a *MeetingsApiService) DeleteMeeting(ctx context.Context, meetingId string, extensionId string, accountId string) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Delete")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -157,7 +159,7 @@ func (a *MeetingsApiService) DeleteMeeting(ctx context.Context, meetingId string
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -193,10 +195,11 @@ MeetingsApiService End Meeting
 */
 func (a *MeetingsApiService) EndMeeting(ctx context.Context, meetingId string, extensionId string, accountId string) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -226,7 +229,7 @@ func (a *MeetingsApiService) EndMeeting(ctx context.Context, meetingId string, e
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -262,11 +265,12 @@ MeetingsApiService Get Scheduled Meetings
 */
 func (a *MeetingsApiService) GetLiveMeetings(ctx context.Context, accountId string, extensionId string) (MeetingsResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue MeetingsResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  MeetingsResource
 	)
 
 	// create path and map variables
@@ -295,7 +299,7 @@ func (a *MeetingsApiService) GetLiveMeetings(ctx context.Context, accountId stri
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -350,11 +354,12 @@ MeetingsApiService Get Meeting Info
 */
 func (a *MeetingsApiService) GetMeetingDetails(ctx context.Context, accountId string, extensionId string, meetingId string) (MeetingResponseResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue MeetingResponseResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  MeetingResponseResource
 	)
 
 	// create path and map variables
@@ -384,7 +389,7 @@ func (a *MeetingsApiService) GetMeetingDetails(ctx context.Context, accountId st
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -438,11 +443,12 @@ MeetingsApiService Get Meeting Service Info
 */
 func (a *MeetingsApiService) GetMeetingServiceInfo(ctx context.Context, extensionId string, accountId string) (MeetingServiceInfoResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue MeetingServiceInfoResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  MeetingServiceInfoResource
 	)
 
 	// create path and map variables
@@ -471,7 +477,7 @@ func (a *MeetingsApiService) GetMeetingServiceInfo(ctx context.Context, extensio
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -527,11 +533,12 @@ MeetingsApiService Update Meeting
 */
 func (a *MeetingsApiService) UpdateMeeting(ctx context.Context, accountId string, extensionId string, meetingId string, meetingRequestResource MeetingRequestResource) (MeetingResponseResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue MeetingResponseResource
+		localVarHttpMethod   = strings.ToUpper("Put")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  MeetingResponseResource
 	)
 
 	// create path and map variables
@@ -563,7 +570,7 @@ func (a *MeetingsApiService) UpdateMeeting(ctx context.Context, accountId string
 	}
 	// body params
 	localVarPostBody = &meetingRequestResource
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

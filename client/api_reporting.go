@@ -35,11 +35,12 @@ ReportingApiService Get Reporting Settings
 */
 func (a *ReportingApiService) LoadReportingSettings(ctx context.Context, accountId string, extensionId string) (ReportingSettings, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue ReportingSettings
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ReportingSettings
 	)
 
 	// create path and map variables
@@ -68,7 +69,7 @@ func (a *ReportingApiService) LoadReportingSettings(ctx context.Context, account
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -124,11 +125,12 @@ ReportingApiService Update Reporting Settings
 */
 func (a *ReportingApiService) UpdateReportingSettings(ctx context.Context, accountId string, extensionId string, setReportingSettingsRequest SetReportingSettingsRequest) (ReportingSettings, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue ReportingSettings
+		localVarHttpMethod   = strings.ToUpper("Put")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ReportingSettings
 	)
 
 	// create path and map variables
@@ -159,7 +161,7 @@ func (a *ReportingApiService) UpdateReportingSettings(ctx context.Context, accou
 	}
 	// body params
 	localVarPostBody = &setReportingSettingsRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

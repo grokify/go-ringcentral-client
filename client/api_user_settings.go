@@ -36,10 +36,11 @@ UserSettingsApiService Delete Extension
 */
 func (a *UserSettingsApiService) DeleteExtension(ctx context.Context, extensionId string, accountId string) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Delete")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -68,7 +69,7 @@ func (a *UserSettingsApiService) DeleteExtension(ctx context.Context, extensionI
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -105,11 +106,12 @@ UserSettingsApiService Get User Profile Image
 */
 func (a *UserSettingsApiService) DownloadImage(ctx context.Context, extensionId string, accountId string) (Binary, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue Binary
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Binary
 	)
 
 	// create path and map variables
@@ -138,7 +140,7 @@ func (a *UserSettingsApiService) DownloadImage(ctx context.Context, extensionId 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -193,11 +195,12 @@ UserSettingsApiService Get Notification Settings
 */
 func (a *UserSettingsApiService) GetNotificationSettings(ctx context.Context, accountId string, extensionId string) (NotificationSettings, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue NotificationSettings
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  NotificationSettings
 	)
 
 	// create path and map variables
@@ -226,7 +229,7 @@ func (a *UserSettingsApiService) GetNotificationSettings(ctx context.Context, ac
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -290,11 +293,12 @@ type ListExtensionGrantsOpts struct {
 
 func (a *UserSettingsApiService) ListExtensionGrants(ctx context.Context, accountId string, extensionId string, localVarOptionals *ListExtensionGrantsOpts) (GetExtensionGrantListResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetExtensionGrantListResponse
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetExtensionGrantListResponse
 	)
 
 	// create path and map variables
@@ -329,7 +333,7 @@ func (a *UserSettingsApiService) ListExtensionGrants(ctx context.Context, accoun
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -393,11 +397,12 @@ type ListSecretQuestionsOpts struct {
 
 func (a *UserSettingsApiService) ListSecretQuestions(ctx context.Context, localVarOptionals *ListSecretQuestionsOpts) (GetSecretQuestionListResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetSecretQuestionListResponse
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetSecretQuestionListResponse
 	)
 
 	// create path and map variables
@@ -433,7 +438,7 @@ func (a *UserSettingsApiService) ListSecretQuestions(ctx context.Context, localV
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -495,11 +500,12 @@ type LoadConferencingInfoOpts struct {
 
 func (a *UserSettingsApiService) LoadConferencingInfo(ctx context.Context, accountId string, extensionId string, localVarOptionals *LoadConferencingInfoOpts) (GetConferencingInfoResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetConferencingInfoResponse
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetConferencingInfoResponse
 	)
 
 	// create path and map variables
@@ -531,7 +537,7 @@ func (a *UserSettingsApiService) LoadConferencingInfo(ctx context.Context, accou
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -586,11 +592,12 @@ UserSettingsApiService Get Extension Caller ID
 */
 func (a *UserSettingsApiService) LoadExtensionCallerId(ctx context.Context, accountId string, extensionId string) (ExtensionCallerIdInfo, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue ExtensionCallerIdInfo
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ExtensionCallerIdInfo
 	)
 
 	// create path and map variables
@@ -619,7 +626,7 @@ func (a *UserSettingsApiService) LoadExtensionCallerId(ctx context.Context, acco
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -674,11 +681,12 @@ UserSettingsApiService Get Extension Info
 */
 func (a *UserSettingsApiService) LoadExtensionInfo(ctx context.Context, accountId string, extensionId string) (GetExtensionInfoResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetExtensionInfoResponse
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetExtensionInfoResponse
 	)
 
 	// create path and map variables
@@ -707,7 +715,7 @@ func (a *UserSettingsApiService) LoadExtensionInfo(ctx context.Context, accountI
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -763,11 +771,12 @@ UserSettingsApiService Get Extension Profile Image (Scaled)
 */
 func (a *UserSettingsApiService) LoadExtensionProfileImage(ctx context.Context, accountId string, extensionId string, scaleSize string) (Binary, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue Binary
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Binary
 	)
 
 	// create path and map variables
@@ -797,7 +806,7 @@ func (a *UserSettingsApiService) LoadExtensionProfileImage(ctx context.Context, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -852,11 +861,12 @@ UserSettingsApiService Get User Credentials
 */
 func (a *UserSettingsApiService) LoadExtensionUserCredentials(ctx context.Context, accountId string, extensionId string) (ExtensionUserCredentials, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue ExtensionUserCredentials
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ExtensionUserCredentials
 	)
 
 	// create path and map variables
@@ -885,7 +895,7 @@ func (a *UserSettingsApiService) LoadExtensionUserCredentials(ctx context.Contex
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -939,11 +949,12 @@ UserSettingsApiService Get Secret Question
 */
 func (a *UserSettingsApiService) LoadSecretQuestion(ctx context.Context, questionId int32) (SecretQuestionInfo, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue SecretQuestionInfo
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  SecretQuestionInfo
 	)
 
 	// create path and map variables
@@ -971,7 +982,7 @@ func (a *UserSettingsApiService) LoadSecretQuestion(ctx context.Context, questio
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1027,11 +1038,12 @@ UserSettingsApiService Update User Conferencing Settings
 */
 func (a *UserSettingsApiService) UpdateConferencingInfo(ctx context.Context, accountId string, extensionId string, updateConferencingInfoRequest UpdateConferencingInfoRequest) (GetConferencingInfoResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetConferencingInfoResponse
+		localVarHttpMethod   = strings.ToUpper("Put")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetConferencingInfoResponse
 	)
 
 	// create path and map variables
@@ -1062,7 +1074,7 @@ func (a *UserSettingsApiService) UpdateConferencingInfo(ctx context.Context, acc
 	}
 	// body params
 	localVarPostBody = &updateConferencingInfoRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1118,11 +1130,12 @@ UserSettingsApiService Update Extension
 */
 func (a *UserSettingsApiService) UpdateExtension(ctx context.Context, accountId string, extensionId string, extensionUpdateRequest ExtensionUpdateRequest) (GetExtensionInfoResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetExtensionInfoResponse
+		localVarHttpMethod   = strings.ToUpper("Put")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetExtensionInfoResponse
 	)
 
 	// create path and map variables
@@ -1153,7 +1166,7 @@ func (a *UserSettingsApiService) UpdateExtension(ctx context.Context, accountId 
 	}
 	// body params
 	localVarPostBody = &extensionUpdateRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1209,11 +1222,12 @@ UserSettingsApiService Update Extension Caller ID
 */
 func (a *UserSettingsApiService) UpdateExtensionCallerId(ctx context.Context, accountId string, extensionId string, extensionCallerIdInfo ExtensionCallerIdInfo) (ExtensionCallerIdInfo, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue ExtensionCallerIdInfo
+		localVarHttpMethod   = strings.ToUpper("Put")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ExtensionCallerIdInfo
 	)
 
 	// create path and map variables
@@ -1244,7 +1258,7 @@ func (a *UserSettingsApiService) UpdateExtensionCallerId(ctx context.Context, ac
 	}
 	// body params
 	localVarPostBody = &extensionCallerIdInfo
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1300,11 +1314,12 @@ UserSettingsApiService Update User Credentials
 */
 func (a *UserSettingsApiService) UpdateExtensionUserCredentials(ctx context.Context, accountId string, extensionId string, extensionUserCredentailsRequest ExtensionUserCredentailsRequest) (ExtensionUserCredentials, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue ExtensionUserCredentials
+		localVarHttpMethod   = strings.ToUpper("Put")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ExtensionUserCredentials
 	)
 
 	// create path and map variables
@@ -1335,7 +1350,7 @@ func (a *UserSettingsApiService) UpdateExtensionUserCredentials(ctx context.Cont
 	}
 	// body params
 	localVarPostBody = &extensionUserCredentailsRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1391,11 +1406,12 @@ UserSettingsApiService Update Notification Settings
 */
 func (a *UserSettingsApiService) UpdateNotificationSettings(ctx context.Context, accountId string, extensionId int32, notificationSettingsUpdateRequest NotificationSettingsUpdateRequest) (NotificationSettings, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue NotificationSettings
+		localVarHttpMethod   = strings.ToUpper("Put")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  NotificationSettings
 	)
 
 	// create path and map variables
@@ -1426,7 +1442,7 @@ func (a *UserSettingsApiService) UpdateNotificationSettings(ctx context.Context,
 	}
 	// body params
 	localVarPostBody = &notificationSettingsUpdateRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1482,11 +1498,12 @@ UserSettingsApiService Upload User Profile Image
 */
 func (a *UserSettingsApiService) UploadImageByPostForm(ctx context.Context, extensionId string, accountId string, image *os.File) (Binary, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue Binary
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Binary
 	)
 
 	// create path and map variables
@@ -1516,13 +1533,14 @@ func (a *UserSettingsApiService) UploadImageByPostForm(ctx context.Context, exte
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	localVarFile := image
+	localVarFormFileName = "image"
 	if localVarFile != nil {
 		fbs, _ := ioutil.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1584,11 +1602,12 @@ type UploadImageByPutFormOpts struct {
 
 func (a *UserSettingsApiService) UploadImageByPutForm(ctx context.Context, extensionId string, accountId string, localVarOptionals *UploadImageByPutFormOpts) (Binary, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue Binary
+		localVarHttpMethod   = strings.ToUpper("Put")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  Binary
 	)
 
 	// create path and map variables
@@ -1625,13 +1644,14 @@ func (a *UserSettingsApiService) UploadImageByPutForm(ctx context.Context, exten
 			return localVarReturnValue, nil, reportError("image should be *os.File")
 		}
 	}
+	localVarFormFileName = "image"
 	if localVarFile != nil {
 		fbs, _ := ioutil.ReadAll(localVarFile)
 		localVarFileBytes = fbs
 		localVarFileName = localVarFile.Name()
 		localVarFile.Close()
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1686,10 +1706,11 @@ UserSettingsApiService Validate User Credentials
 */
 func (a *UserSettingsApiService) ValidateExtensionUserCredentials(ctx context.Context, accountId string, extensionId string, validateExtensionUserCredentials ValidateExtensionUserCredentials) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -1720,7 +1741,7 @@ func (a *UserSettingsApiService) ValidateExtensionUserCredentials(ctx context.Co
 	}
 	// body params
 	localVarPostBody = &validateExtensionUserCredentials
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -1757,10 +1778,11 @@ UserSettingsApiService Verify Extension User Credentials
 */
 func (a *UserSettingsApiService) VerifyExtensionUserCredentials(ctx context.Context, accountId string, extensionId string, verifyExtensionUserCredentials VerifyExtensionUserCredentials) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -1791,7 +1813,7 @@ func (a *UserSettingsApiService) VerifyExtensionUserCredentials(ctx context.Cont
 	}
 	// body params
 	localVarPostBody = &verifyExtensionUserCredentials
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

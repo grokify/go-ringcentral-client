@@ -44,11 +44,12 @@ type CheckPermissionOpts struct {
 
 func (a *RolesAndPermissionsApiService) CheckPermission(ctx context.Context, extensionId string, accountId string, localVarOptionals *CheckPermissionOpts) (AuthProfileCheckResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue AuthProfileCheckResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  AuthProfileCheckResource
 	)
 
 	// create path and map variables
@@ -83,7 +84,7 @@ func (a *RolesAndPermissionsApiService) CheckPermission(ctx context.Context, ext
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -136,11 +137,12 @@ RolesAndPermissionsApiService Get Permission Info
 */
 func (a *RolesAndPermissionsApiService) GetPermission(ctx context.Context, permissionId string) (PermissionResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue PermissionResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PermissionResource
 	)
 
 	// create path and map variables
@@ -168,7 +170,7 @@ func (a *RolesAndPermissionsApiService) GetPermission(ctx context.Context, permi
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -221,11 +223,12 @@ RolesAndPermissionsApiService Get Permission Category
 */
 func (a *RolesAndPermissionsApiService) GetPermissionCategory(ctx context.Context, permissionCategoryId string) (PermissionCategoryResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue PermissionCategoryResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PermissionCategoryResource
 	)
 
 	// create path and map variables
@@ -253,7 +256,7 @@ func (a *RolesAndPermissionsApiService) GetPermissionCategory(ctx context.Contex
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -307,11 +310,12 @@ RolesAndPermissionsApiService Get User Permissions
 */
 func (a *RolesAndPermissionsApiService) GetProfile(ctx context.Context, extensionId string, accountId string) (AuthProfileResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue AuthProfileResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  AuthProfileResource
 	)
 
 	// create path and map variables
@@ -340,7 +344,7 @@ func (a *RolesAndPermissionsApiService) GetProfile(ctx context.Context, extensio
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -393,11 +397,12 @@ RolesAndPermissionsApiService Get User Role
 */
 func (a *RolesAndPermissionsApiService) GetSystemRole(ctx context.Context, roleId string) (RoleResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue RoleResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  RoleResource
 	)
 
 	// create path and map variables
@@ -425,7 +430,7 @@ func (a *RolesAndPermissionsApiService) GetSystemRole(ctx context.Context, roleI
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -488,11 +493,12 @@ type ListPermissionCategoriesOpts struct {
 
 func (a *RolesAndPermissionsApiService) ListPermissionCategories(ctx context.Context, localVarOptionals *ListPermissionCategoriesOpts) (PermissionCategoryCollectionResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue PermissionCategoryCollectionResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PermissionCategoryCollectionResource
 	)
 
 	// create path and map variables
@@ -528,7 +534,7 @@ func (a *RolesAndPermissionsApiService) ListPermissionCategories(ctx context.Con
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -593,11 +599,12 @@ type ListPermissionsOpts struct {
 
 func (a *RolesAndPermissionsApiService) ListPermissions(ctx context.Context, localVarOptionals *ListPermissionsOpts) (PermissionCollectionResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue PermissionCollectionResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PermissionCollectionResource
 	)
 
 	// create path and map variables
@@ -636,7 +643,7 @@ func (a *RolesAndPermissionsApiService) ListPermissions(ctx context.Context, loc
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -699,11 +706,12 @@ type ListSystemRolesOpts struct {
 
 func (a *RolesAndPermissionsApiService) ListSystemRoles(ctx context.Context, localVarOptionals *ListSystemRolesOpts) (RolesCollectionResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue RolesCollectionResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  RolesCollectionResource
 	)
 
 	// create path and map variables
@@ -739,7 +747,7 @@ func (a *RolesAndPermissionsApiService) ListSystemRoles(ctx context.Context, loc
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -792,10 +800,11 @@ RolesAndPermissionsApiService Get Default User Role
 */
 func (a *RolesAndPermissionsApiService) LoadUserRole(ctx context.Context, accountId string) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -823,7 +832,7 @@ func (a *RolesAndPermissionsApiService) LoadUserRole(ctx context.Context, accoun
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -859,10 +868,11 @@ RolesAndPermissionsApiService Set Default User Role
 */
 func (a *RolesAndPermissionsApiService) UpdateUserRole(ctx context.Context, accountId string, defaultUserRoleRequest DefaultUserRoleRequest) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Put")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -892,7 +902,7 @@ func (a *RolesAndPermissionsApiService) UpdateUserRole(ctx context.Context, acco
 	}
 	// body params
 	localVarPostBody = &defaultUserRoleRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

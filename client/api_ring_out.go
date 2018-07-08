@@ -35,10 +35,11 @@ RingOutApiService Cancel RingOut Call
 */
 func (a *RingOutApiService) CancelRingOutCall(ctx context.Context, accountId string, extensionId string, ringoutId int32) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Delete")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -68,7 +69,7 @@ func (a *RingOutApiService) CancelRingOutCall(ctx context.Context, accountId str
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -105,10 +106,11 @@ RingOutApiService Cancel RingOut Call
 */
 func (a *RingOutApiService) CancelRingOutCallNew(ctx context.Context, accountId string, extensionId string, ringoutId int32) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Delete")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -138,7 +140,7 @@ func (a *RingOutApiService) CancelRingOutCallNew(ctx context.Context, accountId 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -174,10 +176,11 @@ RingOutApiService
 */
 func (a *RingOutApiService) CreateDirectRingOut(ctx context.Context, accountId string, extensionId string, ringOutResource RingOutResource) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -208,7 +211,7 @@ func (a *RingOutApiService) CreateDirectRingOut(ctx context.Context, accountId s
 	}
 	// body params
 	localVarPostBody = &ringOutResource
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -244,10 +247,11 @@ RingOutApiService Make Direct RingOut Call
 */
 func (a *RingOutApiService) CreateDirectRingOutNew(ctx context.Context, accountId string, extensionId string, ringOutResource RingOutResource) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -278,7 +282,7 @@ func (a *RingOutApiService) CreateDirectRingOutNew(ctx context.Context, accountI
 	}
 	// body params
 	localVarPostBody = &ringOutResource
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -316,11 +320,12 @@ RingOutApiService Get Status of RingOut Call
 */
 func (a *RingOutApiService) GetRingOutCallStatus(ctx context.Context, accountId string, extensionId string, ringoutId int32) (GetRingOutStatusResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetRingOutStatusResponse
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetRingOutStatusResponse
 	)
 
 	// create path and map variables
@@ -350,7 +355,7 @@ func (a *RingOutApiService) GetRingOutCallStatus(ctx context.Context, accountId 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -406,11 +411,12 @@ RingOutApiService Get Status of RingOut Call
 */
 func (a *RingOutApiService) GetRingOutCallStatusNew(ctx context.Context, accountId string, extensionId string, ringoutId int32) (GetRingOutStatusResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetRingOutStatusResponse
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetRingOutStatusResponse
 	)
 
 	// create path and map variables
@@ -440,7 +446,7 @@ func (a *RingOutApiService) GetRingOutCallStatusNew(ctx context.Context, account
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -496,11 +502,12 @@ RingOutApiService Make RingOut Call
 */
 func (a *RingOutApiService) MakeRingOutCall(ctx context.Context, accountId string, extensionId string, makeRingOutRequest MakeRingOutRequest) (GetRingOutStatusResponseIntId, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetRingOutStatusResponseIntId
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetRingOutStatusResponseIntId
 	)
 
 	// create path and map variables
@@ -531,7 +538,7 @@ func (a *RingOutApiService) MakeRingOutCall(ctx context.Context, accountId strin
 	}
 	// body params
 	localVarPostBody = &makeRingOutRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -587,11 +594,12 @@ RingOutApiService Make RingOut Call
 */
 func (a *RingOutApiService) MakeRingOutCallNew(ctx context.Context, accountId string, extensionId string, makeRingOutRequest MakeRingOutRequest) (GetRingOutStatusResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetRingOutStatusResponse
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetRingOutStatusResponse
 	)
 
 	// create path and map variables
@@ -622,7 +630,7 @@ func (a *RingOutApiService) MakeRingOutCallNew(ctx context.Context, accountId st
 	}
 	// body params
 	localVarPostBody = &makeRingOutRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

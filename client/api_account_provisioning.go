@@ -41,10 +41,11 @@ type BulkAssignOpts struct {
 
 func (a *AccountProvisioningApiService) BulkAssign(ctx context.Context, accountId string, localVarOptionals *BulkAssignOpts) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -81,7 +82,7 @@ func (a *AccountProvisioningApiService) BulkAssign(ctx context.Context, accountI
 		localVarPostBody = &localVarOptionalDepartmentBulkAssignResource
 	}
 
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -117,11 +118,12 @@ AccountProvisioningApiService Create Account
 */
 func (a *AccountProvisioningApiService) CreateAccount(ctx context.Context, createAccountRequest CreateAccountRequest) (GetAccountInfoResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetAccountInfoResponse
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetAccountInfoResponse
 	)
 
 	// create path and map variables
@@ -150,7 +152,7 @@ func (a *AccountProvisioningApiService) CreateAccount(ctx context.Context, creat
 	}
 	// body params
 	localVarPostBody = &createAccountRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -213,11 +215,12 @@ type CreateDeviceOrderOpts struct {
 
 func (a *AccountProvisioningApiService) CreateDeviceOrder(ctx context.Context, accountId string, localVarOptionals *CreateDeviceOrderOpts) (DeviceOrderCreation, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue DeviceOrderCreation
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  DeviceOrderCreation
 	)
 
 	// create path and map variables
@@ -257,7 +260,7 @@ func (a *AccountProvisioningApiService) CreateDeviceOrder(ctx context.Context, a
 		localVarPostBody = &localVarOptionalDeviceResource
 	}
 
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -311,10 +314,11 @@ AccountProvisioningApiService Order Licenses
 */
 func (a *AccountProvisioningApiService) CreateLicensesOrder(ctx context.Context, accountId string, orderLicensesRequest OrderLicensesRequest) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -344,7 +348,7 @@ func (a *AccountProvisioningApiService) CreateLicensesOrder(ctx context.Context,
 	}
 	// body params
 	localVarPostBody = &orderLicensesRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -380,10 +384,11 @@ AccountProvisioningApiService Delete License
 */
 func (a *AccountProvisioningApiService) DeleteLicense(ctx context.Context, accountId string, licenseId string) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Delete")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -412,7 +417,7 @@ func (a *AccountProvisioningApiService) DeleteLicense(ctx context.Context, accou
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -448,10 +453,11 @@ AccountProvisioningApiService Delete Phone Number
 */
 func (a *AccountProvisioningApiService) DeletePhoneNumberById(ctx context.Context, phoneNumberId int64, accountId string) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Delete")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -480,7 +486,7 @@ func (a *AccountProvisioningApiService) DeletePhoneNumberById(ctx context.Contex
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -515,11 +521,12 @@ AccountProvisioningApiService Get Brand Info
 */
 func (a *AccountProvisioningApiService) GetBrandInfo(ctx context.Context, brandId string) (BrandResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue BrandResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  BrandResource
 	)
 
 	// create path and map variables
@@ -547,7 +554,7 @@ func (a *AccountProvisioningApiService) GetBrandInfo(ctx context.Context, brandI
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -599,11 +606,12 @@ AccountProvisioningApiService Get Device Catalog
 */
 func (a *AccountProvisioningApiService) GetDeviceModels(ctx context.Context) (DeviceModelExtsResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue DeviceModelExtsResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  DeviceModelExtsResource
 	)
 
 	// create path and map variables
@@ -630,7 +638,7 @@ func (a *AccountProvisioningApiService) GetDeviceModels(ctx context.Context) (De
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -683,11 +691,12 @@ AccountProvisioningApiService Get Free Extension Numbers
 */
 func (a *AccountProvisioningApiService) GetExtensionFreeNumbers(ctx context.Context, accountId string) (BulkProvisionUnassignedExtensionsResponseResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue BulkProvisionUnassignedExtensionsResponseResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  BulkProvisionUnassignedExtensionsResponseResource
 	)
 
 	// create path and map variables
@@ -715,7 +724,7 @@ func (a *AccountProvisioningApiService) GetExtensionFreeNumbers(ctx context.Cont
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -779,11 +788,12 @@ type GetPagingOnlyGroupDevicesOpts struct {
 
 func (a *AccountProvisioningApiService) GetPagingOnlyGroupDevices(ctx context.Context, accountId string, pagingOnlyGroupId string, localVarOptionals *GetPagingOnlyGroupDevicesOpts) (PagingOnlyGroupDevices, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue PagingOnlyGroupDevices
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PagingOnlyGroupDevices
 	)
 
 	// create path and map variables
@@ -818,7 +828,7 @@ func (a *AccountProvisioningApiService) GetPagingOnlyGroupDevices(ctx context.Co
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -882,11 +892,12 @@ type GetPagingOnlyGroupUsersOpts struct {
 
 func (a *AccountProvisioningApiService) GetPagingOnlyGroupUsers(ctx context.Context, accountId string, pagingOnlyGroupId string, localVarOptionals *GetPagingOnlyGroupUsersOpts) (PagingOnlyGroupUsers, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue PagingOnlyGroupUsers
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PagingOnlyGroupUsers
 	)
 
 	// create path and map variables
@@ -921,7 +932,7 @@ func (a *AccountProvisioningApiService) GetPagingOnlyGroupUsers(ctx context.Cont
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -985,11 +996,12 @@ type GetParkLocationUsersOpts struct {
 
 func (a *AccountProvisioningApiService) GetParkLocationUsers(ctx context.Context, accountId string, parkLocationId string, localVarOptionals *GetParkLocationUsersOpts) (ParkLocationResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue ParkLocationResponse
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ParkLocationResponse
 	)
 
 	// create path and map variables
@@ -1024,7 +1036,7 @@ func (a *AccountProvisioningApiService) GetParkLocationUsers(ctx context.Context
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1077,11 +1089,12 @@ AccountProvisioningApiService Get Service Plan
 */
 func (a *AccountProvisioningApiService) GetServicePlanInfo(ctx context.Context, servicePlanId string) (ServicePlanResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue ServicePlanResource
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ServicePlanResource
 	)
 
 	// create path and map variables
@@ -1109,7 +1122,7 @@ func (a *AccountProvisioningApiService) GetServicePlanInfo(ctx context.Context, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1163,11 +1176,12 @@ AccountProvisioningApiService Get Account Devices
 */
 func (a *AccountProvisioningApiService) ListAccountDevices(ctx context.Context, accountId string) (GetAccountDevicesResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetAccountDevicesResponse
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetAccountDevicesResponse
 	)
 
 	// create path and map variables
@@ -1195,7 +1209,7 @@ func (a *AccountProvisioningApiService) ListAccountDevices(ctx context.Context, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1260,11 +1274,12 @@ type ListAccountPhoneNumbersOpts struct {
 
 func (a *AccountProvisioningApiService) ListAccountPhoneNumbers(ctx context.Context, accountId string, localVarOptionals *ListAccountPhoneNumbersOpts) (AccountPhoneNumbers, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue AccountPhoneNumbers
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  AccountPhoneNumbers
 	)
 
 	// create path and map variables
@@ -1301,7 +1316,7 @@ func (a *AccountProvisioningApiService) ListAccountPhoneNumbers(ctx context.Cont
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1365,11 +1380,12 @@ type ListDepartmentMembersOpts struct {
 
 func (a *AccountProvisioningApiService) ListDepartmentMembers(ctx context.Context, accountId string, departmentId int32, localVarOptionals *ListDepartmentMembersOpts) (DepartmentMemberList, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue DepartmentMemberList
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  DepartmentMemberList
 	)
 
 	// create path and map variables
@@ -1404,7 +1420,7 @@ func (a *AccountProvisioningApiService) ListDepartmentMembers(ctx context.Contex
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1466,11 +1482,12 @@ type ListExtensionDevicesOpts struct {
 
 func (a *AccountProvisioningApiService) ListExtensionDevices(ctx context.Context, accountId string, extensionId string, localVarOptionals *ListExtensionDevicesOpts) (GetExtensionDevicesResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetExtensionDevicesResponse
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetExtensionDevicesResponse
 	)
 
 	// create path and map variables
@@ -1502,7 +1519,7 @@ func (a *AccountProvisioningApiService) ListExtensionDevices(ctx context.Context
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1555,11 +1572,12 @@ AccountProvisioningApiService Get License Types
 */
 func (a *AccountProvisioningApiService) ListLicenseTypes(ctx context.Context) (LicenseTypes, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue LicenseTypes
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  LicenseTypes
 	)
 
 	// create path and map variables
@@ -1586,7 +1604,7 @@ func (a *AccountProvisioningApiService) ListLicenseTypes(ctx context.Context) (L
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1651,11 +1669,12 @@ type ListLicensesOpts struct {
 
 func (a *AccountProvisioningApiService) ListLicenses(ctx context.Context, accountId string, localVarOptionals *ListLicensesOpts) (LicenseList, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue LicenseList
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  LicenseList
 	)
 
 	// create path and map variables
@@ -1692,7 +1711,7 @@ func (a *AccountProvisioningApiService) ListLicenses(ctx context.Context, accoun
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1756,11 +1775,12 @@ type ListShippingOptionsOpts struct {
 
 func (a *AccountProvisioningApiService) ListShippingOptions(ctx context.Context, localVarOptionals *ListShippingOptionsOpts) (DictionaryShippingOptions, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue DictionaryShippingOptions
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  DictionaryShippingOptions
 	)
 
 	// create path and map variables
@@ -1796,7 +1816,7 @@ func (a *AccountProvisioningApiService) ListShippingOptions(ctx context.Context,
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1851,11 +1871,12 @@ AccountProvisioningApiService Get Device Info
 */
 func (a *AccountProvisioningApiService) LoadAccountDevice(ctx context.Context, accountId string, deviceId string) (GetDeviceInfoResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetDeviceInfoResponse
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetDeviceInfoResponse
 	)
 
 	// create path and map variables
@@ -1884,7 +1905,7 @@ func (a *AccountProvisioningApiService) LoadAccountDevice(ctx context.Context, a
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1939,11 +1960,12 @@ AccountProvisioningApiService Get Phone Number
 */
 func (a *AccountProvisioningApiService) LoadAccountPhoneNumber(ctx context.Context, accountId string, phoneNumberId int32) (PhoneNumberInfo, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue PhoneNumberInfo
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PhoneNumberInfo
 	)
 
 	// create path and map variables
@@ -1972,7 +1994,7 @@ func (a *AccountProvisioningApiService) LoadAccountPhoneNumber(ctx context.Conte
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2027,11 +2049,12 @@ AccountProvisioningApiService Get Device Order by ID
 */
 func (a *AccountProvisioningApiService) LoadDeviceOrder(ctx context.Context, accountId string, orderId int32) (DeviceOrder, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue DeviceOrder
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  DeviceOrder
 	)
 
 	// create path and map variables
@@ -2060,7 +2083,7 @@ func (a *AccountProvisioningApiService) LoadDeviceOrder(ctx context.Context, acc
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2115,11 +2138,12 @@ AccountProvisioningApiService Get License
 */
 func (a *AccountProvisioningApiService) LoadLicense(ctx context.Context, accountId string, licenseId string) (LicenseInfo, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue LicenseInfo
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  LicenseInfo
 	)
 
 	// create path and map variables
@@ -2148,7 +2172,7 @@ func (a *AccountProvisioningApiService) LoadLicense(ctx context.Context, account
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2232,11 +2256,12 @@ type LookupPhoneNumbersOpts struct {
 
 func (a *AccountProvisioningApiService) LookupPhoneNumbers(ctx context.Context, localVarOptionals *LookupPhoneNumbersOpts) (PhoneNumbers, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue PhoneNumbers
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PhoneNumbers
 	)
 
 	// create path and map variables
@@ -2302,7 +2327,7 @@ func (a *AccountProvisioningApiService) LookupPhoneNumbers(ctx context.Context, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2365,11 +2390,12 @@ type ParsePhoneNumberOpts struct {
 
 func (a *AccountProvisioningApiService) ParsePhoneNumber(ctx context.Context, parsePhoneNumberRequest ParsePhoneNumberRequest, localVarOptionals *ParsePhoneNumberOpts) (ParsePhoneNumberResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue ParsePhoneNumberResponse
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ParsePhoneNumberResponse
 	)
 
 	// create path and map variables
@@ -2404,7 +2430,7 @@ func (a *AccountProvisioningApiService) ParsePhoneNumber(ctx context.Context, pa
 	}
 	// body params
 	localVarPostBody = &parsePhoneNumberRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2459,11 +2485,12 @@ AccountProvisioningApiService Provision Phone Numbers
 */
 func (a *AccountProvisioningApiService) ProvisionPhoneNumber(ctx context.Context, accountId string, provisionPhoneNumberRequest ProvisionPhoneNumberRequest) (PhoneNumberInfo, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue PhoneNumberInfo
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PhoneNumberInfo
 	)
 
 	// create path and map variables
@@ -2493,7 +2520,7 @@ func (a *AccountProvisioningApiService) ProvisionPhoneNumber(ctx context.Context
 	}
 	// body params
 	localVarPostBody = &provisionPhoneNumberRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2555,11 +2582,12 @@ type ReassignPhoneNumberByIdOpts struct {
 
 func (a *AccountProvisioningApiService) ReassignPhoneNumberById(ctx context.Context, phoneNumberId int64, accountId string, localVarOptionals *ReassignPhoneNumberByIdOpts) (PhoneNumberResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue PhoneNumberResource
+		localVarHttpMethod   = strings.ToUpper("Put")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PhoneNumberResource
 	)
 
 	// create path and map variables
@@ -2597,7 +2625,7 @@ func (a *AccountProvisioningApiService) ReassignPhoneNumberById(ctx context.Cont
 		localVarPostBody = &localVarOptionalReassignPhoneNumberResource
 	}
 
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2651,11 +2679,12 @@ AccountProvisioningApiService Reserve/ Un-reserve Numbers
 */
 func (a *AccountProvisioningApiService) ReservePhoneNumbers(ctx context.Context, numberPoolPhoneNumberRequest NumberPoolPhoneNumberRequest) (ReservePhoneNumbersRecordsResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue ReservePhoneNumbersRecordsResource
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  ReservePhoneNumbersRecordsResource
 	)
 
 	// create path and map variables
@@ -2684,7 +2713,7 @@ func (a *AccountProvisioningApiService) ReservePhoneNumbers(ctx context.Context,
 	}
 	// body params
 	localVarPostBody = &numberPoolPhoneNumberRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2739,11 +2768,12 @@ AccountProvisioningApiService Update Device
 */
 func (a *AccountProvisioningApiService) UpdateDevice(ctx context.Context, accountId string, deviceId string, accountDeviceUpdate AccountDeviceUpdate) (DeviceResource, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Put")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue DeviceResource
+		localVarHttpMethod   = strings.ToUpper("Put")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  DeviceResource
 	)
 
 	// create path and map variables
@@ -2774,7 +2804,7 @@ func (a *AccountProvisioningApiService) UpdateDevice(ctx context.Context, accoun
 	}
 	// body params
 	localVarPostBody = &accountDeviceUpdate
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2835,10 +2865,11 @@ type UpdatePagingOnlyGroupUsersAndDevicesOpts struct {
 
 func (a *AccountProvisioningApiService) UpdatePagingOnlyGroupUsersAndDevices(ctx context.Context, accountId string, pagingOnlyGroupId string, localVarOptionals *UpdatePagingOnlyGroupUsersAndDevicesOpts) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -2876,7 +2907,7 @@ func (a *AccountProvisioningApiService) UpdatePagingOnlyGroupUsersAndDevices(ctx
 		localVarPostBody = &localVarOptionalEditPagingGroupRequest
 	}
 
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}
@@ -2919,10 +2950,11 @@ type UpdateParkLocationUsersOpts struct {
 
 func (a *AccountProvisioningApiService) UpdateParkLocationUsers(ctx context.Context, accountId string, parkLocationId string, localVarOptionals *UpdateParkLocationUsersOpts) (*http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
-		localVarPostBody   interface{}
-		localVarFileName   string
-		localVarFileBytes  []byte
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
 	)
 
 	// create path and map variables
@@ -2960,7 +2992,7 @@ func (a *AccountProvisioningApiService) UpdateParkLocationUsers(ctx context.Cont
 		localVarPostBody = &localVarOptionalEditParkLocationRequest
 	}
 
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return nil, err
 	}

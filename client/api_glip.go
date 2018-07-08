@@ -45,11 +45,12 @@ type CreateGlipFileOpts struct {
 
 func (a *GlipApiService) CreateGlipFile(ctx context.Context, body *os.File, localVarOptionals *CreateGlipFileOpts) (PostGlipFile, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue PostGlipFile
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PostGlipFile
 	)
 
 	// create path and map variables
@@ -80,6 +81,7 @@ func (a *GlipApiService) CreateGlipFile(ctx context.Context, body *os.File, loca
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	localVarFile := body
+	localVarFormFileName = "body"
 	if localVarFile != nil {
 		fbs, _ := ioutil.ReadAll(localVarFile)
 		localVarFileBytes = fbs
@@ -89,7 +91,7 @@ func (a *GlipApiService) CreateGlipFile(ctx context.Context, body *os.File, loca
 	if localVarOptionals != nil && localVarOptionals.Name.IsSet() {
 		localVarFormParams.Add("name", parameterToString(localVarOptionals.Name.Value(), ""))
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -143,11 +145,12 @@ GlipApiService Create Group
 */
 func (a *GlipApiService) CreateGroup(ctx context.Context, glipCreateGroup GlipCreateGroup) (GlipGroupInfo, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GlipGroupInfo
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GlipGroupInfo
 	)
 
 	// create path and map variables
@@ -176,7 +179,7 @@ func (a *GlipApiService) CreateGroup(ctx context.Context, glipCreateGroup GlipCr
 	}
 	// body params
 	localVarPostBody = &glipCreateGroup
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -231,11 +234,12 @@ GlipApiService Create Post
 */
 func (a *GlipApiService) CreatePost(ctx context.Context, groupId string, glipCreatePost GlipCreatePost) (GlipPostInfo, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GlipPostInfo
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GlipPostInfo
 	)
 
 	// create path and map variables
@@ -265,7 +269,7 @@ func (a *GlipApiService) CreatePost(ctx context.Context, groupId string, glipCre
 	}
 	// body params
 	localVarPostBody = &glipCreatePost
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -319,11 +323,12 @@ GlipApiService Get Company Info
 */
 func (a *GlipApiService) LoadCompany(ctx context.Context, companyId string) (GlipCompany, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GlipCompany
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GlipCompany
 	)
 
 	// create path and map variables
@@ -351,7 +356,7 @@ func (a *GlipApiService) LoadCompany(ctx context.Context, companyId string) (Gli
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -405,11 +410,12 @@ GlipApiService Get File Info
 */
 func (a *GlipApiService) LoadGlipFile(ctx context.Context, fileId string) (PostGlipFile, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue PostGlipFile
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  PostGlipFile
 	)
 
 	// create path and map variables
@@ -437,7 +443,7 @@ func (a *GlipApiService) LoadGlipFile(ctx context.Context, fileId string) (PostG
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -491,11 +497,12 @@ GlipApiService Get Group
 */
 func (a *GlipApiService) LoadGroup(ctx context.Context, groupId string) (GlipGroupInfo, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GlipGroupInfo
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GlipGroupInfo
 	)
 
 	// create path and map variables
@@ -523,7 +530,7 @@ func (a *GlipApiService) LoadGroup(ctx context.Context, groupId string) (GlipGro
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -587,11 +594,12 @@ type LoadGroupListOpts struct {
 
 func (a *GlipApiService) LoadGroupList(ctx context.Context, localVarOptionals *LoadGroupListOpts) (GlipGroupList, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GlipGroupList
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GlipGroupList
 	)
 
 	// create path and map variables
@@ -627,7 +635,7 @@ func (a *GlipApiService) LoadGroupList(ctx context.Context, localVarOptionals *L
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -681,11 +689,12 @@ GlipApiService Get Person
 */
 func (a *GlipApiService) LoadPerson(ctx context.Context, personId string) (GlipPersonInfo, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GlipPersonInfo
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GlipPersonInfo
 	)
 
 	// create path and map variables
@@ -713,7 +722,7 @@ func (a *GlipApiService) LoadPerson(ctx context.Context, personId string) (GlipP
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -776,11 +785,12 @@ type LoadPostsOpts struct {
 
 func (a *GlipApiService) LoadPosts(ctx context.Context, groupId string, localVarOptionals *LoadPostsOpts) (GlipPosts, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GlipPosts
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GlipPosts
 	)
 
 	// create path and map variables
@@ -814,7 +824,7 @@ func (a *GlipApiService) LoadPosts(ctx context.Context, groupId string, localVar
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -874,11 +884,12 @@ type LoadUnreadMessageCountOpts struct {
 
 func (a *GlipApiService) LoadUnreadMessageCount(ctx context.Context, localVarOptionals *LoadUnreadMessageCountOpts) (GlipUnreadMessageCount, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GlipUnreadMessageCount
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GlipUnreadMessageCount
 	)
 
 	// create path and map variables
@@ -908,7 +919,7 @@ func (a *GlipApiService) LoadUnreadMessageCount(ctx context.Context, localVarOpt
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -963,11 +974,12 @@ GlipApiService Edit Group Members
 */
 func (a *GlipApiService) UpdateGroup(ctx context.Context, groupId string, editGroupRequest EditGroupRequest) (GlipGroupInfo, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Post")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GlipGroupInfo
+		localVarHttpMethod   = strings.ToUpper("Post")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GlipGroupInfo
 	)
 
 	// create path and map variables
@@ -997,7 +1009,7 @@ func (a *GlipApiService) UpdateGroup(ctx context.Context, groupId string, editGr
 	}
 	// body params
 	localVarPostBody = &editGroupRequest
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

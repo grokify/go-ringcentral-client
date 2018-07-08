@@ -47,11 +47,12 @@ type ListExtensionPhoneNumbersOpts struct {
 
 func (a *PhoneNumbersApiService) ListExtensionPhoneNumbers(ctx context.Context, accountId string, extensionId string, localVarOptionals *ListExtensionPhoneNumbersOpts) (GetExtensionPhoneNumbersResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod  = strings.ToUpper("Get")
-		localVarPostBody    interface{}
-		localVarFileName    string
-		localVarFileBytes   []byte
-		localVarReturnValue GetExtensionPhoneNumbersResponse
+		localVarHttpMethod   = strings.ToUpper("Get")
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetExtensionPhoneNumbersResponse
 	)
 
 	// create path and map variables
@@ -89,7 +90,7 @@ func (a *PhoneNumbersApiService) ListExtensionPhoneNumbers(ctx context.Context, 
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}

@@ -1,11 +1,13 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
 
+	"github.com/antihax/optional"
 	"github.com/caarlos0/env"
 	"github.com/grokify/gotilla/config"
 	"github.com/grokify/gotilla/fmt/fmtutil"
@@ -13,6 +15,7 @@ import (
 	uu "github.com/grokify/gotilla/net/urlutil"
 	"github.com/jessevdk/go-flags"
 
+	rc "github.com/grokify/go-ringcentral/client"
 	ru "github.com/grokify/go-ringcentral/clientutil"
 	ro "github.com/grokify/oauth2more/ringcentral"
 )
@@ -99,10 +102,12 @@ func main() {
 	}
 
 	httpClient := apiClient.HTTPClient()
-	sendFaxRaw(opts, httpClient)
 
-	/* TBD
 	if 1 == 0 {
+		sendFaxRaw(opts, httpClient)
+	}
+
+	if 1 == 1 {
 		fmt.Println(opts.Files[0])
 
 		file, err := os.Open(opts.Files[0])
@@ -110,20 +115,20 @@ func main() {
 			log.Fatal(err)
 		}
 
-		params := map[string]interface{}{}
+		params := rc.SendFaxMessageOpts{}
 		if len(opts.CoverPageText) > 0 {
-			params["coverPageText"] = opts.CoverPageText
+			params.FaxResolution = optional.NewString("High")
+			params.CoverPageText = optional.NewString(opts.CoverPageText)
 		}
+		fmtutil.PrintJSON(opts)
+		params.Attachment = optional.NewInterface(file)
 
 		info, resp, err := apiClient.MessagesApi.SendFaxMessage(
 			context.Background(),
 			"~",
 			"~",
-			file,
-			"High",
 			opts.To,
-			params,
-		)
+			&params)
 
 		if err != nil {
 			panic(err)
@@ -132,6 +137,6 @@ func main() {
 		}
 		fmtutil.PrintJSON(info)
 	}
-	*/
+
 	fmt.Println("DONE")
 }
