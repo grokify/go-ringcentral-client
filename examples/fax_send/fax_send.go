@@ -117,12 +117,13 @@ func main() {
 
 		params := rc.SendFaxMessageOpts{}
 		if len(opts.CoverPageText) > 0 {
-			params.FaxResolution = optional.NewString("High")
+			//params.FaxResolution = optional.NewString("High")
 			params.CoverPageText = optional.NewString(opts.CoverPageText)
 		}
 		fmtutil.PrintJSON(opts)
-		params.Attachment = optional.NewInterface(file)
-
+		if 1 == 1 {
+			params.Attachment = optional.NewInterface(file)
+		}
 		info, resp, err := apiClient.MessagesApi.SendFaxMessage(
 			context.Background(),
 			"~",

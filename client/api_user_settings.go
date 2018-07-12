@@ -1532,8 +1532,8 @@ func (a *UserSettingsApiService) UploadImageByPostForm(ctx context.Context, exte
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarFile := image
 	localVarFormFileName = "image"
+	localVarFile := image
 	if localVarFile != nil {
 		fbs, _ := ioutil.ReadAll(localVarFile)
 		localVarFileBytes = fbs
@@ -1636,6 +1636,7 @@ func (a *UserSettingsApiService) UploadImageByPutForm(ctx context.Context, exten
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
+	localVarFormFileName = "image"
 	var localVarFile *os.File
 	if localVarOptionals != nil && localVarOptionals.Image.IsSet() {
 		localVarFileOk := false
@@ -1644,7 +1645,6 @@ func (a *UserSettingsApiService) UploadImageByPutForm(ctx context.Context, exten
 			return localVarReturnValue, nil, reportError("image should be *os.File")
 		}
 	}
-	localVarFormFileName = "image"
 	if localVarFile != nil {
 		fbs, _ := ioutil.ReadAll(localVarFile)
 		localVarFileBytes = fbs

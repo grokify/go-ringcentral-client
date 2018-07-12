@@ -80,8 +80,8 @@ func (a *GlipApiService) CreateGlipFile(ctx context.Context, body *os.File, loca
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarFile := body
 	localVarFormFileName = "body"
+	localVarFile := body
 	if localVarFile != nil {
 		fbs, _ := ioutil.ReadAll(localVarFile)
 		localVarFileBytes = fbs

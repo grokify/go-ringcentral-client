@@ -656,6 +656,7 @@ func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId strin
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	localVarFormParams.Add("to", parameterToString(to, "csv"))
+	localVarFormFileName = "attachment"
 	var localVarFile *os.File
 	if localVarOptionals != nil && localVarOptionals.Attachment.IsSet() {
 		localVarFileOk := false
@@ -664,7 +665,6 @@ func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId strin
 			return localVarReturnValue, nil, reportError("attachment should be *os.File")
 		}
 	}
-	localVarFormFileName = "attachment"
 	if localVarFile != nil {
 		fbs, _ := ioutil.ReadAll(localVarFile)
 		localVarFileBytes = fbs

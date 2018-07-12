@@ -650,8 +650,8 @@ func (a *CallHandlingSettingsApiService) CreatePrompts(ctx context.Context, acco
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarFile := attachment
 	localVarFormFileName = "attachment"
+	localVarFile := attachment
 	if localVarFile != nil {
 		fbs, _ := ioutil.ReadAll(localVarFile)
 		localVarFileBytes = fbs
