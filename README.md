@@ -4,6 +4,7 @@
 [![Go Report Card][goreport-svg]][goreport-link]
 [![Docs][docs-godoc-svg]][docs-godoc-link]
 [![License][license-svg]][license-link]
+[![Twitter][twitter-svg]][twitter-link]
 
  [build-status-svg]: https://api.travis-ci.org/grokify/go-ringcentral.svg?branch=master
  [build-status-link]: https://travis-ci.org/grokify/go-ringcentral
@@ -13,6 +14,8 @@
  [docs-godoc-link]: https://godoc.org/github.com/grokify/go-ringcentral
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
  [license-link]: https://github.com/grokify/go-ringcentral/blob/master/LICENSE
+ [twitter-svg]: https://img.shields.io/twitter/follow/ringcentraldevs.svg?style=social&label=follow
+ [twitter-link]: https://twitter.com/RingCentralDevs
 
 ## Overview
 
