@@ -149,16 +149,12 @@ func AddBatchGlipPersonInfosBodyBoundary(mergedUserSet MergedUserSet, body []byt
 }
 
 func AddBatchGlipPersonInfosMultipartReader(mergedUserSet MergedUserSet, mr *multipart.Reader) (MergedUserSet, error) {
-	first := true
 	for {
 		part, err := mr.NextPart()
 		if err == io.EOF {
 			break
 		} else if err != nil {
 			return mergedUserSet, err
-		} else if first {
-			first = false
-			continue
 		}
 		if person, err := NewGlipPersonInfoFromMimePart(part); err != nil {
 			return mergedUserSet, err
@@ -184,16 +180,12 @@ func AddBatchExtensionInfosHttpResponse(mergedUserSet MergedUserSet, resp *http.
 }
 
 func AddBatchExtensionInfosMultipartReader(mergedUserSet MergedUserSet, mr *multipart.Reader) (MergedUserSet, error) {
-	first := true
 	for {
 		part, err := mr.NextPart()
 		if err == io.EOF {
 			break
 		} else if err != nil {
 			return mergedUserSet, err
-		} else if first {
-			first = false
-			continue
 		}
 		if ext, err := NewExtensionInfoFromMimePart(part); err != nil {
 			return mergedUserSet, err
