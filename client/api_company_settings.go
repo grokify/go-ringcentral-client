@@ -203,14 +203,14 @@ CompanySettingsApiService Get Company Info
  * @param accountId Internal identifier of a RingCentral account or tilde (~) to indicate the account logged-in within the current session
 @return GetAccountInfoResponse
 */
-func (a *CompanySettingsApiService) LoadAccount(ctx context.Context, accountId string) (GetAccountInfoResponse, *http.Response, error) {
+func (a *CompanySettingsApiService) LoadAccount(ctx context.Context, accountId string) (GetAccountInfoResponseIntId, *http.Response, error) {
 	var (
 		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GetAccountInfoResponse
+		localVarReturnValue  GetAccountInfoResponseIntId // JCW Manual Mod
 	)
 
 	// create path and map variables
@@ -249,6 +249,7 @@ func (a *CompanySettingsApiService) LoadAccount(ctx context.Context, accountId s
 	}
 
 	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	fmt.Println(string(localVarBody))
 	localVarHttpResponse.Body.Close()
 	if err != nil {
 		return localVarReturnValue, localVarHttpResponse, err
@@ -260,6 +261,7 @@ func (a *CompanySettingsApiService) LoadAccount(ctx context.Context, accountId s
 		if err == nil {
 			return localVarReturnValue, localVarHttpResponse, err
 		}
+		return localVarReturnValue, localVarHttpResponse, err
 	}
 
 	if localVarHttpResponse.StatusCode >= 300 {

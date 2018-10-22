@@ -31,4 +31,6 @@ type GlipPersonInfo struct {
 	CreationTime time.Time `json:"creationTime,omitempty"`
 	// Time of last modification in ISO 8601 format
 	LastModifiedTime time.Time `json:"lastModifiedTime,omitempty"`
+	JobTitle         string    `json:"jobTitle"`
+	Location         string    `json:"location"`
 }
