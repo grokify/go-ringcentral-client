@@ -2,8 +2,10 @@ package glipgroups
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"net/url"
+	"strings"
 	"time"
 
 	hum "github.com/grokify/gotilla/net/httputilmore"
@@ -25,6 +27,7 @@ func (set *GroupsSet) AddGroups(groups []Group) {
 }
 
 func (set *GroupsSet) FindGroupsByName(groupName string) []Group {
+	groupName = strings.TrimSpace(groupName)
 	groups := []Group{}
 	for _, group := range set.GroupsMap {
 		if groupName == group.Name {
@@ -32,6 +35,14 @@ func (set *GroupsSet) FindGroupsByName(groupName string) []Group {
 		}
 	}
 	return groups
+}
+
+func (set *GroupsSet) FindGroupByName(groupName string) (Group, error) {
+	groups := set.FindGroupsByName(groupName)
+	if len(groups) != 1 {
+		return Group{}, fmt.Errorf("Found [%v] groups for name [%v]", len(groups), groupName)
+	}
+	return groups[0], nil
 }
 
 type Group struct {
