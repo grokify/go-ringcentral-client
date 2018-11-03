@@ -37,6 +37,17 @@ func (set *GroupsSet) FindGroupsByName(groupName string) []Group {
 	return groups
 }
 
+func (set *GroupsSet) FindGroupsByNameLower(groupName string) []Group {
+	groupName = strings.ToLower(strings.TrimSpace(groupName))
+	groups := []Group{}
+	for _, group := range set.GroupsMap {
+		if groupName == strings.ToLower(group.Name) {
+			groups = append(groups, group)
+		}
+	}
+	return groups
+}
+
 func (set *GroupsSet) FindGroupByName(groupName string) (Group, error) {
 	groups := set.FindGroupsByName(groupName)
 	if len(groups) != 1 {
@@ -55,6 +66,11 @@ type Group struct {
 }
 
 func NewGroupsSetApiRequest(client *http.Client, serverUrl string, groupType string) (GroupsSet, error) {
+	groupType = strings.TrimSpace(groupType)
+	if len(groupType) == 0 {
+		groupType = "Team"
+	}
+
 	set := GroupsSet{GroupsMap: map[string]Group{}}
 
 	query := url.Values{}
