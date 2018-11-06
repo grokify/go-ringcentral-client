@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"sort"
 	"strings"
 	"time"
 
@@ -13,11 +14,12 @@ import (
 )
 
 const (
-	GroupTypeTeam = "Team"
+	GroupTypeTeam   = "Team"
+	groupNameIdJoin = " - "
 )
 
 type GroupsSet struct {
-	GroupsMap map[string]Group
+	GroupsMap map[string]Group // ID to Group Map
 }
 
 func (set *GroupsSet) AddGroups(groups []Group) {
@@ -54,6 +56,34 @@ func (set *GroupsSet) FindGroupByName(groupName string) (Group, error) {
 		return Group{}, fmt.Errorf("Found [%v] groups for name [%v]", len(groups), groupName)
 	}
 	return groups[0], nil
+}
+
+func (set *GroupsSet) GroupNamesSorted(withIds bool) []string {
+	names := []string{}
+	for _, group := range set.GroupsMap {
+		name := group.Name
+		if withIds {
+			name += groupNameIdJoin + group.ID
+		}
+		names = append(names, name)
+	}
+	sort.Strings(names)
+	return names
+}
+
+func (set *GroupsSet) GroupsSorted() []Group {
+	names := set.GroupNamesSorted(true)
+	groups := []Group{}
+	for _, name := range names {
+		parts := strings.Split(name, groupNameIdJoin)
+		if len(parts) > 0 {
+			id := parts[len(parts)-1]
+			if g, ok := set.GroupsMap[id]; ok {
+				groups = append(groups, g)
+			}
+		}
+	}
+	return groups
 }
 
 type Group struct {
