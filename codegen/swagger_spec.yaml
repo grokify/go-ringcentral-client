@@ -9886,6 +9886,12 @@
         email:
           type: "string"
           description: "Email of a user"
+        jobTitle:
+          type: "string"
+          description: "Job title of a user"
+        location:
+          type: "string"
+          description: "Location of a user"
         avatar:
           type: "string"
           description: "Photo of a user"
