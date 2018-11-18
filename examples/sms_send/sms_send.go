@@ -75,7 +75,7 @@ func main() {
 		From: rc.MessageStoreCallerInfoRequest{
 			PhoneNumber: os.Getenv("RINGCENTRAL_DEMO_SMS_FROM")},
 		To: []rc.MessageStoreCallerInfoRequest{
-			rc.MessageStoreCallerInfoRequest{
+			{
 				PhoneNumber: os.Getenv("RINGCENTRAL_DEMO_SMS_TO")}},
 		Text: os.Getenv("RINGCENTRAL_DEMO_SMS_TEXT")}
 

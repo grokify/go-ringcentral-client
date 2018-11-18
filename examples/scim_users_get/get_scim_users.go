@@ -220,8 +220,6 @@ func tryScimClient() {
 
 	if 1 == 0 {
 		userId := "1"
-		userId = "1"
-		userId = "1"
 		tryDelete(scimClient, ctx, userId)
 	}
 	if 1 == 0 {
