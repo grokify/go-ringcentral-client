@@ -2,7 +2,7 @@ $ unzip openapi-generator-cli.jar META-INF/MANIFEST.MF
 Manifest-Version: 1.0
 mode: development
 package: org.openapitools
-implementation-version: 3.1.1-SNAPSHOT
+implementation-version: 4.0.0-SNAPSHOT
 Built-By: john.wang
 Created-By: Apache Maven 3.5.3
 Build-Jdk: 1.8.0_171
