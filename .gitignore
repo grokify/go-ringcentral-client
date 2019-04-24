@@ -25,6 +25,8 @@ _testmain.go
 
 # Manual
 _*
+.DS_Store
 .env
 *.jar
 main
+yaml2json_darwin_amd64
