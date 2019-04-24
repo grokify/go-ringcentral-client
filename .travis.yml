@@ -1,14 +1,15 @@
 language: go
 go_import_path: github.com/grokify/go-ringcentral
 go:
+  - "1.12.x"
+  - "1.11.x"
   - "1.10.x"
   - "1.9.x"
   - "1.8.x"
-  - "1.7.x"
   - master
 matrix:
   allow_failures:
-    - go: "1.7.x"
+    - go: "1.8.x"
     - go: master
 sudo: true
 before_install:
