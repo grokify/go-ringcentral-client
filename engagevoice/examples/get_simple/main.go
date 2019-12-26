@@ -10,8 +10,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/grokify/go-ringcentral-engage/engagevoice/engagevoice"
-	"github.com/grokify/go-ringcentral-engage/engagevoice/engagevoiceutil"
+	"github.com/grokify/go-ringcentral/engagevoice/engagevoice"
+	"github.com/grokify/go-ringcentral/engagevoice/engagevoiceutil"
 	"github.com/grokify/gotilla/config"
 	"github.com/grokify/gotilla/fmt/fmtutil"
 	"github.com/jessevdk/go-flags"
