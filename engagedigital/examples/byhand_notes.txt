@@ -1,0 +1,17 @@
+curl -XGET https://rc-platform.api.dimelo.com/1.0/webhooks -h 'Authorization: Bearer mytoken'
+
+curl -XGET https://rc-platform.api.engagement.dimelo.com/1.0/users -H 'Authorization: Bearer mytoken'
+
+curl -XGET https://rc-platform.api.engagement.dimelo.com/1.0/webhooks?access_token=mytoken -H 'Authorization: Bearer mytoken'
+
+curl -XGET https://rc-platform.api.engagement.dimelo.com/1.0/reply_assistant/entries -H 'Authorization: Bearer mytoken'
+
+curl -XGET https://rc-platform.api.engagement.dimelo.com/1.0/webhooks/myHookId?access_token=mytoken -H 'Authorization: Bearer mytoken'
+
+curl -XGET https://rc-platform.api.engagement.dimelo.com/1.0/reply_assistant/groups -H 'Authorization: Bearer mytoken'
+
+curl -XPOST https://rc-platform.api.engagement.dimelo.com/1.0/reply_assistant/groups?name=abc -H 'Authorization: Bearer mytoken'
+
+curl -XGET https://rc-platform.api.engagement.dimelo.com/1.0/status -H 'Authorization: Bearer mytoken'
+
+curl -XGET https://rc-platform.api.engagement.dimelo.com/1.0/reply_assistant/entries -H 'Authorization: Bearer mytoken'
