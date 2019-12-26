@@ -11,8 +11,8 @@ import (
 	"github.com/jessevdk/go-flags"
 	"github.com/pkg/errors"
 
-	"github.com/grokify/go-ringcentral-engage/engagedigital/engagedigital"
-	utils "github.com/grokify/go-ringcentral-engage/engagedigital/engagedigitalutil"
+	"github.com/grokify/go-ringcentral/engagedigital/engagedigital"
+	utils "github.com/grokify/go-ringcentral/engagedigital/engagedigitalutil"
 )
 
 type options struct {

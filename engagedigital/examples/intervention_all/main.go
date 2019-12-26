@@ -7,8 +7,8 @@ import (
 
 	"github.com/jessevdk/go-flags"
 
-	utils "github.com/grokify/go-ringcentral-engage/engagedigital/engagedigitalutil"
-	ex "github.com/grokify/go-ringcentral-engage/engagedigital/examples"
+	utils "github.com/grokify/go-ringcentral/engagedigital/engagedigitalutil"
+	ex "github.com/grokify/go-ringcentral/engagedigital/examples"
 )
 
 type options struct {

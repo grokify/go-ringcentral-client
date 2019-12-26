@@ -9,8 +9,8 @@ import (
 	"github.com/antihax/optional"
 	"github.com/jessevdk/go-flags"
 
-	"github.com/grokify/go-ringcentral-engage/engagedigital/engagedigital"
-	utils "github.com/grokify/go-ringcentral-engage/engagedigital/engagedigitalutil"
+	"github.com/grokify/go-ringcentral/engagedigital/engagedigital"
+	utils "github.com/grokify/go-ringcentral/engagedigital/engagedigitalutil"
 	"github.com/grokify/gotilla/fmt/fmtutil"
 )
 
