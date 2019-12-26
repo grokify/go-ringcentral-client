@@ -90,6 +90,11 @@ func main() {
 			context.Background(), opts.AccountID)
 		handleErrors(resp, err)
 		fmtutil.PrintJSON(info)
+	case "dialgroup":
+		info, resp, err := apiClient.DialGroupsApi.GetDialGroups(
+			context.Background(), opts.AccountID)
+		handleErrors(resp, err)
+		fmtutil.PrintJSON(info)
 	}
 
 	if 1 == 0 {
