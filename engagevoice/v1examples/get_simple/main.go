@@ -100,6 +100,11 @@ func main() {
 			context.Background(), opts.AccountID)
 		handleErrors(resp, err)
 		fmtutil.PrintJSON(info)
+	case "systemdispositions":
+		info, resp, err := apiClient.CampaignLeadsApi.GetSystemDispositions(
+			context.Background(), opts.AccountID)
+		handleErrors(resp, err)
+		fmtutil.PrintJSON(info)
 	}
 
 	if 1 == 0 {

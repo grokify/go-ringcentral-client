@@ -35,6 +35,8 @@ Class | Method | HTTP request | Description
 *AgentsApi* | [**GetAgentGroups**](docs/AgentsApi.md#getagentgroups) | **Get** /admin/accounts/{accountId}/agentGroups | Returns a listing of agent groups for an account
 *AgentsApi* | [**GetAgents**](docs/AgentsApi.md#getagents) | **Get** /admin/accounts/{accountId}/agentGroups/{agentGroupId}/agents | Returns a listing of agents for an agent group
 *CampaignLeadsApi* | [**GetCampaignLeadStates**](docs/CampaignLeadsApi.md#getcampaignleadstates) | **Get** /admin/accounts/{accountId}/campaignLeads/leadStates | Returns a listing of all lead states for an account  Permissions: READ on Account
+*CampaignLeadsApi* | [**GetSystemDispositions**](docs/CampaignLeadsApi.md#getsystemdispositions) | **Get** /admin/accounts/{accountId}/campaignLeads/systemDispositions | Returns a listing of all system dispositions for an account  Permissions: READ on Account
+*CampaignLeadsApi* | [**SearchCampaignLeads**](docs/CampaignLeadsApi.md#searchcampaignleads) | **Get** /admin/accounts/{accountId}/campaignLeads/leadSearch | Allows searching of campaign leads for a single campaign  Permissions: READ on Account (Permission Override)
 *CampaignsApi* | [**GetDialGroupCampaigns**](docs/CampaignsApi.md#getdialgroupcampaigns) | **Get** /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns | Returns a listing of campaigns for a dial group
 *CountriesApi* | [**GetAvailableCountries**](docs/CountriesApi.md#getavailablecountries) | **Get** /admin/accounts/{accountId}/countries/available | Get a list of available countries
 *DialGroupsApi* | [**GetDialGroups**](docs/DialGroupsApi.md#getdialgroups) | **Get** /admin/accounts/{accountId}/dialGroups | Returns a listing of dial groups for an account
@@ -46,12 +48,17 @@ Class | Method | HTTP request | Description
  - [Agent](docs/Agent.md)
  - [AgentGroup](docs/AgentGroup.md)
  - [Campaign](docs/Campaign.md)
+ - [CampaignLeadSearchCriteria](docs/CampaignLeadSearchCriteria.md)
+ - [ComparableSearchField](docs/ComparableSearchField.md)
  - [Country](docs/Country.md)
+ - [DateTimeComparableSearchField](docs/DateTimeComparableSearchField.md)
  - [DialGroup](docs/DialGroup.md)
  - [Error](docs/Error.md)
  - [ExtendedLeadData](docs/ExtendedLeadData.md)
  - [Generic](docs/Generic.md)
  - [Lead](docs/Lead.md)
+ - [SuppressedType](docs/SuppressedType.md)
+ - [Timezone](docs/Timezone.md)
  - [UploadLeadsRequest](docs/UploadLeadsRequest.md)
  - [UploadLeadsResponse](docs/UploadLeadsResponse.md)
 

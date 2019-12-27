@@ -78,6 +78,59 @@ paths:
       summary: Returns a listing of agents for an agent group
       tags:
       - Agents
+  /admin/accounts/{accountId}/campaignLeads/leadSearch:
+    get:
+      operationId: searchCampaignLeads
+      parameters:
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: maxRows
+        required: false
+        schema:
+          type: integer
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CampaignLeadSearchCriteria'
+        required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: Success
+      summary: |-
+        Allows searching of campaign leads for a single campaign
+
+        Permissions: READ on Account (Permission Override)
+      tags:
+      - Campaign Leads
   /admin/accounts/{accountId}/campaignLeads/leadStates:
     get:
       operationId: getCampaignLeadStates
@@ -100,6 +153,32 @@ paths:
           description: Success
       summary: |-
         Returns a listing of all lead states for an account
+
+        Permissions: READ on Account
+      tags:
+      - Campaign Leads
+  /admin/accounts/{accountId}/campaignLeads/systemDispositions:
+    get:
+      operationId: getSystemDispositions
+      parameters:
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: Success
+      summary: |-
+        Returns a listing of all system dispositions for an account
 
         Permissions: READ on Account
       tags:
@@ -522,6 +601,148 @@ components:
           type: array
         script:
           $ref: '#/components/schemas/Generic'
+    CampaignLeadSearchCriteria:
+      example:
+        lastName: lastName
+        agentId: 0
+        leadIds:
+        - 1
+        - 1
+        agentDispositions:
+        - agentDispositions
+        - agentDispositions
+        city: city
+        loadedDtsStart: 2000-01-23T04:56:07.000+00:00
+        externIds:
+        - externIds
+        - externIds
+        physicalStates:
+        - physicalStates
+        - physicalStates
+        loadedDtsEnd: 2000-01-23T04:56:07.000+00:00
+        leadPassesCriteria:
+          value: value
+          operator: operator
+        leadTimezones:
+          name: name
+          description: description
+        emailAddress: emailAddress
+        nextDialTimeCriteria:
+          value: 2000-01-23T04:56:07.000+00:00
+          operator: operator
+        auxData2: auxData2
+        auxData3: auxData3
+        auxData4: auxData4
+        auxData5: auxData5
+        auxData1: auxData1
+        orphanedLeadsOnly: true
+        zip: zip
+        listIds:
+        - 5
+        - 5
+        address2: address2
+        address1: address1
+        leadPhoneNumbers:
+        - leadPhoneNumbers
+        - leadPhoneNumbers
+        pendingAgentId: 5
+        lastPassTimeCriteria:
+          value: 2000-01-23T04:56:07.000+00:00
+          operator: operator
+        firstName: firstName
+        callerId: callerId
+        campaignIds:
+        - 6
+        - 6
+        leadPhoneNum: leadPhoneNum
+      properties:
+        address1:
+          type: string
+        address2:
+          type: string
+        agentDispositions:
+          items:
+            type: string
+          type: array
+        agentId:
+          type: integer
+        auxData1:
+          type: string
+        auxData2:
+          type: string
+        auxData3:
+          type: string
+        auxData4:
+          type: string
+        auxData5:
+          type: string
+        callerId:
+          type: string
+        campaignIds:
+          items:
+            type: integer
+          type: array
+        city:
+          type: string
+        emailAddress:
+          type: string
+        externIds:
+          items:
+            type: string
+          type: array
+        firstName:
+          type: string
+        lastName:
+          type: string
+        lastPassTimeCriteria:
+          $ref: '#/components/schemas/DateTimeComparableSearchField'
+        leadIds:
+          items:
+            type: integer
+          type: array
+        leadPassesCriteria:
+          $ref: '#/components/schemas/ComparableSearchField'
+        leadPhoneNum:
+          type: string
+        leadPhoneNumbers:
+          items:
+            type: string
+          type: array
+        leadTimezones:
+          $ref: '#/components/schemas/Timezone'
+        listIds:
+          items:
+            type: integer
+          type: array
+        loadedDtsEnd:
+          format: date-time
+          type: string
+        loadedDtsStart:
+          format: date-time
+          type: string
+        nextDialTimeCriteria:
+          $ref: '#/components/schemas/DateTimeComparableSearchField'
+        orphanedLeadsOnly:
+          type: boolean
+        pendingAgentId:
+          type: integer
+        physicalStates:
+          items:
+            type: string
+          type: array
+        zip:
+          type: string
+    ComparableSearchField:
+      example:
+        value: value
+        operator: operator
+      properties:
+        operator:
+          description: Values can be `>`, `<` and `=`
+          type: string
+        value:
+          type: string
+      type: object
     Country:
       example:
         minUtcOffset: 5
@@ -553,6 +774,18 @@ components:
           type: integer
       required:
       - countryCode
+      type: object
+    DateTimeComparableSearchField:
+      example:
+        value: 2000-01-23T04:56:07.000+00:00
+        operator: operator
+      properties:
+        operator:
+          description: Values can be `>`, `<` and `=`
+          type: string
+        value:
+          format: date-time
+          type: string
       type: object
     DialGroup:
       example:
@@ -693,6 +926,21 @@ components:
           type: string
       required:
       - externId
+      type: object
+    SuppressedType:
+      properties:
+        name:
+          type: string
+      type: object
+    Timezone:
+      example:
+        name: name
+        description: description
+      properties:
+        description:
+          type: string
+        name:
+          type: string
       type: object
     UploadLeadsRequest:
       example:
