@@ -7,6 +7,7 @@ servers:
 - url: https://portal.vacd.biz/api/v1
 tags:
 - name: Agents
+- name: Campaign Leads
 - name: Campaigns
 - name: Countries
 - name: Dial Groups
@@ -77,6 +78,32 @@ paths:
       summary: Returns a listing of agents for an agent group
       tags:
       - Agents
+  /admin/accounts/{accountId}/campaignLeads/leadStates:
+    get:
+      operationId: getCampaignLeadStates
+      parameters:
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: Success
+      summary: |-
+        Returns a listing of all lead states for an account
+
+        Permissions: READ on Account
+      tags:
+      - Campaign Leads
   /admin/accounts/{accountId}/campaigns/{campaignId}/leadLoader/direct:
     post:
       description: Uploads a single lead or list of leads to a new or existing list

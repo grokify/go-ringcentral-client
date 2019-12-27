@@ -34,6 +34,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AgentsApi* | [**GetAgentGroups**](docs/AgentsApi.md#getagentgroups) | **Get** /admin/accounts/{accountId}/agentGroups | Returns a listing of agent groups for an account
 *AgentsApi* | [**GetAgents**](docs/AgentsApi.md#getagents) | **Get** /admin/accounts/{accountId}/agentGroups/{agentGroupId}/agents | Returns a listing of agents for an agent group
+*CampaignLeadsApi* | [**GetCampaignLeadStates**](docs/CampaignLeadsApi.md#getcampaignleadstates) | **Get** /admin/accounts/{accountId}/campaignLeads/leadStates | Returns a listing of all lead states for an account  Permissions: READ on Account
 *CampaignsApi* | [**GetDialGroupCampaigns**](docs/CampaignsApi.md#getdialgroupcampaigns) | **Get** /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns | Returns a listing of campaigns for a dial group
 *CountriesApi* | [**GetAvailableCountries**](docs/CountriesApi.md#getavailablecountries) | **Get** /admin/accounts/{accountId}/countries/available | Get a list of available countries
 *DialGroupsApi* | [**GetDialGroups**](docs/DialGroupsApi.md#getdialgroups) | **Get** /admin/accounts/{accountId}/dialGroups | Returns a listing of dial groups for an account

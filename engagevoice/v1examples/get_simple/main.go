@@ -85,6 +85,11 @@ func main() {
 
 			}
 		}
+	case "campaignleadstate":
+		info, resp, err := apiClient.CampaignLeadsApi.GetCampaignLeadStates(
+			context.Background(), opts.AccountID)
+		handleErrors(resp, err)
+		fmtutil.PrintJSON(info)
 	case "country":
 		info, resp, err := apiClient.CountriesApi.GetAvailableCountries(
 			context.Background(), opts.AccountID)
