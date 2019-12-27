@@ -15,13 +15,13 @@
   - [x] [/v1/admin/accounts/{accountId}/campaignLeads/systemDispositions GET](v1/docs/CampaignLeadsApi.md#getsystemdispositions)
 
 - [ ] Campaigns
-  - [x] [/v1/admin/accounts/{accountId}/campaigns/{campaignId}/leadLoader/direct POST](v1/docs/LeadsApi.md#uploadleads)
+  - [x] [/v1/admin/accounts/{accountId}/campaigns/{campaignId}/leadLoader/direct POST](v1/docs/CampaignsApi.md#uploadleads)
 
 - [ ] Countries
   - [x] [/v1/admin/accounts/{accountId}/countries/available GET](v1/docs/CountriesApi.md#getavailablecountries)
 
 - [ ] Dial Groups
   - [x] [/v1/admin/accounts/{accountId}/dialGroups GET](v1/docs/DialGroupsApi.md#getdialgroups)
-  - [x] [/v1/admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns GET](v1/docs/CampaignsApi.md#getdialgroupcampaigns)
+  - [x] [/v1/admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns GET](v1/docs/DialGroupsApi.md#getdialgroupcampaigns)
   
   
