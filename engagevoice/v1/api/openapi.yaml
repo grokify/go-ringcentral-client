@@ -80,7 +80,7 @@ paths:
       - Agents
   /admin/accounts/{accountId}/campaignLeads/leadSearch:
     post:
-      operationId: searchCampaignLeads
+      operationId: searchLeads
       parameters:
       - explode: false
         in: path
@@ -133,7 +133,7 @@ paths:
       - Campaign Leads
   /admin/accounts/{accountId}/campaignLeads/leadStates:
     get:
-      operationId: getCampaignLeadStates
+      operationId: getLeadStates
       parameters:
       - explode: false
         in: path

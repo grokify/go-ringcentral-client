@@ -85,8 +85,8 @@ func main() {
 
 			}
 		}
-	case "campaignleadstate":
-		info, resp, err := apiClient.CampaignLeadsApi.GetCampaignLeadStates(
+	case "leadstate":
+		info, resp, err := apiClient.CampaignLeadsApi.GetLeadStates(
 			context.Background(), opts.AccountID)
 		handleErrors(resp, err)
 		fmtutil.PrintJSON(info)
@@ -108,7 +108,7 @@ func main() {
 	case "leadsearch":
 		qry := engagevoice.CampaignLeadSearchCriteria{FirstName: "Jon"}
 		qry = engagevoice.CampaignLeadSearchCriteria{}
-		info, resp, err := apiClient.CampaignLeadsApi.SearchCampaignLeads(
+		info, resp, err := apiClient.CampaignLeadsApi.SearchLeads(
 			context.Background(), opts.AccountID,
 			qry, nil,
 		)

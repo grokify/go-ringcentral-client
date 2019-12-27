@@ -34,9 +34,9 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AgentsApi* | [**GetAgentGroups**](docs/AgentsApi.md#getagentgroups) | **Get** /admin/accounts/{accountId}/agentGroups | Returns a listing of agent groups for an account
 *AgentsApi* | [**GetAgents**](docs/AgentsApi.md#getagents) | **Get** /admin/accounts/{accountId}/agentGroups/{agentGroupId}/agents | Returns a listing of agents for an agent group
-*CampaignLeadsApi* | [**GetCampaignLeadStates**](docs/CampaignLeadsApi.md#getcampaignleadstates) | **Get** /admin/accounts/{accountId}/campaignLeads/leadStates | Returns a listing of all lead states for an account  Permissions: READ on Account
+*CampaignLeadsApi* | [**GetLeadStates**](docs/CampaignLeadsApi.md#getleadstates) | **Get** /admin/accounts/{accountId}/campaignLeads/leadStates | Returns a listing of all lead states for an account  Permissions: READ on Account
 *CampaignLeadsApi* | [**GetSystemDispositions**](docs/CampaignLeadsApi.md#getsystemdispositions) | **Get** /admin/accounts/{accountId}/campaignLeads/systemDispositions | Returns a listing of all system dispositions for an account  Permissions: READ on Account
-*CampaignLeadsApi* | [**SearchCampaignLeads**](docs/CampaignLeadsApi.md#searchcampaignleads) | **Post** /admin/accounts/{accountId}/campaignLeads/leadSearch | Allows searching of campaign leads for a single campaign  Permissions: READ on Account (Permission Override)
+*CampaignLeadsApi* | [**SearchLeads**](docs/CampaignLeadsApi.md#searchleads) | **Post** /admin/accounts/{accountId}/campaignLeads/leadSearch | Allows searching of campaign leads for a single campaign  Permissions: READ on Account (Permission Override)
 *CampaignsApi* | [**UploadLeads**](docs/CampaignsApi.md#uploadleads) | **Post** /admin/accounts/{accountId}/campaigns/{campaignId}/leadLoader/direct | Upload Leads
 *CountriesApi* | [**GetAvailableCountries**](docs/CountriesApi.md#getavailablecountries) | **Get** /admin/accounts/{accountId}/countries/available | Get a list of available countries
 *DialGroupsApi* | [**GetDialGroupCampaigns**](docs/DialGroupsApi.md#getdialgroupcampaigns) | **Get** /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns | Returns a listing of campaigns for a dial group

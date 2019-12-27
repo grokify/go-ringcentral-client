@@ -32,7 +32,7 @@ CampaignLeadsApiService Returns a listing of all lead states for an account  Per
  * @param accountId
 @return []string
 */
-func (a *CampaignLeadsApiService) GetCampaignLeadStates(ctx context.Context, accountId string) ([]string, *http.Response, error) {
+func (a *CampaignLeadsApiService) GetLeadStates(ctx context.Context, accountId string) ([]string, *http.Response, error) {
 	var (
 		localVarHttpMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -205,20 +205,20 @@ CampaignLeadsApiService Allows searching of campaign leads for a single campaign
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId
  * @param campaignLeadSearchCriteria
- * @param optional nil or *SearchCampaignLeadsOpts - Optional Parameters:
+ * @param optional nil or *SearchLeadsOpts - Optional Parameters:
  * @param "Count" (optional.Int32) -
  * @param "Page" (optional.Int32) -
  * @param "MaxRows" (optional.Int32) -
 @return []CampaignLeadSearchResultsView
 */
 
-type SearchCampaignLeadsOpts struct {
+type SearchLeadsOpts struct {
 	Count   optional.Int32
 	Page    optional.Int32
 	MaxRows optional.Int32
 }
 
-func (a *CampaignLeadsApiService) SearchCampaignLeads(ctx context.Context, accountId string, campaignLeadSearchCriteria CampaignLeadSearchCriteria, localVarOptionals *SearchCampaignLeadsOpts) ([]CampaignLeadSearchResultsView, *http.Response, error) {
+func (a *CampaignLeadsApiService) SearchLeads(ctx context.Context, accountId string, campaignLeadSearchCriteria CampaignLeadSearchCriteria, localVarOptionals *SearchLeadsOpts) ([]CampaignLeadSearchResultsView, *http.Response, error) {
 	var (
 		localVarHttpMethod   = http.MethodPost
 		localVarPostBody     interface{}
