@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/grokify/go-ringcentral/engagevoice/engagevoiceutil"
+	engagevoiceutil "github.com/grokify/go-ringcentral/engagevoice/v1util"
 	"github.com/grokify/gotilla/fmt/fmtutil"
 	"github.com/jessevdk/go-flags"
 )
