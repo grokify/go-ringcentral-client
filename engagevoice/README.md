@@ -1,6 +1,25 @@
 # RingCentral Engage Voice
 
-## APIs
+This is a Go Client SDK for the RingCentral Engage Voice API.
+
+## Usage
+
+See the sample code here:
+
+* [Generate API Token](v1examples/generate_api_token/main.go)
+* [API Calls](https://github.com/grokify/go-ringcentral/blob/master/engagevoice/v1examples/get_simple/main.go)
+
+## API Overview
+
+Get an overview of the API here:
+
+* [API Reference](https://grokify.github.io/go-ringcentral/engagevoice/)
+* [OpenAPI 3.0 Specification](https://raw.githubusercontent.com/grokify/go-ringcentral/master/codegen/specs-engagevoice_v3.0.0.json)
+* [Client SDK Docs](https://github.com/grokify/go-ringcentral/blob/master/engagevoice/v1/README.md)
+
+## API Coverage & Documentation
+
+The following endpoints are covered by the OpenAPI 3.0 spec, the API Reference and the SDK.
 
 - [ ] Active Calls
   - [ ] /v1/admin/accounts/{accountId}/activeCalls/list?product={productName}&productId={productId} 
