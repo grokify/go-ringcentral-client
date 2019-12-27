@@ -6,18 +6,21 @@
   - [ ] /admin/accounts/{accountId}/activeCalls/list?product={productName}&productId={productId} 
 
 - [ ] Agent Groups
-  - [x] [GET /v1/admin/accounts/{accountId}/agentGroups](v1/docs/AgentsApi.md#getagentgroups)
-  - [x] [GET /v1/admin/accounts/{accountId}/agentGroups/{agentGroupId}/agents](v1/docs/AgentsApi.md#getagents)
+  - [x] [/v1/admin/accounts/{accountId}/agentGroups GET](v1/docs/AgentsApi.md#getagentgroups)
+  - [x] [/v1/admin/accounts/{accountId}/agentGroups/{agentGroupId}/agents GET](v1/docs/AgentsApi.md#getagents)
 
 - [ ] Campaign Leads
-  - [x] [GET /v1/admin/accounts/{accountId}/campaignLeads/leadStates](v1/docs/CampaignLeadsApi.md#getcampaignleadstates)
-  - [x] [GET /v1/admin/accounts/{accountId}/campaignLeads/systemDispositions](v1/docs/CampaignLeadsApi.md#getsystemdispositions)  
+  - [x] [/v1/admin/accounts/{accountId}/campaignLeads/leadStates GET](v1/docs/CampaignLeadsApi.md#getcampaignleadstates)
+  - [x] [/v1/admin/accounts/{accountId}/campaignLeads/systemDispositions GET](v1/docs/CampaignLeadsApi.md#getsystemdispositions)
+
+- [ ] Campaigns
+  - [x] [/admin/accounts/{accountId}/campaigns/{campaignId}/leadLoader/direct POST](v1/docs/LeadsApi.md#uploadleads)
 
 - [ ] Countries
-  - [x] [GET /v1/admin/accounts/{accountId}/countries/available](v1/docs/CountriesApi.md#getavailablecountries)
+  - [x] [/v1/admin/accounts/{accountId}/countries/available GET](v1/docs/CountriesApi.md#getavailablecountries)
 
 - [ ] Dial Groups
-  - [x] [GET /v1/admin/accounts/{accountId}/dialGroups](v1/docs/DialGroupsApi.md#getdialgroups)
-  - [x] [GET /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns](v1/docs/CampaignsApi.md#getdialgroupcampaigns)
+  - [x] [/v1/admin/accounts/{accountId}/dialGroups GET](v1/docs/DialGroupsApi.md#getdialgroups)
+  - [x] [/admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns GET](v1/docs/CampaignsApi.md#getdialgroupcampaigns)
   
   

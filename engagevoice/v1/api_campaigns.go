@@ -26,33 +26,35 @@ var (
 type CampaignsApiService service
 
 /*
-CampaignsApiService Returns a listing of campaigns for a dial group
+CampaignsApiService Upload Leads
+Uploads a single lead or list of leads to a new or existing list
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId
- * @param dialGroupId
-@return []Campaign
+ * @param campaignId
+ * @param uploadLeadsRequest
+@return UploadLeadsResponse
 */
-func (a *CampaignsApiService) GetDialGroupCampaigns(ctx context.Context, accountId string, dialGroupId string) ([]Campaign, *http.Response, error) {
+func (a *CampaignsApiService) UploadLeads(ctx context.Context, accountId string, campaignId string, uploadLeadsRequest UploadLeadsRequest) (UploadLeadsResponse, *http.Response, error) {
 	var (
-		localVarHttpMethod   = http.MethodGet
+		localVarHttpMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []Campaign
+		localVarReturnValue  UploadLeadsResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns"
+	localVarPath := a.client.cfg.BasePath + "/admin/accounts/{accountId}/campaigns/{campaignId}/leadLoader/direct"
 	localVarPath = strings.Replace(localVarPath, "{"+"accountId"+"}", fmt.Sprintf("%v", accountId), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"dialGroupId"+"}", fmt.Sprintf("%v", dialGroupId), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"campaignId"+"}", fmt.Sprintf("%v", campaignId), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{}
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -68,6 +70,8 @@ func (a *CampaignsApiService) GetDialGroupCampaigns(ctx context.Context, account
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
+	// body params
+	localVarPostBody = &uploadLeadsRequest
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -90,7 +94,7 @@ func (a *CampaignsApiService) GetDialGroupCampaigns(ctx context.Context, account
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v []Campaign
+			var v UploadLeadsResponse
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

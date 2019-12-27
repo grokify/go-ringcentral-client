@@ -217,7 +217,7 @@ paths:
           description: Success
       summary: Upload Leads
       tags:
-      - Leads
+      - Campaigns
   /admin/accounts/{accountId}/countries/available:
     get:
       operationId: getAvailableCountries
@@ -293,7 +293,7 @@ paths:
           description: Success
       summary: Returns a listing of campaigns for a dial group
       tags:
-      - Campaigns
+      - Dial Groups
 components:
   schemas:
     Agent:

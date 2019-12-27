@@ -71,7 +71,7 @@ func main() {
 		}
 		fmtutil.PrintJSON(dialGroupIDs)
 		for _, dialGroupID := range dialGroupIDs {
-			info, resp, err := apiClient.CampaignsApi.GetDialGroupCampaigns(
+			info, resp, err := apiClient.DialGroupsApi.GetDialGroupCampaigns(
 				context.Background(),
 				opts.AccountID,
 				strconv.Itoa(int(dialGroupID)),
@@ -119,7 +119,7 @@ func main() {
 		}
 		fmtutil.PrintJSON(dialGroupIDs)
 		for _, dialGroupID := range dialGroupIDs {
-			info, resp, err := apiClient.CampaignsApi.GetDialGroupCampaigns(
+			info, resp, err := apiClient.DialGroupsApi.GetDialGroupCampaigns(
 				context.Background(),
 				opts.AccountID,
 				strconv.Itoa(int(dialGroupID)),
@@ -158,7 +158,7 @@ func uploadLeads(client *engagevoice.APIClient, accountId, campaignId string) {
 			},
 		},
 	}
-	info, resp, err := client.LeadsApi.UploadLeads(
+	info, resp, err := client.CampaignsApi.UploadLeads(
 		context.Background(),
 		accountId,
 		campaignId,
