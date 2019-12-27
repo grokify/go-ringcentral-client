@@ -10,6 +10,7 @@
   - [x] [/v1/admin/accounts/{accountId}/agentGroups/{agentGroupId}/agents GET](v1/docs/AgentsApi.md#getagents)
 
 - [ ] Campaign Leads
+  - [x] [/v1/admin/accounts/{accountId}/campaignLeads/leadSearch POST](v1/docs/CampaignLeadsApi.md#searchcampaignleads)
   - [x] [/v1/admin/accounts/{accountId}/campaignLeads/leadStates GET](v1/docs/CampaignLeadsApi.md#getcampaignleadstates)
   - [x] [/v1/admin/accounts/{accountId}/campaignLeads/systemDispositions GET](v1/docs/CampaignLeadsApi.md#getsystemdispositions)
 

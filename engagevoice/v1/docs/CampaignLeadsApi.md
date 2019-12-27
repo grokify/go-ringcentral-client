@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetCampaignLeadStates**](CampaignLeadsApi.md#GetCampaignLeadStates) | **Get** /admin/accounts/{accountId}/campaignLeads/leadStates | Returns a listing of all lead states for an account  Permissions: READ on Account
 [**GetSystemDispositions**](CampaignLeadsApi.md#GetSystemDispositions) | **Get** /admin/accounts/{accountId}/campaignLeads/systemDispositions | Returns a listing of all system dispositions for an account  Permissions: READ on Account
-[**SearchCampaignLeads**](CampaignLeadsApi.md#SearchCampaignLeads) | **Get** /admin/accounts/{accountId}/campaignLeads/leadSearch | Allows searching of campaign leads for a single campaign  Permissions: READ on Account (Permission Override)
+[**SearchCampaignLeads**](CampaignLeadsApi.md#SearchCampaignLeads) | **Post** /admin/accounts/{accountId}/campaignLeads/leadSearch | Allows searching of campaign leads for a single campaign  Permissions: READ on Account (Permission Override)
 
 
 
@@ -74,7 +74,7 @@ No authorization required
 
 ## SearchCampaignLeads
 
-> []string SearchCampaignLeads(ctx, accountId, campaignLeadSearchCriteria, optional)
+> []CampaignLeadSearchResultsView SearchCampaignLeads(ctx, accountId, campaignLeadSearchCriteria, optional)
 Allows searching of campaign leads for a single campaign  Permissions: READ on Account (Permission Override)
 
 ### Required Parameters
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**[]string**
+[**[]CampaignLeadSearchResultsView**](CampaignLeadSearchResultsView.md)
 
 ### Authorization
 

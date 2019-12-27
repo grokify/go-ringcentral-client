@@ -79,7 +79,7 @@ paths:
       tags:
       - Agents
   /admin/accounts/{accountId}/campaignLeads/leadSearch:
-    get:
+    post:
       operationId: searchCampaignLeads
       parameters:
       - explode: false
@@ -122,7 +122,7 @@ paths:
             application/json:
               schema:
                 items:
-                  type: string
+                  $ref: '#/components/schemas/CampaignLeadSearchResultsView'
                 type: array
           description: Success
       summary: |-
@@ -601,6 +601,145 @@ components:
           type: array
         script:
           $ref: '#/components/schemas/Generic'
+    CampaignLead:
+      example:
+        lastName: lastName
+        city: city
+        extraData: extraData
+        speedToLeadFirstPass: 9
+        leadState: leadState
+        suffix: suffix
+        title: title
+        agentDispostion: agentDispostion
+        gateKeeper: gateKeeper
+        sortCol: sortCol
+        auxData2: auxData2
+        auxData3: auxData3
+        liveAnswerMessage: liveAnswerMessage
+        auxData4: auxData4
+        dupeKeyOverride: 6
+        auxData5: auxData5
+        id: 1
+        state: state
+        suppressed: true
+        leadPhone: leadPhone
+        speedToLeadAgentConn: 7
+        email: email
+        auxData1: auxData1
+        auxExternalUrl: auxExternalUrl
+        leadId: 5
+        machAnswerMessage: machAnswerMessage
+        leadTimezone: leadTimezone
+        zip: zip
+        auxPhone: auxPhone
+        externId: externId
+        address2: address2
+        address1: address1
+        midName: midName
+        nextDialTime: nextDialTime
+        lastPassDispo: lastPassDispo
+        firstName: firstName
+        maxPasses: 2
+        leadPasses: 5
+        auxGreeting: auxGreeting
+        name: name
+        callerId: callerId
+        loadedDts: loadedDts
+      properties:
+        address1:
+          type: string
+        address2:
+          type: string
+        agentDispostion:
+          type: string
+        auxData1:
+          type: string
+        auxData2:
+          type: string
+        auxData3:
+          type: string
+        auxData4:
+          type: string
+        auxData5:
+          type: string
+        auxExternalUrl:
+          type: string
+        auxGreeting:
+          type: string
+        auxPhone:
+          type: string
+        callerId:
+          type: string
+        city:
+          type: string
+        dupeKeyOverride:
+          format: int64
+          type: integer
+        email:
+          type: string
+        externId:
+          type: string
+        extraData:
+          type: string
+        firstName:
+          type: string
+        gateKeeper:
+          type: string
+        id:
+          format: int64
+          type: integer
+        lastName:
+          type: string
+        lastPassDispo:
+          type: string
+        leadId:
+          format: int64
+          type: integer
+        leadPasses:
+          type: integer
+        leadPhone:
+          type: string
+        leadState:
+          type: string
+        leadTimezone:
+          type: string
+        liveAnswerMessage:
+          type: string
+        loadedDts:
+          description: 'Date-time in Java format. Example: `2019-01-01T01:01:01.000+0000`.
+            Note this is not compatible with RFC-3339 which is used by OpenAPI 3.0
+            Spec because it doesn''t have a `:` between hours and minutes.'
+          type: string
+        machAnswerMessage:
+          type: string
+        maxPasses:
+          type: integer
+        midName:
+          type: string
+        name:
+          type: string
+        nextDialTime:
+          description: 'Date-time in Java format. Example: `2019-01-01T01:01:01.000+0000`.
+            Note this is not compatible with RFC-3339 which is used by OpenAPI 3.0
+            Spec because it doesn''t have a `:` between hours and minutes.'
+          type: string
+        sortCol:
+          type: string
+        speedToLeadAgentConn:
+          type: integer
+        speedToLeadFirstPass:
+          type: integer
+        state:
+          type: string
+        suffix:
+          type: string
+        suppressed:
+          type: boolean
+        title:
+          type: string
+        zip:
+          type: string
+      type: object
     CampaignLeadSearchCriteria:
       example:
         lastName: lastName
@@ -612,14 +751,14 @@ components:
         - agentDispositions
         - agentDispositions
         city: city
-        loadedDtsStart: 2000-01-23T04:56:07.000+00:00
+        loadedDtsStart: loadedDtsStart
         externIds:
         - externIds
         - externIds
         physicalStates:
         - physicalStates
         - physicalStates
-        loadedDtsEnd: 2000-01-23T04:56:07.000+00:00
+        loadedDtsEnd: loadedDtsEnd
         leadPassesCriteria:
           value: value
           operator: operator
@@ -715,10 +854,14 @@ components:
             type: integer
           type: array
         loadedDtsEnd:
-          format: date-time
+          description: 'Date-time in Java format. Example: `2019-01-01T01:01:01.000+0000`.
+            Note this is not compatible with RFC-3339 which is used by OpenAPI 3.0
+            Spec because it doesn''t have a `:` between hours and minutes.'
           type: string
         loadedDtsStart:
-          format: date-time
+          description: 'Date-time in Java format. Example: `2019-01-01T01:01:01.000+0000`.
+            Note this is not compatible with RFC-3339 which is used by OpenAPI 3.0
+            Spec because it doesn''t have a `:` between hours and minutes.'
           type: string
         nextDialTimeCriteria:
           $ref: '#/components/schemas/DateTimeComparableSearchField'
@@ -732,6 +875,241 @@ components:
           type: array
         zip:
           type: string
+      type: object
+    CampaignLeadSearchResultsView:
+      example:
+        stateDts: stateDts
+        extraData: extraData
+        lastPassDts: lastPassDts
+        suffix: suffix
+        agentDispostion: agentDispostion
+        gateKeeper: gateKeeper
+        listId: 1
+        dupeKeyOverride: 2
+        id: id
+        state: state
+        speedToLeadAgentConn: 1
+        auxExternalUrl: auxExternalUrl
+        leadId: 4
+        machAnswerMessage: machAnswerMessage
+        leadTimezone: leadTimezone
+        zip: zip
+        externId: externId
+        campaignId: 0
+        midName: midName
+        lastPassAgentName: lastPassAgentName
+        nextDialTime: nextDialTime
+        firstName: firstName
+        uploadDate: uploadDate
+        leadPasses: 7
+        name: name
+        callerId: callerId
+        loadedDts: loadedDts
+        lastName: lastName
+        city: city
+        speedToLeadFirstPass: 6
+        campaignLead:
+          lastName: lastName
+          city: city
+          extraData: extraData
+          speedToLeadFirstPass: 9
+          leadState: leadState
+          suffix: suffix
+          title: title
+          agentDispostion: agentDispostion
+          gateKeeper: gateKeeper
+          sortCol: sortCol
+          auxData2: auxData2
+          auxData3: auxData3
+          liveAnswerMessage: liveAnswerMessage
+          auxData4: auxData4
+          dupeKeyOverride: 6
+          auxData5: auxData5
+          id: 1
+          state: state
+          suppressed: true
+          leadPhone: leadPhone
+          speedToLeadAgentConn: 7
+          email: email
+          auxData1: auxData1
+          auxExternalUrl: auxExternalUrl
+          leadId: 5
+          machAnswerMessage: machAnswerMessage
+          leadTimezone: leadTimezone
+          zip: zip
+          auxPhone: auxPhone
+          externId: externId
+          address2: address2
+          address1: address1
+          midName: midName
+          nextDialTime: nextDialTime
+          lastPassDispo: lastPassDispo
+          firstName: firstName
+          maxPasses: 2
+          leadPasses: 5
+          auxGreeting: auxGreeting
+          name: name
+          callerId: callerId
+          loadedDts: loadedDts
+        leadState: leadState
+        title: title
+        pendingAgentName: pendingAgentName
+        sortCol: sortCol
+        auxData2: auxData2
+        auxData3: auxData3
+        liveAnswerMessage: liveAnswerMessage
+        auxData4: auxData4
+        auxData5: auxData5
+        suppressed: true
+        leadPhone: leadPhone
+        uploadedBy: uploadedBy
+        email: email
+        auxData1: auxData1
+        auxPhone: auxPhone
+        listDesc: listDesc
+        address2: address2
+        address1: address1
+        lastPassDispo: lastPassDispo
+        dialGroupId: 3
+        lastPassDisposition: lastPassDisposition
+        maxPasses: 1
+        lastPassDate: lastPassDate
+        auxGreeting: auxGreeting
+        campaignName: campaignName
+      properties:
+        address1:
+          type: string
+        address2:
+          type: string
+        agentDispostion:
+          type: string
+        auxData1:
+          type: string
+        auxData2:
+          type: string
+        auxData3:
+          type: string
+        auxData4:
+          type: string
+        auxData5:
+          type: string
+        auxExternalUrl:
+          type: string
+        auxGreeting:
+          type: string
+        auxPhone:
+          type: string
+        callerId:
+          type: string
+        campaignId:
+          type: integer
+        campaignLead:
+          $ref: '#/components/schemas/CampaignLead'
+        campaignName:
+          type: string
+        city:
+          type: string
+        dialGroupId:
+          type: integer
+        dupeKeyOverride:
+          format: int64
+          type: integer
+        email:
+          type: string
+        externId:
+          type: string
+        extraData:
+          type: string
+        firstName:
+          type: string
+        gateKeeper:
+          type: string
+        id:
+          type: string
+        lastName:
+          type: string
+        lastPassAgentName:
+          type: string
+        lastPassDate:
+          description: 'Date-time in Java format. Example: `2019-01-01T01:01:01.000+0000`.
+            Note this is not compatible with RFC-3339 which is used by OpenAPI 3.0
+            Spec because it doesn''t have a `:` between hours and minutes.'
+          type: string
+        lastPassDispo:
+          type: string
+        lastPassDisposition:
+          type: string
+        lastPassDts:
+          description: 'Date-time in Java format. Example: `2019-01-01T01:01:01.000+0000`.
+            Note this is not compatible with RFC-3339 which is used by OpenAPI 3.0
+            Spec because it doesn''t have a `:` between hours and minutes.'
+          type: string
+        leadId:
+          format: int64
+          type: integer
+        leadPasses:
+          type: integer
+        leadPhone:
+          type: string
+        leadState:
+          type: string
+        leadTimezone:
+          type: string
+        listDesc:
+          type: string
+        listId:
+          type: integer
+        liveAnswerMessage:
+          type: string
+        loadedDts:
+          description: 'Date-time in Java format. Example: `2019-01-01T01:01:01.000+0000`.
+            Note this is not compatible with RFC-3339 which is used by OpenAPI 3.0
+            Spec because it doesn''t have a `:` between hours and minutes.'
+          type: string
+        machAnswerMessage:
+          type: string
+        maxPasses:
+          type: integer
+        midName:
+          type: string
+        name:
+          type: string
+        nextDialTime:
+          description: 'Date-time in Java format. Example: `2019-01-01T01:01:01.000+0000`.
+            Note this is not compatible with RFC-3339 which is used by OpenAPI 3.0
+            Spec because it doesn''t have a `:` between hours and minutes.'
+          type: string
+        pendingAgentName:
+          type: string
+        sortCol:
+          type: string
+        speedToLeadAgentConn:
+          type: integer
+        speedToLeadFirstPass:
+          type: integer
+        state:
+          type: string
+        stateDts:
+          description: 'Date-time in Java format. Example: `2019-01-01T01:01:01.000+0000`.
+            Note this is not compatible with RFC-3339 which is used by OpenAPI 3.0
+            Spec because it doesn''t have a `:` between hours and minutes.'
+          type: string
+        suffix:
+          type: string
+        suppressed:
+          type: boolean
+        title:
+          type: string
+        uploadDate:
+          description: 'Date-time in Java format. Example: `2019-01-01T01:01:01.000+0000`.
+            Note this is not compatible with RFC-3339 which is used by OpenAPI 3.0
+            Spec because it doesn''t have a `:` between hours and minutes.'
+          type: string
+        uploadedBy:
+          type: string
+        zip:
+          type: string
+      type: object
     ComparableSearchField:
       example:
         value: value

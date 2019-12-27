@@ -105,6 +105,15 @@ func main() {
 			context.Background(), opts.AccountID)
 		handleErrors(resp, err)
 		fmtutil.PrintJSON(info)
+	case "leadsearch":
+		qry := engagevoice.CampaignLeadSearchCriteria{FirstName: "Jon"}
+		qry = engagevoice.CampaignLeadSearchCriteria{}
+		info, resp, err := apiClient.CampaignLeadsApi.SearchCampaignLeads(
+			context.Background(), opts.AccountID,
+			qry, nil,
+		)
+		handleErrors(resp, err)
+		fmtutil.PrintJSON(info)
 	}
 
 	if 1 == 0 {

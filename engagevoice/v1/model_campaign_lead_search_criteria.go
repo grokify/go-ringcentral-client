@@ -9,39 +9,37 @@
 
 package engagevoice
 
-import (
-	"time"
-)
-
 type CampaignLeadSearchCriteria struct {
-	Address1             string                        `json:"address1,omitempty"`
-	Address2             string                        `json:"address2,omitempty"`
-	AgentDispositions    []string                      `json:"agentDispositions,omitempty"`
-	AgentId              int32                         `json:"agentId,omitempty"`
-	AuxData1             string                        `json:"auxData1,omitempty"`
-	AuxData2             string                        `json:"auxData2,omitempty"`
-	AuxData3             string                        `json:"auxData3,omitempty"`
-	AuxData4             string                        `json:"auxData4,omitempty"`
-	AuxData5             string                        `json:"auxData5,omitempty"`
-	CallerId             string                        `json:"callerId,omitempty"`
-	CampaignIds          []int32                       `json:"campaignIds,omitempty"`
-	City                 string                        `json:"city,omitempty"`
-	EmailAddress         string                        `json:"emailAddress,omitempty"`
-	ExternIds            []string                      `json:"externIds,omitempty"`
-	FirstName            string                        `json:"firstName,omitempty"`
-	LastName             string                        `json:"lastName,omitempty"`
-	LastPassTimeCriteria DateTimeComparableSearchField `json:"lastPassTimeCriteria,omitempty"`
-	LeadIds              []int32                       `json:"leadIds,omitempty"`
-	LeadPassesCriteria   ComparableSearchField         `json:"leadPassesCriteria,omitempty"`
-	LeadPhoneNum         string                        `json:"leadPhoneNum,omitempty"`
-	LeadPhoneNumbers     []string                      `json:"leadPhoneNumbers,omitempty"`
-	LeadTimezones        Timezone                      `json:"leadTimezones,omitempty"`
-	ListIds              []int32                       `json:"listIds,omitempty"`
-	LoadedDtsEnd         time.Time                     `json:"loadedDtsEnd,omitempty"`
-	LoadedDtsStart       time.Time                     `json:"loadedDtsStart,omitempty"`
-	NextDialTimeCriteria DateTimeComparableSearchField `json:"nextDialTimeCriteria,omitempty"`
-	OrphanedLeadsOnly    bool                          `json:"orphanedLeadsOnly,omitempty"`
-	PendingAgentId       int32                         `json:"pendingAgentId,omitempty"`
-	PhysicalStates       []string                      `json:"physicalStates,omitempty"`
-	Zip                  string                        `json:"zip,omitempty"`
+	Address1             string                         `json:"address1,omitempty"`
+	Address2             string                         `json:"address2,omitempty"`
+	AgentDispositions    []string                       `json:"agentDispositions,omitempty"`
+	AgentId              int32                          `json:"agentId,omitempty"`
+	AuxData1             string                         `json:"auxData1,omitempty"`
+	AuxData2             string                         `json:"auxData2,omitempty"`
+	AuxData3             string                         `json:"auxData3,omitempty"`
+	AuxData4             string                         `json:"auxData4,omitempty"`
+	AuxData5             string                         `json:"auxData5,omitempty"`
+	CallerId             string                         `json:"callerId,omitempty"`
+	CampaignIds          []int32                        `json:"campaignIds,omitempty"`
+	City                 string                         `json:"city,omitempty"`
+	EmailAddress         string                         `json:"emailAddress,omitempty"`
+	ExternIds            []string                       `json:"externIds,omitempty"`
+	FirstName            string                         `json:"firstName,omitempty"`
+	LastName             string                         `json:"lastName,omitempty"`
+	LastPassTimeCriteria *DateTimeComparableSearchField `json:"lastPassTimeCriteria,omitempty"`
+	LeadIds              []int32                        `json:"leadIds,omitempty"`
+	LeadPassesCriteria   *ComparableSearchField         `json:"leadPassesCriteria,omitempty"`
+	LeadPhoneNum         string                         `json:"leadPhoneNum,omitempty"`
+	LeadPhoneNumbers     []string                       `json:"leadPhoneNumbers,omitempty"`
+	LeadTimezones        *Timezone                      `json:"leadTimezones,omitempty"`
+	ListIds              []int32                        `json:"listIds,omitempty"`
+	// Date-time in Java format. Example: `2019-01-01T01:01:01.000+0000`. Note this is not compatible with RFC-3339 which is used by OpenAPI 3.0 Spec because it doesn't have a `:` between hours and minutes.
+	LoadedDtsEnd string `json:"loadedDtsEnd,omitempty"`
+	// Date-time in Java format. Example: `2019-01-01T01:01:01.000+0000`. Note this is not compatible with RFC-3339 which is used by OpenAPI 3.0 Spec because it doesn't have a `:` between hours and minutes.
+	LoadedDtsStart       string                         `json:"loadedDtsStart,omitempty"`
+	NextDialTimeCriteria *DateTimeComparableSearchField `json:"nextDialTimeCriteria,omitempty"`
+	OrphanedLeadsOnly    bool                           `json:"orphanedLeadsOnly,omitempty"`
+	PendingAgentId       int32                          `json:"pendingAgentId,omitempty"`
+	PhysicalStates       []string                       `json:"physicalStates,omitempty"`
+	Zip                  string                         `json:"zip,omitempty"`
 }

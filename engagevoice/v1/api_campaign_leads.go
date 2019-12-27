@@ -209,7 +209,7 @@ CampaignLeadsApiService Allows searching of campaign leads for a single campaign
  * @param "Count" (optional.Int32) -
  * @param "Page" (optional.Int32) -
  * @param "MaxRows" (optional.Int32) -
-@return []string
+@return []CampaignLeadSearchResultsView
 */
 
 type SearchCampaignLeadsOpts struct {
@@ -218,14 +218,14 @@ type SearchCampaignLeadsOpts struct {
 	MaxRows optional.Int32
 }
 
-func (a *CampaignLeadsApiService) SearchCampaignLeads(ctx context.Context, accountId string, campaignLeadSearchCriteria CampaignLeadSearchCriteria, localVarOptionals *SearchCampaignLeadsOpts) ([]string, *http.Response, error) {
+func (a *CampaignLeadsApiService) SearchCampaignLeads(ctx context.Context, accountId string, campaignLeadSearchCriteria CampaignLeadSearchCriteria, localVarOptionals *SearchCampaignLeadsOpts) ([]CampaignLeadSearchResultsView, *http.Response, error) {
 	var (
-		localVarHttpMethod   = http.MethodGet
+		localVarHttpMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  []string
+		localVarReturnValue  []CampaignLeadSearchResultsView
 	)
 
 	// create path and map variables
@@ -286,7 +286,7 @@ func (a *CampaignLeadsApiService) SearchCampaignLeads(ctx context.Context, accou
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v []string
+			var v []CampaignLeadSearchResultsView
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
