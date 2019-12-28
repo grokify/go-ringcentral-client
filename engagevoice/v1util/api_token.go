@@ -162,7 +162,7 @@ func ListTokens(authOrApiToken string) ([]string, error) {
 
 	resp, err := httputilmore.GetJsonSimple(EngageVoiceTokenUri,
 		http.Header(map[string][]string{
-			EngageVoiceTokenHeader: []string{authOrApiToken},
+			EngageVoiceTokenHeader: {authOrApiToken},
 		}),
 		&tokens)
 	if err != nil {

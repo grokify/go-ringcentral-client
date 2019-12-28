@@ -266,7 +266,8 @@ paths:
       - Dial Groups
   /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns:
     get:
-      operationId: getDialGroupCampaigns
+      description: Returns a listing of campaigns for a dial group
+      operationId: getCampaigns
       parameters:
       - explode: false
         in: path
@@ -291,7 +292,51 @@ paths:
                   $ref: '#/components/schemas/Campaign'
                 type: array
           description: Success
-      summary: Returns a listing of campaigns for a dial group
+      summary: Get Campaigns
+      tags:
+      - Dial Groups
+  /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns/{campaignId}/clearCache:
+    post:
+      description: |-
+        lears the cache for a campaign
+
+        Permissions: READ on Campaign (Permission Override)
+      operationId: clearCampaignCache
+      parameters:
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: dialGroupId
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: campaignId
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+        required: true
+      responses:
+        201:
+          description: Created
+      summary: Clear Campaign Cache
       tags:
       - Dial Groups
 components:
@@ -1167,19 +1212,29 @@ components:
       type: object
     DialGroup:
       example:
-        dialGroupId: 0
+        enableAgentFilter: true
         dialGroupName: dialGroupName
-        dialMode: dialMode
         hciEnabled: hciEnabled
+        realTimeAgentData: true
+        agentDialGroupMembers: '{}'
+        isActive: true
+        agentsReady: 0
+        dialGroupId: 6
+        dialMode: dialMode
+        maxPorts: 1
         dialGroupDesc: dialGroupDesc
         permissions:
         - '{}'
         - '{}'
-        agentDialGroupMembers: '{}'
-        isActive: true
+        billingKey: billingKey
+        outdialServerGroupId: 5
       properties:
         agentDialGroupMembers:
           type: object
+        agentsReady:
+          type: integer
+        billingKey:
+          type: string
         dialGroupDesc:
           type: string
         dialGroupId:
@@ -1190,15 +1245,23 @@ components:
         dialMode:
           description: Can be `PREDICTIVE`
           type: string
+        enableAgentFilter:
+          type: boolean
         hciEnabled:
           description: Can be `DISABLED`
           type: string
         isActive:
           type: boolean
+        maxPorts:
+          type: integer
+        outdialServerGroupId:
+          type: integer
         permissions:
           items:
             type: object
           type: array
+        realTimeAgentData:
+          type: boolean
       type: object
     Error:
       properties:

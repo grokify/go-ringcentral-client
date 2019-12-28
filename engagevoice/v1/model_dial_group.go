@@ -11,13 +11,19 @@ package engagevoice
 
 type DialGroup struct {
 	AgentDialGroupMembers map[string]interface{} `json:"agentDialGroupMembers,omitempty"`
+	AgentsReady           int32                  `json:"agentsReady,omitempty"`
+	BillingKey            string                 `json:"billingKey,omitempty"`
 	DialGroupDesc         string                 `json:"dialGroupDesc,omitempty"`
 	DialGroupId           int64                  `json:"dialGroupId,omitempty"`
 	DialGroupName         string                 `json:"dialGroupName,omitempty"`
 	// Can be `PREDICTIVE`
-	DialMode string `json:"dialMode,omitempty"`
+	DialMode          string `json:"dialMode,omitempty"`
+	EnableAgentFilter bool   `json:"enableAgentFilter,omitempty"`
 	// Can be `DISABLED`
-	HciEnabled  string                   `json:"hciEnabled,omitempty"`
-	IsActive    bool                     `json:"isActive,omitempty"`
-	Permissions []map[string]interface{} `json:"permissions,omitempty"`
+	HciEnabled           string                   `json:"hciEnabled,omitempty"`
+	IsActive             bool                     `json:"isActive,omitempty"`
+	MaxPorts             int32                    `json:"maxPorts,omitempty"`
+	OutdialServerGroupId int32                    `json:"outdialServerGroupId,omitempty"`
+	Permissions          []map[string]interface{} `json:"permissions,omitempty"`
+	RealTimeAgentData    bool                     `json:"realTimeAgentData,omitempty"`
 }

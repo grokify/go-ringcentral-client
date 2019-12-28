@@ -39,7 +39,8 @@ Class | Method | HTTP request | Description
 *CampaignLeadsApi* | [**SearchLeads**](docs/CampaignLeadsApi.md#searchleads) | **Post** /admin/accounts/{accountId}/campaignLeads/leadSearch | Allows searching of campaign leads for a single campaign  Permissions: READ on Account (Permission Override)
 *CampaignsApi* | [**UploadLeads**](docs/CampaignsApi.md#uploadleads) | **Post** /admin/accounts/{accountId}/campaigns/{campaignId}/leadLoader/direct | Upload Leads
 *CountriesApi* | [**GetAvailableCountries**](docs/CountriesApi.md#getavailablecountries) | **Get** /admin/accounts/{accountId}/countries/available | Get a list of available countries
-*DialGroupsApi* | [**GetDialGroupCampaigns**](docs/DialGroupsApi.md#getdialgroupcampaigns) | **Get** /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns | Returns a listing of campaigns for a dial group
+*DialGroupsApi* | [**ClearCampaignCache**](docs/DialGroupsApi.md#clearcampaigncache) | **Post** /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns/{campaignId}/clearCache | Clear Campaign Cache
+*DialGroupsApi* | [**GetCampaigns**](docs/DialGroupsApi.md#getcampaigns) | **Get** /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns | Get Campaigns
 *DialGroupsApi* | [**GetDialGroups**](docs/DialGroupsApi.md#getdialgroups) | **Get** /admin/accounts/{accountId}/dialGroups | Returns a listing of dial groups for an account
 
 
