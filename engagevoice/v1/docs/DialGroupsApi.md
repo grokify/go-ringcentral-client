@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ClearCampaignCache**](DialGroupsApi.md#ClearCampaignCache) | **Post** /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns/{campaignId}/clearCache | Clear Campaign Cache
 [**GetCampaigns**](DialGroupsApi.md#GetCampaigns) | **Get** /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns | Get Campaigns
-[**GetDialGroups**](DialGroupsApi.md#GetDialGroups) | **Get** /admin/accounts/{accountId}/dialGroups | Returns a listing of dial groups for an account
+[**GetDialGroups**](DialGroupsApi.md#GetDialGroups) | **Get** /admin/accounts/{accountId}/dialGroups | Get Dial Groups
 
 
 
@@ -83,6 +83,8 @@ No authorization required
 ## GetDialGroups
 
 > []DialGroup GetDialGroups(ctx, accountId)
+Get Dial Groups
+
 Returns a listing of dial groups for an account
 
 ### Required Parameters

@@ -32,16 +32,16 @@ All URIs are relative to *https://portal.vacd.biz/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AgentsApi* | [**GetAgentGroups**](docs/AgentsApi.md#getagentgroups) | **Get** /admin/accounts/{accountId}/agentGroups | Returns a listing of agent groups for an account
-*AgentsApi* | [**GetAgents**](docs/AgentsApi.md#getagents) | **Get** /admin/accounts/{accountId}/agentGroups/{agentGroupId}/agents | Returns a listing of agents for an agent group
-*CampaignLeadsApi* | [**GetLeadStates**](docs/CampaignLeadsApi.md#getleadstates) | **Get** /admin/accounts/{accountId}/campaignLeads/leadStates | Returns a listing of all lead states for an account  Permissions: READ on Account
-*CampaignLeadsApi* | [**GetSystemDispositions**](docs/CampaignLeadsApi.md#getsystemdispositions) | **Get** /admin/accounts/{accountId}/campaignLeads/systemDispositions | Returns a listing of all system dispositions for an account  Permissions: READ on Account
-*CampaignLeadsApi* | [**SearchLeads**](docs/CampaignLeadsApi.md#searchleads) | **Post** /admin/accounts/{accountId}/campaignLeads/leadSearch | Allows searching of campaign leads for a single campaign  Permissions: READ on Account (Permission Override)
+*AgentsApi* | [**GetAgentGroups**](docs/AgentsApi.md#getagentgroups) | **Get** /admin/accounts/{accountId}/agentGroups | Get Agent Groups
+*AgentsApi* | [**GetAgents**](docs/AgentsApi.md#getagents) | **Get** /admin/accounts/{accountId}/agentGroups/{agentGroupId}/agents | Get Group Agents
+*CampaignLeadsApi* | [**GetLeadStates**](docs/CampaignLeadsApi.md#getleadstates) | **Get** /admin/accounts/{accountId}/campaignLeads/leadStates | Get Lead States
+*CampaignLeadsApi* | [**GetSystemDispositions**](docs/CampaignLeadsApi.md#getsystemdispositions) | **Get** /admin/accounts/{accountId}/campaignLeads/systemDispositions | Get Systems Dispositions
+*CampaignLeadsApi* | [**SearchLeads**](docs/CampaignLeadsApi.md#searchleads) | **Post** /admin/accounts/{accountId}/campaignLeads/leadSearch | Search Leads
 *CampaignsApi* | [**UploadLeads**](docs/CampaignsApi.md#uploadleads) | **Post** /admin/accounts/{accountId}/campaigns/{campaignId}/leadLoader/direct | Upload Leads
-*CountriesApi* | [**GetAvailableCountries**](docs/CountriesApi.md#getavailablecountries) | **Get** /admin/accounts/{accountId}/countries/available | Get a list of available countries
+*CountriesApi* | [**GetAvailableCountries**](docs/CountriesApi.md#getavailablecountries) | **Get** /admin/accounts/{accountId}/countries/available | Get Available Countries
 *DialGroupsApi* | [**ClearCampaignCache**](docs/DialGroupsApi.md#clearcampaigncache) | **Post** /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns/{campaignId}/clearCache | Clear Campaign Cache
 *DialGroupsApi* | [**GetCampaigns**](docs/DialGroupsApi.md#getcampaigns) | **Get** /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns | Get Campaigns
-*DialGroupsApi* | [**GetDialGroups**](docs/DialGroupsApi.md#getdialgroups) | **Get** /admin/accounts/{accountId}/dialGroups | Returns a listing of dial groups for an account
+*DialGroupsApi* | [**GetDialGroups**](docs/DialGroupsApi.md#getdialgroups) | **Get** /admin/accounts/{accountId}/dialGroups | Get Dial Groups
 
 
 ## Documentation For Models

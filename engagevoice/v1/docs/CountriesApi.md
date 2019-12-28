@@ -4,13 +4,15 @@ All URIs are relative to *https://portal.vacd.biz/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAvailableCountries**](CountriesApi.md#GetAvailableCountries) | **Get** /admin/accounts/{accountId}/countries/available | Get a list of available countries
+[**GetAvailableCountries**](CountriesApi.md#GetAvailableCountries) | **Get** /admin/accounts/{accountId}/countries/available | Get Available Countries
 
 
 
 ## GetAvailableCountries
 
 > []Country GetAvailableCountries(ctx, accountId)
+Get Available Countries
+
 Get a list of available countries
 
 ### Required Parameters

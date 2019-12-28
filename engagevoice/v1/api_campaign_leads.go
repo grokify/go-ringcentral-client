@@ -27,7 +27,8 @@ var (
 type CampaignLeadsApiService service
 
 /*
-CampaignLeadsApiService Returns a listing of all lead states for an account  Permissions: READ on Account
+CampaignLeadsApiService Get Lead States
+Returns a listing of all lead states for an account  Permissions: READ on Account
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId
 @return []string
@@ -114,7 +115,8 @@ func (a *CampaignLeadsApiService) GetLeadStates(ctx context.Context, accountId s
 }
 
 /*
-CampaignLeadsApiService Returns a listing of all system dispositions for an account  Permissions: READ on Account
+CampaignLeadsApiService Get Systems Dispositions
+Returns a listing of all system dispositions for an account  Permissions: READ on Account
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId
 @return []string
@@ -201,7 +203,8 @@ func (a *CampaignLeadsApiService) GetSystemDispositions(ctx context.Context, acc
 }
 
 /*
-CampaignLeadsApiService Allows searching of campaign leads for a single campaign  Permissions: READ on Account (Permission Override)
+CampaignLeadsApiService Search Leads
+Allows searching of campaign leads for a single campaign  Permissions: READ on Account (Permission Override)
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId
  * @param campaignLeadSearchCriteria

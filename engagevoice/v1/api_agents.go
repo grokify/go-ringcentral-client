@@ -26,7 +26,8 @@ var (
 type AgentsApiService service
 
 /*
-AgentsApiService Returns a listing of agent groups for an account
+AgentsApiService Get Agent Groups
+Returns a listing of agent groups for an account
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId
 @return []AgentGroup
@@ -123,7 +124,8 @@ func (a *AgentsApiService) GetAgentGroups(ctx context.Context, accountId string)
 }
 
 /*
-AgentsApiService Returns a listing of agents for an agent group
+AgentsApiService Get Group Agents
+Returns a listing of agents for an agent group
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId
  * @param agentGroupId

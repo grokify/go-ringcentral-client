@@ -26,7 +26,8 @@ var (
 type CountriesApiService service
 
 /*
-CountriesApiService Get a list of available countries
+CountriesApiService Get Available Countries
+Get a list of available countries
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId
 @return []Country

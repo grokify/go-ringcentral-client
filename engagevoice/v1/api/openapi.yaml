@@ -15,6 +15,7 @@ tags:
 paths:
   /admin/accounts/{accountId}/agentGroups:
     get:
+      description: Returns a listing of agent groups for an account
       operationId: getAgentGroups
       parameters:
       - explode: false
@@ -39,11 +40,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: Server Error
-      summary: Returns a listing of agent groups for an account
+      summary: Get Agent Groups
       tags:
       - Agents
   /admin/accounts/{accountId}/agentGroups/{agentGroupId}/agents:
     get:
+      description: Returns a listing of agents for an agent group
       operationId: getAgents
       parameters:
       - explode: false
@@ -75,11 +77,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
           description: Server Error
-      summary: Returns a listing of agents for an agent group
+      summary: Get Group Agents
       tags:
       - Agents
   /admin/accounts/{accountId}/campaignLeads/leadSearch:
     post:
+      description: |-
+        Allows searching of campaign leads for a single campaign
+
+        Permissions: READ on Account (Permission Override)
       operationId: searchLeads
       parameters:
       - explode: false
@@ -125,14 +131,15 @@ paths:
                   $ref: '#/components/schemas/CampaignLeadSearchResultsView'
                 type: array
           description: Success
-      summary: |-
-        Allows searching of campaign leads for a single campaign
-
-        Permissions: READ on Account (Permission Override)
+      summary: Search Leads
       tags:
       - Campaign Leads
   /admin/accounts/{accountId}/campaignLeads/leadStates:
     get:
+      description: |-
+        Returns a listing of all lead states for an account
+
+        Permissions: READ on Account
       operationId: getLeadStates
       parameters:
       - explode: false
@@ -151,14 +158,15 @@ paths:
                   type: string
                 type: array
           description: Success
-      summary: |-
-        Returns a listing of all lead states for an account
-
-        Permissions: READ on Account
+      summary: Get Lead States
       tags:
       - Campaign Leads
   /admin/accounts/{accountId}/campaignLeads/systemDispositions:
     get:
+      description: |-
+        Returns a listing of all system dispositions for an account
+
+        Permissions: READ on Account
       operationId: getSystemDispositions
       parameters:
       - explode: false
@@ -177,10 +185,7 @@ paths:
                   type: string
                 type: array
           description: Success
-      summary: |-
-        Returns a listing of all system dispositions for an account
-
-        Permissions: READ on Account
+      summary: Get Systems Dispositions
       tags:
       - Campaign Leads
   /admin/accounts/{accountId}/campaigns/{campaignId}/leadLoader/direct:
@@ -220,6 +225,7 @@ paths:
       - Campaigns
   /admin/accounts/{accountId}/countries/available:
     get:
+      description: Get a list of available countries
       operationId: getAvailableCountries
       parameters:
       - explode: false
@@ -238,11 +244,12 @@ paths:
                   $ref: '#/components/schemas/Country'
                 type: array
           description: Success
-      summary: Get a list of available countries
+      summary: Get Available Countries
       tags:
       - Countries
   /admin/accounts/{accountId}/dialGroups:
     get:
+      description: Returns a listing of dial groups for an account
       operationId: getDialGroups
       parameters:
       - explode: false
@@ -261,7 +268,7 @@ paths:
                   $ref: '#/components/schemas/DialGroup'
                 type: array
           description: Success
-      summary: Returns a listing of dial groups for an account
+      summary: Get Dial Groups
       tags:
       - Dial Groups
   /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns:

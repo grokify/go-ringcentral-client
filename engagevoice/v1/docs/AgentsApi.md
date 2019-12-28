@@ -4,14 +4,16 @@ All URIs are relative to *https://portal.vacd.biz/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAgentGroups**](AgentsApi.md#GetAgentGroups) | **Get** /admin/accounts/{accountId}/agentGroups | Returns a listing of agent groups for an account
-[**GetAgents**](AgentsApi.md#GetAgents) | **Get** /admin/accounts/{accountId}/agentGroups/{agentGroupId}/agents | Returns a listing of agents for an agent group
+[**GetAgentGroups**](AgentsApi.md#GetAgentGroups) | **Get** /admin/accounts/{accountId}/agentGroups | Get Agent Groups
+[**GetAgents**](AgentsApi.md#GetAgents) | **Get** /admin/accounts/{accountId}/agentGroups/{agentGroupId}/agents | Get Group Agents
 
 
 
 ## GetAgentGroups
 
 > []AgentGroup GetAgentGroups(ctx, accountId)
+Get Agent Groups
+
 Returns a listing of agent groups for an account
 
 ### Required Parameters
@@ -43,6 +45,8 @@ No authorization required
 ## GetAgents
 
 > []Agent GetAgents(ctx, accountId, agentGroupId)
+Get Group Agents
+
 Returns a listing of agents for an agent group
 
 ### Required Parameters

@@ -190,7 +190,8 @@ func (a *DialGroupsApiService) GetCampaigns(ctx context.Context, accountId strin
 }
 
 /*
-DialGroupsApiService Returns a listing of dial groups for an account
+DialGroupsApiService Get Dial Groups
+Returns a listing of dial groups for an account
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param accountId
 @return []DialGroup
