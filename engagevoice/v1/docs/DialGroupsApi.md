@@ -26,7 +26,7 @@ Name | Type | Description  | Notes
 **accountId** | **int64**|  | 
 **dialGroupId** | **int64**|  | 
 **campaignId** | **int64**|  | 
-**body** | **map[string]interface{}**|  | 
+**body** | **map[string]interface{}**| An &#x60;application/json&#x60; Content-Type header is required. Submit an empty body to trigger the header. | 
 
 ### Return type
 

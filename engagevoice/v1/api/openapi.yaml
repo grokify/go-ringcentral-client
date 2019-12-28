@@ -332,6 +332,8 @@ paths:
           application/json:
             schema:
               type: object
+        description: An `application/json` Content-Type header is required. Submit
+          an empty body to trigger the header.
         required: true
       responses:
         201:

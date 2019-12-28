@@ -32,7 +32,7 @@ lears the cache for a campaign  Permissions: READ on Campaign (Permission Overri
  * @param accountId
  * @param dialGroupId
  * @param campaignId
- * @param body
+ * @param body An `application/json` Content-Type header is required. Submit an empty body to trigger the header.
 */
 func (a *DialGroupsApiService) ClearCampaignCache(ctx context.Context, accountId int64, dialGroupId int64, campaignId int64, body map[string]interface{}) (*http.Response, error) {
 	var (
