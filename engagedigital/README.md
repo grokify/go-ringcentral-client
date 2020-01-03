@@ -51,11 +51,11 @@ func main() {
 For information on how to use the `apiClient` object, see:
 
 1. [`engagedigital/examples`](engagedigital/examples) folder for usage. [`engagedigital/examples/simple_get`](engagedigital/examples/simple_get) includes a simple functions for a lot of the `GET` APIs.
-1. [engagedigital/engagedigital/README.md](https://github.com/grokify/go-ringcentral-engage/blob/master/engagedigital/README.md) for SDK documentation.
+1. [engagedigital/engagedigital/README.md](engagedigital/engagedigital/README.md) for SDK documentation.
 
 ## Documentation
 
-[engagedigital/engagedigital/README.md](https://github.com/grokify/go-ringcentral-engage/blob/master/engagedigital/README.md)
+[engagedigital/engagedigital/README.md](engagedigital/engagedigital/README.md)
 
 ## Coverage
 
