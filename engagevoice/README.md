@@ -22,7 +22,7 @@ Get an overview of the API here:
 The following endpoints are covered by the OpenAPI 3.0 spec, the API Reference and the SDK.
 
 - [ ] Auth
-  - [ ] [/v1/admin/token GET](v1/docs/AuthApi.md#gettokens)
+  - [x] [/v1/admin/token GET](v1/docs/AuthApi.md#gettokens)
 
 - [ ] Active Calls
   - [ ] /v1/admin/accounts/{accountId}/activeCalls/list?product={productName}&productId={productId} 
