@@ -1,0 +1,389 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "",
+      "version": "1.0",
+      "title": "Engage Digital API",
+      "termsOfService": "https://developer.ringcentral.com"
+    },
+    "tags": [
+      {
+        "name": "Folders"
+      }
+    ],
+    "paths": {
+      "/folders": {
+        "get": {
+          "tags": [
+            "Folders"
+          ],
+          "summary": "Getting all folders",
+          "operationId": "getAllFolders",
+          "description": "This method renders folders.",
+          "parameters": [
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "The record index to start. Default value is 0.",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "The max number of records to return. Default value is 30, max value is 150.",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/GetAllFoldersResponse"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Folders"
+          ],
+          "summary": "Creating a folder",
+          "operationId": "createFolder",
+          "description": "This method creates a new folder. In case of success it renders the created folder, otherwise an error (422 HTTP code).",
+          "parameters": [
+            {
+              "name": "label",
+              "description": "Folder’s label (mandatory).",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "parent_id",
+              "description": "ID of the parent folder.",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "position",
+              "description": "position of the folder. ",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "name": "query",
+              "description": "query of the folder as described in ​Search API documentation.​\\n\\nExample: “​active_and_assigned_to_me:true”",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "render_threads_count",
+              "description": "boolean describing display of the number of threads. ",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "role_restriction[only][]",
+              "description": "list of roles allowed to see this folder. This parameter has to be a hash otherwise it will raise a 400 error. The key should be \"only\". For example: `&role_restriction[only][]=4e5596cdae70f677b5000002`",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "name": "team_restriction[only][]",
+              "description": "list of teams allowed to see this folder. Same thing as role_restriction: team_restriction parameter has to be a hash with the key \"only\".",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Folder"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/folders/{folderId}": {
+        "get": {
+          "tags": [
+            "Folders"
+          ],
+          "summary": "Getting a folder from its id",
+          "operationId": "getFolder",
+          "description": "This method renders a folder from given id.",
+          "parameters": [
+            {
+              "name": "folderId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Folder"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Folders"
+          ],
+          "summary": "Updating a folder",
+          "operationId": "updateFolder",
+          "description": "This method updates an existing folder from given attributes and renders it in case of success.",
+          "parameters": [
+            {
+              "name": "folderId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "label",
+              "description": "Folder’s label (mandatory).",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "parent_id",
+              "description": "ID of the parent folder.",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "position",
+              "description": "position of the folder. ",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "name": "query",
+              "description": "query of the folder as described in ​Search API documentation.​\\n\\nExample: “​active_and_assigned_to_me:true”",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "render_threads_count",
+              "description": "boolean describing display of the number of threads. ",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "role_restriction[only][]",
+              "description": "list of roles allowed to see this folder. This parameter has to be a hash otherwise it will raise a 400 error. The key should be \"only\". For example: `&role_restriction[only][]=4e5596cdae70f677b5000002`",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "name": "team_restriction[only][]",
+              "description": "list of teams allowed to see this folder. Same thing as role_restriction: team_restriction parameter has to be a hash with the key \"only\".",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Folder"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Folders"
+          ],
+          "summary": "Deleting a folder",
+          "operationId": "deleteFolder",
+          "description": "This method destroys an existing folder. It renders the folder itself. It renders a 404 if id is invalid.",
+          "parameters": [
+            {
+              "name": "folderId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Folder"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "servers": [
+      {
+        "url": "https://DOMAIN.api.engagement.dimelo.com/1.0"
+      }
+    ],
+    "components": {
+      "schemas": {
+        "GetAllFoldersResponse": {
+          "properties": {
+            "count": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "limit": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "offset": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Folder"
+              }
+            }
+          }
+        },
+        "Folder": {
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "label": {
+              "type": "string"
+            },
+            "parent_id": {
+              "type": "string"
+            },
+            "position": {
+              "type": "integer"
+            },
+            "query": {
+              "type": "string"
+            },
+            "render_threads_count": {
+              "type": "boolean"
+            },
+            "role_restriction": {
+              "$ref": "#/components/schemas/Restriction"
+            }
+          }
+        },
+        "Restriction": {
+          "properties": {
+            "only": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }

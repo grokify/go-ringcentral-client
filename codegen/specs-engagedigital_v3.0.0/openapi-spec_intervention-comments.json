@@ -1,0 +1,272 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "",
+      "version": "1.0",
+      "title": "Engage Digital API",
+      "termsOfService": "https://developer.ringcentral.com"
+    },
+    "tags": [
+      {
+        "name": "Intervention Comments"
+      }
+    ],
+    "paths": {
+      "/intervention_comments": {
+        "get": {
+          "tags": [
+            "Intervention Comments"
+          ],
+          "summary": "Getting all intervention comments",
+          "operationId": "getAllInterventionComments",
+          "description": "This method renders interventions comments ordered by creation date (descending). Only comments in sources where token’s user has “read” permission are returned.\n\nAuthorization​: no.",
+          "parameters": [
+            {
+                "name": "intervention_id",
+                "in": "query",
+                "description": "To filter comments on given intervention id.",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "thread_id",
+                "in": "query",
+                "description": "To filter comments on given thread id.",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "user_id",
+                "in": "query",
+                "description": "To filter comments on given user id.",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "identity_id",
+                "in": "query",
+                "description": "To filter comments on given identity id.",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "The record index to start. Default value is 0.",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "The max number of records to return. Default value is 30, max value is 150.",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/GetAllInterventionCommentsResponse"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+              "tags": [
+                "Intervention Comments"
+              ],
+              "summary": "Creating an intervention comment",
+              "operationId": "createInterventionComment",
+              "description": "This method creates a new intervention comment. In case of success it renders the created comment, otherwise, it renders an error (422 HTTP code). It creates comment as token’s user. If token’s user does not have “read” on given intervention’s source a 404 HTTP response will be returned.",
+              "parameters": [
+                {
+                    "name": "body",
+                    "in": "query",
+                    "description": "The comment body (mandatory).",
+                    "required": true,
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "intervention_id",
+                    "in": "query",
+                    "description": "The comment intervention id (mandatory).",
+                    "required": true,
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "user_id",
+                    "in": "query",
+                    "description": "The comment user id (mandatory).",
+                    "required": true,
+                    "schema": {
+                      "type": "string"
+                    }
+                  }
+              ],
+              "responses": {
+                "200": {
+                  "description": "Success",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/InterventionComment"
+                      }
+                    }
+                  }
+                }
+              }
+
+            }
+      },
+      "/intervention_comments/{interventionCommentId}": {
+        "get": {
+          "tags": [
+            "Intervention Comments"
+          ],
+          "summary": "Getting an intervention comment from its id",
+          "operationId": "getInterventionComment",
+          "description": "This method renders an intervention comment from given id. If token’s user does not have “read” on comment’s source a 404 HTTP response will be returned.",
+          "parameters": [
+            {
+              "name": "interventionCommentId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InterventionComment"
+                  }
+                }
+              }
+            }
+          }
+        },
+      
+      "delete":{
+        "tags": [
+            "Intervention Comments"
+          ],
+          "summary": "Deleting an intervention comment",
+          "operationId": "deleteInterventionComment",
+          "description": "This method destroys an intervention comment. It renders comment itself. If token’s user does not have “read” on comment’s source a 404 HTTP response will be returned.\n\nAuthorization​: no.",
+          "parameters": [
+            {
+              "name": "interventionCommentId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/InterventionComment"
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        
+      }
+    },
+    "servers": [
+      {
+        "url": "https://DOMAIN.api.engagement.dimelo.com/1.0"
+      }
+    ],
+    "components": {
+      "schemas": {
+        "GetAllInterventionCommentsResponse": {
+          "properties": {
+            "count": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "limit": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "offset": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/InterventionComment"
+              }
+            }
+          }
+        },
+        "InterventionComment": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "user_id": {
+              "type": "string"
+            },
+            "videntity_id": {
+              "type": "string"
+            },
+            "thread_id": {
+              "type": "string"
+            },
+            "intervention_id": {
+                "type": "string"
+            },
+            "body": {
+                "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }

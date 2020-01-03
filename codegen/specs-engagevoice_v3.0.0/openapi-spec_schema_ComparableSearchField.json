@@ -1,0 +1,18 @@
+{
+    "components":{
+       "schemas":{
+          "ComparableSearchField":{
+            "type":"object",
+             "properties":{
+                "value":{
+                   "type":"string"
+                },
+                "operator":{
+                   "type":"string",
+                   "description":"Values can be `>`, `<` and `=`"
+                }
+             }
+          }
+       }
+    }
+ }

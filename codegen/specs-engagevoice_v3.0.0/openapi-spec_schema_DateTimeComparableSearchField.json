@@ -1,0 +1,19 @@
+{
+    "components":{
+       "schemas":{
+          "DateTimeComparableSearchField":{
+            "type":"object",
+             "properties":{
+                "value":{
+                   "type":"string",
+                   "format":"date-time"
+                },
+                "operator":{
+                   "type":"string",
+                   "description":"Values can be `>`, `<` and `=`"
+                }
+             }
+          }
+       }
+    }
+ }

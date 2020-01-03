@@ -1,0 +1,245 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "",
+    "version": "1.0",
+    "title": "Engage Digital API",
+    "termsOfService": "https://developer.ringcentral.com"
+  },
+  "tags": [
+    {
+      "name": "Tags"
+    }
+  ],
+  "paths": {
+    "/tags": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Getting all tags",
+        "operationId": "getAllTags",
+        "description": "This method renders tags ordered by name (ascending).",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The record index to start. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The max number of records to return. Default value is 30, max value is 150.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAllTagsResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Creating a tag",
+        "operationId": "createTag",
+        "description": "This method creates a new tag. In case of success it renders the created tag, otherwise, it renders an error (422 HTTP code).",
+        "parameters": [
+          {
+            "name": "name",
+            "description": "Tag name (mandatory).",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tag"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tags/{tagId}": {
+      "get": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Getting a tag from its id",
+        "operationId": "getTag",
+        "description": "This method renders a tag from given id.",
+        "parameters": [
+          {
+            "name": "tagId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tag"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Updating a tag",
+        "operationId": "updateTag",
+        "description": "This method updates an existing tag from given attributes and renders it in case of success.\n\nAuthorization​: only users that are able to update tags.",
+        "parameters": [
+          {
+            "name": "tagId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "description": "Tag’s label.",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tag"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Tags"
+        ],
+        "summary": "Deleting a tag",
+        "operationId": "deleteTag",
+        "description": "This method destroys an existing tag. It renders tag itself. It renders a 404 if id is invalid.\n\nAuthorization​: only users that are able to destroy tags.",
+        "parameters": [
+          {
+            "name": "tagId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tag"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://DOMAIN.api.engagement.dimelo.com/1.0"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "GetAllTagsResponse": {
+        "properties": {
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            }
+          }
+        }
+      },
+      "Tag": {
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

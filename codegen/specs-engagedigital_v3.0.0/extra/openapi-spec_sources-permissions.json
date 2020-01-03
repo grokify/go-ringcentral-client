@@ -1,0 +1,105 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "",
+    "version": "1.0",
+    "title": "Engage Digital API",
+    "termsOfService": "https://developer.ringcentral.com"
+  },
+  "tags": [
+    {
+      "name": "User Sources Permissions"
+    }
+  ],
+  "paths": {
+    "/users/{userId}/sources_permissions": {
+      "get": {
+        "tags": [
+          "User Sources Permissions"
+        ],
+        "summary": "Get a user permissions by source",
+        "operationId": "getUserSourcesPermission",
+        "description": "This method gets the permissions the user has on each source.\n\nAuthorization​: only users that can update users. The user affiliated to the token must have at least all the permissions of the other user. If the user affiliated to the token has the `manage_users_of_my_teams` permission, the updated user will need to belong to at least one of the teams he’s the leader of.",
+        "parameters":[
+            {
+                "name": "userId",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserSourcesPermissions"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User Sources Permissions"
+        ],
+        "summary": "Updating a user permissions by source",
+        "operationId": "updateUserSourcesPermission",
+        "description": "This method updates the permissions.\n\nAuthorization​: only users that can update users. The user affiliated to the token must have at least all the permissions of the other user. If the user affiliated to the token has the `manage_users_of_my_teams` permission, the updated user will need to belong to at least one of the teams he’s the leader of.",
+        "parameters": [
+            {
+                "name": "userId",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+          {
+            "name": "params",
+            "description": "Parameters are the source_id you want to update and value is a comma separated list of the different permissions you want to set on this source for this user. `<source_id_x>=<string of permission list>`: To update the permission for source X identified by its id source_id_x with the permissions `<string of permission_list>`. Possible permissions are: read, reply, approval_required, initiate_discussion, reply_with_html, destroy ...",
+            "in": "query",
+            "required": false,
+            "style":"form",
+            "explode": true,
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserSourcesPermissions"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://DOMAIN.api.engagement.dimelo.com/1.0"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "UserSourcesPermissions": {
+          "type": "object",
+          "additionalProperties" : {
+        "type": "string"
+
+          }
+      }
+    }
+  }
+}

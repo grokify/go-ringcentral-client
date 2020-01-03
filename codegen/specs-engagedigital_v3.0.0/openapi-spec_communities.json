@@ -1,0 +1,147 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "",
+      "version": "1.0",
+      "title": "Engage Digital API",
+      "termsOfService": "https://developer.ringcentral.com"
+    },
+    "tags": [
+      {
+        "name": "Communities"
+      }
+    ],
+    "paths": {
+      "/communities": {
+        "get": {
+          "tags": [
+            "Communities"
+          ],
+          "summary": "Getting all communities",
+          "operationId": "getAllCommunities",
+          "description": "This method renders communities ordered by creation date (ascending).",
+          "parameters": [
+            {
+              "name": "offset",
+              "in": "query",
+              "description": "The record index to start. Default value is 0.",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "description": "The max number of records to return. Default value is 30, max value is 150.",
+              "required": false,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/GetAllCommunitiesResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/communities/{communityId}": {
+        "get": {
+          "tags": [
+            "Communities"
+          ],
+          "summary": "Getting a community from its id",
+          "operationId": "getCommunity",
+          "description": "This method renders a community from given id.",
+          "parameters": [
+            {
+              "name": "communityId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Community"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "servers": [
+      {
+        "url": "https://DOMAIN.api.engagement.dimelo.com/1.0"
+      }
+    ],
+    "components": {
+      "schemas": {
+        "GetAllCommunitiesResponse": {
+          "properties": {
+            "count": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "limit": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "offset": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "records": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Community"
+              }
+            }
+          }
+        },
+        "Community": {
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "active": {
+              "type": "boolean"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }

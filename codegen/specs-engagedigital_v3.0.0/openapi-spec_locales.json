@@ -1,0 +1,63 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "",
+      "version": "1.0",
+      "title": "Engage Digital API",
+      "termsOfService": "https://developer.ringcentral.com"
+    },
+    "tags": [
+      {
+        "name": "Locales"
+      }
+    ],
+    "paths": {
+      "/locales": {
+        "get": {
+          "tags": [
+            "Locales"
+          ],
+          "summary": "Getting all locales",
+          "operationId": "getAllLocales",
+          "description": "This method renders all available locales.",
+          "responses": {
+            "200": {
+              "description": "List of all locales",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Locale"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "servers": [
+      {
+        "url": "https://DOMAIN.api.engagement.dimelo.com/1.0"
+      }
+    ],
+    "components": {
+      "schemas": {
+        "Locale": {
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "code": {
+              "type": "string"
+            },
+            "interface": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  }

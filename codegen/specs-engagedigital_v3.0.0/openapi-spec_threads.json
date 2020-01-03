@@ -1,0 +1,325 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "",
+    "version": "1.0",
+    "title": "Engage Digital API",
+    "termsOfService": "https://developer.ringcentral.com"
+  },
+  "tags": [
+    {
+      "name": "Threads"
+    }
+  ],
+  "paths": {
+    "/content_threads": {
+      "get": {
+        "tags": [
+          "Threads"
+        ],
+        "summary": "Getting all threads",
+        "operationId": "getAllThreads",
+        "description": "This method renders threads ordered by last content date (descending). Only threads in sources where token’s user has “read” permission are returned.\n\nAuthorization​: no.",
+        "parameters": [
+            {
+                "name": "q",
+                "in": "query",
+                "description": "A search query to filter threads. Please refer to ​Search & filtering parameters​ for more details.",
+                "required": false,
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The record index to start. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The max number of records to return. Default value is 30, max value is 150.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAllThreadsResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content_threads/{threadId}": {
+      "get": {
+        "tags": [
+          "Threads"
+        ],
+        "summary": "Getting a thread from its id",
+        "operationId": "getThread",
+        "description": "This method renders a thread from given id. If token’s user does not have “read” on thread’s source a 404 HTTP response will be returned.\n\nAuthorization​: no.",
+        "parameters": [
+          {
+            "name": "threadId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Thread"
+                }
+              }
+            }
+          }
+        }
+      },
+    },
+    "/content_threads/{threadId}/update_categories": {
+      "put": {
+        "tags": [
+          "Threads"
+        ],
+        "summary": "Categorizing a thread",
+        "operationId": "categorizeThread",
+        "description": "This method updates the categories of a thread. If token’s user does not have “read” on thread’s source a 404 HTTP response will be returned.\n\nIf the thread is already being categorized, a 409 HTTP response will be returned.\n\nAuthorization​: no.",
+        "parameters": [
+          {
+            "name": "threadId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "thread_category_ids[]",
+            "description": "An array containing the new categories to set on the thread.",
+            "in": "query",
+            "required": false,
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Thread"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content_threads/{threadId}/ignore": {
+        "put": {
+          "tags": [
+            "Threads"
+          ],
+          "summary": "Archiving a thread",
+          "operationId": "archiveThread",
+          "description": "Archives the contents of a thread. If token’s user does not have “read” on thread’s source a 404 HTTP response will be returned.\n\nIf the thread is already being archived, a 409 HTTP response will be returned.\n\nAuthorization​: no.",
+          "parameters": [
+            {
+              "name": "threadId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Thread"
+                  }
+                }
+              }
+            }
+          }
+        }
+    },
+    "/content_threads/{threadId}/close": {
+      "put": {
+        "tags": [
+          "Threads"
+        ],
+        "summary": "Close a thread",
+        "operationId": "closeThread",
+        "description": "Thread closure/opening is only available for the following sources:\n* Emails\n* Answers\n* Ideas\n* Facebook Messenger\n* Google+\n* Lithium\n* Mobile Messaging\n\nStarts a job to close a thread. It returns the thread but as the job is asynchronous, the state of the “close” attribute in the returned object do not is the one when the job started.\n\nIf token’s user does not have “read” on thread’s source a 404 HTTP response will be returned. Returns a 403 if the thread cannot be closed or if the user does not have the permission to close a thread.\n\nAuthorization​: no.",
+        "parameters": [
+          {
+            "name": "threadId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Thread"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/content_threads/{threadId}/open": {
+        "get": {
+          "tags": [
+            "Threads"
+          ],
+          "summary": "Open a thread",
+          "operationId": "openThread",
+          "description": "Thread closure/opening is only available for the following sources:\n\n* Emails\n* Answers\n* Ideas\n* Facebook Messenger\n* Google+\n* Lithium\n* Mobile Messaging\n\nStarts a job to open a thread. It returns the thread but as the job is asynchronous, the state of the “close” attribute in the returned object is the one when the job started.\n\nIf token’s user does not have “read” on thread’s source a 404 HTTP response will be returned. Returns a 403 if the thread cannot be opened or if the user does not have the permission to open a thread.\n\nAuthorization​: no.",
+          "parameters": [
+            {
+              "name": "threadId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Thread"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }  
+  },
+  "servers": [
+    {
+      "url": "https://DOMAIN.api.engagement.dimelo.com/1.0"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "GetAllThreadsResponse": {
+        "properties": {
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Thread"
+            }
+          }
+        }
+      },
+      "Thread": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "foreign_id": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "interventions_count": {
+            "type": "integer"
+          },
+          "contents_count": {
+            "type": "integer"
+          },
+          "closed": {
+            "type": "boolean"
+          },
+          "category_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "thread_category_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "extra_data": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

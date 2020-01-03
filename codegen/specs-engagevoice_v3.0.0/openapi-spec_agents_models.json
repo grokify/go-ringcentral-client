@@ -1,0 +1,266 @@
+{
+  "openapi": "",
+  "info": null,
+  "paths": null,
+  "components": {
+    "schemas": {
+      "Agent": {
+        "properties": {
+          "agentId": {
+            "type": "integer"
+          },
+          "agentRank": {
+            "default": 0,
+            "type": "integer"
+          },
+          "allowAgentReports": {
+            "default": false,
+            "type": "boolean"
+          },
+          "allowAgentStats": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowAutoAnswer": {
+            "default": false,
+            "type": "boolean"
+          },
+          "allowBlended": {
+            "default": false,
+            "type": "boolean"
+          },
+          "allowCallControl": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowCampStats": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowChat": {
+            "default": false,
+            "type": "boolean"
+          },
+          "allowChatStats": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowChatVoiceConcurrent": {
+            "default": false,
+            "type": "boolean"
+          },
+          "allowCrossGateRequeue": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowEndcallforeveryone": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowExternalChat": {
+            "default": false,
+            "type": "boolean"
+          },
+          "allowFromIpAddresses": {
+            "type": "string"
+          },
+          "allowGateStats": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowHangup": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowHistoricalDialing": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowHold": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowInbound": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowInboundIntlTransfer": {
+            "default": false,
+            "type": "boolean"
+          },
+          "allowLeadInserts": {
+            "default": false,
+            "type": "boolean"
+          },
+          "allowLoginControl": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowLoginUpdates": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowManualCalls": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowManualIntlCalls": {
+            "default": false,
+            "type": "boolean"
+          },
+          "allowManualIntlTransfer": {
+            "default": false,
+            "type": "boolean"
+          },
+          "allowManualOutboundGates": {
+            "default": false,
+            "type": "boolean"
+          },
+          "allowManualPass": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowOffHook": {
+            "default": false,
+            "type": "boolean"
+          },
+          "allowOutbound": {
+            "default": false,
+            "type": "boolean"
+          },
+          "allowRequeue": {
+            "default": true,
+            "type": "boolean"
+          },
+          "allowSelfAgentStats": {
+            "default": false,
+            "type": "boolean"
+          },
+          "allowTransfer": {
+            "default": true,
+            "type": "boolean"
+          },
+          "altDefaultLoginDest": {
+            "type": "string"
+          },
+          "defaultAutoAnswerOn": {
+            "default": true,
+            "type": "boolean"
+          },
+          "defaultLoginDest": {
+            "default": "",
+            "type": "string"
+          },
+          "directAgentExtension": {
+            "type": "string"
+          },
+          "disableSupervisorMonitoring": {
+            "default": false,
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string"
+          },
+          "enableSoftphone": {
+            "default": false,
+            "type": "boolean"
+          },
+          "externalAgentId": {
+            "type": "string"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "gatesControlAgentVisibility": {
+            "default": false,
+            "type": "boolean"
+          },
+          "ghostRnaAction": {
+            "default": "AVAILABLE",
+            "type": "string"
+          },
+          "initLoginBaseState": {
+            "default": "AVAILABLE",
+            "type": "string"
+          },
+          "initLoginBaseStateId": {
+            "type": "integer"
+          },
+          "isActive": {
+            "default": true,
+            "type": "boolean"
+          },
+          "lastLoginDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "loadBalanceEnabled": {
+            "default": false,
+            "type": "boolean"
+          },
+          "location": {
+            "type": "string"
+          },
+          "manualOutboundDefaultCallerId": {
+            "default": "",
+            "type": "string"
+          },
+          "maxChats": {
+            "default": 5,
+            "type": "integer"
+          },
+          "multiAccountAgent": {
+            "default": false,
+            "type": "boolean"
+          },
+          "parentAgentId": {
+            "type": "integer"
+          },
+          "password": {
+            "type": "string"
+          },
+          "phoneLoginPin": {
+            "type": "string"
+          },
+          "rcUserId": {
+            "format": "int64",
+            "type": "integer"
+          },
+          "showLeadHistory": {
+            "default": true,
+            "type": "boolean"
+          },
+          "softphoneId": {
+            "default": 0,
+            "type": "integer"
+          },
+          "team": {
+            "type": "string"
+          },
+          "transientAgent": {
+            "default": false,
+            "type": "boolean"
+          },
+          "transientDelete": {
+            "default": false,
+            "type": "boolean"
+          },
+          "transientDeleteDate": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "userManagedByRC": {
+            "default": false,
+            "type": "boolean"
+          },
+          "username": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

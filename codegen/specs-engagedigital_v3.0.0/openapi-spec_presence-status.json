@@ -1,0 +1,245 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "",
+    "version": "1.0",
+    "title": "Engage Digital API",
+    "termsOfService": "https://developer.ringcentral.com"
+  },
+  "tags": [
+    {
+      "name": "Presence Status"
+    }
+  ],
+  "paths": {
+    "/presence_status": {
+      "get": {
+        "tags": [
+          "Presence Status"
+        ],
+        "summary": "Getting all presence statuses",
+        "operationId": "getAllPresenceStatus",
+        "description": "This method renders all presence statuses ordered by name (in alphabetical order).",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "The record index to start. Default value is 0.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The max number of records to return. Default value is 30, max value is 150.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAllPresenceStatusResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Presence Status"
+        ],
+        "summary": "Creating a presence status",
+        "operationId": "createPresenceStatus",
+        "description": "This method creates a presence status. In case of success it renders the presence status, otherwise, it renders an error (422 HTTP code).\n\nAuthorization​: only users that have the right to monitor the task view.",
+        "parameters": [
+          {
+            "name": "name",
+            "description": "The name of the presence status.",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PresenceStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/presence_status/{presenceStatusId}": {
+      "get": {
+        "tags": [
+          "Presence Status"
+        ],
+        "summary": "Getting a presence status from its id",
+        "operationId": "getPresenceStatus",
+        "description": "This method renders a presence status from given id.\n\nAuthorization​: only users that have the right to monitor the task view.",
+        "parameters": [
+          {
+            "name": "presenceStatusId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PresenceStatus"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Presence Status"
+        ],
+        "summary": "Updating a presence status",
+        "operationId": "updatePresenceStatus",
+        "description": "This method updates an existing presence status from given attributes and renders it in case of success.\n\nAuthorization​: only users that have the right to monitor the task view.",
+        "parameters": [
+          {
+            "name": "presenceStatusId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "description": "The name of the presence status.",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PresenceStatus"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Presence Status"
+        ],
+        "summary": "Deleting a presence status",
+        "operationId": "deletePresenceStatus",
+        "description": "This method destroys an existing presence status. It renders presence status itself. It renders a 404 if id is invalid.\n\nAuthorization​: only users that have the right to monitor the task view.",
+        "parameters": [
+          {
+            "name": "presenceStatusId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PresenceStatus"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://DOMAIN.api.engagement.dimelo.com/1.0"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "GetAllPresenceStatusResponse": {
+        "properties": {
+          "count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "offset": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "records": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PresenceStatus"
+            }
+          }
+        }
+      },
+      "PresenceStatus": {
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

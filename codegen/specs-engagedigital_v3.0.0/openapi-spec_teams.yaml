@@ -1,0 +1,209 @@
+openapi: 3.0.0
+info:
+  description: ""
+  version: "1.0"
+  title: Engage Digital API
+  termsOfService: https://developer.ringcentral.com
+tags:
+  - name: Teams
+paths:
+  /teams:
+    get:
+      tags:
+        - Teams
+      summary: Getting all teams
+      operationId: getAllTeams
+      description: This method renders teams ordered by creation date (ascending).
+      parameters:
+        - name: offset
+          in: query
+          description: The record index to start. Default value is 0.
+          required: false
+          schema:
+            type: integer
+            format: int32
+        - name: limit
+          in: query
+          description: The max number of records to return. Default value is 30, max value
+            is 150.
+          required: false
+          schema:
+            type: string
+            format: int32
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetAllTeamsResponse"
+    post:
+      tags:
+        - Teams
+      summary: Creating a team
+      operationId: createTeam
+      description: This method creates a new team. In case of success it renders the
+        created tag, otherwise, it renders an error (422 HTTP code).
+      parameters:
+        - name: name
+          description: Team name.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: leader_ids[]
+          description: List of user id as leaders
+          in: query
+          required: false
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+        - name: user_ids[]
+          description: List of user id as team members.
+          in: query
+          required: false
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Team"
+  "/teams/{teamId}":
+    get:
+      tags:
+        - Teams
+      summary: Getting a team from its id
+      operationId: getTeam
+      description: This method renders a team from given id.
+      parameters:
+        - name: teamId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Team"
+    put:
+      tags:
+        - Teams
+      summary: Updating a team
+      operationId: updateTeam
+      description: This method updates an existing team from given attributes and renders
+        it in case of success.
+      parameters:
+        - name: teamId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: name
+          description: Team name.
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: leader_ids[]
+          description: List of user id as leaders
+          in: query
+          required: false
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+        - name: user_ids[]
+          description: List of user id as team members.
+          in: query
+          required: false
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Team"
+    delete:
+      tags:
+        - Teams
+      summary: Deleting a team
+      operationId: deleteTeam
+      description: This method destroys an existing team. It renders the team itself. It
+        renders a 404 if id is invalid.
+      parameters:
+        - name: teamId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: take_over_category_id
+          in: query
+          required: false
+          description: ID of a category to recategorize (optional).
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Team"
+servers:
+  - url: https://DOMAIN.api.engagement.dimelo.com/1.0
+components:
+  schemas:
+    GetAllTeamsResponse:
+      properties:
+        count:
+          type: integer
+          format: int32
+        limit:
+          type: integer
+          format: int32
+        offset:
+          type: integer
+          format: int32
+        records:
+          type: array
+          items:
+            $ref: "#/components/schemas/Team"
+    Team:
+      required:
+        - id
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        name:
+          type: string
+        leader_ids:
+          type: array
+          items:
+            type: string
+        user_ids:
+          type: array
+          items:
+            type: string

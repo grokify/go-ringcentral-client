@@ -1,0 +1,241 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+       "description":"",
+       "version":"1.0",
+       "title":"RingCentral Engage Voice API",
+       "termsOfService":"https://developers.ringcentral.com"
+    },
+    "tags":[
+       {
+          "name":"Leads"
+       }
+    ],
+    "paths":{
+       "/admin/accounts/{accountId}/campaigns/{campaignId}/leadLoader/direct":{
+          "post":{
+             "tags":[
+                "Campaigns"
+             ],
+             "summary":"Upload Leads",
+             "description":"Uploads a single lead or list of leads to a new or existing list",
+             "operationId":"uploadLeads",
+             "parameters":[
+                {
+                   "name":"accountId",
+                   "in":"path",
+                   "required":true,
+                   "schema":{
+                      "type":"string"
+                   }
+                },
+                {
+                   "name":"campaignId",
+                   "in":"path",
+                   "required":true,
+                   "schema":{
+                      "type":"string"
+                   }
+                }
+             ],
+             "requestBody":{
+               "required":true,
+               "content": {
+                  "application/json":{
+                     "schema": {
+                        "$ref": "#/components/schemas/UploadLeadsRequest"
+                     }
+                  }
+               }
+             },
+             "responses":{
+                "200":{
+                   "description":"Success",
+                   "content":{
+                      "application/json":{
+                         "schema":{
+                               "$ref":"#/components/schemas/UploadLeadsResponse"
+                         }
+                      }
+                   }
+                }
+             }
+          }
+       }
+    },
+    "servers":[
+       {
+          "url":"https://portal.vacd.biz/api/v1"
+       }
+    ],
+    "components":{
+       "securitySchemes":{
+          "bearerAuth":{
+             "type":"http",
+             "scheme":"bearer"
+          }
+       },
+       "schemas":{
+          "Lead":{
+            "type":"object",
+             "required":[
+"externId"
+             ],
+             "properties":{
+                "leadPhone":{
+                   "type":"string",
+                   "description":                   "multiple values can be submitted with a pipe delimiter between phone numbers"
+                },
+                "externId":{
+                   "type":"integer",
+                   "format":"int64"
+                },
+                "title":{
+                   "type":"string"
+                },
+                "firstName":{
+                   "type":"string"
+                },
+                "midName":{
+                   "type":"string"
+                },
+                "lastName":{
+                   "type":"string"
+                },
+                "suffix":{
+                   "type":"string"
+                },
+                "address1":{
+                   "type":"string"
+                },
+                "address2":{
+                   "type":"string"
+                },
+                "city":{
+                   "type":"string"
+                },
+                "state":{
+                   "type":"string"
+                },
+                "zip":{
+                   "type":"string"
+                },
+                "email":{
+                   "type":"string"
+                },
+                "gateKeeper":{
+                   "type":"string"
+                },
+                "auxData1":{
+               
+                         "type":"string"
+                   
+                },
+                "auxData2":{
+              
+                         "type":"string"
+                   
+                },
+                "auxData3":{
+          
+                         "type":"string"
+                    
+                },
+                "auxData4":{
+              
+                         "type":"string"
+       
+                },
+                "auxData5":{
+
+                         "type":"string"
+
+                },
+                "auxPhone":{
+                   "type":"string"
+                },
+                "extendedLeadData":{
+                  "$ref":"#/components/schemas/ExtendedLeadData"
+                }
+             }
+          },
+          "ExtendedLeadData":{
+             "type":"object",
+             "properties":{
+                "important":{
+                   "type":"string"
+                },
+                "interested":{
+                   "type":"boolean"
+                }
+             }
+          },
+          "UploadLeadsResponse":{
+             "type":"object",
+               "required":["message","leadsSupplied","leadsConverted","leadsAccepted","leadsInserted","internalDncCount","dncUploadCount","dncReturnedCount","whitelistCount","uploadFileName","deletedCount","quotaCount","listState","timeZoneOption","hasDeletedLeads","processingResult","processingStatus"],
+            "properties":{
+               "message":{"type":"string","description":"Values can be `Your uploaded lead list has successfully completed processing` or `Your uploaded lead list file processing has failed`"},
+               "leadsSupplied":{"type":"integer","format":"int32"},
+               "leadsConverted":{"type":"integer","format":"int32"},
+               "leadsAccepted":{"type":"integer","format":"int32"},
+               "leadsInserted":{"type":"integer","format":"int32"},
+               "internalDncCount":{"type":"integer","format":"int32"},
+               "dncUploadCount":{"type":"integer","format":"int32"},
+               "dncReturnedCount":{"type":"integer","format":"int32"},
+               "whitelistCount":{"type":"integer","format":"int32"},
+               "uploadFileName":{"type":"string"},
+               "deletedCount":{"type":"integer","format":"int32"},
+               "quotaCount":{"type":"integer","format":"int32"},
+               "listState":{"type":"string"},
+               "timeZoneOption":{"type":"string"},
+               "hasDeletedLeads":{"type":"boolean"},
+               "processingResult":{"type":"string","description":"Values can be `OK` or `Failed`"},
+               "processingStatus":{"type":"string","description":"Values can be `DEFAULT_NOT_A_FAILURE` or `GENERAL_FAILURE`"}
+            }
+          },
+          "UploadLeadsRequest":{
+             "type":"object",
+             "properties":{
+                "listState":{
+                   "type":"string",
+                   "enum":[
+                      "ACTIVE"
+                   ]
+                },
+                "duplicateHandling":{
+                   "type":"string",
+                   "enum":[
+                      "RETAIN_ALL",
+                      "REMOVE_ALL_EXISTING",
+                      "REMOVE_FROM_LIST"
+                   ]
+                },
+                "timeZoneOption":{
+                   "type":"string",
+                   "enum":[
+                      "NPA_NXX",
+                      "ZIPCODE",
+                      "EXPLICIT"
+                   ]
+                },
+                "description":{
+                   "type":"string"
+                },
+                "dialPriority":{
+                   "type":"string",
+                   "enum":[
+                      "IMMEDIATE"
+                   ],
+                   "description":"Setting this to `IMMEDIATE` allows you to insert a lead to the top of the dialer cache for immediate dialing if you want a normal insert then do not add this parameter."
+                },
+                "uploadLeads":{
+                   "type":"array",
+                   "items":{
+                      "$ref":"#/components/schemas/Lead"
+                   }
+                }
+             }
+          }
+       }
+    }
+ }
