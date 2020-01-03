@@ -124,6 +124,10 @@ func main() {
 		)
 		handleErrors(resp, err)
 		fmtutil.PrintJSON(info)
+	case "token":
+		info, resp, err := apiClient.AuthApi.GetTokens(context.Background())
+		handleErrors(resp, err)
+		fmtutil.PrintJSON(info)
 	case "user":
 		info, resp, err := apiClient.UsersApi.GetUsers(context.Background())
 		handleErrors(resp, err)

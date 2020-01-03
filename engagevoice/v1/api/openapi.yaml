@@ -7,6 +7,7 @@ servers:
 - url: https://portal.vacd.biz/api/v1
 tags:
 - name: Agents
+- name: Auth
 - name: Campaign Leads
 - name: Campaigns
 - name: Countries
@@ -349,6 +350,22 @@ paths:
       summary: Clear Campaign Cache
       tags:
       - Dial Groups
+  /admin/token:
+    get:
+      description: Retrieves all API Tokens for the authenticated user
+      operationId: getTokens
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: Success
+      summary: Get Tokens
+      tags:
+      - Auth
   /admin/users:
     get:
       description: Returns a listing of all users that a user has access to
@@ -1582,6 +1599,7 @@ components:
       - whitelistCount
       type: object
     User:
+      description: Children field is still needed
       example:
         firstName: firstName
         lastName: lastName

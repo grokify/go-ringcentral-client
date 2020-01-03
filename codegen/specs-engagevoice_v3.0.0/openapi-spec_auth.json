@@ -1,0 +1,56 @@
+{
+    "openapi":"3.0.0",
+    "info":{
+       "description":"",
+       "version":"1.0",
+       "title":"RingCentral Engage Voice API",
+       "termsOfService":"https://developers.ringcentral.com"
+    },
+    "tags":[
+       {
+          "name":"Auth"
+       }
+    ],
+    "paths":{
+       "/admin/token":{
+          "get":{
+             "tags":[
+                "Auth"
+             ],
+             "summary":"Get Tokens",
+             "description":"Retrieves all API Tokens for the authenticated user",
+             "operationId":"getTokens",
+             "responses":{
+                "200":{
+                   "description":"Success",
+                   "content":{
+                      "application/json":{
+                        "schema":{
+                            "type":"array",
+                            "items":{
+                               "type":"string"
+                            }
+                         }
+                      }
+                   }
+                }
+             }
+          }
+       }
+    },
+    "servers":[
+       {
+          "url":"https://portal.vacd.biz/api/v1"
+       }
+    ],
+    "components":{
+       "securitySchemes":{
+          "bearerAuth":{
+             "type":"http",
+             "scheme":"bearer"
+          }
+       },
+       "schemas":{
+       }
+    }
+ }

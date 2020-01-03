@@ -76,10 +76,6 @@ func main() {
 
 	outfile := leaf + ".json"
 
-	//outfile := opts.Directory + ".json"
-	//outfile := fmt.Sprintf("openapi-spec_v%d.0.0.json", version)
-	//dir := fmt.Sprintf("partial-specs_v%d.0.0", version)
-
 	switch version {
 	case 2:
 		err = swagger2.WriteFileDirMerge(outfile, dir, 0644)

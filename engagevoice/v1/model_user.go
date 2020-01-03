@@ -9,6 +9,7 @@
 
 package engagevoice
 
+// Children field is still needed
 type User struct {
 	Enabled    bool   `json:"enabled,omitempty"`
 	FirstName  string `json:"firstName,omitempty"`

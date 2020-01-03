@@ -34,6 +34,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AgentsApi* | [**GetAgentGroups**](docs/AgentsApi.md#getagentgroups) | **Get** /admin/accounts/{accountId}/agentGroups | Get Agent Groups
 *AgentsApi* | [**GetAgents**](docs/AgentsApi.md#getagents) | **Get** /admin/accounts/{accountId}/agentGroups/{agentGroupId}/agents | Get Group Agents
+*AuthApi* | [**GetTokens**](docs/AuthApi.md#gettokens) | **Get** /admin/token | Get Tokens
 *CampaignLeadsApi* | [**GetLeadStates**](docs/CampaignLeadsApi.md#getleadstates) | **Get** /admin/accounts/{accountId}/campaignLeads/leadStates | Get Lead States
 *CampaignLeadsApi* | [**GetSystemDispositions**](docs/CampaignLeadsApi.md#getsystemdispositions) | **Get** /admin/accounts/{accountId}/campaignLeads/systemDispositions | Get Systems Dispositions
 *CampaignLeadsApi* | [**SearchLeads**](docs/CampaignLeadsApi.md#searchleads) | **Post** /admin/accounts/{accountId}/campaignLeads/leadSearch | Search Leads
