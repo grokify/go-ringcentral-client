@@ -5,6 +5,8 @@ info:
   version: "1.0"
 servers:
 - url: https://portal.vacd.biz/api/v1
+security:
+- ApiKeyAuth: []
 tags:
 - name: Agents
 - name: Auth
@@ -1625,6 +1627,7 @@ components:
       - userId
       type: object
   securitySchemes:
-    bearerAuth:
-      scheme: bearer
-      type: http
+    ApiKeyAuth:
+      in: header
+      name: X-Auth-Token
+      type: apiKey

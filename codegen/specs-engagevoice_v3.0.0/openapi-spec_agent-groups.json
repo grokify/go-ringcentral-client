@@ -109,11 +109,17 @@
           "url":"https://portal.vacd.biz/api/v1"
        }
     ],
+    "security":[
+       {
+         "ApiKeyAuth": []
+       }
+    ],
     "components":{
        "securitySchemes":{
-          "bearerAuth":{
-             "type":"http",
-             "scheme":"bearer"
+          "ApiKeyAuth":{
+             "type":"apiKey",
+             "in":"header",
+             "name":"X-Auth-Token"
           }
        },
        "schemas":{
