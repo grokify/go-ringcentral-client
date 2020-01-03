@@ -43,4 +43,6 @@ The following endpoints are covered by the OpenAPI 3.0 spec, the API Reference a
   - [x] [/v1/admin/accounts/{accountId}/dialGroups GET](v1/docs/DialGroupsApi.md#getdialgroups)
   - [x] [/v1/admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns GET](v1/docs/DialGroupsApi.md#getdialgroupcampaigns)
   - [x] [/v1/admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns/{campaignId}/clearCache POST](v1/docs/DialGroupsApi.md#clearcampaigncache)
-  
+
+- [ ] Users
+  - [x] [/v1/admin/users GET](v1/docs/UsersApi.md#getusers)

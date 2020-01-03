@@ -12,6 +12,7 @@ tags:
 - name: Countries
 - name: Dial Groups
 - name: Leads
+- name: Users
 paths:
   /admin/accounts/{accountId}/agentGroups:
     get:
@@ -348,6 +349,22 @@ paths:
       summary: Clear Campaign Cache
       tags:
       - Dial Groups
+  /admin/users:
+    get:
+      description: Returns a listing of all users that a user has access to
+      operationId: getUsers
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/User'
+                type: array
+          description: Success
+      summary: Get Users
+      tags:
+      - Users
 components:
   schemas:
     Agent:
@@ -1563,6 +1580,31 @@ components:
       - timeZoneOption
       - uploadFileName
       - whitelistCount
+      type: object
+    User:
+      example:
+        firstName: firstName
+        lastName: lastName
+        parentPath: parentPath
+        userName: userName
+        userId: 0
+        enabled: true
+      properties:
+        enabled:
+          type: boolean
+        firstName:
+          type: string
+        lastName:
+          type: string
+        parentPath:
+          type: string
+        userId:
+          format: int64
+          type: integer
+        userName:
+          type: string
+      required:
+      - userId
       type: object
   securitySchemes:
     bearerAuth:

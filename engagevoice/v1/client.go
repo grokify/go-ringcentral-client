@@ -54,6 +54,8 @@ type APIClient struct {
 	CountriesApi *CountriesApiService
 
 	DialGroupsApi *DialGroupsApiService
+
+	UsersApi *UsersApiService
 }
 
 type service struct {
@@ -77,6 +79,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.CampaignsApi = (*CampaignsApiService)(&c.common)
 	c.CountriesApi = (*CountriesApiService)(&c.common)
 	c.DialGroupsApi = (*DialGroupsApiService)(&c.common)
+	c.UsersApi = (*UsersApiService)(&c.common)
 
 	return c
 }

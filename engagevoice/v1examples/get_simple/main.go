@@ -124,6 +124,10 @@ func main() {
 		)
 		handleErrors(resp, err)
 		fmtutil.PrintJSON(info)
+	case "user":
+		info, resp, err := apiClient.UsersApi.GetUsers(context.Background())
+		handleErrors(resp, err)
+		fmtutil.PrintJSON(info)
 	default:
 		log.Fatal(fmt.Sprintf("Object not found [%v]", object))
 	}

@@ -42,6 +42,7 @@ Class | Method | HTTP request | Description
 *DialGroupsApi* | [**ClearCampaignCache**](docs/DialGroupsApi.md#clearcampaigncache) | **Post** /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns/{campaignId}/clearCache | Clear Campaign Cache
 *DialGroupsApi* | [**GetCampaigns**](docs/DialGroupsApi.md#getcampaigns) | **Get** /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns | Get Campaigns
 *DialGroupsApi* | [**GetDialGroups**](docs/DialGroupsApi.md#getdialgroups) | **Get** /admin/accounts/{accountId}/dialGroups | Get Dial Groups
+*UsersApi* | [**GetUsers**](docs/UsersApi.md#getusers) | **Get** /admin/users | Get Users
 
 
 ## Documentation For Models
@@ -64,6 +65,7 @@ Class | Method | HTTP request | Description
  - [Timezone](docs/Timezone.md)
  - [UploadLeadsRequest](docs/UploadLeadsRequest.md)
  - [UploadLeadsResponse](docs/UploadLeadsResponse.md)
+ - [User](docs/User.md)
 
 
 ## Documentation For Authorization
