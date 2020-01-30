@@ -61,6 +61,181 @@
                 }
              }
           }
+       },
+       "/admin/accounts/{accountId}/campaignLeads/{leadId}":{
+         "put":{
+            "tags":[
+               "Campaigns"
+            ],
+            "summary":"Update Campaign Lead",
+            "description":"Allows updating of a campaign lead, updating entire lead including fields not passed in.\n\nPermissions: READ on Account (Permission Override), UPDATE on Campaign",
+            "operationId":"updateCampaignLead",
+            "parameters":[
+               {
+                  "name":"accountId",
+                  "in":"path",
+                  "required":true,
+                  "schema":{
+                     "type":"string"
+                  }
+               },
+               {
+                  "name":"leadId",
+                  "in":"path",
+                  "required":true,
+                  "schema":{
+                     "type":"integer"
+                  }
+               },
+               {
+                  "name":"campaignId",
+                  "in":"query",
+                  "required":true,
+                  "schema":{
+                     "type":"integer"
+                  }
+               },
+               {
+                  "name":"listId",
+                  "in":"query",
+                  "required":false,
+                  "schema":{
+                     "type":"integer"
+                  }
+               },
+               {
+                  "name":"timezoneOption",
+                  "in":"query",
+                  "required":false,
+                  "schema":{
+                     "type":"string",
+                     "enum":["NPA_NXX","ZIPCODE","EXPLICIT","NOT_APPLICABLE"]
+                  }
+               },
+               {
+                  "name":"duplicateHandling",
+                  "in":"query",
+                  "required":false,
+                  "description":"`RETAIN_ALL`: Retain all records, `REMOVE_ALL_EXISTING`: Remove duplicates from all existing lists, `REMOVE_FROM_LIST`: Remove duplicates from this list",
+                  "schema":{
+                     "type":"string",
+                     "enum":[
+                        "RETAIN_ALL","REMOVE_ALL_EXISTING","REMOVE_FROM_LIST"
+                     ],
+                     "default":"RETAIN_ALL"
+                  }
+               }
+            ],
+            "requestBody":{
+               "required":true,
+               "content": {
+                  "application/json":{
+                     "schema": {
+                        "$ref": "#/components/schemas/CampaignLead"
+                     }
+                  }
+               }
+             },
+             "responses":{
+               "200":{
+                  "description":"Success",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                              "$ref":"#/components/schemas/CampaignLead"
+                        }
+                     }
+                  }
+               }
+            }
+         },
+         "patch":{
+            "tags":[
+               "Campaigns"
+            ],
+            "summary":"Patch Campaign Lead",
+            "description":"Allows updating of a campaign lead, only updating those fields passed in\n\nPermissions: READ on Account (Permission Override), UPDATE on Campaign",
+            "operationId":"patchCampaignLead",
+            "parameters":[
+               {
+                  "name":"accountId",
+                  "in":"path",
+                  "required":true,
+                  "schema":{
+                     "type":"string"
+                  }
+               },
+               {
+                  "name":"leadId",
+                  "in":"path",
+                  "required":true,
+                  "schema":{
+                     "type":"integer"
+                  }
+               },
+               {
+                  "name":"campaignId",
+                  "in":"query",
+                  "required":true,
+                  "schema":{
+                     "type":"integer"
+                  }
+               },
+               {
+                  "name":"listId",
+                  "in":"query",
+                  "required":false,
+                  "schema":{
+                     "type":"integer"
+                  }
+               },
+               {
+                  "name":"timezoneOption",
+                  "in":"query",
+                  "required":false,
+                  "schema":{
+                     "type":"string",
+                     "enum":["NPA_NXX","ZIPCODE","EXPLICIT","NOT_APPLICABLE"]
+                  }
+               },
+               {
+                  "name":"duplicateHandling",
+                  "in":"query",
+                  "required":false,
+                  "description":"`RETAIN_ALL`: Retain all records, `REMOVE_ALL_EXISTING`: Remove duplicates from all existing lists, `REMOVE_FROM_LIST`: Remove duplicates from this list",
+                  "schema":{
+                     "type":"string",
+                     "enum":[
+                        "RETAIN_ALL","REMOVE_ALL_EXISTING","REMOVE_FROM_LIST"
+                     ],
+                     "default":"RETAIN_ALL"
+                  }
+               }
+            ],
+            "requestBody":{
+               "required":true,
+               "content": {
+                  "application/json":{
+                     "schema": {
+                        "$ref": "#/components/schemas/CampaignLead"
+                     }
+                  }
+               }
+             },
+             "responses":{
+               "200":{
+                  "description":"Success",
+                  "content":{
+                     "application/json":{
+                        "schema":{
+                              "$ref":"#/components/schemas/CampaignLead"
+                        }
+                     }
+                  }
+               }
+            }
+
+         }
        }
     },
     "servers":[
@@ -224,14 +399,15 @@
                 "dialPriority":{
                    "type":"string",
                    "enum":[
-                      "IMMEDIATE"
+                      "IMMEDIATE",
+                      "NORMAL"
                    ],
                    "description":"Setting this to `IMMEDIATE` allows you to insert a lead to the top of the dialer cache for immediate dialing if you want a normal insert then do not add this parameter."
                 },
                 "uploadLeads":{
                    "type":"array",
                    "items":{
-                      "$ref":"#/components/schemas/Lead"
+                      "$ref":"#/components/schemas/CampaignLead"
                    }
                 }
              }

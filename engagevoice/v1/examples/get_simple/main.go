@@ -174,16 +174,16 @@ func uploadLeads(client *engagevoice.APIClient, accountId, campaignId string) {
 		DuplicateHandling: "RETAIN_ALL",
 		ListState:         "ACTIVE",
 		TimeZoneOption:    "NPA_NXX",
-		UploadLeads: []engagevoice.Lead{
+		UploadLeads: []engagevoice.CampaignLead{
 			{
 				LeadPhone: "6505550100",
-				ExternId:  1,
+				ExternId:  "1",
 				FirstName: "Jon",
 				LastName:  "Snow",
-				ExtendedLeadData: engagevoice.ExtendedLeadData{
+				/*ExtendedLeadData: engagevoice.ExtendedLeadData{
 					Important:  "Priority 1: needs help right away",
 					Interested: true,
-				},
+				},*/
 			},
 		},
 	}

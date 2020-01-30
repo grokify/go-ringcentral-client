@@ -38,6 +38,8 @@ Class | Method | HTTP request | Description
 *CampaignLeadsApi* | [**GetLeadStates**](docs/CampaignLeadsApi.md#getleadstates) | **Get** /admin/accounts/{accountId}/campaignLeads/leadStates | Get Lead States
 *CampaignLeadsApi* | [**GetSystemDispositions**](docs/CampaignLeadsApi.md#getsystemdispositions) | **Get** /admin/accounts/{accountId}/campaignLeads/systemDispositions | Get Systems Dispositions
 *CampaignLeadsApi* | [**SearchLeads**](docs/CampaignLeadsApi.md#searchleads) | **Post** /admin/accounts/{accountId}/campaignLeads/leadSearch | Search Leads
+*CampaignsApi* | [**PatchCampaignLead**](docs/CampaignsApi.md#patchcampaignlead) | **Patch** /admin/accounts/{accountId}/campaignLeads/{leadId} | Patch Campaign Lead
+*CampaignsApi* | [**UpdateCampaignLead**](docs/CampaignsApi.md#updatecampaignlead) | **Put** /admin/accounts/{accountId}/campaignLeads/{leadId} | Update Campaign Lead
 *CampaignsApi* | [**UploadLeads**](docs/CampaignsApi.md#uploadleads) | **Post** /admin/accounts/{accountId}/campaigns/{campaignId}/leadLoader/direct | Upload Leads
 *CountriesApi* | [**GetAvailableCountries**](docs/CountriesApi.md#getavailablecountries) | **Get** /admin/accounts/{accountId}/countries/available | Get Available Countries
 *DialGroupsApi* | [**ClearCampaignCache**](docs/DialGroupsApi.md#clearcampaigncache) | **Post** /admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns/{campaignId}/clearCache | Clear Campaign Cache

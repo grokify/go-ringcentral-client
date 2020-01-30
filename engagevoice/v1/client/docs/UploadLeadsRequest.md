@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **DuplicateHandling** | **string** |  | [optional] 
 **ListState** | **string** |  | [optional] 
 **TimeZoneOption** | **string** |  | [optional] 
-**UploadLeads** | [**[]Lead**](Lead.md) |  | [optional] 
+**UploadLeads** | [**[]CampaignLead**](CampaignLead.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

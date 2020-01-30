@@ -192,6 +192,163 @@ paths:
       summary: Get Systems Dispositions
       tags:
       - Campaign Leads
+  /admin/accounts/{accountId}/campaignLeads/{leadId}:
+    patch:
+      description: |-
+        Allows updating of a campaign lead, only updating those fields passed in
+
+        Permissions: READ on Account (Permission Override), UPDATE on Campaign
+      operationId: patchCampaignLead
+      parameters:
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: leadId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - explode: true
+        in: query
+        name: campaignId
+        required: true
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: listId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: timezoneOption
+        required: false
+        schema:
+          enum:
+          - NPA_NXX
+          - ZIPCODE
+          - EXPLICIT
+          - NOT_APPLICABLE
+          type: string
+        style: form
+      - description: '`RETAIN_ALL`: Retain all records, `REMOVE_ALL_EXISTING`: Remove
+          duplicates from all existing lists, `REMOVE_FROM_LIST`: Remove duplicates
+          from this list'
+        explode: true
+        in: query
+        name: duplicateHandling
+        required: false
+        schema:
+          default: RETAIN_ALL
+          enum:
+          - RETAIN_ALL
+          - REMOVE_ALL_EXISTING
+          - REMOVE_FROM_LIST
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CampaignLead'
+        required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CampaignLead'
+          description: Success
+      summary: Patch Campaign Lead
+      tags:
+      - Campaigns
+    put:
+      description: |-
+        Allows updating of a campaign lead, updating entire lead including fields not passed in.
+
+        Permissions: READ on Account (Permission Override), UPDATE on Campaign
+      operationId: updateCampaignLead
+      parameters:
+      - explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: leadId
+        required: true
+        schema:
+          type: integer
+        style: simple
+      - explode: true
+        in: query
+        name: campaignId
+        required: true
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: listId
+        required: false
+        schema:
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: timezoneOption
+        required: false
+        schema:
+          enum:
+          - NPA_NXX
+          - ZIPCODE
+          - EXPLICIT
+          - NOT_APPLICABLE
+          type: string
+        style: form
+      - description: '`RETAIN_ALL`: Retain all records, `REMOVE_ALL_EXISTING`: Remove
+          duplicates from all existing lists, `REMOVE_FROM_LIST`: Remove duplicates
+          from this list'
+        explode: true
+        in: query
+        name: duplicateHandling
+        required: false
+        schema:
+          default: RETAIN_ALL
+          enum:
+          - RETAIN_ALL
+          - REMOVE_ALL_EXISTING
+          - REMOVE_FROM_LIST
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CampaignLead'
+        required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CampaignLead'
+          description: Success
+      summary: Update Campaign Lead
+      tags:
+      - Campaigns
   /admin/accounts/{accountId}/campaigns/{campaignId}/leadLoader/direct:
     post:
       description: Uploads a single lead or list of leads to a new or existing list
@@ -1320,9 +1477,6 @@ components:
           format: int64
           type: integer
     ExtendedLeadData:
-      example:
-        important: important
-        interested: true
       properties:
         important:
           type: string
@@ -1340,30 +1494,6 @@ components:
           format: int64
           type: integer
     Lead:
-      example:
-        zip: zip
-        lastName: lastName
-        auxPhone: auxPhone
-        externId: 0
-        address2: address2
-        city: city
-        address1: address1
-        midName: midName
-        suffix: suffix
-        title: title
-        gateKeeper: gateKeeper
-        firstName: firstName
-        extendedLeadData:
-          important: important
-          interested: true
-        auxData2: auxData2
-        auxData3: auxData3
-        auxData4: auxData4
-        auxData5: auxData5
-        state: state
-        leadPhone: leadPhone
-        email: email
-        auxData1: auxData1
       properties:
         address1:
           type: string
@@ -1432,52 +1562,90 @@ components:
       example:
         timeZoneOption: NPA_NXX
         uploadLeads:
-        - zip: zip
-          lastName: lastName
-          auxPhone: auxPhone
-          externId: 0
-          address2: address2
+        - lastName: lastName
           city: city
-          address1: address1
-          midName: midName
+          extraData: extraData
+          speedToLeadFirstPass: 9
+          leadState: leadState
           suffix: suffix
           title: title
+          agentDispostion: agentDispostion
           gateKeeper: gateKeeper
-          firstName: firstName
-          extendedLeadData:
-            important: important
-            interested: true
+          sortCol: sortCol
           auxData2: auxData2
           auxData3: auxData3
+          liveAnswerMessage: liveAnswerMessage
           auxData4: auxData4
+          dupeKeyOverride: 6
           auxData5: auxData5
+          id: 1
           state: state
+          suppressed: true
           leadPhone: leadPhone
+          speedToLeadAgentConn: 7
           email: email
           auxData1: auxData1
-        - zip: zip
-          lastName: lastName
+          auxExternalUrl: auxExternalUrl
+          leadId: 5
+          machAnswerMessage: machAnswerMessage
+          leadTimezone: leadTimezone
+          zip: zip
           auxPhone: auxPhone
-          externId: 0
+          externId: externId
           address2: address2
-          city: city
           address1: address1
           midName: midName
+          nextDialTime: nextDialTime
+          lastPassDispo: lastPassDispo
+          firstName: firstName
+          maxPasses: 2
+          leadPasses: 5
+          auxGreeting: auxGreeting
+          name: name
+          callerId: callerId
+          loadedDts: loadedDts
+        - lastName: lastName
+          city: city
+          extraData: extraData
+          speedToLeadFirstPass: 9
+          leadState: leadState
           suffix: suffix
           title: title
+          agentDispostion: agentDispostion
           gateKeeper: gateKeeper
-          firstName: firstName
-          extendedLeadData:
-            important: important
-            interested: true
+          sortCol: sortCol
           auxData2: auxData2
           auxData3: auxData3
+          liveAnswerMessage: liveAnswerMessage
           auxData4: auxData4
+          dupeKeyOverride: 6
           auxData5: auxData5
+          id: 1
           state: state
+          suppressed: true
           leadPhone: leadPhone
+          speedToLeadAgentConn: 7
           email: email
           auxData1: auxData1
+          auxExternalUrl: auxExternalUrl
+          leadId: 5
+          machAnswerMessage: machAnswerMessage
+          leadTimezone: leadTimezone
+          zip: zip
+          auxPhone: auxPhone
+          externId: externId
+          address2: address2
+          address1: address1
+          midName: midName
+          nextDialTime: nextDialTime
+          lastPassDispo: lastPassDispo
+          firstName: firstName
+          maxPasses: 2
+          leadPasses: 5
+          auxGreeting: auxGreeting
+          name: name
+          callerId: callerId
+          loadedDts: loadedDts
         dialPriority: IMMEDIATE
         listState: ACTIVE
         description: description
@@ -1491,6 +1659,7 @@ components:
             insert then do not add this parameter.
           enum:
           - IMMEDIATE
+          - NORMAL
           type: string
         duplicateHandling:
           enum:
@@ -1510,7 +1679,7 @@ components:
           type: string
         uploadLeads:
           items:
-            $ref: '#/components/schemas/Lead'
+            $ref: '#/components/schemas/CampaignLead'
           type: array
       type: object
     UploadLeadsResponse:

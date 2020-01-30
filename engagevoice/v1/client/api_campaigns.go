@@ -12,6 +12,7 @@ package engagevoice
 import (
 	"context"
 	"fmt"
+	"github.com/antihax/optional"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -24,6 +25,260 @@ var (
 )
 
 type CampaignsApiService service
+
+/*
+CampaignsApiService Patch Campaign Lead
+Allows updating of a campaign lead, only updating those fields passed in  Permissions: READ on Account (Permission Override), UPDATE on Campaign
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param accountId
+ * @param leadId
+ * @param campaignId
+ * @param campaignLead
+ * @param optional nil or *PatchCampaignLeadOpts - Optional Parameters:
+ * @param "ListId" (optional.Int32) -
+ * @param "TimezoneOption" (optional.String) -
+ * @param "DuplicateHandling" (optional.String) -  `RETAIN_ALL`: Retain all records, `REMOVE_ALL_EXISTING`: Remove duplicates from all existing lists, `REMOVE_FROM_LIST`: Remove duplicates from this list
+@return CampaignLead
+*/
+
+type PatchCampaignLeadOpts struct {
+	ListId            optional.Int32
+	TimezoneOption    optional.String
+	DuplicateHandling optional.String
+}
+
+func (a *CampaignsApiService) PatchCampaignLead(ctx context.Context, accountId string, leadId int32, campaignId int32, campaignLead CampaignLead, localVarOptionals *PatchCampaignLeadOpts) (CampaignLead, *http.Response, error) {
+	var (
+		localVarHttpMethod   = http.MethodPatch
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  CampaignLead
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/admin/accounts/{accountId}/campaignLeads/{leadId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"accountId"+"}", fmt.Sprintf("%v", accountId), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"leadId"+"}", fmt.Sprintf("%v", leadId), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("campaignId", parameterToString(campaignId, ""))
+	if localVarOptionals != nil && localVarOptionals.ListId.IsSet() {
+		localVarQueryParams.Add("listId", parameterToString(localVarOptionals.ListId.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.TimezoneOption.IsSet() {
+		localVarQueryParams.Add("timezoneOption", parameterToString(localVarOptionals.TimezoneOption.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.DuplicateHandling.IsSet() {
+		localVarQueryParams.Add("duplicateHandling", parameterToString(localVarOptionals.DuplicateHandling.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &campaignLead
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["X-Auth-Token"] = key
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v CampaignLead
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+
+/*
+CampaignsApiService Update Campaign Lead
+Allows updating of a campaign lead, updating entire lead including fields not passed in.  Permissions: READ on Account (Permission Override), UPDATE on Campaign
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param accountId
+ * @param leadId
+ * @param campaignId
+ * @param campaignLead
+ * @param optional nil or *UpdateCampaignLeadOpts - Optional Parameters:
+ * @param "ListId" (optional.Int32) -
+ * @param "TimezoneOption" (optional.String) -
+ * @param "DuplicateHandling" (optional.String) -  `RETAIN_ALL`: Retain all records, `REMOVE_ALL_EXISTING`: Remove duplicates from all existing lists, `REMOVE_FROM_LIST`: Remove duplicates from this list
+@return CampaignLead
+*/
+
+type UpdateCampaignLeadOpts struct {
+	ListId            optional.Int32
+	TimezoneOption    optional.String
+	DuplicateHandling optional.String
+}
+
+func (a *CampaignsApiService) UpdateCampaignLead(ctx context.Context, accountId string, leadId int32, campaignId int32, campaignLead CampaignLead, localVarOptionals *UpdateCampaignLeadOpts) (CampaignLead, *http.Response, error) {
+	var (
+		localVarHttpMethod   = http.MethodPut
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  CampaignLead
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/admin/accounts/{accountId}/campaignLeads/{leadId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"accountId"+"}", fmt.Sprintf("%v", accountId), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"leadId"+"}", fmt.Sprintf("%v", leadId), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	localVarQueryParams.Add("campaignId", parameterToString(campaignId, ""))
+	if localVarOptionals != nil && localVarOptionals.ListId.IsSet() {
+		localVarQueryParams.Add("listId", parameterToString(localVarOptionals.ListId.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.TimezoneOption.IsSet() {
+		localVarQueryParams.Add("timezoneOption", parameterToString(localVarOptionals.TimezoneOption.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.DuplicateHandling.IsSet() {
+		localVarQueryParams.Add("duplicateHandling", parameterToString(localVarOptionals.DuplicateHandling.Value(), ""))
+	}
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	localVarPostBody = &campaignLead
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["X-Auth-Token"] = key
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v CampaignLead
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
 
 /*
 CampaignsApiService Upload Leads
