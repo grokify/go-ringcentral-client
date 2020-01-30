@@ -38,11 +38,11 @@ By default, these use a `.env` file which can be specified by the `ENV_PATH` env
 
 ## Documentation
 
-The auto-generated Swagger files are in the [`client`](client) folder and you can find the Swagger docs there as [`client/README.md`](client/README.md)
+The auto-generated Swagger files are in the `client` folder and you can find the Swagger docs there as `client/README.md`:
 
-* Office: [`office/v1/client`](office/v1/client)
-* Engage Digital: [`engagedigital/v1/client`](engagedigital/v1/client)
-* Engage Voice: [`engagevoice/v1/client`](engagevoice/v1/client)
+* Office: [`office/v1/client`](office/v1/client), [`office/v1/client/README.md`](office/v1/client/README.md)
+* Engage Digital: [`engagedigital/v1/client`](engagedigital/v1/client), [`engagedigital/v1/client/README.md`](engagedigital/v1/client/README.md)
+* Engage Voice: [`engagevoice/v1/client`](engagevoice/v1/client), [`engagevoice/v1/client/README.md`](engagevoice/v1/client/README.md)
 
 ## Related Packages
 
