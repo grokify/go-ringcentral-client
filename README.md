@@ -40,6 +40,10 @@ By default, these use a `.env` file which can be specified by the `ENV_PATH` env
 
 The auto-generated Swagger files are in the [`client`](client) folder and you can find the Swagger docs there as [`client/README.md`](client/README.md)
 
+* Office: [`office/v1/client`](office/v1/client)
+* Engage Digital: [`engagedigital/v1/client`](engagedigital/v1/client)
+* Engage Voice: [`engagevoice/v1/client`](engagevoice/v1/client)
+
 ## Related Packages
 
 In addition to [`oauth2more/ringcentral`](https://github.com/grokify/oauth2more/tree/master/ringcentral), the following project provides a website with OAuth 2.0 authorization code flow example:
