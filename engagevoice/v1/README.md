@@ -7,7 +7,7 @@ This is a Go Client SDK for the RingCentral Engage Voice API.
 See the sample code here:
 
 * [Generate API Token](v1examples/generate_api_token/main.go)
-* [API Calls](https://github.com/grokify/go-ringcentral/blob/master/engagevoice/v1examples/get_simple/main.go)
+* [API Calls](https://github.com/grokify/go-ringcentral/blob/master/engagevoice/v1/examples/get_simple/main.go)
 
 ## API Overview
 
