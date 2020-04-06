@@ -51,7 +51,7 @@ func main() {
 	fmt.Println(string(bytes))
 	lines := strings.Split(string(bytes), "\n")
 	fmtutil.PrintJSON(lines)
-	lines = stringsutil.SliceLinesTrim(lines, " \t", true)
+	lines = stringsutil.SliceTrim(lines, " \t", true)
 	fmtutil.PrintJSON(lines)
 	//panic("Z")
 

@@ -10,7 +10,7 @@ import (
 
 func GetAllCampaigns(ctx context.Context, apiClient *engagevoice.APIClient, accountID string) ([]engagevoice.Campaign, error) {
 	campaigns := []engagevoice.Campaign{}
-	info, resp, err := apiClient.DialGroupsApi.GetDialGroups(
+	info, resp, err := apiClient.DialGroupApi.GetDialGroups(
 		ctx, accountID,
 	)
 	if err != nil {
@@ -25,7 +25,7 @@ func GetAllCampaigns(ctx context.Context, apiClient *engagevoice.APIClient, acco
 	}
 
 	for _, dialGroupID := range dialGroupIDs {
-		info, resp, err := apiClient.DialGroupsApi.GetCampaigns(
+		info, resp, err := apiClient.DialGroupApi.GetCampaigns(
 			ctx,
 			accountID,
 			strconv.Itoa(int(dialGroupID)),
