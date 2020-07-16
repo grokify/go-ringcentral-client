@@ -66,3 +66,8 @@ func NewScimApiClient(app ro.ApplicationCredentials, pwd ro.PasswordCredentials)
 	apiClient := rs.NewAPIClient(apiConfig)
 	return apiClient, nil
 }
+
+func ApiResponseErrorBody(err error) []byte {
+	openAPIErr := err.(rc.GenericOpenAPIError)
+	return openAPIErr.Body()
+}
