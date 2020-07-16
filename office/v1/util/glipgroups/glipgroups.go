@@ -3,13 +3,13 @@ package glipgroups
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"net/url"
 	"sort"
 	"strings"
 	"time"
 
-	hum "github.com/grokify/gotilla/net/httputilmore"
 	ro "github.com/grokify/oauth2more/ringcentral"
 )
 
@@ -138,7 +138,7 @@ type GetGroupsResponse struct {
 }
 
 func GetGroupsResponseFromHTTPResponse(resp *http.Response) (GetGroupsResponse, error) {
-	bytes, err := hum.ResponseBody(resp)
+	bytes, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		return GetGroupsResponse{}, err
 	}

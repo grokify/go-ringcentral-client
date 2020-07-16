@@ -42,7 +42,7 @@ func main() {
 			}
 			panic("READ_FILE_NEW")
 		}
-		spec, err := openapi3.ReadFileLoader(file)
+		spec, err := openapi3.ReadAndValidateFile(file)
 		if err != nil {
 			fmt.Println("TEST_LOADER")
 			log.Fatal(err)
@@ -80,7 +80,7 @@ func main() {
 	case 2:
 		err = swagger2.WriteFileDirMerge(outfile, dir, 0644)
 	case 3:
-		err = openapi3.WriteFileDirMerge(outfile, dir, 0644)
+		err = openapi3.WriteFileDirMerge(outfile, dir, 0644, nil)
 	}
 	if err != nil {
 		log.Fatal(err)

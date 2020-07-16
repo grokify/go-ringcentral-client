@@ -40,8 +40,8 @@ func loadEnv() (Options, error) {
 	return opts, nil
 }
 
-func getApplicationConfig(cfg []byte) (ringcentral.ApplicationConfig, error) {
-	ac := ringcentral.ApplicationConfig{}
+func getApplicationConfig(cfg []byte) (ringcentral.Credentials, error) {
+	ac := ringcentral.Credentials{}
 	err := json.Unmarshal(cfg, &ac)
 	if err != nil {
 		return ac, errors.Wrap(
@@ -50,10 +50,10 @@ func getApplicationConfig(cfg []byte) (ringcentral.ApplicationConfig, error) {
 	return ac, nil
 }
 
-func getTokenFromApplicationConfig(ac ringcentral.ApplicationConfig) (*oauth2.Token, error) {
+func getTokenFromApplicationConfig(ac ringcentral.Credentials) (*oauth2.Token, error) {
 	token, err := ringcentral.NewTokenPassword(
-		ac.ApplicationCredentials(),
-		ac.PasswordCredentials())
+		ac.Application,
+		ac.PasswordCredentials)
 	if err != nil {
 		return nil, err
 	}
@@ -93,7 +93,7 @@ func main() {
 	}
 	client := oauth2more.NewClientTokenOAuth2(token)
 
-	resp, err := client.Get(urlutil.JoinAbsolute(ac.ServerURL, ExtensionAnsweringRuleURL))
+	resp, err := client.Get(urlutil.JoinAbsolute(ac.Application.ServerURL, ExtensionAnsweringRuleURL))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -108,7 +108,7 @@ func main() {
 
 	req, err := multipartutil.NewRequest(
 		http.MethodPost,
-		urlutil.JoinAbsolute(ac.ServerURL, ExtensionGreetingURL),
+		urlutil.JoinAbsolute(ac.Application.ServerURL, ExtensionGreetingURL),
 		params,
 		[]multipartutil.FileInfo{
 			{

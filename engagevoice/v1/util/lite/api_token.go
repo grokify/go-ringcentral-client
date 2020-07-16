@@ -8,6 +8,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/grokify/gotilla/encoding/jsonutil"
 	"github.com/grokify/gotilla/net/httputilmore"
 	"github.com/pkg/errors"
 )
@@ -139,14 +140,14 @@ func RequestAuthToken(username, password string) (*LoginSuccess, *LoginError, *h
 	}
 	if resp.StatusCode != 200 {
 		respData := LoginError{}
-		err := httputilmore.UnmarshalResponseJSON(resp, &respData)
+		_, err := jsonutil.UnmarshalIoReader(resp.Body, &respData)
 		if err != nil {
 			return nil, &respData, resp, err
 		}
 		return nil, &respData, resp, fmt.Errorf("AuthUrl Status != 200 [%v]", resp.StatusCode)
 	}
 	authData := LoginSuccess{}
-	err = httputilmore.UnmarshalResponseJSON(resp, &authData)
+	_, err = jsonutil.UnmarshalIoReader(resp.Body, &authData)
 	if err != nil {
 		return nil, nil, resp, err
 	}
