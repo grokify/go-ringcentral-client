@@ -41,7 +41,7 @@ func NewApiClientPassword(app ro.ApplicationCredentials, pwd ro.PasswordCredenti
 	return NewApiClientHttpClientBaseURL(httpClient, app.ServerURL)
 }
 
-func NewApiClientPasswordSimple(app ro.ApplicationCredentials, user ro.UserCredentials) (*rc.APIClient, error) {
+func NewApiClientPasswordSimple(app ro.ApplicationCredentials, user ro.PasswordCredentials) (*rc.APIClient, error) {
 	httpClient, err := ro.NewClientPasswordSimple(app, user)
 	if err != nil {
 		return nil, err
