@@ -1,10 +1,10 @@
 package legacy
 
 import (
+	"io/ioutil"
 	"net/http"
 	"strings"
 
-	hum "github.com/grokify/gotilla/net/httputilmore"
 	uu "github.com/grokify/gotilla/net/urlutil"
 	scu "github.com/grokify/gotilla/strconv/strconvutil"
 )
@@ -24,7 +24,7 @@ func Call(params CallRequestInfo) (*CallResponseInfo, *http.Response, error) {
 		return nil, resp, err
 	}
 
-	body, err := hum.ResponseBody(resp)
+	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		return nil, resp, err
 	}

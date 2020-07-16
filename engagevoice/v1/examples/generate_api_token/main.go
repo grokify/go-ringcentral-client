@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	engagevoiceutil "github.com/grokify/go-ringcentral/engagevoice/v1/util"
+	"github.com/grokify/go-ringcentral/engagevoice/v1/util/lite"
 	"github.com/grokify/gotilla/fmt/fmtutil"
 	"github.com/jessevdk/go-flags"
 )
@@ -23,7 +23,7 @@ func main() {
 	}
 
 	if len(opts.Username) > 0 && len(opts.Password) > 0 {
-		apiToken, userInfo, err := engagevoiceutil.GenerateAPIToken(opts.Username, opts.Password)
+		apiToken, userInfo, err := lite.GenerateAPIToken(opts.Username, opts.Password)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -31,7 +31,7 @@ func main() {
 		fmt.Printf("ACCOUNT_ID: [%v]\n", userInfo.Accounts[0].AccountID)
 	}
 
-	tokens, err := engagevoiceutil.ListTokens(opts.Token)
+	tokens, err := lite.ListTokens(opts.Token)
 	if err != nil {
 		log.Fatal(err)
 	}
