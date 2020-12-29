@@ -11,14 +11,17 @@
  [build-status-link]: https://travis-ci.org/grokify/go-ringcentral
  [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/go-ringcentral
  [goreport-link]: https://goreportcard.com/report/github.com/grokify/go-ringcentral
- [docs-godoc-svg]: https://img.shields.io/badge/docs-godoc-blue.svg
- [docs-godoc-link]: https://godoc.org/github.com/grokify/go-ringcentral
+ [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/grokify/go-ringcentral
+ [docs-godoc-link]: https://pkg.go.dev/github.com/grokify/go-ringcentral
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
  [license-link]: https://github.com/grokify/go-ringcentral/blob/master/LICENSE
  [stackoverflow-svg]: https://img.shields.io/badge/Stack%20Overflow-ringcentral-orange.svg
  [stackoverflow-link]: https://stackoverflow.com/questions/tagged/ringcentral
  [twitter-svg]: https://img.shields.io/twitter/follow/ringcentraldevs.svg?style=social&label=follow
  [twitter-link]: https://twitter.com/RingCentralDevs
+
+
+
 
 ## Overview
 
