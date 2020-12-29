@@ -10,9 +10,10 @@ import (
 )
 
 type Options struct {
-	Username string `short:"u" long:"username" description:"Username"`
-	Password string `short:"p" long:"password" description:"Password"`
-	Token    string `short:"t" long:"token" description:"Token"`
+	ServerURL string `short:"s" long:"serverurl" description:"ServerURL"`
+	Username  string `short:"u" long:"username" description:"Username"`
+	Password  string `short:"p" long:"password" description:"Password"`
+	Token     string `short:"t" long:"token" description:"Token"`
 }
 
 func main() {
@@ -31,7 +32,7 @@ func main() {
 		fmt.Printf("ACCOUNT_ID: [%v]\n", userInfo.Accounts[0].AccountID)
 	}
 
-	tokens, err := lite.ListTokens(opts.Token)
+	tokens, err := lite.ListTokens(opts.ServerURL, opts.Token)
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -93,6 +93,9 @@ func (fax *FaxRequest) builder() (multipartutil.MultipartBuilder, error) {
 }
 
 func (fax *FaxRequest) Post(httpClient *http.Client, url string) (*http.Response, error) {
+	if strings.Index(url, "fax") == -1 {
+		url = urlutil.JoinAbsolute(url, FaxUrl)
+	}
 	builder, err := fax.builder()
 	if err != nil {
 		return nil, err

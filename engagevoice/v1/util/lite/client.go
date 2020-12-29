@@ -5,14 +5,8 @@ import (
 	"strings"
 
 	"github.com/grokify/gotilla/net/httputilmore"
-)
-
-const (
-	EnvEngageVoiceServerURL = "ENGAGE_VOICE_SERVER_URL"
-	EnvEngageVoiceAccountID = "ENGAGE_VOICE_ACCOUNT_ID"
-	EnvEngageVoiceToken     = "ENGAGE_VOICE_TOKEN"
-	APIUsersURL             = "/api/v1/admin/users"
-	APITokensURL            = "/api/v1/admin/token"
+	"github.com/grokify/gotilla/net/urlutil"
+	"github.com/pkg/errors"
 )
 
 type ClientLite struct {
@@ -39,7 +33,7 @@ func (lite *ClientLite) LoadHTTPClient(token string) {
 }
 
 func (lite *ClientLite) Tokens() ([]string, error) {
-	return ListTokens(lite.Token)
+	return ListTokens(lite.ServerURL, lite.Token)
 }
 
 func NewHTTPClient(token string) *http.Client {
@@ -51,4 +45,20 @@ func NewHTTPClient(token string) *http.Client {
 		Transport: client.Transport,
 		Header:    header}
 	return client
+}
+
+func APIInfo(serverURL, urlPath, authOrApiToken string) (http.Header, string, error) {
+	authOrApiToken = strings.TrimSpace(authOrApiToken)
+	if len(authOrApiToken) == 0 {
+		return http.Header{}, "", errors.New("E_NO_TOKEN")
+	}
+	serverURL = strings.TrimSpace(serverURL)
+	if len(serverURL) == 0 {
+		serverURL = EngageVoiceServerURL
+	}
+	apiURL := urlutil.JoinAbsolute(serverURL, urlPath)
+
+	return http.Header(map[string][]string{
+		EngageVoiceTokenHeader: {authOrApiToken},
+	}), apiURL, nil
 }

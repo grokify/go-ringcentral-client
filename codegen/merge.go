@@ -80,7 +80,7 @@ func main() {
 	case 2:
 		err = swagger2.WriteFileDirMerge(outfile, dir, 0644)
 	case 3:
-		err = openapi3.WriteFileDirMerge(outfile, dir, 0644, nil)
+		_, err = openapi3.WriteFileDirMerge(outfile, dir, 0644, nil)
 	}
 	if err != nil {
 		log.Fatal(err)

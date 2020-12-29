@@ -3,6 +3,7 @@ package lite
 import (
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"net/url"
 	"strings"
@@ -16,10 +17,11 @@ import (
 // portal.vacd.biz:8081
 
 const (
-	EngageVoiceBaseUri     string = "https://portal.vacd.biz"
-	EngageVoiceLoginUri    string = "https://portal.vacd.biz/api/v1/auth/login"
-	EngageVoiceTokenUri    string = "https://portal.vacd.biz/api/v1/admin/token"
-	EngageVoiceTokenHeader string = "x-auth-token"
+	EngageVoiceServerURL    string = "https://portal.vacd.biz"
+	EngageVoiceLoginURL     string = "https://portal.vacd.biz/api/v1/auth/login"
+	EngageVoiceTokenURL     string = "https://portal.vacd.biz/api/v1/admin/token"
+	EngageVoiceTokenURLPath string = "/api/v1/admin/token"
+	EngageVoiceTokenHeader  string = "x-auth-token"
 )
 
 type LoginSuccess struct {
@@ -106,7 +108,7 @@ func GenerateAPIToken(username, password string) (string, *LoginSuccess, error) 
 }
 
 func ExchangeAPIToken(authToken string) (string, error) {
-	req, err := http.NewRequest(http.MethodPost, EngageVoiceTokenUri, nil)
+	req, err := http.NewRequest(http.MethodPost, EngageVoiceTokenURL, nil)
 	if err != nil {
 		return "", err
 	}
@@ -114,7 +116,7 @@ func ExchangeAPIToken(authToken string) (string, error) {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		return "", err
+		return "", errors.Wrap(err, "ExchangeAPIToken.client.Do()")
 	} else if resp.StatusCode != 200 {
 		return "", fmt.Errorf("TOKEN_RESP_STATUS_CODE_NOT_200 [%v]", resp.StatusCode)
 	}
@@ -134,10 +136,15 @@ func RequestAuthToken(username, password string) (*LoginSuccess, *LoginError, *h
 	data.Set("username", username)
 	data.Set("password", password)
 
-	resp, err := httputilmore.SendWwwFormUrlEncodedSimple(http.MethodPost, EngageVoiceLoginUri, data)
+	resp, err := httputilmore.SendWwwFormUrlEncodedSimple(http.MethodPost, EngageVoiceLoginURL, data)
 	if err != nil {
 		return nil, nil, resp, err
 	}
+	bytes, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(string(bytes))
 	if resp.StatusCode != 200 {
 		respData := LoginError{}
 		_, err := jsonutil.UnmarshalIoReader(resp.Body, &respData)
@@ -154,18 +161,15 @@ func RequestAuthToken(username, password string) (*LoginSuccess, *LoginError, *h
 	return &authData, nil, resp, nil
 }
 
-func ListTokens(authOrApiToken string) ([]string, error) {
+func ListTokens(serverURL, authOrApiToken string) ([]string, error) {
 	tokens := []string{}
-	authOrApiToken = strings.TrimSpace(authOrApiToken)
-	if len(authOrApiToken) == 0 {
-		return tokens, errors.New("E_NO_TOKEN")
+	headers, apiURL, err := APIInfo(
+		serverURL, EngageVoiceTokenURLPath, authOrApiToken)
+	if err != nil {
+		return tokens, err
 	}
 
-	resp, err := httputilmore.GetJsonSimple(EngageVoiceTokenUri,
-		http.Header(map[string][]string{
-			EngageVoiceTokenHeader: {authOrApiToken},
-		}),
-		&tokens)
+	resp, err := httputilmore.GetJsonSimple(apiURL, headers, &tokens)
 	if err != nil {
 		return tokens, err
 	} else if resp.StatusCode >= 300 {

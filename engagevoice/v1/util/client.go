@@ -13,6 +13,14 @@ type ClientAPIs struct {
 	Config    *engagevoice.Configuration
 }
 
+func NewClientAPIsRingCentralPassword(rcCredentials []byte) (ClientAPIs, error) {
+	httpClient, err := lite.NewClientRingCentralPassword(rcCredentials)
+	if err != nil {
+		return ClientAPIs{}, err
+	}
+	return NewClientAPIsHTTPClient(httpClient), nil
+}
+
 func NewClientAPIsHTTPClient(httpClient *http.Client) ClientAPIs {
 	cfg := engagevoice.NewConfiguration()
 	cfg.HTTPClient = httpClient

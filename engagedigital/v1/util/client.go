@@ -14,7 +14,7 @@ const (
 
 func NewApiClient(site, token string) *engagedigital.APIClient {
 	cfg := engagedigital.NewConfiguration()
-	cfg.HTTPClient = oauth2more.NewClientAuthzTokenSimple(oauth2more.TokenBearer, token)
+	cfg.HTTPClient = oauth2more.NewClientToken(oauth2more.TokenBearer, token, false)
 	cfg.BasePath = fmt.Sprintf(ApiUrlFormat, site)
 	return engagedigital.NewAPIClient(cfg)
 }

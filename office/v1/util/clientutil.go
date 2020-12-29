@@ -33,6 +33,14 @@ func NewApiClientHttpClientBaseURL(httpClient *http.Client, serverUrl string) (*
 	return apiClient, nil
 }
 
+func NewApiClientCredentials(creds ro.Credentials) (*rc.APIClient, error) {
+	httpClient, err := creds.NewClient()
+	if err != nil {
+		return nil, err
+	}
+	return NewApiClientHttpClientBaseURL(httpClient, creds.Application.ServerURL)
+}
+
 func NewApiClientPassword(app ro.ApplicationCredentials, pwd ro.PasswordCredentials) (*rc.APIClient, error) {
 	httpClient, err := ro.NewClientPassword(app, pwd)
 	if err != nil {
