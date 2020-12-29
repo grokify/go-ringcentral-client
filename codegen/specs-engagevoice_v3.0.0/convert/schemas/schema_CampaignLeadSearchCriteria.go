@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	oas3 "github.com/getkin/kin-openapi/openapi3"
-	"github.com/grokify/gotilla/fmt/fmtutil"
+	"github.com/grokify/simplego/fmt/fmtutil"
 	"github.com/grokify/swaggman/openapi3/fromspring"
 	log "github.com/sirupsen/logrus"
 )

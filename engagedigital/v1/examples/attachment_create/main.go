@@ -11,7 +11,7 @@ import (
 
 	engagedigital "github.com/grokify/go-ringcentral/engagedigital/v1/client"
 	utils "github.com/grokify/go-ringcentral/engagedigital/v1/util"
-	"github.com/grokify/gotilla/fmt/fmtutil"
+	"github.com/grokify/simplego/fmt/fmtutil"
 )
 
 // curl -XPOST https://DOMAIN.api.engagement.dimelo.com/1.0/attachments -H 'Authorization: Bearer TOKEN' -F 'file=@ringcentral-engage-logo.svg'

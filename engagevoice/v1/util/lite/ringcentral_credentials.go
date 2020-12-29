@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/grokify/gotilla/encoding/jsonutil"
 	"github.com/grokify/oauth2more"
 	"github.com/grokify/oauth2more/ringcentral"
+	"github.com/grokify/simplego/encoding/jsonutil"
 	"github.com/pkg/errors"
 )
 

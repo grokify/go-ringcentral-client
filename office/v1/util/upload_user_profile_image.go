@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/grokify/gotilla/mime/multipartutil"
-	"github.com/grokify/gotilla/net/httputilmore"
-	"github.com/grokify/gotilla/net/urlutil"
+	"github.com/grokify/simplego/mime/multipartutil"
+	"github.com/grokify/simplego/net/httputilmore"
+	"github.com/grokify/simplego/net/urlutil"
 )
 
 func UploadUserProfileImage(httpClient *http.Client, serverUrl, accountId, extensionId, imgFilepath string) (*http.Response, error) {

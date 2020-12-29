@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/antihax/optional"
-	"github.com/grokify/gotilla/fmt/fmtutil"
+	"github.com/grokify/simplego/fmt/fmtutil"
 	"github.com/jessevdk/go-flags"
 
 	engagedigital "github.com/grokify/go-ringcentral/engagedigital/v1/client"

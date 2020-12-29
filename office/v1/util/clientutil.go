@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/grokify/gotilla/net/urlutil"
+	"github.com/grokify/simplego/net/urlutil"
 	"github.com/joho/godotenv"
 
 	rc "github.com/grokify/go-ringcentral/office/v1/client"

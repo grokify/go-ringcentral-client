@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strings"
 
-	uu "github.com/grokify/gotilla/net/urlutil"
-	scu "github.com/grokify/gotilla/strconv/strconvutil"
+	uu "github.com/grokify/simplego/net/urlutil"
+	scu "github.com/grokify/simplego/strconv/strconvutil"
 )
 
 const (

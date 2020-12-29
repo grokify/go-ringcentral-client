@@ -7,9 +7,9 @@ import (
 	"os"
 
 	"github.com/antihax/optional"
-	"github.com/grokify/gotilla/config"
-	"github.com/grokify/gotilla/fmt/fmtutil"
-	hum "github.com/grokify/gotilla/net/httputilmore"
+	"github.com/grokify/simplego/config"
+	"github.com/grokify/simplego/fmt/fmtutil"
+	hum "github.com/grokify/simplego/net/httputilmore"
 	"github.com/jessevdk/go-flags"
 	"github.com/pkg/errors"
 

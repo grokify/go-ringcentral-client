@@ -9,7 +9,7 @@ import (
 
 	rc "github.com/grokify/go-ringcentral/office/v1/client"
 	ru "github.com/grokify/go-ringcentral/office/v1/util"
-	"github.com/grokify/gotilla/mime/multipartutil"
+	"github.com/grokify/simplego/mime/multipartutil"
 )
 
 const (

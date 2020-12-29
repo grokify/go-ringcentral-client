@@ -6,8 +6,8 @@ import (
 	"log"
 
 	"github.com/antihax/optional"
-	"github.com/grokify/gotilla/fmt/fmtutil"
-	"github.com/grokify/gotilla/net/smtputil"
+	"github.com/grokify/simplego/fmt/fmtutil"
+	"github.com/grokify/simplego/net/smtputil"
 	"github.com/jessevdk/go-flags"
 	"github.com/pkg/errors"
 

@@ -3,7 +3,7 @@ package lite
 import (
 	"net/http"
 
-	"github.com/grokify/gotilla/net/httputilmore"
+	"github.com/grokify/simplego/net/httputilmore"
 )
 
 const (
@@ -53,7 +53,7 @@ func NewClientRingCentralPassword(rcCredentials []byte) (*http.Client, error) {
 
 		// 3. Get Engage Client
 		engageClient := oauth2more.NewClientToken(
-			oauth2more.BearerPrefix, engageAccessToken.AccessToken, false)
+			oauth2more.TokenBearer, engageAccessToken.AccessToken, false)
 		return engageClient, nil*/
 
 }

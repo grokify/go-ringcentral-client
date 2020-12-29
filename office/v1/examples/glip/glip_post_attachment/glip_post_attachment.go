@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/grokify/gotilla/fmt/fmtutil"
+	"github.com/grokify/simplego/fmt/fmtutil"
 
 	rc "github.com/grokify/go-ringcentral/office/v1/client"
 	rcu "github.com/grokify/go-ringcentral/office/v1/util"

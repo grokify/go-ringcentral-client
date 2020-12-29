@@ -7,8 +7,8 @@
 [![Stack Overflow][stackoverflow-svg]][stackoverflow-link]
 [![Twitter][twitter-svg]][twitter-link]
 
- [build-status-svg]: https://github.com/grokify/gotilla/workflows/build/badge.svg
- [build-status-link]: https://github.com/grokify/gotilla/actions
+ [build-status-svg]: https://github.com/grokify/go-ringcentral/workflows/build/badge.svg
+ [build-status-link]: https://github.com/grokify/go-ringcentral/actions
  [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/go-ringcentral
  [goreport-link]: https://goreportcard.com/report/github.com/grokify/go-ringcentral
  [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/grokify/go-ringcentral

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/grokify/gotilla/config"
-	"github.com/grokify/gotilla/fmt/fmtutil"
+	"github.com/grokify/simplego/config"
+	"github.com/grokify/simplego/fmt/fmtutil"
 
 	ru "github.com/grokify/go-ringcentral/office/v1/util"
 	ro "github.com/grokify/oauth2more/ringcentral"

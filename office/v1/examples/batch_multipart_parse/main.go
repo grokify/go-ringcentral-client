@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/grokify/go-ringcentral/office/v1/util/mergedusers"
-	"github.com/grokify/gotilla/fmt/fmtutil"
+	"github.com/grokify/simplego/fmt/fmtutil"
 )
 
 var (

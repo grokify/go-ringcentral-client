@@ -8,8 +8,8 @@ import (
 	"strings"
 
 	"github.com/antihax/optional"
-	"github.com/grokify/gotilla/fmt/fmtutil"
-	hum "github.com/grokify/gotilla/net/httputilmore"
+	"github.com/grokify/simplego/fmt/fmtutil"
+	hum "github.com/grokify/simplego/net/httputilmore"
 	"github.com/joho/godotenv"
 	log "github.com/sirupsen/logrus"
 

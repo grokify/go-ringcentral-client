@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"os"
 
-	hum "github.com/grokify/gotilla/net/httputilmore"
-	nhu "github.com/grokify/gotilla/net/nethttputil"
+	hum "github.com/grokify/simplego/net/httputilmore"
+	nhu "github.com/grokify/simplego/net/nethttputil"
 	"github.com/joho/godotenv"
 
 	rc "github.com/grokify/go-ringcentral/office/v1/client"

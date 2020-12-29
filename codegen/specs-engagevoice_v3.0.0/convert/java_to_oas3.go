@@ -7,9 +7,9 @@ import (
 	"strings"
 
 	oas3 "github.com/getkin/kin-openapi/openapi3"
-	"github.com/grokify/gotilla/fmt/fmtutil"
-	"github.com/grokify/gotilla/io/ioutilmore"
-	"github.com/grokify/gotilla/type/stringsutil"
+	"github.com/grokify/simplego/fmt/fmtutil"
+	"github.com/grokify/simplego/io/ioutilmore"
+	"github.com/grokify/simplego/type/stringsutil"
 	"github.com/grokify/swaggman/openapi3/fromspring"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"

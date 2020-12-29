@@ -13,7 +13,7 @@ import (
 	engagedigital "github.com/grokify/go-ringcentral/engagedigital/v1/client"
 	ex "github.com/grokify/go-ringcentral/engagedigital/v1/examples"
 	utils "github.com/grokify/go-ringcentral/engagedigital/v1/util"
-	"github.com/grokify/gotilla/time/timeutil"
+	"github.com/grokify/simplego/time/timeutil"
 )
 
 type options struct {

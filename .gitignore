@@ -28,5 +28,10 @@ _*
 .DS_Store
 .env
 *.jar
+*.tar
+*.tgz
+*.tar.gz
+*.gz
+*.bz2
 main
 yaml2json_darwin_amd64

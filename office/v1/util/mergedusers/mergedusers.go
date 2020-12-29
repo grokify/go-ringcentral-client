@@ -12,7 +12,7 @@ import (
 	"strings"
 
 	rc "github.com/grokify/go-ringcentral/office/v1/client"
-	"github.com/grokify/gotilla/mime/multipartutil"
+	"github.com/grokify/simplego/mime/multipartutil"
 	"github.com/nyaruka/phonenumbers"
 )
 

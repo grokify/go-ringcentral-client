@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/grokify/gotilla/encoding/jsonutil"
-	"github.com/grokify/gotilla/net/httputilmore"
+	"github.com/grokify/simplego/encoding/jsonutil"
+	"github.com/grokify/simplego/net/httputilmore"
 	"github.com/pkg/errors"
 )
 

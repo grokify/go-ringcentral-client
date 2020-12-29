@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/grokify/gotilla/mime/multipartutil"
-	hum "github.com/grokify/gotilla/net/httputilmore"
-	"github.com/grokify/gotilla/net/urlutil"
+	"github.com/grokify/simplego/mime/multipartutil"
+	hum "github.com/grokify/simplego/net/httputilmore"
+	"github.com/grokify/simplego/net/urlutil"
 )
 
 const (
