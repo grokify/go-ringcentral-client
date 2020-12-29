@@ -20,9 +20,6 @@
  [twitter-svg]: https://img.shields.io/twitter/follow/ringcentraldevs.svg?style=social&label=follow
  [twitter-link]: https://twitter.com/RingCentralDevs
 
-
-
-
 ## Overview
 
 This is a API client built using [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) using this RingCentral API spec [`swagger_spec.yaml`](codegen/swagger_spec.yaml).
