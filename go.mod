@@ -9,7 +9,7 @@ require (
 	github.com/astaxie/beego v1.12.3 // indirect
 	github.com/bmizerany/pat v0.0.0-20170815010413-6226ea591a40 // indirect
 	github.com/caarlos0/env v3.5.0+incompatible
-	github.com/getkin/kin-openapi v0.34.0
+	github.com/getkin/kin-openapi v0.35.0
 	github.com/gocarina/gocsv v0.0.0-20201208093247-67c824bc04d4 // indirect
 	github.com/gorilla/feeds v1.1.1 // indirect
 	github.com/grokify/elastirad-go v0.0.1 // indirect
@@ -18,7 +18,7 @@ require (
 	github.com/grokify/gostor v0.1.0 // indirect
 	github.com/grokify/oauth2more v0.4.0
 	github.com/grokify/simplego v0.0.1
-	github.com/grokify/swaggman v1.1.0
+	github.com/grokify/swaggman v1.1.2
 	github.com/jessevdk/go-flags v1.4.0
 	github.com/joho/godotenv v1.3.0
 	github.com/mmcdole/gofeed v1.0.0 // indirect

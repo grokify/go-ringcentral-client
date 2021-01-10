@@ -161,6 +161,8 @@ github.com/getkin/kin-openapi v0.22.0/go.mod h1:WGRs2ZMM1Q8LR1QBEwUxC6RJEfaBcD0s
 github.com/getkin/kin-openapi v0.32.0/go.mod h1:WGRs2ZMM1Q8LR1QBEwUxC6RJEfaBcD0s+pcEVXFuAjw=
 github.com/getkin/kin-openapi v0.34.0 h1:B/YcH4BXcEzQfpCv7WvdPubb3EnMuwEcI3O+l6GpiXc=
 github.com/getkin/kin-openapi v0.34.0/go.mod h1:ZJSfy1PxJv2QQvH9EdBj3nupRTVvV42mkW6zKUlRBwk=
+github.com/getkin/kin-openapi v0.35.0 h1:YoJusew7Es36hSpnEx3gRL2DGj/82T3j3Akbs9VIXDQ=
+github.com/getkin/kin-openapi v0.35.0/go.mod h1:ZJSfy1PxJv2QQvH9EdBj3nupRTVvV42mkW6zKUlRBwk=
 github.com/ghodss/yaml v1.0.0 h1:wQHKEahhL6wmXdzwWG11gIVCkOv05bNOh+Rxn0yngAk=
 github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeMEF04=
 github.com/glendc/gopher-json v0.0.0-20170414221815-dc4743023d0c/go.mod h1:Gja1A+xZ9BoviGJNA2E9vFkPjjsl+CoJxSXiQM1UXtw=
@@ -289,6 +291,8 @@ github.com/grokify/simplego v0.0.1/go.mod h1:amkYDwR6JzBcxcz4fHivPU4ypd+cbaimhmf
 github.com/grokify/swaggman v0.0.1/go.mod h1:k2bTH3vF5jxestwrp41gCR/D1YH4oY06D6P2rEsWq2w=
 github.com/grokify/swaggman v1.1.0 h1:LiBToFfPdRSMtESR2bSGF5gul3BqxMuuZxGAb1fZ4VY=
 github.com/grokify/swaggman v1.1.0/go.mod h1:MLRBKpktr8dalVUgKRN5Mqq3XceUPkbWIYje92HOkbw=
+github.com/grokify/swaggman v1.1.2 h1:x19s3pjtsk3VFwbSKARfuMKJLSIUha+kVjIBG96zH30=
+github.com/grokify/swaggman v1.1.2/go.mod h1:1QlLBAASZ/a7eOSJDlbzNDJ/nH/4Z4PlfNerzCeL6f0=
 github.com/grpc-ecosystem/go-grpc-middleware v1.0.1-0.20190118093823-f849b5445de4/go.mod h1:FiyG127CGDf3tlThmgyCl78X/SZQqEOJBCDaAfeWzPs=
 github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0/go.mod h1:8NvIoxWQoOIhqOTXgfV/d3M/q6VIi02HzZEHgUlZvzk=
 github.com/grpc-ecosystem/grpc-gateway v1.9.5/go.mod h1:vNeuVxBJEsws4ogUvrchl83t/GYV9WGTSLVdBhOQFDY=
