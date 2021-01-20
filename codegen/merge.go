@@ -35,7 +35,9 @@ func main() {
 			name := "Country"
 			fmtutil.PrintJSON(spec.Components.Schemas[name])
 
-			fmt.Printf("HAS [%v][%v]\n", name, openapi3.SpecHasComponentSchema(spec, name, false))
+			moreSpec := openapi3.SpecMore{Spec: spec}
+
+			fmt.Printf("HAS [%v][%v]\n", name, moreSpec.SchemaNameExists(name, false))
 			err = spec.Validate(context.Background())
 			if err != nil {
 				log.Fatal(err)
