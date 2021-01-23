@@ -4,12 +4,12 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/grokify/simplego/fmt/fmtutil"
 	hum "github.com/grokify/simplego/net/httputilmore"
 	"github.com/joho/godotenv"
-	log "github.com/sirupsen/logrus"
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	rcu "github.com/grokify/go-ringcentral-client/office/v1/util"

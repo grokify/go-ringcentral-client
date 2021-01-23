@@ -14,6 +14,6 @@ require (
 	github.com/joho/godotenv v1.3.0
 	github.com/nyaruka/phonenumbers v1.0.61
 	github.com/pkg/errors v0.9.1
-	github.com/sirupsen/logrus v1.7.0
+	github.com/rs/zerolog v1.20.0
 	golang.org/x/oauth2 v0.0.0-20210113205817-d3ed898aa8a3
 )

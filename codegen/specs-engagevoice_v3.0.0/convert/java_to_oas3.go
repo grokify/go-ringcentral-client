@@ -12,7 +12,7 @@ import (
 	"github.com/grokify/simplego/type/stringsutil"
 	"github.com/grokify/swaggman/openapi3/fromspring"
 	"github.com/pkg/errors"
-	log "github.com/sirupsen/logrus"
+	"github.com/rs/zerolog/log"
 )
 
 func ReadOas3Spec(file string, validate bool) (*oas3.Swagger, error) {
@@ -38,7 +38,7 @@ func main() {
 
 		swag, err := ReadOas3Spec(file, true)
 		if err != nil {
-			log.Fatal(err)
+			log.Fatal().Err(err)
 		}
 		fmtutil.PrintJSON(swag)
 		panic("Z")
@@ -46,7 +46,7 @@ func main() {
 
 	bytes, err := ioutil.ReadFile("_class_agent.java")
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal().Err(err)
 	}
 	fmt.Println(string(bytes))
 	lines := strings.Split(string(bytes), "\n")
@@ -66,7 +66,7 @@ func main() {
 		line = "private Boolean userManagedByRC = false;"
 		name, prop, err := fromspring.ParseSpringLineToSchema(line)
 		if err != nil {
-			log.Fatal(err)
+			log.Fatal().Err(err)
 		}
 		fmt.Printf("NAME [%v]\n", name)
 		fmtutil.PrintJSON(prop)
@@ -75,14 +75,14 @@ func main() {
 
 	mss, err := fromspring.ParseSpringPropertyLinesSliceToSchema(columnsRaw)
 	if err != nil {
-		log.Info("S1")
-		log.Fatal(err)
+		log.Info().Msg("S1")
+		log.Fatal().Err(err)
 	}
 	fmtutil.PrintJSON(mss)
 
 	err = ioutilmore.WriteFileJSON("_schema_agent.json", mss, 644, "", "  ")
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal().Err(err)
 	}
 	fmt.Printf("WROTE [%v]\n", "_schema_agent.json")
 
@@ -101,7 +101,7 @@ func main() {
 	swagFile := "_openapi-spec_agents_models.json"
 	err = ioutilmore.WriteFileJSON(swagFile, swag2, 0644, "", "  ")
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal().Err(err)
 	}
 	fmt.Printf("WROTE [%v]\n", swagFile)
 

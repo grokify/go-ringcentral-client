@@ -8,7 +8,7 @@ import (
 	oas3 "github.com/getkin/kin-openapi/openapi3"
 	"github.com/grokify/simplego/fmt/fmtutil"
 	"github.com/grokify/swaggman/openapi3/fromspring"
-	log "github.com/sirupsen/logrus"
+	"github.com/rs/zerolog/log"
 )
 
 type SchemaInfo struct {
@@ -201,8 +201,8 @@ func ProcInfo(schemaInfo SchemaInfo) {
 	mss, err := fromspring.ParseSpringLinesToMapStringSchemaRefs(
 		lines, schemaInfo.ExplicitCustomTypes)
 	if err != nil {
-		log.Info("S1")
-		log.Fatal(err)
+		log.Info().Msg("S1")
+		log.Fatal().Err(err)
 	}
 	fmtutil.PrintJSON(mss)
 
@@ -220,13 +220,13 @@ func ProcInfo(schemaInfo SchemaInfo) {
 	}
 	joas, err := oas.MarshalJSON()
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal().Err(err)
 	}
 
 	file := "openapi-spec_schema_" + schemaInfo.Name + ".json"
 	err = ioutil.WriteFile(file, joas, 0644)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal().Err(err)
 	}
 	fmt.Printf("WROTE [%v]\n", file)
 
