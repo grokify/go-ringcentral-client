@@ -8,9 +8,9 @@ import (
 	"github.com/antihax/optional"
 	"github.com/jessevdk/go-flags"
 
-	engagedigital "github.com/grokify/go-ringcentral/engagedigital/v1/client"
-	ex "github.com/grokify/go-ringcentral/engagedigital/v1/examples"
-	utils "github.com/grokify/go-ringcentral/engagedigital/v1/util"
+	engagedigital "github.com/grokify/go-ringcentral-client/engagedigital/v1/client"
+	ex "github.com/grokify/go-ringcentral-client/engagedigital/v1/examples"
+	utils "github.com/grokify/go-ringcentral-client/engagedigital/v1/util"
 )
 
 type options struct {

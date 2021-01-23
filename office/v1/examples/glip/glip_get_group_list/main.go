@@ -12,8 +12,8 @@ import (
 	"github.com/grokify/simplego/fmt/fmtutil"
 	"github.com/jessevdk/go-flags"
 
-	rc "github.com/grokify/go-ringcentral/office/v1/client"
-	ru "github.com/grokify/go-ringcentral/office/v1/util"
+	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
+	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
 )
 
 type Options struct {

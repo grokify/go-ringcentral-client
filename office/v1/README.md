@@ -7,14 +7,14 @@
 [![Stack Overflow][stackoverflow-svg]][stackoverflow-link]
 [![Twitter][twitter-svg]][twitter-link]
 
- [build-status-svg]: https://api.travis-ci.org/grokify/go-ringcentral.svg?branch=master
- [build-status-link]: https://travis-ci.org/grokify/go-ringcentral
- [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/go-ringcentral
- [goreport-link]: https://goreportcard.com/report/github.com/grokify/go-ringcentral
+ [build-status-svg]: https://api.travis-ci.org/grokify/go-ringcentral-client.svg?branch=master
+ [build-status-link]: https://travis-ci.org/grokify/go-ringcentral-client
+ [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/go-ringcentral-client
+ [goreport-link]: https://goreportcard.com/report/github.com/grokify/go-ringcentral-client
  [docs-godoc-svg]: https://img.shields.io/badge/docs-godoc-blue.svg
- [docs-godoc-link]: https://godoc.org/github.com/grokify/go-ringcentral
+ [docs-godoc-link]: https://godoc.org/github.com/grokify/go-ringcentral-client
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
- [license-link]: https://github.com/grokify/go-ringcentral/blob/master/LICENSE
+ [license-link]: https://github.com/grokify/go-ringcentral-client/blob/master/LICENSE
  [stackoverflow-svg]: https://img.shields.io/badge/Stack%20Overflow-ringcentral-orange.svg
  [stackoverflow-link]: https://stackoverflow.com/questions/tagged/ringcentral
  [twitter-svg]: https://img.shields.io/twitter/follow/ringcentraldevs.svg?style=social&label=follow
@@ -28,7 +28,7 @@ This API client does not include auth and relies on [`oauth2more/ringcentral`](h
 
 ## Installation
 
-`$ go get github.com/grokify/go-ringcentral/...`
+`$ go get github.com/grokify/go-ringcentral-client/...`
 
 ## Usage
 

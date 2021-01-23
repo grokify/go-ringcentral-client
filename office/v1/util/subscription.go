@@ -3,7 +3,7 @@ package clientutil
 import (
 	"time"
 
-	rc "github.com/grokify/go-ringcentral/office/v1/client"
+	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 )
 
 type SubscriptionManager struct {

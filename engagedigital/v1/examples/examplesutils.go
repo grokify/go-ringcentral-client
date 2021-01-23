@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	engagedigital "github.com/grokify/go-ringcentral/engagedigital/v1/client"
+	engagedigital "github.com/grokify/go-ringcentral-client/engagedigital/v1/client"
 	"github.com/grokify/simplego/fmt/fmtutil"
 )
 

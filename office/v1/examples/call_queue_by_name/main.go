@@ -15,8 +15,8 @@ import (
 	uu "github.com/grokify/simplego/net/urlutil"
 	"github.com/jessevdk/go-flags"
 
-	rc "github.com/grokify/go-ringcentral/office/v1/client"
-	ru "github.com/grokify/go-ringcentral/office/v1/util"
+	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
+	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
 	ro "github.com/grokify/oauth2more/ringcentral"
 )
 
@@ -75,7 +75,7 @@ func sendFaxRaw(opts CliOptions, httpClient *http.Client) {
 	}
 }
 
-// example: $ go run fax_send.go -to=+16505550100 -file=$GOPATH/src/github.com/grokify/go-ringcentral/examples/fax_send/test_file.pdf
+// example: $ go run fax_send.go -to=+16505550100 -file=$GOPATH/src/github.com/grokify/go-ringcentral-client/office/v1/examples/fax_send/test_file.pdf
 func main() {
 	opts := CliOptions{}
 	_, err := flags.Parse(&opts)

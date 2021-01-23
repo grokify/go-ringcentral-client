@@ -7,8 +7,8 @@ import (
 
 	"github.com/grokify/simplego/fmt/fmtutil"
 
-	rc "github.com/grokify/go-ringcentral/office/v1/client"
-	"github.com/grokify/go-ringcentral/office/v1/examples"
+	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
+	"github.com/grokify/go-ringcentral-client/office/v1/examples"
 	scu "github.com/grokify/simplego/strconv/strconvutil"
 )
 

@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	rc "github.com/grokify/go-ringcentral/office/v1/client"
+	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	"github.com/grokify/simplego/mime/multipartutil"
 	"github.com/nyaruka/phonenumbers"
 )

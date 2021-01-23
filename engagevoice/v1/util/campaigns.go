@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strconv"
 
-	engagevoice "github.com/grokify/go-ringcentral/engagevoice/v1/client"
+	engagevoice "github.com/grokify/go-ringcentral-client/engagevoice/v1/client"
 )
 
 func GetAllCampaigns(ctx context.Context, apiClient *engagevoice.APIClient, accountID string) ([]engagevoice.Campaign, error) {

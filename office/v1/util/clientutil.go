@@ -9,7 +9,7 @@ import (
 	"github.com/grokify/simplego/net/urlutil"
 	"github.com/joho/godotenv"
 
-	rc "github.com/grokify/go-ringcentral/office/v1/client"
+	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	rs "github.com/grokify/go-scim-client"
 	ro "github.com/grokify/oauth2more/ringcentral"
 )

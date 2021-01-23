@@ -5,7 +5,7 @@ import (
 
 	"github.com/grokify/oauth2more"
 
-	engagedigital "github.com/grokify/go-ringcentral/engagedigital/v1/client"
+	engagedigital "github.com/grokify/go-ringcentral-client/engagedigital/v1/client"
 )
 
 const (

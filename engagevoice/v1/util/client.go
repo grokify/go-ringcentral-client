@@ -3,8 +3,8 @@ package engagevoiceutil
 import (
 	"net/http"
 
-	engagevoice "github.com/grokify/go-ringcentral/engagevoice/v1/client"
-	"github.com/grokify/go-ringcentral/engagevoice/v1/util/lite"
+	engagevoice "github.com/grokify/go-ringcentral-client/engagevoice/v1/client"
+	"github.com/grokify/go-ringcentral-client/engagevoice/v1/util/lite"
 	"github.com/grokify/simplego/net/httputilmore"
 )
 

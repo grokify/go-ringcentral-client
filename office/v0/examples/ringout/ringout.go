@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	legacy "github.com/grokify/go-ringcentral/office/v0"
+	legacy "github.com/grokify/go-ringcentral-client/office/v0"
 	"github.com/grokify/simplego/fmt/fmtutil"
 	"github.com/joho/godotenv"
 )

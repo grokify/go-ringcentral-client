@@ -13,8 +13,8 @@ import (
 	"github.com/joho/godotenv"
 	log "github.com/sirupsen/logrus"
 
-	rc "github.com/grokify/go-ringcentral/office/v1/client"
-	rcu "github.com/grokify/go-ringcentral/office/v1/util"
+	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
+	rcu "github.com/grokify/go-ringcentral-client/office/v1/util"
 	rs "github.com/grokify/go-scim-client"
 	ro "github.com/grokify/oauth2more/ringcentral"
 )

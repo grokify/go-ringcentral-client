@@ -9,8 +9,8 @@ import (
 	"github.com/grokify/simplego/fmt/fmtutil"
 	"github.com/jessevdk/go-flags"
 
-	engagedigital "github.com/grokify/go-ringcentral/engagedigital/v1/client"
-	utils "github.com/grokify/go-ringcentral/engagedigital/v1/util"
+	engagedigital "github.com/grokify/go-ringcentral-client/engagedigital/v1/client"
+	utils "github.com/grokify/go-ringcentral-client/engagedigital/v1/util"
 )
 
 type options struct {

@@ -12,7 +12,7 @@ import (
 	"github.com/jessevdk/go-flags"
 	"github.com/pkg/errors"
 
-	ru "github.com/grokify/go-ringcentral/office/v1/util"
+	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
 	ro "github.com/grokify/oauth2more/ringcentral"
 )
 

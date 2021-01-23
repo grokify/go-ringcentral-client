@@ -13,8 +13,8 @@ import (
 	"github.com/jessevdk/go-flags"
 	"github.com/pkg/errors"
 
-	rc "github.com/grokify/go-ringcentral/office/v1/client"
-	ru "github.com/grokify/go-ringcentral/office/v1/util"
+	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
+	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
 	"github.com/grokify/oauth2more/ringcentral"
 )
 
@@ -56,7 +56,7 @@ func getApiClient() (*rc.APIClient, error) {
 	return ru.NewApiClientCredentials(creds)
 }
 
-// example: $ go run fax_send.go -to=+16505550100 -file=$GOPATH/src/github.com/grokify/go-ringcentral/examples/fax_send/test_file.pdf
+// example: $ go run fax_send.go -to=+16505550100 -file=$GOPATH/src/github.com/grokify/go-ringcentral-client/office/v1/examples/fax_send/test_file.pdf
 func main() {
 	creds, err := getCredentials()
 	if err != nil {

@@ -9,8 +9,8 @@ import (
 
 	"github.com/grokify/simplego/fmt/fmtutil"
 
-	rc "github.com/grokify/go-ringcentral/office/v1/client"
-	ru "github.com/grokify/go-ringcentral/office/v1/util"
+	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
+	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -86,7 +86,7 @@ func main() {
 	if 1 == 1 {
 		file := filepath.Join(
 			os.Getenv("GOPATH"),
-			"/src/github.com/grokify/go-ringcentral/clientutil/example_api-response_list-messages.json")
+			"/src/github.com/grokify/go-ringcentral-client/office/v1/util/example_api-response_list-messages.json")
 		resp, err := ioutil.ReadFile(file)
 		if err != nil {
 			log.Fatal(err)
