@@ -22,30 +22,30 @@ Get an overview of the API here:
 The following endpoints are covered by the OpenAPI 3.0 spec, the API Reference and the SDK.
 
 - [ ] Auth
-  - [x] [/v1/admin/token GET](v1/docs/AuthApi.md#gettokens)
+  - [x] [/v1/admin/token GET](v1/client/docs/AuthApi.md#gettokens)
 
 - [ ] Active Calls
   - [ ] /v1/admin/accounts/{accountId}/activeCalls/list?product={productName}&productId={productId} 
 
 - [ ] Agent Groups
-  - [x] [/v1/admin/accounts/{accountId}/agentGroups GET](v1/docs/AgentsApi.md#getagentgroups)
-  - [x] [/v1/admin/accounts/{accountId}/agentGroups/{agentGroupId}/agents GET](v1/docs/AgentsApi.md#getagents)
+  - [x] [/v1/admin/accounts/{accountId}/agentGroups GET](v1/client/docs/AgentsApi.md#getagentgroups)
+  - [x] [/v1/admin/accounts/{accountId}/agentGroups/{agentGroupId}/agents GET](v1/client/docs/AgentsApi.md#getagents)
 
 - [ ] Campaign Leads
-  - [x] [/v1/admin/accounts/{accountId}/campaignLeads/leadSearch POST](v1/docs/CampaignLeadsApi.md#searchcampaignleads)
-  - [x] [/v1/admin/accounts/{accountId}/campaignLeads/leadStates GET](v1/docs/CampaignLeadsApi.md#getcampaignleadstates)
-  - [x] [/v1/admin/accounts/{accountId}/campaignLeads/systemDispositions GET](v1/docs/CampaignLeadsApi.md#getsystemdispositions)
+  - [x] [/v1/admin/accounts/{accountId}/campaignLeads/leadSearch POST](v1/client/docs/CampaignLeadsApi.md#searchcampaignleads)
+  - [x] [/v1/admin/accounts/{accountId}/campaignLeads/leadStates GET](v1/client/docs/CampaignLeadsApi.md#getcampaignleadstates)
+  - [x] [/v1/admin/accounts/{accountId}/campaignLeads/systemDispositions GET](v1/client/docs/CampaignLeadsApi.md#getsystemdispositions)
 
 - [ ] Campaigns
-  - [x] [/v1/admin/accounts/{accountId}/campaigns/{campaignId}/leadLoader/direct POST](v1/docs/CampaignsApi.md#uploadleads)
+  - [x] [/v1/admin/accounts/{accountId}/campaigns/{campaignId}/leadLoader/direct POST](v1/client/docs/CampaignsApi.md#uploadleads)
 
 - [ ] Countries
-  - [x] [/v1/admin/accounts/{accountId}/countries/available GET](v1/docs/CountriesApi.md#getavailablecountries)
+  - [x] [/v1/admin/accounts/{accountId}/countries/available GET](v1/client/docs/CountriesApi.md#getavailablecountries)
 
 - [ ] Dial Groups
-  - [x] [/v1/admin/accounts/{accountId}/dialGroups GET](v1/docs/DialGroupsApi.md#getdialgroups)
-  - [x] [/v1/admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns GET](v1/docs/DialGroupsApi.md#getdialgroupcampaigns)
-  - [x] [/v1/admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns/{campaignId}/clearCache POST](v1/docs/DialGroupsApi.md#clearcampaigncache)
+  - [x] [/v1/admin/accounts/{accountId}/dialGroups GET](v1/client/docs/DialGroupsApi.md#getdialgroups)
+  - [x] [/v1/admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns GET](v1/client/docs/DialGroupsApi.md#getdialgroupcampaigns)
+  - [x] [/v1/admin/accounts/{accountId}/dialGroups/{dialGroupId}/campaigns/{campaignId}/clearCache POST](v1/client/docs/DialGroupsApi.md#clearcampaigncache)
 
 - [ ] Users
-  - [x] [/v1/admin/users GET](v1/docs/UsersApi.md#getusers)
+  - [x] [/v1/admin/users GET](v1/client/docs/UsersApi.md#getusers)
