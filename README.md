@@ -22,7 +22,15 @@
 
 ## Overview
 
-This is a API client built using [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) using this RingCentral API spec [`swagger_spec.yaml`](codegen/swagger_spec.yaml).
+<div align="center">
+
+:bangbang: This module has been renamed to `go-ringcentral-client` from `go-ringcentral` to better work with Go modules and its new versioning requirements. :bangbang:
+
+</div>
+
+This module provides RingCentral API clients for RingCentral Office, Engage Digital and Engage Voice.
+
+The clients are built using [OpenAPI Generator 4.x](https://github.com/OpenAPITools/openapi-generator) using this RingCentral API spec [`swagger_spec.yaml`](codegen/swagger_spec.yaml).
 
 This API client does not include auth and relies on [`oauth2more/ringcentral`](https://github.com/grokify/oauth2more/tree/master/ringcentral) to create an `*http.Client` to use as a dependency injection.
 
