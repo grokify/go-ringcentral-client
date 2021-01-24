@@ -24,7 +24,7 @@
 
 <div align="center">
 
-:bangbang: This module has been renamed to `go-ringcentral-client` from `go-ringcentral` to better work with Go modules and its new versioning requirements. Old versions are still available via `proxy.golang.org` :bangbang:
+:bangbang: This module has been renamed to `go-ringcentral-client` from `go-ringcentral` to better work with Go modules and its new versioning requirements. Old versions are still available via `sproxy.golang.org` :bangbang:
 
 </div>
 
@@ -40,7 +40,7 @@ This API client does not include auth and relies on [`oauth2more/ringcentral`](h
 
 ## Usage
 
-See examples in the [`examples`](examples) directory. To get started, you can use [`examples/get_me/get_me.go`](examples/get_me/get_me.go).
+See Office examples in the [`office/v1/examples`](office/v1/examples) directory. To get started, you can use [`office/v1/examples/get_me/get_me.go`](office/v1/examples/get_me/get_me.go).
 
 By default, these use a `.env` file which can be specified by the `ENV_PATH` environment variable or a local `./.env` file. Using one `.env` file specified by `ENV_PATH` is useful so you only need one file to run all the examples.
 
@@ -54,6 +54,12 @@ The auto-generated Swagger files are in the `client` folder and you can find the
 
 ## Related Packages
 
+### OAuth2More RingCentral
+
+For RingCentral auth haandling see [`oauth2more/ringcentral`](https://github.com/grokify/oauth2more/tree/master/ringcentral). This is specifically a package to retrieve a `*http.Client` or `*oauth2.Token` without needing the auto-generated models.
+
+### Beego Example
+
 In addition to [`oauth2more/ringcentral`](https://github.com/grokify/oauth2more/tree/master/ringcentral), the following project provides a website with OAuth 2.0 authorization code flow example:
 
-[`grokify/beego-oauth2-demo`](https://github.com/grokify/beego-oauth2-demo)
+[`grokify/beegoutil`](https://github.com/grokify/beegoutil)
