@@ -24,7 +24,7 @@
 
 <div align="center">
 
-:bangbang: This module has been renamed to `go-ringcentral-client` from `go-ringcentral` to better work with Go modules and its new versioning requirements. Old versions are still available via `sproxy.golang.org` :bangbang:
+:bangbang: This module has been renamed to `go-ringcentral-client` from `go-ringcentral` to better work with Go modules and its new versioning requirements. Old versions are still available via `proxy.golang.org` :bangbang:
 
 </div>
 
