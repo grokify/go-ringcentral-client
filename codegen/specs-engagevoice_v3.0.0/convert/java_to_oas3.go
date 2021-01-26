@@ -62,8 +62,8 @@ func main() {
 	fmtutil.PrintJSON(schema)
 
 	if 1 == 0 {
-		line := "private Boolean userManagedByRC;"
-		line = "private Boolean userManagedByRC = false;"
+		// line := "private Boolean userManagedByRC;"
+		line := "private Boolean userManagedByRC = false;"
 		name, prop, err := fromspring.ParseSpringLineToSchema(line)
 		if err != nil {
 			log.Fatal().Err(err)
@@ -89,7 +89,7 @@ func main() {
 	swag2 := oas3.Swagger{
 		Components: oas3.Components{
 			Schemas: map[string]*oas3.SchemaRef{
-				"Agent": &oas3.SchemaRef{
+				"Agent": {
 					Value: &oas3.Schema{
 						Properties: mss,
 					},

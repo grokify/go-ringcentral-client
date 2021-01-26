@@ -16,10 +16,13 @@ func GetUsers(serverURL, authOrApiToken string) ([]byte, error) {
 	}
 
 	req, err := http.NewRequest(http.MethodGet, apiURL, nil)
+	if err != nil {
+		return bytes, err
+	}
+
 	req.Header = headers
 	client := &http.Client{}
 	resp, err := client.Do(req)
-
 	if err != nil {
 		return bytes, err
 	} else if resp.StatusCode >= 300 {

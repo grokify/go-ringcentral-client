@@ -20,11 +20,11 @@ type options struct {
 
 func main() {
 	if 1 == 0 {
-		file := "specs-voice_v3.0.0/openapi-spec_campaigns.json"
-		file = "specs-voice_v3.0.0/openapi-spec_countries.json"
-		file = "specs-example_v3.0.0.json"
-		file = "specs-voice_v3.0.0/openapi-spec_agent-groups.json"
-		file = "specs-voice_v3.0.0/openapi-spec_agents.json"
+		// file := "specs-voice_v3.0.0/openapi-spec_campaigns.json"
+		// file = "specs-voice_v3.0.0/openapi-spec_countries.json"
+		// file = "specs-example_v3.0.0.json"
+		// file = "specs-voice_v3.0.0/openapi-spec_agent-groups.json"
+		file := "specs-voice_v3.0.0/openapi-spec_agents.json"
 		if 1 == 1 {
 			spec, err := openapi3.ReadFile(file, false)
 			if err != nil {
