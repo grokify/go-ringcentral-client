@@ -10,7 +10,7 @@ import (
 	"github.com/grokify/simplego/fmt/fmtutil"
 	"github.com/grokify/simplego/io/ioutilmore"
 	"github.com/grokify/simplego/type/stringsutil"
-	"github.com/grokify/swaggman/openapi3/fromspring"
+	"github.com/grokify/swaggman/openapi3/springopenapi3"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog/log"
 )
@@ -55,7 +55,7 @@ func main() {
 	fmtutil.PrintJSON(lines)
 	//panic("Z")
 
-	columnsRaw := fromspring.ParseSpringCodeColumnsRaw(lines)
+	columnsRaw := springopenapi3.ParseSpringCodeColumnsRaw(lines)
 	fmtutil.PrintJSON(columnsRaw)
 
 	schema := oas3.Schema{Properties: map[string]*oas3.SchemaRef{}}
@@ -64,7 +64,7 @@ func main() {
 	if 1 == 0 {
 		// line := "private Boolean userManagedByRC;"
 		line := "private Boolean userManagedByRC = false;"
-		name, prop, err := fromspring.ParseSpringLineToSchema(line)
+		name, prop, err := springopenapi3.ParseSpringLineToSchema(line)
 		if err != nil {
 			log.Fatal().Err(err)
 		}
@@ -73,7 +73,7 @@ func main() {
 		panic("Z")
 	}
 
-	mss, err := fromspring.ParseSpringPropertyLinesSliceToSchema(columnsRaw)
+	mss, err := springopenapi3.ParseSpringPropertyLinesSliceToSchema(columnsRaw)
 	if err != nil {
 		log.Info().Msg("S1")
 		log.Fatal().Err(err)

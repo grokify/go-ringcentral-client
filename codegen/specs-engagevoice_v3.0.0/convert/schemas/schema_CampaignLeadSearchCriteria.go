@@ -7,7 +7,7 @@ import (
 
 	oas3 "github.com/getkin/kin-openapi/openapi3"
 	"github.com/grokify/simplego/fmt/fmtutil"
-	"github.com/grokify/swaggman/openapi3/fromspring"
+	"github.com/grokify/swaggman/openapi3/springopenapi3"
 	"github.com/rs/zerolog/log"
 )
 
@@ -198,7 +198,7 @@ func ProcInfo(schemaInfo SchemaInfo) {
 	}
 	fmtutil.PrintJSON(lines)
 
-	mss, err := fromspring.ParseSpringLinesToMapStringSchemaRefs(
+	mss, err := springopenapi3.ParseSpringLinesToMapStringSchemaRefs(
 		lines, schemaInfo.ExplicitCustomTypes)
 	if err != nil {
 		log.Info().Msg("S1")
@@ -211,7 +211,7 @@ func ProcInfo(schemaInfo SchemaInfo) {
 			Schemas: map[string]*oas3.SchemaRef{
 				schemaInfo.Name: &oas3.SchemaRef{
 					Value: &oas3.Schema{
-						Type:       fromspring.TypeObject,
+						Type:       springopenapi3.TypeObject,
 						Properties: mss,
 					},
 				},
