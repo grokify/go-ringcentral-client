@@ -3,15 +3,14 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
 	"os"
+	"strings"
 
 	"github.com/antihax/optional"
-	"github.com/grokify/simplego/config"
 	"github.com/grokify/simplego/fmt/fmtutil"
 	hum "github.com/grokify/simplego/net/httputilmore"
 	"github.com/jessevdk/go-flags"
-	"github.com/pkg/errors"
+	"github.com/rs/zerolog/log"
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
@@ -19,65 +18,54 @@ import (
 )
 
 type CliOptions struct {
-	EnvFile string `short:"e" long:"env" description:"Env filepath"`
-	EnvVar  string `short:"v" long:"envVar" description:"Environment Variable Name"`
-	//Token         string   `short:"t" long:"token" description:"Token"`
-	To            []string `short:"t" long:"to" description:"Recipients"`
+	CredsPath     string   `short:"c" long:"credspath" description:"Environment File Path"`
+	Account       string   `short:"a" long:"account" description:"Environment Variable Name"`
+	To            []string `short:"t" long:"to" description:"Recipients" required:"true"`
 	Files         []string `short:"f" long:"file" description:"Files to send"`
-	CoverPageText string   `short:"c" long:"coverpagetext" description:"Cover Page Text"`
+	CoverPageText string   `short:"p" long:"coverpagetext" description:"Cover Page Text"`
 }
 
-func getCredentials() (ringcentral.Credentials, error) {
-	credsEmpty := ringcentral.Credentials{}
+func main() {
 	opts := CliOptions{}
 	_, err := flags.Parse(&opts)
 	if err != nil {
-		return credsEmpty, err
+		log.Fatal().Err(err)
+		panic(err)
 	}
+	fmtutil.PrintJSON(opts)
 
-	files, err := config.LoadDotEnv(opts.EnvFile)
+	cset, err := ringcentral.ReadFileCredentialsSet(opts.CredsPath)
 	if err != nil {
-		return credsEmpty, errors.Wrap(err, "E_LOAD_DOT_ENV")
+		log.Fatal().Err(err).
+			Str("credentials_filepath", opts.CredsPath).
+			Msg("cannot read credentials file")
 	}
-	fmtutil.PrintJSON(files)
 
-	if len(opts.EnvVar) == 0 {
-		return credsEmpty, errors.New("E_NO_ENV_VAR")
-	}
-	return ringcentral.NewCredentialsJSON([]byte(os.Getenv(opts.EnvVar)))
-}
-
-func getApiClient() (*rc.APIClient, error) {
-	creds, err := getCredentials()
+	creds, err := cset.Get(opts.Account)
 	if err != nil {
-		return nil, err
+		log.Fatal().Err(err).
+			Str("available_accounts", strings.Join(cset.Accounts(), ", ")).
+			Str("credentials_account", opts.Account).
+			Msg("cannot find credentials account")
 	}
-	fmtutil.PrintJSON(creds)
-	return ru.NewApiClientCredentials(creds)
-}
 
-// example: $ go run fax_send.go -to=+16505550100 -file=$GOPATH/src/github.com/grokify/go-ringcentral-client/office/v1/examples/fax_send/test_file.pdf
-func main() {
-	creds, err := getCredentials()
-	if err != nil {
-		log.Fatal(err)
-	}
 	httpClient, err := creds.NewClient()
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal().Err(err)
 	}
+
 	cu := ringcentral.ClientUtil{
 		Client:    httpClient,
 		ServerURL: creds.Application.ServerURL}
 
 	usr, err := cu.GetSCIMUser()
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal().Err(err)
 	}
 	fmtutil.PrintJSON(usr)
 
 	demoData := ru.FaxRequest{
-		To:            []string{"+16505626570"},
+		To:            opts.To,
 		CoverPageText: "Hello World Go",
 		Resolution:    "High",
 		FilePaths:     []string{"test_file.pdf"}}
@@ -85,24 +73,24 @@ func main() {
 	if 1 == 0 {
 		resp, err := demoData.Post(httpClient, creds.Application.ServerURL)
 		if err != nil {
-			log.Fatal(err)
+			log.Fatal().Err(err)
 		}
 		err = hum.PrintResponse(resp, true)
 		if err != nil {
-			log.Fatal(err)
+			log.Fatal().Err(err)
 		}
 	}
 
 	if 1 == 1 {
 		apiClient, err := ru.NewApiClientHttpClientBaseURL(httpClient, creds.Application.ServerURL)
 		if err != nil {
-			log.Fatal(err)
+			log.Fatal().Err(err)
 		}
 		fmt.Println(demoData.FilePaths[0])
 
 		file, err := os.Open(demoData.FilePaths[0])
 		if err != nil {
-			log.Fatal(err)
+			log.Fatal().Err(err)
 		}
 
 		params := rc.SendFaxMessageOpts{}
@@ -121,7 +109,7 @@ func main() {
 			&params)
 
 		if err != nil {
-			panic(err)
+			log.Fatal().Err(err)
 		} else if resp.StatusCode > 299 {
 			panic(fmt.Errorf("API Status %v", resp.StatusCode))
 		}
