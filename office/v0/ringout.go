@@ -19,7 +19,11 @@ var RingOutURL = "https://service.ringcentral.com/ringout.asp"
 func Call(params CallRequestInfo) (*CallResponseInfo, *http.Response, error) {
 	params.Command = CmdCall
 
-	resp, err := http.Get(uu.BuildURLQueryString(RingOutURL, params))
+	roURL, err := uu.URLAddQueryInterfaceString(RingOutURL, params)
+	if err != nil {
+		return nil, nil, err
+	}
+	resp, err := http.Get(roURL.String())
 	if err != nil {
 		return nil, resp, err
 	}

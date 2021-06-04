@@ -8,8 +8,8 @@ import (
 
 	"github.com/grokify/simplego/fmt/fmtutil"
 	"github.com/grokify/simplego/path/filepathutil"
-	"github.com/grokify/swaggman/openapi2"
-	"github.com/grokify/swaggman/openapi3"
+	"github.com/grokify/spectrum/openapi2"
+	"github.com/grokify/spectrum/openapi3"
 	"github.com/jessevdk/go-flags"
 )
 

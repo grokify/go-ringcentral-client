@@ -10,12 +10,13 @@ import (
 	"strings"
 	"time"
 
-	ro "github.com/grokify/oauth2more/ringcentral"
+	"github.com/grokify/simplego/net/urlutil"
 )
 
 const (
-	GroupTypeTeam   = "Team"
-	groupNameIdJoin = " - "
+	GroupTypeTeam         = "Team"
+	groupNameIdJoin       = " - "
+	ApiPathListUserGroups = "/restapi/v1.0/glip/groups"
 )
 
 type GroupsSet struct {
@@ -111,8 +112,15 @@ func NewGroupsSetApiRequest(client *http.Client, serverUrl string, groupType str
 	}
 
 	for {
-		groupsURL := ro.BuildURL(serverUrl, "/glip/groups", true, query)
-		resp, err := client.Get(groupsURL)
+		// apiUrlString := urlutil.JoinAbsolute(serverUrl, ApiPathListUserGroups)
+		// groupsURL := ro.BuildURL(serverUrl, "/glip/groups", true, query)
+		groupsURL, err := urlutil.URLAddQueryValuesString(
+			urlutil.JoinAbsolute(serverUrl, ApiPathListUserGroups),
+			query)
+		if err != nil {
+			return set, err
+		}
+		resp, err := client.Get(groupsURL.String())
 		if err != nil {
 			return set, err
 		}

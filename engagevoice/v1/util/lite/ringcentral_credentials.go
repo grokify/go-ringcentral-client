@@ -67,7 +67,7 @@ func RcToEvToken(rctoken string) (EngageToken, error) {
 		return evToken, fmt.Errorf("RcToEvToken.ApiResponse.StatusCode [%v]", res.StatusCode)
 	}
 
-	_, err = jsonutil.UnmarshalIoReader(res.Body, &evToken)
+	_, err = jsonutil.UnmarshalReader(res.Body, &evToken)
 	if err != nil {
 		err = errors.Wrap(err, "RcToEvToken.jsonutil.UnmarshalIoReader")
 	}

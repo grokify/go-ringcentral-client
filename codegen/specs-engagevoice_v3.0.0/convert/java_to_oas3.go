@@ -10,7 +10,7 @@ import (
 	"github.com/grokify/simplego/fmt/fmtutil"
 	"github.com/grokify/simplego/io/ioutilmore"
 	"github.com/grokify/simplego/type/stringsutil"
-	"github.com/grokify/swaggman/openapi3/springopenapi3"
+	"github.com/grokify/spectrum/openapi3/springopenapi3"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog/log"
 )

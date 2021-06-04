@@ -147,14 +147,14 @@ func RequestAuthToken(username, password string) (*LoginSuccess, *LoginError, *h
 	fmt.Println(string(bytes))
 	if resp.StatusCode != 200 {
 		respData := LoginError{}
-		_, err := jsonutil.UnmarshalIoReader(resp.Body, &respData)
+		_, err := jsonutil.UnmarshalReader(resp.Body, &respData)
 		if err != nil {
 			return nil, &respData, resp, err
 		}
 		return nil, &respData, resp, fmt.Errorf("AuthUrl Status != 200 [%v]", resp.StatusCode)
 	}
 	authData := LoginSuccess{}
-	_, err = jsonutil.UnmarshalIoReader(resp.Body, &authData)
+	_, err = jsonutil.UnmarshalReader(resp.Body, &authData)
 	if err != nil {
 		return nil, nil, resp, err
 	}
