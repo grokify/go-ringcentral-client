@@ -7,6 +7,7 @@ import (
 
 	oas3 "github.com/getkin/kin-openapi/openapi3"
 	"github.com/grokify/simplego/fmt/fmtutil"
+	"github.com/grokify/spectrum/openapi3"
 	"github.com/grokify/spectrum/openapi3/springopenapi3"
 	"github.com/rs/zerolog/log"
 )
@@ -19,7 +20,7 @@ type SchemaInfo struct {
 }
 
 var infos = map[string]SchemaInfo{
-	"CampaignLeadSearchCriteria": SchemaInfo{
+	"CampaignLeadSearchCriteria": {
 		Name: "CampaignLeadSearchCriteria",
 		ExplicitCustomTypes: []string{
 			"ComparableSearchField",
@@ -206,7 +207,7 @@ func ProcInfo(schemaInfo SchemaInfo) {
 	}
 	fmtutil.PrintJSON(mss)
 
-	oas := oas3.Swagger{
+	oas := openapi3.Spec{
 		Components: oas3.Components{
 			Schemas: map[string]*oas3.SchemaRef{
 				schemaInfo.Name: &oas3.SchemaRef{

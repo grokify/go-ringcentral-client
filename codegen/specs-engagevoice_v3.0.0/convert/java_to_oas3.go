@@ -10,17 +10,18 @@ import (
 	"github.com/grokify/simplego/fmt/fmtutil"
 	"github.com/grokify/simplego/io/ioutilmore"
 	"github.com/grokify/simplego/type/stringsutil"
+	"github.com/grokify/spectrum/openapi3"
 	"github.com/grokify/spectrum/openapi3/springopenapi3"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog/log"
 )
 
-func ReadOas3Spec(file string, validate bool) (*oas3.Swagger, error) {
+func ReadOas3Spec(file string, validate bool) (*openapi3.Spec, error) {
 	bytes, err := ioutil.ReadFile(file)
 	if err != nil {
 		return nil, errors.Wrap(err, fmt.Sprintf("Filename [%v]", file))
 	}
-	swag := &oas3.Swagger{}
+	swag := &openapi3.Spec{}
 	err = swag.UnmarshalJSON(bytes)
 	if err != nil {
 		return nil, errors.Wrap(err, fmt.Sprintf("Filename [%v]", file))
@@ -86,7 +87,7 @@ func main() {
 	}
 	fmt.Printf("WROTE [%v]\n", "_schema_agent.json")
 
-	swag2 := oas3.Swagger{
+	swag2 := openapi3.Spec{
 		Components: oas3.Components{
 			Schemas: map[string]*oas3.SchemaRef{
 				"Agent": {
