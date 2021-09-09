@@ -14,21 +14,20 @@ import (
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
-	ro "github.com/grokify/oauth2more/ringcentral"
+	"github.com/grokify/oauth2more/credentials"
 )
 
 type Handler struct {
 	AppPort        int
 	APIClient      *rc.APIClient
-	AppCredentials *ro.ApplicationCredentials
+	AppCredentials *credentials.ApplicationCredentials
 }
 
 func (h *Handler) RingOut(res http.ResponseWriter, req *http.Request) {
 	reqUtil := nhu.RequestUtil{Request: req}
 
-	pwdCredentials := ro.PasswordCredentials{
+	pwdCredentials := credentials.PasswordCredentials{
 		Username:        reqUtil.QueryParamString("username"),
-		Extension:       reqUtil.QueryParamString("ext"),
 		Password:        reqUtil.QueryParamString("password"),
 		RefreshTokenTTL: int64(-1),
 	}
@@ -93,7 +92,7 @@ func main() {
 
 	handler := Handler{
 		AppPort: 8080,
-		AppCredentials: &ro.ApplicationCredentials{
+		AppCredentials: &credentials.ApplicationCredentials{
 			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
 			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
 			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET"),

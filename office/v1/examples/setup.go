@@ -6,6 +6,7 @@ import (
 	"github.com/joho/godotenv"
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
+	"github.com/grokify/oauth2more/credentials"
 	ro "github.com/grokify/oauth2more/ringcentral"
 )
 
@@ -19,14 +20,13 @@ func LoadEnv() error {
 
 func NewApiClient() (*rc.APIClient, error) {
 	httpClient, err := ro.NewClientPassword(
-		ro.ApplicationCredentials{
+		credentials.ApplicationCredentials{
 			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
 			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
 			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET")},
-		ro.PasswordCredentials{
-			Username:  os.Getenv("RINGCENTRAL_USERNAME"),
-			Extension: os.Getenv("RINGCENTRAL_EXTENSION"),
-			Password:  os.Getenv("RINGCENTRAL_PASSWORD")})
+		credentials.PasswordCredentials{
+			Username: os.Getenv("RINGCENTRAL_USERNAME"),
+			Password: os.Getenv("RINGCENTRAL_PASSWORD")})
 	if err != nil {
 		return nil, err
 	}

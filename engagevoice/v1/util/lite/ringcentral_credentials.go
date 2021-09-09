@@ -6,19 +6,19 @@ import (
 	"net/url"
 
 	"github.com/grokify/oauth2more"
-	"github.com/grokify/oauth2more/ringcentral"
+	"github.com/grokify/oauth2more/credentials"
 	"github.com/grokify/simplego/encoding/jsonutil"
 	"github.com/pkg/errors"
 )
 
 type EngageCredentials struct {
-	Credentials ringcentral.Credentials
+	Credentials credentials.Credentials
 	EngageToken EngageToken
 }
 
 func NewEngageCredentialsJSON(rcCredentialsJSON []byte) (EngageCredentials, error) {
 	ec := EngageCredentials{}
-	rcCredentials, err := ringcentral.NewCredentialsJSON(rcCredentialsJSON)
+	rcCredentials, err := credentials.NewCredentialsJSON(rcCredentialsJSON)
 	if err != nil {
 		return ec, errors.Wrap(err, "NewEngageCredentialsJSON>>ringcentral.NewCredentialsJSON")
 	}

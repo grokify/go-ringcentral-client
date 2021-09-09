@@ -9,6 +9,7 @@ import (
 
 	"github.com/antihax/optional"
 	"github.com/caarlos0/env"
+	"github.com/grokify/oauth2more/credentials"
 	"github.com/grokify/simplego/config"
 	"github.com/grokify/simplego/fmt/fmtutil"
 	hum "github.com/grokify/simplego/net/httputilmore"
@@ -17,7 +18,6 @@ import (
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
-	ro "github.com/grokify/oauth2more/ringcentral"
 )
 
 type CliOptions struct {
@@ -41,18 +41,17 @@ func NewRingCentralConfigEnv() (*RingCentralConfig, error) {
 	return appCfg, env.Parse(appCfg)
 }
 
-func (cfg *RingCentralConfig) ApplicationCredentials() ro.ApplicationCredentials {
-	return ro.ApplicationCredentials{
+func (cfg *RingCentralConfig) ApplicationCredentials() credentials.ApplicationCredentials {
+	return credentials.ApplicationCredentials{
 		ServerURL:    cfg.ServerURL,
 		ClientID:     cfg.ClientID,
 		ClientSecret: cfg.ClientSecret}
 }
 
-func (cfg *RingCentralConfig) PasswordCredentials() ro.PasswordCredentials {
-	return ro.PasswordCredentials{
-		Username:  cfg.Username,
-		Extension: cfg.Extension,
-		Password:  cfg.Password}
+func (cfg *RingCentralConfig) PasswordCredentials() credentials.PasswordCredentials {
+	return credentials.PasswordCredentials{
+		Username: cfg.Username,
+		Password: cfg.Password}
 }
 
 func sendFaxRaw(opts CliOptions, httpClient *http.Client) {

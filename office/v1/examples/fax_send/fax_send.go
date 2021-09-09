@@ -14,6 +14,7 @@ import (
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
+	"github.com/grokify/oauth2more/credentials"
 	"github.com/grokify/oauth2more/ringcentral"
 )
 
@@ -34,7 +35,7 @@ func main() {
 	}
 	fmtutil.PrintJSON(opts)
 
-	cset, err := ringcentral.ReadFileCredentialsSet(opts.CredsPath)
+	cset, err := credentials.ReadFileCredentialsSet(opts.CredsPath, true)
 	if err != nil {
 		log.Fatal().Err(err).
 			Str("credentials_filepath", opts.CredsPath).

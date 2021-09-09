@@ -9,6 +9,7 @@ import (
 	"os"
 
 	"github.com/grokify/oauth2more"
+	"github.com/grokify/oauth2more/credentials"
 	"github.com/grokify/oauth2more/ringcentral"
 	"github.com/grokify/simplego/config"
 	"github.com/grokify/simplego/fmt/fmtutil"
@@ -40,8 +41,8 @@ func loadEnv() (Options, error) {
 	return opts, nil
 }
 
-func getApplicationConfig(cfg []byte) (ringcentral.Credentials, error) {
-	ac := ringcentral.Credentials{}
+func getApplicationConfig(cfg []byte) (credentials.Credentials, error) {
+	ac := credentials.Credentials{}
 	err := json.Unmarshal(cfg, &ac)
 	if err != nil {
 		return ac, errors.Wrap(
@@ -50,7 +51,7 @@ func getApplicationConfig(cfg []byte) (ringcentral.Credentials, error) {
 	return ac, nil
 }
 
-func getTokenFromApplicationConfig(ac ringcentral.Credentials) (*oauth2.Token, error) {
+func getTokenFromApplicationConfig(ac credentials.Credentials) (*oauth2.Token, error) {
 	token, err := ringcentral.NewTokenPassword(
 		ac.Application,
 		ac.PasswordCredentials)

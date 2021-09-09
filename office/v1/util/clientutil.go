@@ -6,6 +6,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/grokify/oauth2more/credentials"
 	"github.com/grokify/simplego/net/urlutil"
 	"github.com/joho/godotenv"
 
@@ -33,7 +34,7 @@ func NewApiClientHttpClientBaseURL(httpClient *http.Client, serverUrl string) (*
 	return apiClient, nil
 }
 
-func NewApiClientCredentials(creds ro.Credentials) (*rc.APIClient, error) {
+func NewApiClientCredentials(creds credentials.Credentials) (*rc.APIClient, error) {
 	httpClient, err := creds.NewClient()
 	if err != nil {
 		return nil, err
@@ -41,7 +42,7 @@ func NewApiClientCredentials(creds ro.Credentials) (*rc.APIClient, error) {
 	return NewApiClientHttpClientBaseURL(httpClient, creds.Application.ServerURL)
 }
 
-func NewApiClientPassword(app ro.ApplicationCredentials, pwd ro.PasswordCredentials) (*rc.APIClient, error) {
+func NewApiClientPassword(app credentials.ApplicationCredentials, pwd credentials.PasswordCredentials) (*rc.APIClient, error) {
 	httpClient, err := ro.NewClientPassword(app, pwd)
 	if err != nil {
 		return nil, err
@@ -49,7 +50,7 @@ func NewApiClientPassword(app ro.ApplicationCredentials, pwd ro.PasswordCredenti
 	return NewApiClientHttpClientBaseURL(httpClient, app.ServerURL)
 }
 
-func NewApiClientPasswordSimple(app ro.ApplicationCredentials, user ro.PasswordCredentials) (*rc.APIClient, error) {
+func NewApiClientPasswordSimple(app credentials.ApplicationCredentials, user credentials.PasswordCredentials) (*rc.APIClient, error) {
 	httpClient, err := ro.NewClientPasswordSimple(app, user)
 	if err != nil {
 		return nil, err
@@ -63,7 +64,7 @@ func NewApiClientPasswordEnv() (*rc.APIClient, error) {
 		ro.NewPasswordCredentialsEnv())
 }
 
-func NewScimApiClient(app ro.ApplicationCredentials, pwd ro.PasswordCredentials) (*rs.APIClient, error) {
+func NewScimApiClient(app credentials.ApplicationCredentials, pwd credentials.PasswordCredentials) (*rs.APIClient, error) {
 	httpClient, err := ro.NewClientPassword(app, pwd)
 	if err != nil {
 		return nil, err
