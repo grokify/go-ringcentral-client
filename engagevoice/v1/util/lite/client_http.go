@@ -52,8 +52,7 @@ func NewClientRingCentralPassword(rcCredentials []byte) (*http.Client, error) {
 		}
 
 		// 3. Get Engage Client
-		engageClient := oauth2more.NewClientToken(
-			oauth2more.TokenBearer, engageAccessToken.AccessToken, false)
+		engageClient := goauth.NewClientToken(
+			goauth.TokenBearer, engageAccessToken.AccessToken, false)
 		return engageClient, nil*/
-
 }

@@ -7,7 +7,7 @@ import (
 	"os"
 
 	"github.com/caarlos0/env"
-	om "github.com/grokify/oauth2more"
+	"github.com/grokify/goauth"
 	"github.com/grokify/simplego/config"
 	"github.com/grokify/simplego/fmt/fmtutil"
 	"github.com/jessevdk/go-flags"
@@ -45,7 +45,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	httpClient, err := om.NewClientTokenJSON(
+	httpClient, err := goauth.NewClientTokenJSON(
 		context.Background(), []byte(appCfg.TokenJSON))
 	if err != nil {
 		log.Fatal(err)

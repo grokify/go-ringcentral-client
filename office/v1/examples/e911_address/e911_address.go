@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/grokify/oauth2more/credentials"
+	"github.com/grokify/goauth/credentials"
 	"github.com/grokify/simplego/config"
 	"github.com/grokify/simplego/fmt/fmtutil"
 
@@ -42,13 +42,7 @@ func main() {
 	}
 
 	apiClient, err := ru.NewApiClientPassword(
-		credentials.ApplicationCredentials{
-			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
-			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
-			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET")},
-		credentials.PasswordCredentials{
-			Username: os.Getenv("RINGCENTRAL_USERNAME"),
-			Password: os.Getenv("RINGCENTRAL_PASSWORD")})
+		credentials.NewOAuth2CredentialsEnv("RINGCENTRAL_"))
 	if err != nil {
 		panic(err)
 	}

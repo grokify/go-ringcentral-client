@@ -8,12 +8,11 @@ import (
 	"os"
 
 	"github.com/antihax/optional"
-	"github.com/caarlos0/env"
-	"github.com/grokify/oauth2more/credentials"
+	"github.com/grokify/goauth/credentials"
 	"github.com/grokify/simplego/config"
 	"github.com/grokify/simplego/fmt/fmtutil"
-	hum "github.com/grokify/simplego/net/httputilmore"
-	uu "github.com/grokify/simplego/net/urlutil"
+	"github.com/grokify/simplego/net/httputilmore"
+	"github.com/grokify/simplego/net/urlutil"
 	"github.com/jessevdk/go-flags"
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
@@ -27,33 +26,6 @@ type CliOptions struct {
 	CoverPageText string   `short:"c" long:"coverpagetext" description:"Cover Page Text"`
 }
 
-type RingCentralConfig struct {
-	ServerURL    string `env:"RINGCENTRAL_SERVER_URL"`
-	ClientID     string `env:"RINGCENTRAL_CLIENT_ID"`
-	ClientSecret string `env:"RINGCENTRAL_CLIENT_SECRET"`
-	Username     string `env:"RINGCENTRAL_USERNAME"`
-	Extension    string `env:"RINGCENTRAL_EXTENSION"`
-	Password     string `env:"RINGCENTRAL_PASSWORD"`
-}
-
-func NewRingCentralConfigEnv() (*RingCentralConfig, error) {
-	appCfg := &RingCentralConfig{}
-	return appCfg, env.Parse(appCfg)
-}
-
-func (cfg *RingCentralConfig) ApplicationCredentials() credentials.ApplicationCredentials {
-	return credentials.ApplicationCredentials{
-		ServerURL:    cfg.ServerURL,
-		ClientID:     cfg.ClientID,
-		ClientSecret: cfg.ClientSecret}
-}
-
-func (cfg *RingCentralConfig) PasswordCredentials() credentials.PasswordCredentials {
-	return credentials.PasswordCredentials{
-		Username: cfg.Username,
-		Password: cfg.Password}
-}
-
 func sendFaxRaw(opts CliOptions, httpClient *http.Client) {
 	fax := ru.FaxRequest{
 		To:            opts.To,
@@ -62,13 +34,13 @@ func sendFaxRaw(opts CliOptions, httpClient *http.Client) {
 		FilePaths:     opts.Files,
 	}
 
-	url := uu.JoinAbsolute(os.Getenv("RINGCENTRAL_SERVER_URL"), "/restapi/v1.0/account/~/extension/~/fax")
+	url := urlutil.JoinAbsolute(os.Getenv("RINGCENTRAL_SERVER_URL"), "/restapi/v1.0/account/~/extension/~/fax")
 
 	resp, err := fax.Post(httpClient, url)
 	if err != nil {
 		panic(err)
 	}
-	err = hum.PrintResponse(resp, true)
+	err = httputilmore.PrintResponse(resp, true)
 	if err != nil {
 		panic(err)
 	}
@@ -85,17 +57,17 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	rcCfg, err := NewRingCentralConfigEnv()
-	if err != nil {
-		log.Fatal(err)
-	}
-
 	fmtutil.PrintJSON(opts)
-	fmtutil.PrintJSON(rcCfg)
+	/*
+			rcCfg, err := NewRingCentralConfigEnv()
+			if err != nil {
+				log.Fatal(err)
+			}
+		fmtutil.PrintJSON(rcCfg)
+	*/
 
 	apiClient, err := ru.NewApiClientPassword(
-		rcCfg.ApplicationCredentials(),
-		rcCfg.PasswordCredentials())
+		credentials.NewOAuth2CredentialsEnv("RINGCENTRAL_"))
 	if err != nil {
 		log.Fatal(err)
 	}

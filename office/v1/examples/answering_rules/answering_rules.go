@@ -7,13 +7,13 @@ import (
 	"log"
 	"os"
 
+	"github.com/grokify/goauth/credentials"
 	"github.com/grokify/simplego/fmt/fmtutil"
-	hum "github.com/grokify/simplego/net/httputilmore"
+	"github.com/grokify/simplego/net/httputilmore"
 	"github.com/joho/godotenv"
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	rcu "github.com/grokify/go-ringcentral-client/office/v1/util"
-	ro "github.com/grokify/oauth2more/ringcentral"
 )
 
 func loadEnv() error {
@@ -32,7 +32,7 @@ func listRules(apiClient *rc.APIClient) {
 		panic(err)
 	}
 
-	err = hum.PrintResponse(resp, true)
+	err = httputilmore.PrintResponse(resp, true)
 	if err != nil {
 		panic(err)
 	}
@@ -62,9 +62,7 @@ func main() {
 	}
 
 	apiClient, err := rcu.NewApiClientPassword(
-		ro.NewApplicationCredentialsEnv(),
-		ro.NewPasswordCredentialsEnv(),
-	)
+		credentials.NewOAuth2CredentialsEnv("RINGCENTRAL_"))
 	if err != nil {
 		log.Fatal(err)
 	}

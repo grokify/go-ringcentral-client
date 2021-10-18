@@ -1,18 +1,19 @@
 package clientutil
 
 import (
+	"context"
 	"fmt"
 	"net/http"
 	"os"
 	"strings"
 
-	"github.com/grokify/oauth2more/credentials"
+	"github.com/grokify/goauth/credentials"
 	"github.com/grokify/simplego/net/urlutil"
 	"github.com/joho/godotenv"
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	rs "github.com/grokify/go-scim-client"
-	ro "github.com/grokify/oauth2more/ringcentral"
+	ro "github.com/grokify/goauth/ringcentral"
 )
 
 func LoadEnv() error {
@@ -35,42 +36,40 @@ func NewApiClientHttpClientBaseURL(httpClient *http.Client, serverUrl string) (*
 }
 
 func NewApiClientCredentials(creds credentials.Credentials) (*rc.APIClient, error) {
-	httpClient, err := creds.NewClient()
+	httpClient, err := creds.NewClient(context.Background())
 	if err != nil {
 		return nil, err
 	}
-	return NewApiClientHttpClientBaseURL(httpClient, creds.Application.ServerURL)
+	return NewApiClientHttpClientBaseURL(httpClient, creds.OAuth2.ServerURL)
 }
 
-func NewApiClientPassword(app credentials.ApplicationCredentials, pwd credentials.PasswordCredentials) (*rc.APIClient, error) {
-	httpClient, err := ro.NewClientPassword(app, pwd)
+func NewApiClientPassword(oc credentials.OAuth2Credentials) (*rc.APIClient, error) {
+	httpClient, err := ro.NewClientPassword(oc)
 	if err != nil {
 		return nil, err
 	}
-	return NewApiClientHttpClientBaseURL(httpClient, app.ServerURL)
+	return NewApiClientHttpClientBaseURL(httpClient, oc.ServerURL)
 }
 
-func NewApiClientPasswordSimple(app credentials.ApplicationCredentials, user credentials.PasswordCredentials) (*rc.APIClient, error) {
-	httpClient, err := ro.NewClientPasswordSimple(app, user)
+func NewApiClientPasswordSimple(oc credentials.OAuth2Credentials) (*rc.APIClient, error) {
+	httpClient, err := ro.NewClientPasswordSimple(oc)
 	if err != nil {
 		return nil, err
 	}
-	return NewApiClientHttpClientBaseURL(httpClient, app.ServerURL)
+	return NewApiClientHttpClientBaseURL(httpClient, oc.ServerURL)
 }
 
-func NewApiClientPasswordEnv() (*rc.APIClient, error) {
-	return NewApiClientPassword(
-		ro.NewApplicationCredentialsEnv(),
-		ro.NewPasswordCredentialsEnv())
+func NewApiClientPasswordEnv(envPrefix string) (*rc.APIClient, error) {
+	return NewApiClientPassword(credentials.NewOAuth2CredentialsEnv(envPrefix))
 }
 
-func NewScimApiClient(app credentials.ApplicationCredentials, pwd credentials.PasswordCredentials) (*rs.APIClient, error) {
-	httpClient, err := ro.NewClientPassword(app, pwd)
+func NewScimApiClient(oc credentials.OAuth2Credentials) (*rs.APIClient, error) {
+	httpClient, err := ro.NewClientPassword(oc)
 	if err != nil {
 		return nil, err
 	}
 	apiConfig := rs.NewConfiguration()
-	apiConfig.BasePath = urlutil.JoinAbsolute(app.ServerURL, "/scim/v2")
+	apiConfig.BasePath = urlutil.JoinAbsolute(oc.ServerURL, "/scim/v2")
 	apiConfig.HTTPClient = httpClient
 	apiClient := rs.NewAPIClient(apiConfig)
 	return apiClient, nil

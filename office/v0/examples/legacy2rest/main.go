@@ -14,19 +14,25 @@ import (
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
-	"github.com/grokify/oauth2more/credentials"
+	"github.com/grokify/goauth"
+	"github.com/grokify/goauth/credentials"
 )
 
 type Handler struct {
 	AppPort        int
 	APIClient      *rc.APIClient
-	AppCredentials *credentials.ApplicationCredentials
+	AppCredentials *credentials.OAuth2Credentials
 }
 
 func (h *Handler) RingOut(res http.ResponseWriter, req *http.Request) {
 	reqUtil := nhu.RequestUtil{Request: req}
 
-	pwdCredentials := credentials.PasswordCredentials{
+	pwdCredentials := credentials.OAuth2Credentials{
+		ClientID:        h.AppCredentials.ClientID,
+		ClientSecret:    h.AppCredentials.ClientSecret,
+		ServerURL:       h.AppCredentials.ServerURL,
+		OAuth2Endpoint:  h.AppCredentials.OAuth2Endpoint,
+		GrantType:       goauth.GrantTypePassword,
 		Username:        reqUtil.QueryParamString("username"),
 		Password:        reqUtil.QueryParamString("password"),
 		RefreshTokenTTL: int64(-1),
@@ -40,7 +46,7 @@ func (h *Handler) RingOut(res http.ResponseWriter, req *http.Request) {
 
 	log.Printf("%v\n", ringOut)
 
-	apiClient, err := ru.NewApiClientPassword(*h.AppCredentials, pwdCredentials)
+	apiClient, err := ru.NewApiClientPassword(pwdCredentials)
 	if err != nil {
 		res.WriteHeader(http.StatusBadRequest)
 		return
@@ -92,7 +98,7 @@ func main() {
 
 	handler := Handler{
 		AppPort: 8080,
-		AppCredentials: &credentials.ApplicationCredentials{
+		AppCredentials: &credentials.OAuth2Credentials{
 			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
 			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
 			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET"),

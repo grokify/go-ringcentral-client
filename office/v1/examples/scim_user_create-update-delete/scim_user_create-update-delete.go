@@ -13,6 +13,10 @@ import (
 	rcu "github.com/grokify/go-ringcentral-client/office/v1/util"
 )
 
+const (
+	envPrefix = "RINGCENTRAL_"
+)
+
 func loadEnv() error {
 	envPaths := []string{}
 	if len(os.Getenv("ENV_PATH")) > 0 {
@@ -61,7 +65,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	apiClient, err := rcu.NewApiClientPasswordEnv()
+	apiClient, err := rcu.NewApiClientPasswordEnv(envPrefix)
 	if err != nil {
 		panic(err)
 	}

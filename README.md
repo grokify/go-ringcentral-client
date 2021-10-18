@@ -32,7 +32,7 @@ This module provides RingCentral API clients for RingCentral Office, Engage Digi
 
 The clients are built using [OpenAPI Generator 4.x](https://github.com/OpenAPITools/openapi-generator) using this RingCentral API spec [`swagger_spec.yaml`](codegen/swagger_spec.yaml).
 
-This API client does not include auth and relies on [`oauth2more/ringcentral`](https://github.com/grokify/oauth2more/tree/master/ringcentral) to create an `*http.Client` to use as a dependency injection.
+This API client does not include auth and relies on [`goauth/ringcentral`](https://github.com/grokify/goauth/tree/master/ringcentral) to create an `*http.Client` to use as a dependency injection.
 
 ## Installation
 
@@ -54,12 +54,12 @@ The auto-generated Swagger files are in the `client` folder and you can find the
 
 ## Related Packages
 
-### OAuth2More RingCentral
+### GoAuth RingCentral
 
-For RingCentral auth haandling see [`oauth2more/ringcentral`](https://github.com/grokify/oauth2more/tree/master/ringcentral). This is specifically a package to retrieve a `*http.Client` or `*oauth2.Token` without needing the auto-generated models.
+For RingCentral auth haandling see [`goauth/ringcentral`](https://github.com/grokify/goauth/tree/master/ringcentral). This is specifically a package to retrieve a `*http.Client` or `*oauth2.Token` without needing the auto-generated models.
 
 ### Beego Example
 
-In addition to [`oauth2more/ringcentral`](https://github.com/grokify/oauth2more/tree/master/ringcentral), the following project provides a website with OAuth 2.0 authorization code flow example:
+In addition to [`goauth/ringcentral`](https://github.com/grokify/goauth/tree/master/ringcentral), the following project provides a website with OAuth 2.0 authorization code flow example:
 
 [`grokify/beegoutil`](https://github.com/grokify/beegoutil)

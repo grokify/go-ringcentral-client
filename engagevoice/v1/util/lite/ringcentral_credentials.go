@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/grokify/oauth2more"
-	"github.com/grokify/oauth2more/credentials"
+	"github.com/grokify/goauth"
+	"github.com/grokify/goauth/credentials"
 	"github.com/grokify/simplego/encoding/jsonutil"
 	"github.com/pkg/errors"
 )
@@ -18,7 +18,7 @@ type EngageCredentials struct {
 
 func NewEngageCredentialsJSON(rcCredentialsJSON []byte) (EngageCredentials, error) {
 	ec := EngageCredentials{}
-	rcCredentials, err := credentials.NewCredentialsJSON(rcCredentialsJSON)
+	rcCredentials, err := credentials.NewCredentialsJSON(rcCredentialsJSON, nil)
 	if err != nil {
 		return ec, errors.Wrap(err, "NewEngageCredentialsJSON>>ringcentral.NewCredentialsJSON")
 	}
@@ -44,8 +44,8 @@ func (ec *EngageCredentials) NewClient() (*http.Client, error) {
 	if err != nil {
 		return nil, err
 	}
-	engageClient := oauth2more.NewClientToken(
-		oauth2more.TokenBearer, ec.EngageToken.AccessToken, false)
+	engageClient := goauth.NewClientToken(
+		goauth.TokenBearer, ec.EngageToken.AccessToken, false)
 	return engageClient, nil
 }
 

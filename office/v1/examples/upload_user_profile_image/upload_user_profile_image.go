@@ -13,7 +13,7 @@ import (
 	"github.com/pkg/errors"
 
 	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
-	ro "github.com/grokify/oauth2more/ringcentral"
+	ro "github.com/grokify/goauth/ringcentral"
 )
 
 type cliOptions struct {

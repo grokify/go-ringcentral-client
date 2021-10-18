@@ -24,7 +24,7 @@
 
 This is a API client built using [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator) using this RingCentral API spec [`swagger_spec.yaml`](codegen/swagger_spec.yaml).
 
-This API client does not include auth and relies on [`oauth2more/ringcentral`](https://github.com/grokify/oauth2more/tree/master/ringcentral) to create an `*http.Client` to use as a dependency injection.
+This API client does not include auth and relies on [`goauth/ringcentral`](https://github.com/grokify/goauth/tree/master/ringcentral) to create an `*http.Client` to use as a dependency injection.
 
 ## Installation
 
@@ -42,6 +42,6 @@ The auto-generated Swagger files are in the [`client`](client) folder and you ca
 
 ## Related Packages
 
-In addition to [`oauth2more/ringcentral`](https://github.com/grokify/oauth2more/tree/master/ringcentral), the following project provides a website with OAuth 2.0 authorization code flow example:
+In addition to [`goauth/ringcentral`](https://github.com/grokify/goauth/tree/master/ringcentral), the following project provides a website with OAuth 2.0 authorization code flow example:
 
-[`grokify/beego-oauth2-demo`](https://github.com/grokify/beego-oauth2-demo)
+[`grokify/beegoutil`](https://github.com/grokify/beegoutil)

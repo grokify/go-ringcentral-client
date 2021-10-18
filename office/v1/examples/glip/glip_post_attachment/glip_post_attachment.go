@@ -12,6 +12,10 @@ import (
 	rcu "github.com/grokify/go-ringcentral-client/office/v1/util"
 )
 
+const (
+	envPrefix = "RINGCENTRAL_"
+)
+
 func getDemoMessage() rc.GlipCreatePost {
 	return rc.GlipCreatePost{
 		Text: "Body of the post",
@@ -170,7 +174,7 @@ func main() {
 	}
 	groupId := os.Getenv("GLIP_POST_GROUP_ID")
 
-	apiClient, err := rcu.NewApiClientPasswordEnv()
+	apiClient, err := rcu.NewApiClientPasswordEnv(envPrefix)
 	if err != nil {
 		panic(err)
 	}

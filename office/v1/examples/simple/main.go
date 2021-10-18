@@ -8,9 +8,9 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/grokify/oauth2more"
-	"github.com/grokify/oauth2more/credentials"
-	"github.com/grokify/oauth2more/ringcentral"
+	"github.com/grokify/goauth"
+	"github.com/grokify/goauth/credentials"
+	"github.com/grokify/goauth/ringcentral"
 	"github.com/grokify/simplego/config"
 	"github.com/grokify/simplego/fmt/fmtutil"
 	"github.com/grokify/simplego/mime/multipartutil"
@@ -52,9 +52,7 @@ func getApplicationConfig(cfg []byte) (credentials.Credentials, error) {
 }
 
 func getTokenFromApplicationConfig(ac credentials.Credentials) (*oauth2.Token, error) {
-	token, err := ringcentral.NewTokenPassword(
-		ac.Application,
-		ac.PasswordCredentials)
+	token, err := ringcentral.NewTokenPassword(ac.OAuth2)
 	if err != nil {
 		return nil, err
 	}
@@ -92,9 +90,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	client := oauth2more.NewClientTokenOAuth2(token)
+	client := goauth.NewClientTokenOAuth2(token)
 
-	resp, err := client.Get(urlutil.JoinAbsolute(ac.Application.ServerURL, ExtensionAnsweringRuleURL))
+	resp, err := client.Get(urlutil.JoinAbsolute(ac.OAuth2.ServerURL, ExtensionAnsweringRuleURL))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -109,7 +107,7 @@ func main() {
 
 	req, err := multipartutil.NewRequest(
 		http.MethodPost,
-		urlutil.JoinAbsolute(ac.Application.ServerURL, ExtensionGreetingURL),
+		urlutil.JoinAbsolute(ac.OAuth2.ServerURL, ExtensionGreetingURL),
 		params,
 		[]multipartutil.FileInfo{
 			{

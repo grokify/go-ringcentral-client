@@ -14,8 +14,8 @@ import (
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
-	"github.com/grokify/oauth2more/credentials"
-	"github.com/grokify/oauth2more/ringcentral"
+	"github.com/grokify/goauth/credentials"
+	"github.com/grokify/goauth/ringcentral"
 )
 
 type CliOptions struct {
@@ -50,14 +50,14 @@ func main() {
 			Msg("cannot find credentials account")
 	}
 
-	httpClient, err := creds.NewClient()
+	httpClient, err := creds.NewClient(context.Background())
 	if err != nil {
 		log.Fatal().Err(err)
 	}
 
 	cu := ringcentral.ClientUtil{
 		Client:    httpClient,
-		ServerURL: creds.Application.ServerURL}
+		ServerURL: creds.OAuth2.ServerURL}
 
 	usr, err := cu.GetSCIMUser()
 	if err != nil {
@@ -72,7 +72,7 @@ func main() {
 		FilePaths:     []string{"test_file.pdf"}}
 
 	if 1 == 0 {
-		resp, err := demoData.Post(httpClient, creds.Application.ServerURL)
+		resp, err := demoData.Post(httpClient, creds.OAuth2.ServerURL)
 		if err != nil {
 			log.Fatal().Err(err)
 		}
@@ -83,7 +83,7 @@ func main() {
 	}
 
 	if 1 == 1 {
-		apiClient, err := ru.NewApiClientHttpClientBaseURL(httpClient, creds.Application.ServerURL)
+		apiClient, err := ru.NewApiClientHttpClientBaseURL(httpClient, creds.OAuth2.ServerURL)
 		if err != nil {
 			log.Fatal().Err(err)
 		}

@@ -16,7 +16,11 @@ import (
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	rcu "github.com/grokify/go-ringcentral-client/office/v1/util"
 	rs "github.com/grokify/go-scim-client"
-	ro "github.com/grokify/oauth2more/ringcentral"
+	"github.com/grokify/goauth/credentials"
+)
+
+const (
+	envPrefix = "RINGCENTRAL_"
 )
 
 func loadEnv() error {
@@ -57,7 +61,7 @@ func mainClient() {
 	if err != nil {
 		panic(err)
 	}
-	apiClient, err := rcu.NewApiClientPasswordEnv()
+	apiClient, err := rcu.NewApiClientPasswordEnv(envPrefix)
 	if err != nil {
 		panic(err)
 	}
@@ -197,9 +201,7 @@ func tryCreate(scimClient *rs.APIClient, ctx context.Context) {
 
 func tryScimClient() {
 	scimClient, err := rcu.NewScimApiClient(
-		ro.NewApplicationCredentialsEnv(),
-		ro.NewPasswordCredentialsEnv(),
-	)
+		credentials.NewOAuth2CredentialsEnv(envPrefix))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -233,9 +235,7 @@ func tryScimClient() {
 
 func tryRingCentralClient(demoConfig DemoConfig) {
 	apiClient, err := rcu.NewApiClientPassword(
-		ro.NewApplicationCredentialsEnv(),
-		ro.NewPasswordCredentialsEnv(),
-	)
+		credentials.NewOAuth2CredentialsEnv(envPrefix))
 	if err != nil {
 		log.Fatal(err)
 	}
