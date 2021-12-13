@@ -6,8 +6,8 @@ import (
 	"log"
 	"path/filepath"
 
-	"github.com/grokify/simplego/fmt/fmtutil"
-	"github.com/grokify/simplego/path/filepathutil"
+	"github.com/grokify/mogo/fmt/fmtutil"
+	"github.com/grokify/mogo/path/filepathutil"
 	"github.com/grokify/spectrum/openapi2"
 	"github.com/grokify/spectrum/openapi3"
 	"github.com/jessevdk/go-flags"

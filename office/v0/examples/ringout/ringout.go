@@ -5,7 +5,7 @@ import (
 	"os"
 
 	legacy "github.com/grokify/go-ringcentral-client/office/v0"
-	"github.com/grokify/simplego/fmt/fmtutil"
+	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/joho/godotenv"
 )
 

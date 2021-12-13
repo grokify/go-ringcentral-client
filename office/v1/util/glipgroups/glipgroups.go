@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/grokify/simplego/net/urlutil"
+	"github.com/grokify/mogo/net/urlutil"
 )
 
 const (

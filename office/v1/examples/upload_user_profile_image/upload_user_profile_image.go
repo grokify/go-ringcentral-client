@@ -6,9 +6,9 @@ import (
 	"log"
 	"os"
 
-	"github.com/grokify/simplego/config"
-	"github.com/grokify/simplego/fmt/fmtutil"
-	"github.com/grokify/simplego/net/httputilmore"
+	"github.com/grokify/mogo/config"
+	"github.com/grokify/mogo/fmt/fmtutil"
+	"github.com/grokify/mogo/net/httputilmore"
 	"github.com/jessevdk/go-flags"
 	"github.com/pkg/errors"
 

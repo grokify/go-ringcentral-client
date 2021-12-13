@@ -3,7 +3,7 @@ package lite
 import (
 	"net/http"
 
-	"github.com/grokify/simplego/net/httputilmore"
+	"github.com/grokify/mogo/net/httputilmore"
 )
 
 const (

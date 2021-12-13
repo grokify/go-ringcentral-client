@@ -5,7 +5,7 @@ import (
 
 	engagevoice "github.com/grokify/go-ringcentral-client/engagevoice/v1/client"
 	"github.com/grokify/go-ringcentral-client/engagevoice/v1/util/lite"
-	"github.com/grokify/simplego/net/httputilmore"
+	"github.com/grokify/mogo/net/httputilmore"
 )
 
 type ClientAPIs struct {

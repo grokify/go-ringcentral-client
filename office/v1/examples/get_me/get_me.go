@@ -7,8 +7,8 @@ import (
 
 	"github.com/grokify/goauth"
 	"github.com/grokify/goauth/credentials"
-	"github.com/grokify/simplego/config"
-	"github.com/grokify/simplego/fmt/fmtutil"
+	"github.com/grokify/mogo/config"
+	"github.com/grokify/mogo/fmt/fmtutil"
 
 	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
 )

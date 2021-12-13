@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/grokify/simplego/net/httputilmore"
-	"github.com/grokify/simplego/net/urlutil"
+	"github.com/grokify/mogo/net/httputilmore"
+	"github.com/grokify/mogo/net/urlutil"
 	"github.com/pkg/errors"
 )
 

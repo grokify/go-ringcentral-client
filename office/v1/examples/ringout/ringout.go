@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/grokify/simplego/fmt/fmtutil"
+	"github.com/grokify/mogo/fmt/fmtutil"
+	scu "github.com/grokify/mogo/strconv/strconvutil"
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	"github.com/grokify/go-ringcentral-client/office/v1/examples"
-	scu "github.com/grokify/simplego/strconv/strconvutil"
 )
 
 func ringoutBodyEnv() *rc.MakeRingOutRequest {

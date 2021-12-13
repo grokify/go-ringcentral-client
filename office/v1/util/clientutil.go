@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/grokify/goauth/credentials"
-	"github.com/grokify/simplego/net/urlutil"
+	"github.com/grokify/mogo/net/urlutil"
 	"github.com/joho/godotenv"
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"

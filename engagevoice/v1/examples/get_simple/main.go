@@ -12,8 +12,8 @@ import (
 
 	engagevoice "github.com/grokify/go-ringcentral-client/engagevoice/v1/client"
 	engagevoiceutil "github.com/grokify/go-ringcentral-client/engagevoice/v1/util"
-	"github.com/grokify/simplego/config"
-	"github.com/grokify/simplego/fmt/fmtutil"
+	"github.com/grokify/mogo/config"
+	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/jessevdk/go-flags"
 )
 

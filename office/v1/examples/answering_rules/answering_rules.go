@@ -8,8 +8,8 @@ import (
 	"os"
 
 	"github.com/grokify/goauth/credentials"
-	"github.com/grokify/simplego/fmt/fmtutil"
-	"github.com/grokify/simplego/net/httputilmore"
+	"github.com/grokify/mogo/fmt/fmtutil"
+	"github.com/grokify/mogo/net/httputilmore"
 	"github.com/joho/godotenv"
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"

@@ -6,7 +6,7 @@ import (
 	"log"
 
 	"github.com/antihax/optional"
-	"github.com/grokify/simplego/fmt/fmtutil"
+	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/jessevdk/go-flags"
 	"github.com/pkg/errors"
 

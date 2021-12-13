@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/grokify/simplego/config"
-	"github.com/grokify/simplego/fmt/fmtutil"
+	"github.com/grokify/mogo/config"
+	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/jessevdk/go-flags"
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"

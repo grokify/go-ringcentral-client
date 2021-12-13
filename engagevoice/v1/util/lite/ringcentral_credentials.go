@@ -7,7 +7,7 @@ import (
 
 	"github.com/grokify/goauth"
 	"github.com/grokify/goauth/credentials"
-	"github.com/grokify/simplego/encoding/jsonutil"
+	"github.com/grokify/mogo/encoding/jsonutil"
 	"github.com/pkg/errors"
 )
 
