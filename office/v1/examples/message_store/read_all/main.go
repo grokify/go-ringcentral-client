@@ -24,7 +24,7 @@ func getClient() (*rc.APIClient, error) {
 	}
 
 	return ru.NewApiClientPassword(
-		credentials.OAuth2Credentials{
+		credentials.CredentialsOAuth2{
 			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
 			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
 			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET"),

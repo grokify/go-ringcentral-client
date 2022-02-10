@@ -21,17 +21,17 @@ import (
 type Handler struct {
 	AppPort        int
 	APIClient      *rc.APIClient
-	AppCredentials *credentials.OAuth2Credentials
+	AppCredentials *credentials.CredentialsOAuth2
 }
 
 func (h *Handler) RingOut(res http.ResponseWriter, req *http.Request) {
 	reqUtil := nhu.RequestUtil{Request: req}
 
-	pwdCredentials := credentials.OAuth2Credentials{
+	pwdCredentials := credentials.CredentialsOAuth2{
 		ClientID:        h.AppCredentials.ClientID,
 		ClientSecret:    h.AppCredentials.ClientSecret,
 		ServerURL:       h.AppCredentials.ServerURL,
-		OAuth2Endpoint:  h.AppCredentials.OAuth2Endpoint,
+		Endpoint:        h.AppCredentials.Endpoint,
 		GrantType:       goauth.GrantTypePassword,
 		Username:        reqUtil.QueryParamString("username"),
 		Password:        reqUtil.QueryParamString("password"),
@@ -98,7 +98,7 @@ func main() {
 
 	handler := Handler{
 		AppPort: 8080,
-		AppCredentials: &credentials.OAuth2Credentials{
+		AppCredentials: &credentials.CredentialsOAuth2{
 			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
 			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
 			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET"),

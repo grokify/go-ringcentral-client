@@ -43,7 +43,7 @@ func NewApiClientCredentials(creds credentials.Credentials) (*rc.APIClient, erro
 	return NewApiClientHttpClientBaseURL(httpClient, creds.OAuth2.ServerURL)
 }
 
-func NewApiClientPassword(oc credentials.OAuth2Credentials) (*rc.APIClient, error) {
+func NewApiClientPassword(oc credentials.CredentialsOAuth2) (*rc.APIClient, error) {
 	httpClient, err := ro.NewClientPassword(oc)
 	if err != nil {
 		return nil, err
@@ -51,7 +51,7 @@ func NewApiClientPassword(oc credentials.OAuth2Credentials) (*rc.APIClient, erro
 	return NewApiClientHttpClientBaseURL(httpClient, oc.ServerURL)
 }
 
-func NewApiClientPasswordSimple(oc credentials.OAuth2Credentials) (*rc.APIClient, error) {
+func NewApiClientPasswordSimple(oc credentials.CredentialsOAuth2) (*rc.APIClient, error) {
 	httpClient, err := ro.NewClientPasswordSimple(oc)
 	if err != nil {
 		return nil, err
@@ -60,10 +60,10 @@ func NewApiClientPasswordSimple(oc credentials.OAuth2Credentials) (*rc.APIClient
 }
 
 func NewApiClientPasswordEnv(envPrefix string) (*rc.APIClient, error) {
-	return NewApiClientPassword(credentials.NewOAuth2CredentialsEnv(envPrefix))
+	return NewApiClientPassword(credentials.NewCredentialsOAuth2Env(envPrefix))
 }
 
-func NewScimApiClient(oc credentials.OAuth2Credentials) (*rs.APIClient, error) {
+func NewScimApiClient(oc credentials.CredentialsOAuth2) (*rs.APIClient, error) {
 	httpClient, err := ro.NewClientPassword(oc)
 	if err != nil {
 		return nil, err

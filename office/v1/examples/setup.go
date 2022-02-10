@@ -20,7 +20,7 @@ func LoadEnv() error {
 
 func NewApiClient() (*rc.APIClient, error) {
 	httpClient, err := ro.NewClientPassword(
-		credentials.NewOAuth2CredentialsEnv("RINGCENTRAL_"))
+		credentials.NewCredentialsOAuth2Env("RINGCENTRAL_"))
 	if err != nil {
 		return nil, err
 	}

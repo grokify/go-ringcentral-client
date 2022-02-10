@@ -67,7 +67,7 @@ func main() {
 	*/
 
 	apiClient, err := ru.NewApiClientPassword(
-		credentials.NewOAuth2CredentialsEnv("RINGCENTRAL_"))
+		credentials.NewCredentialsOAuth2Env("RINGCENTRAL_"))
 	if err != nil {
 		log.Fatal(err)
 	}

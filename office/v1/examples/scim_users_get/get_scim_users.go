@@ -201,7 +201,7 @@ func tryCreate(scimClient *rs.APIClient, ctx context.Context) {
 
 func tryScimClient() {
 	scimClient, err := rcu.NewScimApiClient(
-		credentials.NewOAuth2CredentialsEnv(envPrefix))
+		credentials.NewCredentialsOAuth2Env(envPrefix))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -235,7 +235,7 @@ func tryScimClient() {
 
 func tryRingCentralClient(demoConfig DemoConfig) {
 	apiClient, err := rcu.NewApiClientPassword(
-		credentials.NewOAuth2CredentialsEnv(envPrefix))
+		credentials.NewCredentialsOAuth2Env(envPrefix))
 	if err != nil {
 		log.Fatal(err)
 	}
