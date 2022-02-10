@@ -1,6 +1,7 @@
 package lite
 
 import (
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -10,8 +11,8 @@ import (
 	"time"
 
 	"github.com/grokify/mogo/encoding/jsonutil"
+	"github.com/grokify/mogo/errors/errorsutil"
 	"github.com/grokify/mogo/net/httputilmore"
-	"github.com/pkg/errors"
 )
 
 // portal.vacd.biz:8081
@@ -116,7 +117,7 @@ func ExchangeAPIToken(authToken string) (string, error) {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		return "", errors.Wrap(err, "ExchangeAPIToken.client.Do()")
+		return "", errorsutil.Wrap(err, "ExchangeAPIToken.client.Do()")
 	} else if resp.StatusCode != 200 {
 		return "", fmt.Errorf("TOKEN_RESP_STATUS_CODE_NOT_200 [%v]", resp.StatusCode)
 	}

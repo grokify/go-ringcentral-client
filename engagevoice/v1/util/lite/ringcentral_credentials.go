@@ -8,7 +8,7 @@ import (
 	"github.com/grokify/goauth"
 	"github.com/grokify/goauth/credentials"
 	"github.com/grokify/mogo/encoding/jsonutil"
-	"github.com/pkg/errors"
+	"github.com/grokify/mogo/errors/errorsutil"
 )
 
 type EngageCredentials struct {
@@ -20,7 +20,7 @@ func NewEngageCredentialsJSON(rcCredentialsJSON []byte) (EngageCredentials, erro
 	ec := EngageCredentials{}
 	rcCredentials, err := credentials.NewCredentialsJSON(rcCredentialsJSON, nil)
 	if err != nil {
-		return ec, errors.Wrap(err, "NewEngageCredentialsJSON>>ringcentral.NewCredentialsJSON")
+		return ec, errorsutil.Wrap(err, "NewEngageCredentialsJSON>>ringcentral.NewCredentialsJSON")
 	}
 	ec.Credentials = rcCredentials
 	return ec, nil
@@ -29,7 +29,7 @@ func NewEngageCredentialsJSON(rcCredentialsJSON []byte) (EngageCredentials, erro
 func (ec *EngageCredentials) LoadNewTokens() error {
 	rcToken, err := ec.Credentials.NewToken()
 	if err != nil {
-		return errors.Wrap(err, "EngageCredentials>>ec.Credentials.NewToken()")
+		return errorsutil.Wrap(err, "EngageCredentials>>ec.Credentials.NewToken()")
 	}
 	evToken, err := RcToEvToken(rcToken.AccessToken)
 	if err != nil {
@@ -61,7 +61,7 @@ func RcToEvToken(rctoken string) (EngageToken, error) {
 		"https://engage.ringcentral.com/api/auth/login/rc/accesstoken",
 		url.Values{"rcAccessToken": {rctoken}, "rcTokenType": {"Bearer"}})
 	if err != nil {
-		return evToken, errors.Wrap(err, "RcToEvToken.PostForm")
+		return evToken, errorsutil.Wrap(err, "RcToEvToken.PostForm")
 	}
 	if res.StatusCode >= 300 {
 		return evToken, fmt.Errorf("RcToEvToken.ApiResponse.StatusCode [%v]", res.StatusCode)
@@ -69,7 +69,7 @@ func RcToEvToken(rctoken string) (EngageToken, error) {
 
 	_, err = jsonutil.UnmarshalReader(res.Body, &evToken)
 	if err != nil {
-		err = errors.Wrap(err, "RcToEvToken.jsonutil.UnmarshalIoReader")
+		err = errorsutil.Wrap(err, "RcToEvToken.jsonutil.UnmarshalIoReader")
 	}
 	return evToken, err
 }

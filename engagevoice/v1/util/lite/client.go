@@ -1,12 +1,12 @@
 package lite
 
 import (
+	"errors"
 	"net/http"
 	"strings"
 
 	"github.com/grokify/mogo/net/httputilmore"
 	"github.com/grokify/mogo/net/urlutil"
-	"github.com/pkg/errors"
 )
 
 type ClientLite struct {

@@ -7,28 +7,28 @@ import (
 	"strings"
 
 	oas3 "github.com/getkin/kin-openapi/openapi3"
+	"github.com/grokify/mogo/errors/errorsutil"
 	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/grokify/mogo/io/ioutilmore"
 	"github.com/grokify/mogo/type/stringsutil"
 	"github.com/grokify/spectrum/openapi3"
 	"github.com/grokify/spectrum/openapi3/springopenapi3"
-	"github.com/pkg/errors"
 	"github.com/rs/zerolog/log"
 )
 
 func ReadOas3Spec(file string, validate bool) (*openapi3.Spec, error) {
 	bytes, err := ioutil.ReadFile(file)
 	if err != nil {
-		return nil, errors.Wrap(err, fmt.Sprintf("Filename [%v]", file))
+		return nil, errorsutil.Wrap(err, fmt.Sprintf("Filename [%v]", file))
 	}
 	swag := &openapi3.Spec{}
 	err = swag.UnmarshalJSON(bytes)
 	if err != nil {
-		return nil, errors.Wrap(err, fmt.Sprintf("Filename [%v]", file))
+		return nil, errorsutil.Wrap(err, fmt.Sprintf("Filename [%v]", file))
 	}
 	if validate {
 		err = swag.Validate(context.Background())
-		return swag, errors.Wrap(err, fmt.Sprintf("Filename [%v]", file))
+		return swag, errorsutil.Wrap(err, fmt.Sprintf("Filename [%v]", file))
 	}
 	return swag, nil
 }

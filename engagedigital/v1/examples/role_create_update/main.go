@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/antihax/optional"
+	"github.com/grokify/mogo/errors/errorsutil"
 	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/jessevdk/go-flags"
-	"github.com/pkg/errors"
 
 	engagedigital "github.com/grokify/go-ringcentral-client/engagedigital/v1/client"
 	utils "github.com/grokify/go-ringcentral-client/engagedigital/v1/util"
@@ -24,7 +24,7 @@ type options struct {
 func GetRole(client *engagedigital.APIClient, roleName string) (engagedigital.Role, error) {
 	info, resp, err := client.RolesApi.GetAllRoles(context.Background(), nil)
 	if err != nil {
-		err = errors.Wrap(err, "E_GET_ALL_ROLES")
+		err = errorsutil.Wrap(err, "E_GET_ALL_ROLES")
 		return engagedigital.Role{}, err
 	} else if resp.StatusCode != 200 {
 		return engagedigital.Role{}, fmt.Errorf("E_STATUS_CODE [%v]", resp.StatusCode)

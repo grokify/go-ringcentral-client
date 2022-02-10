@@ -7,10 +7,10 @@ import (
 	"os"
 
 	"github.com/grokify/mogo/config"
+	"github.com/grokify/mogo/errors/errorsutil"
 	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/grokify/mogo/net/httputilmore"
 	"github.com/jessevdk/go-flags"
-	"github.com/pkg/errors"
 
 	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
 	ro "github.com/grokify/goauth/ringcentral"
@@ -34,7 +34,7 @@ func main() {
 
 	httpClient, err := ro.NewHttpClientEnvFlexStatic("")
 	if err != nil {
-		log.Fatal(errors.Wrap(err, "getHttpClientEnv"))
+		log.Fatal(errorsutil.Wrap(err, "getHttpClientEnv"))
 	}
 	serverURL := os.Getenv("RINGCENTRAL_SERVER_URL")
 	apiClient, err := ru.NewApiClientHttpClientBaseURL(httpClient, serverURL)

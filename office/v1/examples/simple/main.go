@@ -12,12 +12,12 @@ import (
 	"github.com/grokify/goauth/credentials"
 	"github.com/grokify/goauth/ringcentral"
 	"github.com/grokify/mogo/config"
+	"github.com/grokify/mogo/errors/errorsutil"
 	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/grokify/mogo/mime/multipartutil"
 	"github.com/grokify/mogo/net/httputilmore"
 	"github.com/grokify/mogo/net/urlutil"
 	"github.com/jessevdk/go-flags"
-	"github.com/pkg/errors"
 	"golang.org/x/oauth2"
 )
 
@@ -36,7 +36,7 @@ func loadEnv() (Options, error) {
 
 	err = config.LoadDotEnvSkipEmpty(opts.EnvPath, os.Getenv("ENV_PATH"), "./.env")
 	if err != nil {
-		return opts, errors.Wrap(err, "E_LOAD_DOT_ENV")
+		return opts, errorsutil.Wrap(err, "E_LOAD_DOT_ENV")
 	}
 	return opts, nil
 }
@@ -45,7 +45,7 @@ func getApplicationConfig(cfg []byte) (credentials.Credentials, error) {
 	ac := credentials.Credentials{}
 	err := json.Unmarshal(cfg, &ac)
 	if err != nil {
-		return ac, errors.Wrap(
+		return ac, errorsutil.Wrap(
 			err, fmt.Sprintf("E_JSON_UNMARSHAL [%v]", string(cfg)))
 	}
 	return ac, nil

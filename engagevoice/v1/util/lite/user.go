@@ -1,10 +1,9 @@
 package lite
 
 import (
+	"errors"
 	"io/ioutil"
 	"net/http"
-
-	"github.com/pkg/errors"
 )
 
 func GetUsers(serverURL, authOrApiToken string) ([]byte, error) {
