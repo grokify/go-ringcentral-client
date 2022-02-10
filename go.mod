@@ -4,7 +4,7 @@ go 1.16
 
 require (
 	github.com/antihax/optional v1.0.0
-	github.com/caarlos0/env v3.5.0+incompatible
+	github.com/caarlos0/env/v6 v6.9.1
 	github.com/getkin/kin-openapi v0.89.0
 	github.com/grokify/go-scim-client v0.1.3
 	github.com/grokify/goauth v0.12.2
