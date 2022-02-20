@@ -6,10 +6,10 @@ require (
 	github.com/antihax/optional v1.0.0
 	github.com/caarlos0/env/v6 v6.9.1
 	github.com/getkin/kin-openapi v0.89.0
-	github.com/grokify/go-scim-client v0.1.3
-	github.com/grokify/goauth v0.12.2
-	github.com/grokify/mogo v0.35.8
-	github.com/grokify/spectrum v1.11.6
+	github.com/grokify/go-scim-client v0.1.4
+	github.com/grokify/goauth v0.12.3
+	github.com/grokify/mogo v0.36.0
+	github.com/grokify/spectrum v1.11.7
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.4.0
 	github.com/nyaruka/phonenumbers v1.0.74
