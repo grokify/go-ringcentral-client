@@ -137,7 +137,7 @@ func RequestAuthToken(username, password string) (*LoginSuccess, *LoginError, *h
 	data.Set("username", username)
 	data.Set("password", password)
 
-	resp, err := httputilmore.SendWwwFormUrlEncodedSimple(http.MethodPost, EngageVoiceLoginURL, data)
+	resp, err := httputilmore.SendWWWFormURLEncodedSimple(http.MethodPost, EngageVoiceLoginURL, data)
 	if err != nil {
 		return nil, nil, resp, err
 	}
@@ -170,7 +170,7 @@ func ListTokens(serverURL, authOrApiToken string) ([]string, error) {
 		return tokens, err
 	}
 
-	resp, err := httputilmore.GetJsonSimple(apiURL, headers, &tokens)
+	resp, err := httputilmore.GetJSONSimple(apiURL, headers, &tokens)
 	if err != nil {
 		return tokens, err
 	} else if resp.StatusCode >= 300 {

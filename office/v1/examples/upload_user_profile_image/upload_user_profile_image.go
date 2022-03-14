@@ -32,7 +32,7 @@ func main() {
 		panic(err)
 	}
 
-	httpClient, err := ro.NewHttpClientEnvFlexStatic("")
+	httpClient, err := ro.NewHTTPClientEnvFlexStatic("")
 	if err != nil {
 		log.Fatal(errorsutil.Wrap(err, "getHttpClientEnv"))
 	}

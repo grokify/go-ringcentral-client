@@ -172,7 +172,7 @@ func AddBatchGlipPersonInfosMultipartReader(mergedUserSet MergedUserSet, mr *mul
 }
 
 func AddBatchExtensionInfosHttpResponse(mergedUserSet MergedUserSet, resp *http.Response) (MergedUserSet, error) {
-	mr, err := multipartutil.NewMultipartReaderForHttpResponse(resp)
+	mr, err := multipartutil.NewMultipartReaderForHTTPResponse(resp)
 	if err != nil {
 		return mergedUserSet, err
 	}

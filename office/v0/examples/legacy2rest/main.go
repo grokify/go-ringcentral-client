@@ -75,7 +75,7 @@ func (h *Handler) RingOut(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	res.Header().Set(hum.HeaderContentType, hum.ContentTypeAppJsonUtf8)
+	res.Header().Set(hum.HeaderContentType, hum.ContentTypeAppJSONUtf8)
 	res.Write(bytes)
 }
 
