@@ -226,8 +226,8 @@ github.com/grokify/gostor v0.2.1/go.mod h1:4a6v+pcFFt4uxHThTcCcarL48EkMPe5Fc/0Nv
 github.com/grokify/mogo v0.36.5/go.mod h1:GWl3aLE1O+K7If1Ekj4bDgi8pqVLQOzA25BR1A37IQs=
 github.com/grokify/mogo v0.37.4/go.mod h1:rvoGZyuR5f7Xy0UehTpAApQUv+rPpFY/W43LZcTJ+e8=
 github.com/grokify/mogo v0.37.18/go.mod h1:emNx8mwkHHcn3bB/8z8542H/WY6IxrHWBeWnyYHRV9g=
-github.com/grokify/mogo v0.38.1 h1:QIcRUSLz00X/CnDQk97lFizI2nv5GHH+OoaQAUkkzZA=
-github.com/grokify/mogo v0.38.1/go.mod h1:C4rAfY6EmQe1jxESH+KND19PxHwy6EoG5n6yGVBSOgk=
+github.com/grokify/mogo v0.38.3 h1:h5LG26wvnZDW0WfbX7RGxIWkz2LLN9SLJW0cmyVyuJ8=
+github.com/grokify/mogo v0.38.3/go.mod h1:C4rAfY6EmQe1jxESH+KND19PxHwy6EoG5n6yGVBSOgk=
 github.com/grokify/spectrum v1.12.0/go.mod h1:+W2YIQe170rukVAUEsCq6kize/UPiXkjAR9hcI1Jvhk=
 github.com/grokify/spectrum v1.12.2 h1:oxLV+CJkfj2Q1FLnCWRwVr1rti9D15byPZcouArr418=
 github.com/grokify/spectrum v1.12.2/go.mod h1:w5RZ7cPC0mKY+nbtakl9lWFrbQVmuO2WZNnomfb3LC0=
