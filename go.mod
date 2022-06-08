@@ -7,12 +7,12 @@ require (
 	github.com/caarlos0/env/v6 v6.9.3
 	github.com/getkin/kin-openapi v0.96.0
 	github.com/grokify/go-scim-client v0.1.6
-	github.com/grokify/goauth v0.13.6
+	github.com/grokify/goauth v0.14.3
 	github.com/grokify/mogo v0.39.6
 	github.com/grokify/spectrum v1.12.3
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.4.0
 	github.com/nyaruka/phonenumbers v1.0.75
 	github.com/rs/zerolog v1.26.1
-	golang.org/x/oauth2 v0.0.0-20220411215720-9780585627b5
+	golang.org/x/oauth2 v0.0.0-20220524215830-622c5d57e401
 )
