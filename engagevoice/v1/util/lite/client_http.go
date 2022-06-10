@@ -2,8 +2,9 @@ package lite
 
 import (
 	"net/http"
+	"net/url"
 
-	"github.com/grokify/mogo/net/httputilmore"
+	"github.com/grokify/goauth"
 )
 
 const (
@@ -15,14 +16,10 @@ const (
 )
 
 func NewClientToken(token string) *http.Client {
-	header := http.Header{}
-	header.Add(EngageVoiceTokenHeader, token)
-
-	client := &http.Client{}
-	client.Transport = httputilmore.TransportWithHeaders{
-		Transport: client.Transport,
-		Header:    header}
-	return client
+	return goauth.NewClientHeaderQuery(
+		http.Header{HeaderEngageVoiceToken: []string{token}},
+		url.Values{},
+		false)
 }
 
 func NewClientRingCentralPassword(rcCredentials []byte) (*http.Client, error) {

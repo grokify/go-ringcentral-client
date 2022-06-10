@@ -5,7 +5,6 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/grokify/mogo/net/httputilmore"
 	"github.com/grokify/mogo/net/urlutil"
 )
 
@@ -29,23 +28,21 @@ func (lite *ClientLite) LoadHTTPClient(token string) {
 	if len(strings.TrimSpace(token)) == 0 {
 		token = lite.Token
 	}
-	lite.HTTPClient = NewHTTPClient(token)
+	lite.HTTPClient = NewClientToken(token)
 }
 
 func (lite *ClientLite) Tokens() ([]string, error) {
 	return ListTokens(lite.ServerURL, lite.Token)
 }
 
+/*
 func NewHTTPClient(token string) *http.Client {
-	header := http.Header{}
-	header.Add(EngageVoiceTokenHeader, token)
-
-	client := &http.Client{}
-	client.Transport = httputilmore.TransportWithHeaders{
-		Transport: client.Transport,
-		Header:    header}
-	return client
+	return goauth.NewClientHeaderQuery(
+		http.Header{HeaderEngageVoiceToken: []string{token}},
+		url.Values{},
+		false)
 }
+*/
 
 func APIInfo(serverURL, urlPath, authOrApiToken string) (http.Header, string, error) {
 	authOrApiToken = strings.TrimSpace(authOrApiToken)
@@ -59,6 +56,6 @@ func APIInfo(serverURL, urlPath, authOrApiToken string) (http.Header, string, er
 	apiURL := urlutil.JoinAbsolute(serverURL, urlPath)
 
 	return http.Header(map[string][]string{
-		EngageVoiceTokenHeader: {authOrApiToken},
+		HeaderEngageVoiceToken: {authOrApiToken},
 	}), apiURL, nil
 }

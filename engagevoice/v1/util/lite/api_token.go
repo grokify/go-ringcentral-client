@@ -22,7 +22,7 @@ const (
 	EngageVoiceLoginURL     string = "https://portal.vacd.biz/api/v1/auth/login"
 	EngageVoiceTokenURL     string = "https://portal.vacd.biz/api/v1/admin/token"
 	EngageVoiceTokenURLPath string = "/api/v1/admin/token"
-	EngageVoiceTokenHeader  string = "x-auth-token"
+	HeaderEngageVoiceToken  string = "x-auth-token"
 )
 
 type LoginSuccess struct {
@@ -113,7 +113,7 @@ func ExchangeAPIToken(authToken string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	req.Header.Add(EngageVoiceTokenHeader, authToken)
+	req.Header.Add(HeaderEngageVoiceToken, authToken)
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
