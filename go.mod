@@ -8,7 +8,7 @@ require (
 	github.com/getkin/kin-openapi v0.96.0
 	github.com/grokify/go-scim-client v0.1.6
 	github.com/grokify/goauth v0.14.4
-	github.com/grokify/mogo v0.39.6
+	github.com/grokify/mogo v0.39.8
 	github.com/grokify/spectrum v1.12.3
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.4.0
