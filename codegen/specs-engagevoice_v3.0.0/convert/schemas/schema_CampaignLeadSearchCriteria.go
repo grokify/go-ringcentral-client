@@ -210,9 +210,9 @@ func ProcInfo(schemaInfo SchemaInfo) {
 	oas := openapi3.Spec{
 		Components: oas3.Components{
 			Schemas: map[string]*oas3.SchemaRef{
-				schemaInfo.Name: &oas3.SchemaRef{
+				schemaInfo.Name: {
 					Value: &oas3.Schema{
-						Type:       springopenapi3.TypeObject,
+						Type:       openapi3.TypeObject,
 						Properties: mss,
 					},
 				},
