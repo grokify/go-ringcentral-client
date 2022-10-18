@@ -8,7 +8,7 @@ require (
 	github.com/getkin/kin-openapi v0.105.0
 	github.com/grokify/go-scim-client v0.1.8
 	github.com/grokify/goauth v0.16.2
-	github.com/grokify/mogo v0.40.4
+	github.com/grokify/mogo v0.40.6
 	github.com/grokify/spectrum v1.12.5
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.4.0
@@ -58,10 +58,10 @@ require (
 	github.com/xuri/efp v0.0.0-20220603152613-6918739fd470 // indirect
 	github.com/xuri/excelize/v2 v2.6.1 // indirect
 	github.com/xuri/nfp v0.0.0-20220409054826-5e722a1d9e22 // indirect
-	golang.org/x/crypto v0.0.0-20220817201139-bc19a97f63c8 // indirect
-	golang.org/x/net v0.0.0-20220822230855-b0a4917ee28c // indirect
-	golang.org/x/sys v0.0.0-20220728004956-3c1f35247d10 // indirect
-	golang.org/x/text v0.3.7 // indirect
+	golang.org/x/crypto v0.0.0-20221012134737-56aed061732a // indirect
+	golang.org/x/net v0.0.0-20221017152216-f25eb7ecb193 // indirect
+	golang.org/x/sys v0.0.0-20221010170243-090e33056c14 // indirect
+	golang.org/x/text v0.4.0 // indirect
 	gonum.org/v1/gonum v0.11.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
