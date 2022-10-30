@@ -5,14 +5,14 @@ go 1.18
 require (
 	github.com/antihax/optional v1.0.0
 	github.com/caarlos0/env/v6 v6.10.1
-	github.com/getkin/kin-openapi v0.106.0
+	github.com/getkin/kin-openapi v0.107.0
 	github.com/grokify/go-scim-client v0.1.9
-	github.com/grokify/goauth v0.16.3
-	github.com/grokify/mogo v0.40.10
+	github.com/grokify/goauth v0.16.4
+	github.com/grokify/mogo v0.40.13
 	github.com/grokify/spectrum v1.13.0
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.4.0
-	github.com/nyaruka/phonenumbers v1.1.1
+	github.com/nyaruka/phonenumbers v1.1.2
 	github.com/rs/zerolog v1.28.0
 	golang.org/x/oauth2 v0.1.0
 )
@@ -31,7 +31,7 @@ require (
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/grokify/base36 v1.0.5 // indirect
-	github.com/grokify/gocharts/v2 v2.8.2 // indirect
+	github.com/grokify/gocharts/v2 v2.8.3 // indirect
 	github.com/grokify/gohttp v0.2.2 // indirect
 	github.com/huandu/xstrings v1.3.2 // indirect
 	github.com/invopop/yaml v0.2.0 // indirect
