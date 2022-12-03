@@ -61,18 +61,12 @@ func IsAtMentionedFuzzy(personName, textRaw string) bool {
 		return false
 	}
 	str := rx.FindString(strings.ToLower(textRaw))
-	if len(str) > 0 {
-		return true
-	}
-	return false
+	return len(str) > 0
 }
 
 func IsAtMentionedGlipdown(personId, textRaw string) bool {
 	personIdMarkdownLc := strings.ToLower(AtMention(personId))
-	if strings.Index(strings.ToLower(textRaw), personIdMarkdownLc) == -1 {
-		return false
-	}
-	return true
+	return strings.Contains(strings.ToLower(textRaw), personIdMarkdownLc)
 }
 
 func PrefixAtMentionUnlessMentioned(personId, text string) string {

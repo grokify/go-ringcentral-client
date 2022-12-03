@@ -31,9 +31,9 @@ func main() {
 				fmt.Println("TEST_UNMARSHAL")
 				log.Fatal(err)
 			}
-			fmtutil.PrintJSON(spec)
+			fmtutil.MustPrintJSON(spec)
 			name := "Country"
-			fmtutil.PrintJSON(spec.Components.Schemas[name])
+			fmtutil.MustPrintJSON(spec.Components.Schemas[name])
 
 			moreSpec := openapi3.SpecMore{Spec: spec}
 
@@ -49,13 +49,13 @@ func main() {
 			fmt.Println("TEST_LOADER")
 			log.Fatal(err)
 		}
-		fmtutil.PrintJSON(spec)
+		fmtutil.MustPrintJSON(spec)
 		err = spec.Validate(context.Background())
 		if err != nil {
 			fmt.Println("TEST")
 			log.Fatal(err)
 		}
-		fmtutil.PrintJSON(spec)
+		fmtutil.MustPrintJSON(spec)
 
 		fmt.Println("DONE")
 		panic("Z")

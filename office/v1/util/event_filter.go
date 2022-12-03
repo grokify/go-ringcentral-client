@@ -76,7 +76,7 @@ func IsInstantMessageSMS(s string) bool {
 }
 */
 func ParseEventTypeForFilter(eventFilter string) (EventType, error) {
-	if strings.Index(eventFilter, GlipPostEventFilterPattern) > -1 {
+	if strings.Contains(eventFilter, GlipPostEventFilterPattern) {
 		return GlipPostEvent, nil
 	}
 	rx := regexp.MustCompile(SubscriptionRenewalFilter)
