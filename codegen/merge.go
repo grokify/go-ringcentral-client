@@ -44,7 +44,7 @@ func main() {
 			}
 			panic("READ_FILE_NEW")
 		}
-		spec, err := openapi3.ReadAndValidateFile(file)
+		spec, err := openapi3.ReadFile(file, true)
 		if err != nil {
 			fmt.Println("TEST_LOADER")
 			log.Fatal(err)
