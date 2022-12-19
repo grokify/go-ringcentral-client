@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/antihax/optional v1.0.0
 	github.com/caarlos0/env/v6 v6.10.1
-	github.com/getkin/kin-openapi v0.110.0
+	github.com/getkin/kin-openapi v0.111.0
 	github.com/grokify/go-scim-client v0.1.10
 	github.com/grokify/goauth v0.16.6
 	github.com/grokify/mogo v0.41.10
