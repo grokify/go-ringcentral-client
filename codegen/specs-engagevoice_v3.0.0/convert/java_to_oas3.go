@@ -9,7 +9,7 @@ import (
 	oas3 "github.com/getkin/kin-openapi/openapi3"
 	"github.com/grokify/mogo/errors/errorsutil"
 	"github.com/grokify/mogo/fmt/fmtutil"
-	"github.com/grokify/mogo/io/ioutilmore"
+	"github.com/grokify/mogo/os/osutil"
 	"github.com/grokify/mogo/type/stringsutil"
 	"github.com/grokify/spectrum/openapi3"
 	"github.com/grokify/spectrum/openapi3/springopenapi3"
@@ -81,7 +81,7 @@ func main() {
 	}
 	fmtutil.PrintJSON(mss)
 
-	err = ioutilmore.WriteFileJSON("_schema_agent.json", mss, 644, "", "  ")
+	err = osutil.WriteFileJSON("_schema_agent.json", mss, 644, "", "  ")
 	if err != nil {
 		log.Fatal().Err(err)
 	}
@@ -100,7 +100,7 @@ func main() {
 	}
 	fmtutil.PrintJSON(swag2)
 	swagFile := "_openapi-spec_agents_models.json"
-	err = ioutilmore.WriteFileJSON(swagFile, swag2, 0644, "", "  ")
+	err = osutil.WriteFileJSON(swagFile, swag2, 0644, "", "  ")
 	if err != nil {
 		log.Fatal().Err(err)
 	}
