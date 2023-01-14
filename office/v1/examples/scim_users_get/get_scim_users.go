@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/antihax/optional"
+	"github.com/grokify/goauth/credentials"
 	"github.com/grokify/mogo/errors/errorsutil"
 	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/grokify/mogo/net/http/httputilmore"
@@ -17,7 +18,6 @@ import (
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	rcu "github.com/grokify/go-ringcentral-client/office/v1/util"
 	rs "github.com/grokify/go-scim-client"
-	"github.com/grokify/goauth/credentials"
 )
 
 const (
