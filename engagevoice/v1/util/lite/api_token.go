@@ -12,7 +12,7 @@ import (
 
 	"github.com/grokify/mogo/encoding/jsonutil"
 	"github.com/grokify/mogo/errors/errorsutil"
-	"github.com/grokify/mogo/net/httputilmore"
+	"github.com/grokify/mogo/net/http/httputilmore"
 )
 
 // portal.vacd.biz:8081

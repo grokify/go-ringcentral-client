@@ -8,7 +8,7 @@ import (
 
 	"github.com/antihax/optional"
 	"github.com/grokify/mogo/fmt/fmtutil"
-	hum "github.com/grokify/mogo/net/httputilmore"
+	"github.com/grokify/mogo/net/http/httputilmore"
 	"github.com/jessevdk/go-flags"
 	"github.com/rs/zerolog/log"
 
@@ -76,7 +76,7 @@ func main() {
 		if err != nil {
 			log.Fatal().Err(err)
 		}
-		err = hum.PrintResponse(resp, true)
+		err = httputilmore.PrintResponse(resp, true)
 		if err != nil {
 			log.Fatal().Err(err)
 		}

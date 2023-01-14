@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/grokify/mogo/mime/multipartutil"
-	"github.com/grokify/mogo/net/httputilmore"
+	"github.com/grokify/mogo/net/http/httputilmore"
 	"github.com/grokify/mogo/net/urlutil"
 )
 

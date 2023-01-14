@@ -9,7 +9,7 @@ import (
 	"github.com/grokify/mogo/config"
 	"github.com/grokify/mogo/errors/errorsutil"
 	"github.com/grokify/mogo/fmt/fmtutil"
-	"github.com/grokify/mogo/net/httputilmore"
+	"github.com/grokify/mogo/net/http/httputilmore"
 	"github.com/jessevdk/go-flags"
 
 	ru "github.com/grokify/go-ringcentral-client/office/v1/util"

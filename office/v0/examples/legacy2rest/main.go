@@ -8,14 +8,13 @@ import (
 	"net/http"
 	"os"
 
-	hum "github.com/grokify/mogo/net/httputilmore"
-	nhu "github.com/grokify/mogo/net/nethttputil"
+	"github.com/grokify/goauth"
+	"github.com/grokify/goauth/credentials"
+	"github.com/grokify/mogo/net/http/httputilmore"
 	"github.com/joho/godotenv"
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
-	"github.com/grokify/goauth"
-	"github.com/grokify/goauth/credentials"
 )
 
 type Handler struct {
@@ -25,7 +24,7 @@ type Handler struct {
 }
 
 func (h *Handler) RingOut(res http.ResponseWriter, req *http.Request) {
-	reqUtil := nhu.RequestUtil{Request: req}
+	// reqUtil := nhu.RequestUtil{Request: req}
 
 	pwdCredentials := credentials.CredentialsOAuth2{
 		ClientID:        h.AppCredentials.ClientID,
@@ -33,15 +32,15 @@ func (h *Handler) RingOut(res http.ResponseWriter, req *http.Request) {
 		ServerURL:       h.AppCredentials.ServerURL,
 		Endpoint:        h.AppCredentials.Endpoint,
 		GrantType:       goauth.GrantTypePassword,
-		Username:        reqUtil.QueryParamString("username"),
-		Password:        reqUtil.QueryParamString("password"),
+		Username:        httputilmore.GetReqQueryParam(req, "username"),
+		Password:        httputilmore.GetReqQueryParam(req, "password"),
 		RefreshTokenTTL: int64(-1),
 	}
 
 	ringOut := ru.RingOutRequest{
-		To:       reqUtil.QueryParamString("to"),
-		From:     reqUtil.QueryParamString("from"),
-		CallerId: reqUtil.QueryParamString("clid"),
+		To:       httputilmore.GetReqQueryParam(req, "to"),
+		From:     httputilmore.GetReqQueryParam(req, "from"),
+		CallerId: httputilmore.GetReqQueryParam(req, "clid"),
 	}
 
 	log.Printf("%v\n", ringOut)
@@ -75,7 +74,7 @@ func (h *Handler) RingOut(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	res.Header().Set(hum.HeaderContentType, hum.ContentTypeAppJSONUtf8)
+	res.Header().Set(httputilmore.HeaderContentType, httputilmore.ContentTypeAppJSONUtf8)
 	res.Write(bytes)
 }
 

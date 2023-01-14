@@ -9,8 +9,9 @@ import (
 	"strings"
 
 	"github.com/antihax/optional"
+	"github.com/grokify/mogo/errors/errorsutil"
 	"github.com/grokify/mogo/fmt/fmtutil"
-	hum "github.com/grokify/mogo/net/httputilmore"
+	"github.com/grokify/mogo/net/http/httputilmore"
 	"github.com/joho/godotenv"
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
@@ -311,14 +312,16 @@ func (demo ScimRingCentralDemo) GetUser(userId string) rc.UserInfo {
 	return info
 }
 
-func (demo ScimRingCentralDemo) DeleteUser(userId string) {
+func (demo ScimRingCentralDemo) DeleteUser(userId string) error {
 	resp, err := demo.Client.SCIMApi.DeleteUser(demo.Context, userId)
 	if err != nil {
-		log.Fatal(err)
+		return errorsutil.Wrap(err, "err ScimRingCentralDemo.DeleteUser()")
+		// log.Fatal(err)
 	} else if resp.StatusCode >= 300 {
-		log.Fatal(fmt.Sprintf("StatusCode: %v", resp.StatusCode))
+		return fmt.Errorf("invalid HTTP status [%d]", resp.StatusCode)
+		// log.Fatal(fmt.Sprintf("StatusCode: %v", resp.StatusCode))
 	}
-	hum.PrintResponse(resp, true)
+	return httputilmore.PrintResponse(resp, true)
 }
 
 func (demo ScimRingCentralDemo) UpdateUser(userId string) {

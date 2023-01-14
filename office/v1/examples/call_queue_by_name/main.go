@@ -11,7 +11,7 @@ import (
 	"github.com/grokify/goauth/credentials"
 	"github.com/grokify/mogo/config"
 	"github.com/grokify/mogo/fmt/fmtutil"
-	"github.com/grokify/mogo/net/httputilmore"
+	"github.com/grokify/mogo/net/http/httputilmore"
 	"github.com/grokify/mogo/net/urlutil"
 	"github.com/jessevdk/go-flags"
 

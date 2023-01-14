@@ -15,7 +15,7 @@ import (
 	"github.com/grokify/mogo/errors/errorsutil"
 	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/grokify/mogo/mime/multipartutil"
-	"github.com/grokify/mogo/net/httputilmore"
+	"github.com/grokify/mogo/net/http/httputilmore"
 	"github.com/grokify/mogo/net/urlutil"
 	"github.com/jessevdk/go-flags"
 	"golang.org/x/oauth2"

@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/grokify/mogo/mime/multipartutil"
-	hum "github.com/grokify/mogo/net/httputilmore"
+	"github.com/grokify/mogo/net/http/httputilmore"
 	"github.com/grokify/mogo/net/urlutil"
 )
 
@@ -105,7 +105,7 @@ func (fax *FaxRequest) Post(httpClient *http.Client, url string) (*http.Response
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Set(hum.HeaderContentType, builder.ContentType())
+	req.Header.Set(httputilmore.HeaderContentType, builder.ContentType())
 	return httpClient.Do(req)
 }
 

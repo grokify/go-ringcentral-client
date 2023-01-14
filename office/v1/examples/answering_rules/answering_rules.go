@@ -9,7 +9,7 @@ import (
 
 	"github.com/grokify/goauth/credentials"
 	"github.com/grokify/mogo/fmt/fmtutil"
-	"github.com/grokify/mogo/net/httputilmore"
+	"github.com/grokify/mogo/net/http/httputilmore"
 	"github.com/joho/godotenv"
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
