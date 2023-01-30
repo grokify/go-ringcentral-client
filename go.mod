@@ -7,13 +7,13 @@ require (
 	github.com/caarlos0/env/v6 v6.10.1
 	github.com/getkin/kin-openapi v0.112.0
 	github.com/grokify/go-scim-client v0.1.13
-	github.com/grokify/goauth v0.17.4
-	github.com/grokify/mogo v0.45.0
+	github.com/grokify/goauth v0.17.5
+	github.com/grokify/mogo v0.46.0
 	github.com/grokify/spectrum v1.16.4
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.4.0
 	github.com/nyaruka/phonenumbers v1.1.4
-	github.com/rs/zerolog v1.28.0
+	github.com/rs/zerolog v1.29.0
 	golang.org/x/oauth2 v0.4.0
 )
 
@@ -25,7 +25,7 @@ require (
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/grokify/base36 v1.0.5 // indirect
-	github.com/grokify/gocharts/v2 v2.8.8 // indirect
+	github.com/grokify/gocharts/v2 v2.8.9 // indirect
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/invopop/yaml v0.2.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
@@ -49,7 +49,7 @@ require (
 	github.com/xuri/excelize/v2 v2.7.0 // indirect
 	github.com/xuri/nfp v0.0.0-20220409054826-5e722a1d9e22 // indirect
 	golang.org/x/crypto v0.5.0 // indirect
-	golang.org/x/exp v0.0.0-20230113213754-f9f960f08ad4 // indirect
+	golang.org/x/exp v0.0.0-20230127193734-31bee513bff7 // indirect
 	golang.org/x/net v0.5.0 // indirect
 	golang.org/x/sys v0.4.0 // indirect
 	golang.org/x/text v0.6.0 // indirect
