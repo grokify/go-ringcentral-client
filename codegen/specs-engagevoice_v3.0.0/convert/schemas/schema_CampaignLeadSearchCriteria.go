@@ -208,7 +208,7 @@ func ProcInfo(schemaInfo SchemaInfo) {
 	fmtutil.PrintJSON(mss)
 
 	oas := openapi3.Spec{
-		Components: oas3.Components{
+		Components: &oas3.Components{
 			Schemas: map[string]*oas3.SchemaRef{
 				schemaInfo.Name: {
 					Value: &oas3.Schema{

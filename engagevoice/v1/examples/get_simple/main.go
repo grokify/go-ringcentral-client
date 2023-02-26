@@ -33,7 +33,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	err = config.LoadDotEnvFirst(opts.EnvPath, os.Getenv("ENV_PATH"))
+	_, err = config.LoadDotEnv([]string{opts.EnvPath, os.Getenv("ENV_PATH")}, 1)
 	if err != nil {
 		log.Fatal(err)
 	}

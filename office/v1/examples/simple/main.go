@@ -34,7 +34,7 @@ func loadEnv() (Options, error) {
 		return opts, err
 	}
 
-	err = config.LoadDotEnvSkipEmpty(opts.EnvPath, os.Getenv("ENV_PATH"), "./.env")
+	_, err = config.LoadDotEnv([]string{opts.EnvPath, os.Getenv("ENV_PATH"), "./.env"}, 1)
 	if err != nil {
 		return opts, errorsutil.Wrap(err, "E_LOAD_DOT_ENV")
 	}

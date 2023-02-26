@@ -18,7 +18,7 @@ import (
 )
 
 func getClient() (*rc.APIClient, error) {
-	err := config.LoadDotEnvSkipEmpty(os.Getenv("ENV_PATH"), "./.env")
+	_, err := config.LoadDotEnv([]string{os.Getenv("ENV_PATH"), "./.env"}, 1)
 	if err != nil {
 		return nil, err
 	}

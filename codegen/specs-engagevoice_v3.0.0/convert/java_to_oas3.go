@@ -88,7 +88,7 @@ func main() {
 	fmt.Printf("WROTE [%v]\n", "_schema_agent.json")
 
 	swag2 := openapi3.Spec{
-		Components: oas3.Components{
+		Components: &oas3.Components{
 			Schemas: map[string]*oas3.SchemaRef{
 				"Agent": {
 					Value: &oas3.Schema{
