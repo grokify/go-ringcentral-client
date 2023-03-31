@@ -6,7 +6,7 @@ require (
 	github.com/antihax/optional v1.0.0
 	github.com/caarlos0/env/v6 v6.10.1
 	github.com/getkin/kin-openapi v0.115.0
-	github.com/grokify/go-scim-client v0.1.14
+	github.com/grokify/go-scim-client v0.1.15
 	github.com/grokify/goauth v0.17.7
 	github.com/grokify/mogo v0.49.1
 	github.com/grokify/spectrum v1.16.8
