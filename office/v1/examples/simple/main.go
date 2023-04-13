@@ -9,7 +9,7 @@ import (
 	"os"
 
 	"github.com/grokify/goauth"
-	"github.com/grokify/goauth/credentials"
+	"github.com/grokify/goauth/authutil"
 	"github.com/grokify/goauth/ringcentral"
 	"github.com/grokify/mogo/config"
 	"github.com/grokify/mogo/errors/errorsutil"
@@ -41,8 +41,8 @@ func loadEnv() (Options, error) {
 	return opts, nil
 }
 
-func getApplicationConfig(cfg []byte) (credentials.Credentials, error) {
-	ac := credentials.Credentials{}
+func getApplicationConfig(cfg []byte) (goauth.Credentials, error) {
+	ac := goauth.Credentials{}
 	err := json.Unmarshal(cfg, &ac)
 	if err != nil {
 		return ac, errorsutil.Wrap(
@@ -51,7 +51,7 @@ func getApplicationConfig(cfg []byte) (credentials.Credentials, error) {
 	return ac, nil
 }
 
-func getTokenFromApplicationConfig(ac credentials.Credentials) (*oauth2.Token, error) {
+func getTokenFromApplicationConfig(ac goauth.Credentials) (*oauth2.Token, error) {
 	token, err := ringcentral.NewTokenPassword(ac.OAuth2)
 	if err != nil {
 		return nil, err
@@ -90,7 +90,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	client := goauth.NewClientTokenOAuth2(token)
+	client := authutil.NewClientTokenOAuth2(token)
 
 	resp, err := client.Get(urlutil.JoinAbsolute(ac.OAuth2.ServerURL, ExtensionAnsweringRuleURL))
 	if err != nil {

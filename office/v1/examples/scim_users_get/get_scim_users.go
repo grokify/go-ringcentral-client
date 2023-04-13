@@ -9,7 +9,7 @@ import (
 	"strings"
 
 	"github.com/antihax/optional"
-	"github.com/grokify/goauth/credentials"
+	"github.com/grokify/goauth"
 	"github.com/grokify/mogo/errors/errorsutil"
 	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/grokify/mogo/net/http/httputilmore"
@@ -202,7 +202,7 @@ func tryCreate(scimClient *rs.APIClient, ctx context.Context) {
 
 func tryScimClient() {
 	scimClient, err := rcu.NewScimApiClient(
-		credentials.NewCredentialsOAuth2Env(envPrefix))
+		goauth.NewCredentialsOAuth2Env(envPrefix))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -236,7 +236,7 @@ func tryScimClient() {
 
 func tryRingCentralClient(demoConfig DemoConfig) {
 	apiClient, err := rcu.NewApiClientPassword(
-		credentials.NewCredentialsOAuth2Env(envPrefix))
+		goauth.NewCredentialsOAuth2Env(envPrefix))
 	if err != nil {
 		log.Fatal(err)
 	}

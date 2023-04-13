@@ -9,7 +9,7 @@ import (
 
 	"github.com/antihax/optional"
 	"github.com/grokify/goauth"
-	"github.com/grokify/goauth/credentials"
+	"github.com/grokify/goauth/authutil"
 	"github.com/grokify/mogo/config"
 	"github.com/grokify/mogo/fmt/fmtutil"
 
@@ -24,11 +24,11 @@ func main() {
 	}
 
 	apiClient, err := ru.NewApiClientPassword(
-		credentials.CredentialsOAuth2{
+		goauth.CredentialsOAuth2{
 			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
 			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
 			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET"),
-			GrantType:    goauth.GrantTypePassword,
+			GrantType:    authutil.GrantTypePassword,
 			Username:     os.Getenv("RINGCENTRAL_USERNAME"),
 			Password:     os.Getenv("RINGCENTRAL_PASSWORD")})
 	if err != nil {

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/grokify/goauth/credentials"
+	"github.com/grokify/goauth"
 	"github.com/grokify/mogo/config"
 	"github.com/grokify/mogo/fmt/fmtutil"
 
@@ -42,7 +42,7 @@ func main() {
 	}
 
 	apiClient, err := ru.NewApiClientPassword(
-		credentials.NewCredentialsOAuth2Env("RINGCENTRAL_"))
+		goauth.NewCredentialsOAuth2Env("RINGCENTRAL_"))
 	if err != nil {
 		panic(err)
 	}

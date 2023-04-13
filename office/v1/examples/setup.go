@@ -3,10 +3,10 @@ package examples
 import (
 	"os"
 
-	"github.com/grokify/goauth/credentials"
 	"github.com/joho/godotenv"
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
+	"github.com/grokify/goauth"
 	ro "github.com/grokify/goauth/ringcentral"
 )
 
@@ -20,7 +20,7 @@ func LoadEnv() error {
 
 func NewApiClient() (*rc.APIClient, error) {
 	httpClient, err := ro.NewClientPassword(
-		credentials.NewCredentialsOAuth2Env("RINGCENTRAL_"))
+		goauth.NewCredentialsOAuth2Env("RINGCENTRAL_"))
 	if err != nil {
 		return nil, err
 	}

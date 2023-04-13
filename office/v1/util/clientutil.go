@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/grokify/goauth/credentials"
+	"github.com/grokify/goauth"
 	"github.com/grokify/mogo/net/urlutil"
 	"github.com/joho/godotenv"
 
@@ -35,7 +35,7 @@ func NewApiClientHttpClientBaseURL(httpClient *http.Client, serverUrl string) (*
 	return apiClient, nil
 }
 
-func NewApiClientCredentials(creds credentials.Credentials) (*rc.APIClient, error) {
+func NewApiClientCredentials(creds goauth.Credentials) (*rc.APIClient, error) {
 	httpClient, err := creds.NewClient(context.Background())
 	if err != nil {
 		return nil, err
@@ -43,7 +43,7 @@ func NewApiClientCredentials(creds credentials.Credentials) (*rc.APIClient, erro
 	return NewApiClientHttpClientBaseURL(httpClient, creds.OAuth2.ServerURL)
 }
 
-func NewApiClientPassword(oc credentials.CredentialsOAuth2) (*rc.APIClient, error) {
+func NewApiClientPassword(oc goauth.CredentialsOAuth2) (*rc.APIClient, error) {
 	httpClient, err := ro.NewClientPassword(oc)
 	if err != nil {
 		return nil, err
@@ -51,7 +51,7 @@ func NewApiClientPassword(oc credentials.CredentialsOAuth2) (*rc.APIClient, erro
 	return NewApiClientHttpClientBaseURL(httpClient, oc.ServerURL)
 }
 
-func NewApiClientPasswordSimple(oc credentials.CredentialsOAuth2) (*rc.APIClient, error) {
+func NewApiClientPasswordSimple(oc goauth.CredentialsOAuth2) (*rc.APIClient, error) {
 	httpClient, err := ro.NewClientPasswordSimple(oc)
 	if err != nil {
 		return nil, err
@@ -60,10 +60,10 @@ func NewApiClientPasswordSimple(oc credentials.CredentialsOAuth2) (*rc.APIClient
 }
 
 func NewApiClientPasswordEnv(envPrefix string) (*rc.APIClient, error) {
-	return NewApiClientPassword(credentials.NewCredentialsOAuth2Env(envPrefix))
+	return NewApiClientPassword(goauth.NewCredentialsOAuth2Env(envPrefix))
 }
 
-func NewScimApiClient(oc credentials.CredentialsOAuth2) (*rs.APIClient, error) {
+func NewScimApiClient(oc goauth.CredentialsOAuth2) (*rs.APIClient, error) {
 	httpClient, err := ro.NewClientPassword(oc)
 	if err != nil {
 		return nil, err

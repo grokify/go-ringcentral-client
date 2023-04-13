@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/grokify/goauth/credentials"
+	"github.com/grokify/goauth"
 	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/grokify/mogo/net/http/httputilmore"
 	"github.com/joho/godotenv"
@@ -62,7 +62,7 @@ func main() {
 	}
 
 	apiClient, err := rcu.NewApiClientPassword(
-		credentials.NewCredentialsOAuth2Env("RINGCENTRAL_"))
+		goauth.NewCredentialsOAuth2Env("RINGCENTRAL_"))
 	if err != nil {
 		log.Fatal(err)
 	}

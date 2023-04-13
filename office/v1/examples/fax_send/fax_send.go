@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/antihax/optional"
+	"github.com/grokify/goauth"
 	"github.com/grokify/mogo/fmt/fmtutil"
 	"github.com/grokify/mogo/net/http/httputilmore"
 	"github.com/jessevdk/go-flags"
@@ -14,7 +15,6 @@ import (
 
 	rc "github.com/grokify/go-ringcentral-client/office/v1/client"
 	ru "github.com/grokify/go-ringcentral-client/office/v1/util"
-	"github.com/grokify/goauth/credentials"
 	"github.com/grokify/goauth/ringcentral"
 )
 
@@ -35,7 +35,7 @@ func main() {
 	}
 	fmtutil.PrintJSON(opts)
 
-	cset, err := credentials.ReadFileCredentialsSet(opts.CredsPath, true)
+	cset, err := goauth.ReadFileCredentialsSet(opts.CredsPath, true)
 	if err != nil {
 		log.Fatal().Err(err).
 			Str("credentials_filepath", opts.CredsPath).

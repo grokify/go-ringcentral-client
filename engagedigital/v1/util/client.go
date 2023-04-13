@@ -3,7 +3,7 @@ package utils
 import (
 	"fmt"
 
-	"github.com/grokify/goauth"
+	"github.com/grokify/goauth/authutil"
 
 	engagedigital "github.com/grokify/go-ringcentral-client/engagedigital/v1/client"
 )
@@ -14,7 +14,7 @@ const (
 
 func NewApiClient(site, token string) *engagedigital.APIClient {
 	cfg := engagedigital.NewConfiguration()
-	cfg.HTTPClient = goauth.NewClientToken(goauth.TokenBearer, token, false)
+	cfg.HTTPClient = authutil.NewClientToken(authutil.TokenBearer, token, false)
 	cfg.BasePath = fmt.Sprintf(ApiUrlFormat, site)
 	return engagedigital.NewAPIClient(cfg)
 }

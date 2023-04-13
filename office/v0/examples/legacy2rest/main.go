@@ -9,7 +9,7 @@ import (
 	"os"
 
 	"github.com/grokify/goauth"
-	"github.com/grokify/goauth/credentials"
+	"github.com/grokify/goauth/authutil"
 	"github.com/grokify/mogo/net/http/httputilmore"
 	"github.com/joho/godotenv"
 
@@ -20,18 +20,18 @@ import (
 type Handler struct {
 	AppPort        int
 	APIClient      *rc.APIClient
-	AppCredentials *credentials.CredentialsOAuth2
+	AppCredentials *goauth.CredentialsOAuth2
 }
 
 func (h *Handler) RingOut(res http.ResponseWriter, req *http.Request) {
 	// reqUtil := nhu.RequestUtil{Request: req}
 
-	pwdCredentials := credentials.CredentialsOAuth2{
+	pwdCredentials := goauth.CredentialsOAuth2{
 		ClientID:        h.AppCredentials.ClientID,
 		ClientSecret:    h.AppCredentials.ClientSecret,
 		ServerURL:       h.AppCredentials.ServerURL,
 		Endpoint:        h.AppCredentials.Endpoint,
-		GrantType:       goauth.GrantTypePassword,
+		GrantType:       authutil.GrantTypePassword,
 		Username:        httputilmore.GetReqQueryParam(req, "username"),
 		Password:        httputilmore.GetReqQueryParam(req, "password"),
 		RefreshTokenTTL: int64(-1),
@@ -97,7 +97,7 @@ func main() {
 
 	handler := Handler{
 		AppPort: 8080,
-		AppCredentials: &credentials.CredentialsOAuth2{
+		AppCredentials: &goauth.CredentialsOAuth2{
 			ServerURL:    os.Getenv("RINGCENTRAL_SERVER_URL"),
 			ClientID:     os.Getenv("RINGCENTRAL_CLIENT_ID"),
 			ClientSecret: os.Getenv("RINGCENTRAL_CLIENT_SECRET"),

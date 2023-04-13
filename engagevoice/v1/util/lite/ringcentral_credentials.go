@@ -6,19 +6,19 @@ import (
 	"net/url"
 
 	"github.com/grokify/goauth"
-	"github.com/grokify/goauth/credentials"
+	"github.com/grokify/goauth/authutil"
 	"github.com/grokify/mogo/encoding/jsonutil"
 	"github.com/grokify/mogo/errors/errorsutil"
 )
 
 type EngageCredentials struct {
-	Credentials credentials.Credentials
+	Credentials goauth.Credentials
 	EngageToken EngageToken
 }
 
 func NewEngageCredentialsJSON(rcCredentialsJSON []byte) (EngageCredentials, error) {
 	ec := EngageCredentials{}
-	rcCredentials, err := credentials.NewCredentialsJSON(rcCredentialsJSON, nil)
+	rcCredentials, err := goauth.NewCredentialsJSON(rcCredentialsJSON, nil)
 	if err != nil {
 		return ec, errorsutil.Wrap(err, "NewEngageCredentialsJSON>>ringcentral.NewCredentialsJSON")
 	}
@@ -44,8 +44,8 @@ func (ec *EngageCredentials) NewClient() (*http.Client, error) {
 	if err != nil {
 		return nil, err
 	}
-	engageClient := goauth.NewClientToken(
-		goauth.TokenBearer, ec.EngageToken.AccessToken, false)
+	engageClient := authutil.NewClientToken(
+		authutil.TokenBearer, ec.EngageToken.AccessToken, false)
 	return engageClient, nil
 }
 

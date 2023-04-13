@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/grokify/goauth"
+	"github.com/grokify/goauth/authutil"
 )
 
 const (
@@ -16,7 +16,7 @@ const (
 )
 
 func NewClientToken(token string) *http.Client {
-	return goauth.NewClientHeaderQuery(
+	return authutil.NewClientHeaderQuery(
 		http.Header{HeaderEngageVoiceToken: []string{token}},
 		url.Values{},
 		false)
