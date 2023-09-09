@@ -27,14 +27,16 @@ func (h *Handler) RingOut(res http.ResponseWriter, req *http.Request) {
 	// reqUtil := nhu.RequestUtil{Request: req}
 
 	pwdCredentials := goauth.CredentialsOAuth2{
-		ClientID:        h.AppCredentials.ClientID,
-		ClientSecret:    h.AppCredentials.ClientSecret,
-		ServerURL:       h.AppCredentials.ServerURL,
-		Endpoint:        h.AppCredentials.Endpoint,
-		GrantType:       authutil.GrantTypePassword,
-		Username:        httputilmore.GetReqQueryParam(req, "username"),
-		Password:        httputilmore.GetReqQueryParam(req, "password"),
-		RefreshTokenTTL: int64(-1),
+		ClientID:     h.AppCredentials.ClientID,
+		ClientSecret: h.AppCredentials.ClientSecret,
+		ServerURL:    h.AppCredentials.ServerURL,
+		Endpoint:     h.AppCredentials.Endpoint,
+		GrantType:    authutil.GrantTypePassword,
+		Username:     httputilmore.GetReqQueryParam(req, "username"),
+		Password:     httputilmore.GetReqQueryParam(req, "password"),
+		PasswordOpts: map[string][]string{
+			"refresh_token_ttl": {"-1"}},
+		// RefreshTokenTTL: int64(-1),
 	}
 
 	ringOut := ru.RingOutRequest{

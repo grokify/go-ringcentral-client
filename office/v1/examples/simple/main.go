@@ -52,7 +52,7 @@ func getApplicationConfig(cfg []byte) (goauth.Credentials, error) {
 }
 
 func getTokenFromApplicationConfig(ac goauth.Credentials) (*oauth2.Token, error) {
-	token, err := ringcentral.NewTokenPassword(ac.OAuth2)
+	token, err := ringcentral.NewTokenPassword(*ac.OAuth2)
 	if err != nil {
 		return nil, err
 	}
