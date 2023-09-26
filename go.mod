@@ -13,7 +13,7 @@ require (
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.5.1
 	github.com/nyaruka/phonenumbers v1.1.8
-	github.com/rs/zerolog v1.30.0
+	github.com/rs/zerolog v1.31.0
 	golang.org/x/oauth2 v0.12.0
 )
 
