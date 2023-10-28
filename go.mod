@@ -7,8 +7,8 @@ require (
 	github.com/caarlos0/env/v6 v6.10.1
 	github.com/getkin/kin-openapi v0.120.0
 	github.com/grokify/go-scim-client v0.1.16
-	github.com/grokify/goauth v0.20.2
-	github.com/grokify/mogo v0.56.0
+	github.com/grokify/goauth v0.20.4
+	github.com/grokify/mogo v0.57.0
 	github.com/grokify/spectrum v1.16.12
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.5.1
@@ -18,7 +18,7 @@ require (
 )
 
 require (
-	cloud.google.com/go/compute v1.23.0 // indirect
+	cloud.google.com/go/compute v1.23.1 // indirect
 	cloud.google.com/go/compute/metadata v0.2.3 // indirect
 	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/go-openapi/jsonpointer v0.20.0 // indirect
@@ -29,10 +29,10 @@ require (
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/s2a-go v0.1.7 // indirect
 	github.com/google/uuid v1.3.1 // indirect
-	github.com/googleapis/enterprise-certificate-proxy v0.2.5 // indirect
+	github.com/googleapis/enterprise-certificate-proxy v0.3.1 // indirect
 	github.com/googleapis/gax-go/v2 v2.12.0 // indirect
 	github.com/grokify/base36 v1.0.5 // indirect
-	github.com/grokify/gocharts/v2 v2.12.0 // indirect
+	github.com/grokify/gocharts/v2 v2.13.0 // indirect
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/iancoleman/strcase v0.3.0 // indirect
 	github.com/invopop/yaml v0.2.0 // indirect
@@ -64,9 +64,9 @@ require (
 	golang.org/x/sys v0.13.0 // indirect
 	golang.org/x/text v0.13.0 // indirect
 	gonum.org/v1/gonum v0.14.0 // indirect
-	google.golang.org/api v0.139.0 // indirect
+	google.golang.org/api v0.147.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20230822172742-b8732ec3820d // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20231012201019-e917dd12ba7a // indirect
 	google.golang.org/grpc v1.58.3 // indirect
 	google.golang.org/protobuf v1.31.0 // indirect
 	gopkg.in/oleiade/reflections.v1 v1.0.0 // indirect
