@@ -84,8 +84,8 @@ github.com/grokify/gocharts/v2 v2.12.0 h1:5nORWGrvaJ82QS2ZTsB5ynv3zwmnvegJi+ENn9
 github.com/grokify/gocharts/v2 v2.12.0/go.mod h1:Q8LwaCZhws7vy5oVUQBfjyn0OhpfnN2T51B7OE9CP/c=
 github.com/grokify/mogo v0.56.0 h1:jJzSQfJfncONK9BqKjwzztSlqYSzuvHfQFw4v8ipji8=
 github.com/grokify/mogo v0.56.0/go.mod h1:vSTfEAy7vm2RaGgQBA6yfZERiHSKaZae1cMM2l9hL5o=
-github.com/grokify/spectrum v1.16.11 h1:GzhmIMm1rdXwVfDI6kbgnG3vDWJxky4iSkIJHR7tHUQ=
-github.com/grokify/spectrum v1.16.11/go.mod h1:VA0TbedT8kEU95C8jW4j90/4AJS8xAmynueVNDiT/AM=
+github.com/grokify/spectrum v1.16.12 h1:Mdj+gosjd7rBNHz0qmoQ0s12E6asIFMt/1R1i/MYvAQ=
+github.com/grokify/spectrum v1.16.12/go.mod h1:DcZ/PrXOk0jRq2RrLrMz0HubMg0ShwcD0hCqJz//Drk=
 github.com/huandu/xstrings v1.4.0 h1:D17IlohoQq4UcpqD7fDk80P7l+lwAmlFaBHgOipl2FU=
 github.com/huandu/xstrings v1.4.0/go.mod h1:y5/lhBue+AyNmUVz9RLU9xbLR0o4KIIExikq4ovT0aE=
 github.com/iancoleman/strcase v0.3.0 h1:nTXanmYxhfFAMjZL34Ov6gkzEsSJZ5DbhxWjvSASxEI=
@@ -172,8 +172,9 @@ github.com/xuri/efp v0.0.0-20230802181842-ad255f2331ca h1:uvPMDVyP7PXMMioYdyPH+0
 github.com/xuri/efp v0.0.0-20230802181842-ad255f2331ca/go.mod h1:ybY/Jr0T0GTCnYjKqmdwxyxn2BQf2RcQIIvex5QldPI=
 github.com/xuri/excelize/v2 v2.8.0 h1:Vd4Qy809fupgp1v7X+nCS/MioeQmYVVzi495UCTqB7U=
 github.com/xuri/excelize/v2 v2.8.0/go.mod h1:6iA2edBTKxKbZAa7X5bDhcCg51xdOn1Ar5sfoXRGrQg=
-github.com/xuri/nfp v0.0.0-20230819163627-dc951e3ffe1a h1:Mw2VNrNNNjDtw68VsEj2+st+oCSn4Uz7vZw6TbhcV1o=
 github.com/xuri/nfp v0.0.0-20230819163627-dc951e3ffe1a/go.mod h1:WwHg+CVyzlv/TX9xqBFXEZAuxOPxn2k1GNHwG41IIUQ=
+github.com/xuri/nfp v0.0.0-20230919160717-d98342af3f05 h1:qhbILQo1K3mphbwKh1vNm4oGezE1eF9fQWmNiIpSfI4=
+github.com/xuri/nfp v0.0.0-20230919160717-d98342af3f05/go.mod h1:WwHg+CVyzlv/TX9xqBFXEZAuxOPxn2k1GNHwG41IIUQ=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
 go.opencensus.io v0.24.0 h1:y73uSU6J157QMP2kn2r30vwW1A2W2WFwSCGnAVxeaD0=
 go.opencensus.io v0.24.0/go.mod h1:vNK8G9p7aAivkbmorf4v+7Hgx+Zs0yY+0fOtgBfjQKo=
@@ -185,8 +186,8 @@ golang.org/x/crypto v0.12.0/go.mod h1:NF0Gs7EO5K4qLn+Ylc+fih8BSTeIjAP05siRnAh98y
 golang.org/x/crypto v0.14.0 h1:wBqGXzWJW6m1XrIKlAH0Hs1JJ7+9KBwnIO8v66Q9cHc=
 golang.org/x/crypto v0.14.0/go.mod h1:MVFd36DqK4CsrnJYDkBA3VC4m2GkXAM0PvzMCn4JQf4=
 golang.org/x/exp v0.0.0-20190121172915-509febef88a4/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=
-golang.org/x/exp v0.0.0-20230905200255-921286631fa9 h1:GoHiUyI/Tp2nVkLI2mCxVkOjsbSXD66ic0XW0js0R9g=
-golang.org/x/exp v0.0.0-20230905200255-921286631fa9/go.mod h1:S2oDrQGGwySpoQPVqRShND87VCbxmc6bL1Yd2oYrm6k=
+golang.org/x/exp v0.0.0-20231006140011-7918f672742d h1:jtJma62tbqLibJ5sFQz8bKtEM8rJBtfilJ2qTU199MI=
+golang.org/x/exp v0.0.0-20231006140011-7918f672742d/go.mod h1:ldy0pHrwJyGW56pPQzzkH36rKxoZW1tw7ZJpeKx+hdo=
 golang.org/x/image v0.11.0/go.mod h1:bglhjqbqVuEb9e9+eNR45Jfu7D+T4Qan+NhQk8Ck2P8=
 golang.org/x/image v0.12.0 h1:w13vZbU4o5rKOFFR8y7M+c4A5jXDC0uXTdHYRP8X2DQ=
 golang.org/x/lint v0.0.0-20181026193005-c67002cb31c3/go.mod h1:UVdnD1Gm6xHRNCYTkRU2/jEulfH38KcIWyp/GAMgvoE=
