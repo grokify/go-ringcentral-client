@@ -10,7 +10,7 @@ require (
 	github.com/getkin/kin-openapi v0.120.0
 	github.com/grokify/go-scim-client v0.1.17
 	github.com/grokify/goauth v0.20.4
-	github.com/grokify/mogo v0.60.0
+	github.com/grokify/mogo v0.60.1
 	github.com/grokify/spectrum v1.17.0
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.5.1
@@ -63,8 +63,8 @@ require (
 	golang.org/x/crypto v0.14.0 // indirect
 	golang.org/x/exp v0.0.0-20231006140011-7918f672742d // indirect
 	golang.org/x/net v0.17.0 // indirect
-	golang.org/x/sys v0.13.0 // indirect
-	golang.org/x/text v0.13.0 // indirect
+	golang.org/x/sys v0.14.0 // indirect
+	golang.org/x/text v0.14.0 // indirect
 	gonum.org/v1/gonum v0.14.0 // indirect
 	google.golang.org/api v0.148.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
