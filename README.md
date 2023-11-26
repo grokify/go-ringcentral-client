@@ -7,7 +7,7 @@
 [![Stack Overflow][stackoverflow-svg]][stackoverflow-link]
 [![Twitter][twitter-svg]][twitter-link]
 
- [build-status-svg]: https://github.com/grokify/go-ringcentral-client/workflows/build/badge.svg
+ [build-status-svg]: https://github.com/grokify/go-ringcentral-client/workflows/test/badge.svg
  [build-status-link]: https://github.com/grokify/go-ringcentral-client/actions
  [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/go-ringcentral-client
  [goreport-link]: https://goreportcard.com/report/github.com/grokify/go-ringcentral-client
