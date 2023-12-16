@@ -10,7 +10,7 @@ require (
 	github.com/getkin/kin-openapi v0.120.0
 	github.com/grokify/go-scim-client v0.1.18
 	github.com/grokify/goauth v0.20.5
-	github.com/grokify/mogo v0.61.1
+	github.com/grokify/mogo v0.62.3
 	github.com/grokify/spectrum v1.17.1
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.5.1
@@ -27,7 +27,6 @@ require (
 	github.com/golang-jwt/jwt/v5 v5.1.0 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
-	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/s2a-go v0.1.7 // indirect
 	github.com/google/uuid v1.4.0 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.2 // indirect
