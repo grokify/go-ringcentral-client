@@ -3,6 +3,8 @@ package legacy
 import (
 	"io/ioutil"
 	"net/http"
+	"net/url"
+	"strconv"
 	"strings"
 
 	uu "github.com/grokify/mogo/net/urlutil"
@@ -19,7 +21,7 @@ var RingOutURL = "https://service.ringcentral.com/ringout.asp"
 func Call(params CallRequestInfo) (*CallResponseInfo, *http.Response, error) {
 	params.Command = CmdCall
 
-	roURL, err := uu.URLAddQueryInterfaceString(RingOutURL, params)
+	roURL, err := uu.URLStringAddQuery(RingOutURL, params.Values(), false)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -90,6 +92,35 @@ type CallRequestInfo struct {
 	From      int    `url:"from,omitempty"`
 	CallerID  int    `url:"clid,omitempty"`
 	Prompt    int    `url:"prompt,omitempty"`
+}
+
+func (req CallRequestInfo) Values() url.Values {
+	v := url.Values{}
+	if strings.TrimSpace(req.Command) != "" {
+		v.Add("cmd", req.Command)
+	}
+	if strings.TrimSpace(req.Command) != "" {
+		v.Add("cmd", req.Command)
+	}
+	if req.Username != 0 {
+		v.Add("username", strconv.Itoa(req.Username))
+	}
+	if req.Extension != 0 {
+		v.Add("extension", strconv.Itoa(req.Extension))
+	}
+	if req.To != 0 {
+		v.Add("to", strconv.Itoa(req.To))
+	}
+	if req.From != 0 {
+		v.Add("from", strconv.Itoa(req.From))
+	}
+	if req.CallerID != 0 {
+		v.Add("clid", strconv.Itoa(req.CallerID))
+	}
+	if req.Prompt != 0 {
+		v.Add("prompt", strconv.Itoa(req.Prompt))
+	}
+	return v
 }
 
 type CallResponseInfo struct {

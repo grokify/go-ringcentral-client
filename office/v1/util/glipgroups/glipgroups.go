@@ -114,9 +114,9 @@ func NewGroupsSetApiRequest(client *http.Client, serverUrl string, groupType str
 	for {
 		// apiUrlString := urlutil.JoinAbsolute(serverUrl, ApiPathListUserGroups)
 		// groupsURL := ro.BuildURL(serverUrl, "/glip/groups", true, query)
-		groupsURL, err := urlutil.URLAddQueryValuesString(
+		groupsURL, err := urlutil.URLStringAddQuery(
 			urlutil.JoinAbsolute(serverUrl, ApiPathListUserGroups),
-			query)
+			query, false)
 		if err != nil {
 			return set, err
 		}
