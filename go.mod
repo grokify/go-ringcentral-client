@@ -10,7 +10,7 @@ require (
 	github.com/getkin/kin-openapi v0.122.0
 	github.com/grokify/go-scim-client v0.1.18
 	github.com/grokify/goauth v0.20.8
-	github.com/grokify/mogo v0.62.6
+	github.com/grokify/mogo v0.62.7
 	github.com/grokify/spectrum v1.18.1
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.5.1
@@ -65,7 +65,7 @@ require (
 	go.opentelemetry.io/otel/metric v1.21.0 // indirect
 	go.opentelemetry.io/otel/trace v1.21.0 // indirect
 	golang.org/x/crypto v0.18.0 // indirect
-	golang.org/x/exp v0.0.0-20231219180239-dc181d75b848 // indirect
+	golang.org/x/exp v0.0.0-20240112132812-db7319d0e0e3 // indirect
 	golang.org/x/net v0.20.0 // indirect
 	golang.org/x/sys v0.16.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
