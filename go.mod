@@ -10,12 +10,12 @@ require (
 	github.com/getkin/kin-openapi v0.123.0
 	github.com/grokify/go-scim-client v0.1.19
 	github.com/grokify/goauth v0.20.10
-	github.com/grokify/mogo v0.62.8
-	github.com/grokify/spectrum v1.18.2
+	github.com/grokify/mogo v0.63.1
+	github.com/grokify/spectrum v1.18.3
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.5.1
 	github.com/nyaruka/phonenumbers v1.3.1
-	github.com/rs/zerolog v1.31.0
+	github.com/rs/zerolog v1.32.0
 	golang.org/x/oauth2 v0.16.0
 )
 
@@ -26,7 +26,7 @@ require (
 	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/go-openapi/jsonpointer v0.20.2 // indirect
-	github.com/go-openapi/swag v0.22.8 // indirect
+	github.com/go-openapi/swag v0.22.9 // indirect
 	github.com/golang-jwt/jwt/v5 v5.2.0 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
@@ -35,7 +35,7 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.3.2 // indirect
 	github.com/googleapis/gax-go/v2 v2.12.0 // indirect
 	github.com/grokify/base36 v1.0.5 // indirect
-	github.com/grokify/gocharts/v2 v2.17.1 // indirect
+	github.com/grokify/gocharts/v2 v2.18.1 // indirect
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/iancoleman/strcase v0.3.0 // indirect
 	github.com/invopop/yaml v0.2.0 // indirect
@@ -53,7 +53,7 @@ require (
 	github.com/perimeterx/marshmallow v1.1.5 // indirect
 	github.com/richardlehane/mscfb v1.0.4 // indirect
 	github.com/richardlehane/msoleps v1.0.3 // indirect
-	github.com/rivo/uniseg v0.4.4 // indirect
+	github.com/rivo/uniseg v0.4.6 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/quicktemplate v1.7.0 // indirect
 	github.com/xuri/efp v0.0.0-20231025114914-d1ff6096ae53 // indirect
