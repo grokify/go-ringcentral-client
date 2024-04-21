@@ -85,8 +85,8 @@ github.com/grokify/gocharts/v2 v2.18.5 h1:N61QFDjZ1gLumkIG5JohofkyNp0YZsz1WO1lPh
 github.com/grokify/gocharts/v2 v2.18.5/go.mod h1:zah6HrJEOF9ftrnp2Xe2dCw5JNcJuqnHgpkLES0+6MQ=
 github.com/grokify/mogo v0.63.8 h1:m9Tuka6OrEXZEbd5fVWkiz2hcLU/na7IJaTBh/s3pO0=
 github.com/grokify/mogo v0.63.8/go.mod h1:az9vNjcZ88jLTs/pK0WJObPupFu+XzXl6EPrqEbqKyA=
-github.com/grokify/spectrum v1.18.4 h1:qewO7UC4va9i/OgPuaxQQIPw8+oAuA+AcH19GiUjabM=
-github.com/grokify/spectrum v1.18.4/go.mod h1:Go6Jdu6HxMrhjpe/MZt+6C6rcxlwF9by/kfyxO1Zpcw=
+github.com/grokify/spectrum v1.18.5 h1:v8rVRW7tcjIlBw3ESOXMaCIFAKQlg1P7V9r86RrxUks=
+github.com/grokify/spectrum v1.18.5/go.mod h1:SG3etFSQwO/1/lGNYw3vY6VN7bNW+1t0685oIpjN5Ks=
 github.com/huandu/xstrings v1.4.0 h1:D17IlohoQq4UcpqD7fDk80P7l+lwAmlFaBHgOipl2FU=
 github.com/huandu/xstrings v1.4.0/go.mod h1:y5/lhBue+AyNmUVz9RLU9xbLR0o4KIIExikq4ovT0aE=
 github.com/iancoleman/strcase v0.3.0 h1:nTXanmYxhfFAMjZL34Ov6gkzEsSJZ5DbhxWjvSASxEI=
