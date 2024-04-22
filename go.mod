@@ -11,7 +11,7 @@ require (
 	github.com/grokify/go-scim-client v0.1.20
 	github.com/grokify/goauth v0.20.14
 	github.com/grokify/mogo v0.63.8
-	github.com/grokify/spectrum v1.18.4
+	github.com/grokify/spectrum v1.18.5
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.5.1
 	github.com/nyaruka/phonenumbers v1.3.4
