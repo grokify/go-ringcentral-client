@@ -1,8 +1,7 @@
 module github.com/grokify/go-ringcentral-client
 
 go 1.22
-
-toolchain go1.22.1
+toolchain go1.22.2
 
 require (
 	github.com/antihax/optional v1.0.0
@@ -10,7 +9,7 @@ require (
 	github.com/getkin/kin-openapi v0.123.0
 	github.com/grokify/go-scim-client v0.1.20
 	github.com/grokify/goauth v0.20.15
-	github.com/grokify/mogo v0.63.10
+	github.com/grokify/mogo v0.63.11
 	github.com/grokify/spectrum v1.18.5
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.5.1
