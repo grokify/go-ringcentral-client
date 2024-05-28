@@ -34,7 +34,7 @@ func (h *Handler) RingOut(res http.ResponseWriter, req *http.Request) {
 		GrantType:    authutil.GrantTypePassword,
 		Username:     httputilmore.GetReqQueryParam(req, "username"),
 		Password:     httputilmore.GetReqQueryParam(req, "password"),
-		PasswordOpts: map[string][]string{
+		TokenBodyOpts: map[string][]string{
 			"refresh_token_ttl": {"-1"}},
 		// RefreshTokenTTL: int64(-1),
 	}

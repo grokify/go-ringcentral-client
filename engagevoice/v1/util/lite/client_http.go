@@ -1,6 +1,7 @@
 package lite
 
 import (
+	"context"
 	"net/http"
 	"net/url"
 
@@ -22,12 +23,12 @@ func NewClientToken(token string) *http.Client {
 		false)
 }
 
-func NewClientRingCentralPassword(rcCredentials []byte) (*http.Client, error) {
+func NewClientRingCentralPassword(ctx context.Context, rcCredentials []byte) (*http.Client, error) {
 	appCredentials, err := NewEngageCredentialsJSON(rcCredentials)
 	if err != nil {
 		return nil, err
 	}
-	return appCredentials.NewClient()
+	return appCredentials.NewClient(ctx)
 
 	/*
 		// 1. Get RingCentral Token

@@ -1,6 +1,7 @@
 package lite
 
 import (
+	"context"
 	"fmt"
 	"net/http"
 	"net/url"
@@ -26,8 +27,8 @@ func NewEngageCredentialsJSON(rcCredentialsJSON []byte) (EngageCredentials, erro
 	return ec, nil
 }
 
-func (ec *EngageCredentials) LoadNewTokens() error {
-	rcToken, err := ec.Credentials.NewToken()
+func (ec *EngageCredentials) LoadNewTokens(ctx context.Context) error {
+	rcToken, err := ec.Credentials.NewToken(ctx)
 	if err != nil {
 		return errorsutil.Wrap(err, "EngageCredentials>>ec.Credentials.NewToken()")
 	}
@@ -39,8 +40,8 @@ func (ec *EngageCredentials) LoadNewTokens() error {
 	return nil
 }
 
-func (ec *EngageCredentials) NewClient() (*http.Client, error) {
-	err := ec.LoadNewTokens()
+func (ec *EngageCredentials) NewClient(ctx context.Context) (*http.Client, error) {
+	err := ec.LoadNewTokens(ctx)
 	if err != nil {
 		return nil, err
 	}

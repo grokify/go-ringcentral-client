@@ -1,6 +1,7 @@
 package engagevoiceutil
 
 import (
+	"context"
 	"net/http"
 
 	engagevoice "github.com/grokify/go-ringcentral-client/engagevoice/v1/client"
@@ -12,8 +13,8 @@ type ClientAPIs struct {
 	Config    *engagevoice.Configuration
 }
 
-func NewClientAPIsRingCentralPassword(rcCredentials []byte) (ClientAPIs, error) {
-	httpClient, err := lite.NewClientRingCentralPassword(rcCredentials)
+func NewClientAPIsRingCentralPassword(ctx context.Context, rcCredentials []byte) (ClientAPIs, error) {
+	httpClient, err := lite.NewClientRingCentralPassword(ctx, rcCredentials)
 	if err != nil {
 		return ClientAPIs{}, err
 	}
