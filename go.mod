@@ -9,8 +9,8 @@ require (
 	github.com/caarlos0/env/v6 v6.10.1
 	github.com/getkin/kin-openapi v0.123.0
 	github.com/grokify/go-scim-client v0.1.20
-	github.com/grokify/goauth v0.21.1
-	github.com/grokify/mogo v0.64.0
+	github.com/grokify/goauth v0.21.2
+	github.com/grokify/mogo v0.64.1
 	github.com/grokify/spectrum v1.18.5
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/joho/godotenv v1.5.1
@@ -36,7 +36,7 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.3.2 // indirect
 	github.com/googleapis/gax-go/v2 v2.12.4 // indirect
 	github.com/grokify/base36 v1.0.5 // indirect
-	github.com/grokify/gocharts/v2 v2.19.0 // indirect
+	github.com/grokify/gocharts/v2 v2.19.1 // indirect
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/iancoleman/strcase v0.3.0 // indirect
 	github.com/invopop/yaml v0.3.1 // indirect
