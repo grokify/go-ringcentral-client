@@ -80,8 +80,8 @@ github.com/grokify/goauth v0.22.1 h1:2RdMW3g1o47Xf/HDrtGa/oNCWLrQTFpD0A/lTMTchT4
 github.com/grokify/goauth v0.22.1/go.mod h1:e/3Iap/2RAWe1CuI1mpdYgKLKu1Byzs3mPNKGEJxru4=
 github.com/grokify/gocharts/v2 v2.20.2 h1:JNk1+WykAeAeyO512DWidxzkKAIzv/XK5LF3ONfmbW0=
 github.com/grokify/gocharts/v2 v2.20.2/go.mod h1:uk3qlHyfgIFB1agxcO9sIoMxSG1vCiY9WYyNhqA/9gM=
-github.com/grokify/mogo v0.64.12 h1:BNrZ1qBFuX4qu5722CW6qtqu/mrrsZ3bhKu/w1KowKg=
-github.com/grokify/mogo v0.64.12/go.mod h1:lDhfYIiOhJo7C2U3aL00PlUU9gLvmTONi4MdIWoGmGM=
+github.com/grokify/mogo v0.65.0 h1:pOnXe5HCy9ufzLObc2+KMvL3xwycScBAegn2QXvTmMA=
+github.com/grokify/mogo v0.65.0/go.mod h1:lDhfYIiOhJo7C2U3aL00PlUU9gLvmTONi4MdIWoGmGM=
 github.com/grokify/spectrum v1.18.9 h1:JwM/zcMAmt8GuhUFgu1rOGr4rxhxGEd/CJIAgCkaHq4=
 github.com/grokify/spectrum v1.18.9/go.mod h1:lgXliA3a9mpQft6m66ZspSuAdHl+f7tXkGbJDP6Rup8=
 github.com/huandu/xstrings v1.5.0 h1:2ag3IFq9ZDANvthTwTiqSSZLjDc+BedvHPAp5tJy2TI=
