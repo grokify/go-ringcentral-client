@@ -7,8 +7,8 @@ require (
 	github.com/caarlos0/env/v6 v6.10.1
 	github.com/getkin/kin-openapi v0.123.0
 	github.com/grokify/go-scim-client v0.1.22
-	github.com/grokify/goauth v0.22.4
-	github.com/grokify/mogo v0.65.6
+	github.com/grokify/goauth v0.22.5
+	github.com/grokify/mogo v0.66.0
 	github.com/grokify/spectrum v1.18.10
 	github.com/jessevdk/go-flags v1.6.1
 	github.com/joho/godotenv v1.5.1
@@ -28,13 +28,13 @@ require (
 	github.com/go-openapi/jsonpointer v0.21.0 // indirect
 	github.com/go-openapi/swag v0.23.0 // indirect
 	github.com/golang-jwt/jwt/v5 v5.2.1 // indirect
-	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
+	github.com/golang/groupcache v0.0.0-20241129210726-2c02b8208cf8 // indirect
 	github.com/google/s2a-go v0.1.8 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.4 // indirect
 	github.com/googleapis/gax-go/v2 v2.14.0 // indirect
 	github.com/grokify/base36 v1.0.5 // indirect
-	github.com/grokify/gocharts/v2 v2.21.0 // indirect
+	github.com/grokify/gocharts/v2 v2.21.1 // indirect
 	github.com/huandu/xstrings v1.5.0 // indirect
 	github.com/iancoleman/strcase v0.3.0 // indirect
 	github.com/invopop/yaml v0.3.1 // indirect
