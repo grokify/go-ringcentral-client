@@ -212,7 +212,7 @@ func ProcInfo(schemaInfo SchemaInfo) {
 			Schemas: map[string]*oas3.SchemaRef{
 				schemaInfo.Name: {
 					Value: &oas3.Schema{
-						Type:       openapi3.TypeObject,
+						Type:       openapi3.NewTypesRef(openapi3.TypeObject),
 						Properties: mss,
 					},
 				},

@@ -29,6 +29,6 @@ func UploadUserProfileImage(httpClient *http.Client, serverUrl, accountId, exten
 		return nil, err
 	}
 
-	req.Header.Add(httputilmore.HeaderContentType, builder.ContentType())
+	req.Header.Add(httputilmore.HeaderContentType, builder.ContentType(httputilmore.ContentTypeMultipartFormData))
 	return httpClient.Do(req)
 }

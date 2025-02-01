@@ -2,7 +2,7 @@ package clientutil
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"mime/multipart"
 	"net/http"
 	"strconv"
@@ -101,11 +101,11 @@ func (fax *FaxRequest) Post(httpClient *http.Client, url string) (*http.Response
 		return nil, err
 	}
 
-	req, err := http.NewRequest(http.MethodPost, url, ioutil.NopCloser(builder.Buffer))
+	req, err := http.NewRequest(http.MethodPost, url, io.NopCloser(builder.Buffer))
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Set(httputilmore.HeaderContentType, builder.ContentType())
+	req.Header.Set(httputilmore.HeaderContentType, builder.ContentType(httputilmore.ContentTypeMultipartFormData))
 	return httpClient.Do(req)
 }
 
