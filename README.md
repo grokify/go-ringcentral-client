@@ -1,24 +1,24 @@
 # Go API client for RingCentral
 
-[![Build Status][build-status-svg]][build-status-link]
-[![Go Report Card][goreport-svg]][goreport-link]
-[![Docs][docs-godoc-svg]][docs-godoc-link]
-[![License][license-svg]][license-link]
-[![Stack Overflow][stackoverflow-svg]][stackoverflow-link]
-[![Twitter][twitter-svg]][twitter-link]
+[![Build Status][build-status-svg]][build-status-url]
+[![Go Report Card][goreport-svg]][goreport-url]
+[![Docs][docs-godoc-svg]][docs-godoc-url]
+[![License][license-svg]][license-url]
+[![Stack Overflow][stackoverflow-svg]][stackoverflow-url]
+[![Twitter][twitter-svg]][twitter-url]
 
- [build-status-svg]: https://github.com/grokify/go-ringcentral-client/workflows/test/badge.svg
- [build-status-link]: https://github.com/grokify/go-ringcentral-client/actions
+ [build-status-svg]: https://github.com/grokify/go-ringcentral-client/actions/workflows/ci.yaml/badge.svg?branch=master
+ [build-status-url]: https://github.com/grokify/go-ringcentral-client/actions/workflows/ci.yaml
  [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/go-ringcentral-client
- [goreport-link]: https://goreportcard.com/report/github.com/grokify/go-ringcentral-client
+ [goreport-url]: https://goreportcard.com/report/github.com/grokify/go-ringcentral-client
  [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/grokify/go-ringcentral-client
- [docs-godoc-link]: https://pkg.go.dev/github.com/grokify/go-ringcentral-client
+ [docs-godoc-url]: https://pkg.go.dev/github.com/grokify/go-ringcentral-client
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
- [license-link]: https://github.com/grokify/go-ringcentral-client/blob/master/LICENSE
+ [license-url]: https://github.com/grokify/go-ringcentral-client/blob/master/LICENSE
  [stackoverflow-svg]: https://img.shields.io/badge/Stack%20Overflow-ringcentral-orange.svg
- [stackoverflow-link]: https://stackoverflow.com/questions/tagged/ringcentral
+ [stackoverflow-url]: https://stackoverflow.com/questions/tagged/ringcentral
  [twitter-svg]: https://img.shields.io/twitter/follow/ringcentraldevs.svg?style=social&label=follow
- [twitter-link]: https://twitter.com/RingCentralDevs
+ [twitter-url]: https://twitter.com/RingCentralDevs
 
 ## Overview
 
