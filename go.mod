@@ -7,7 +7,7 @@ require (
 	github.com/caarlos0/env/v6 v6.10.1
 	github.com/getkin/kin-openapi v0.132.0
 	github.com/grokify/go-scim-client v0.1.28
-	github.com/grokify/goauth v0.23.11
+	github.com/grokify/goauth v0.23.12
 	github.com/grokify/mogo v0.68.15
 	github.com/grokify/spectrum v1.19.7
 	github.com/jessevdk/go-flags v1.6.1
