@@ -105,8 +105,12 @@ func (fax *FaxRequest) Post(httpClient *http.Client, url string) (*http.Response
 	if err != nil {
 		return nil, err
 	}
-	req.Header.Set(httputilmore.HeaderContentType, builder.ContentType(httputilmore.ContentTypeMultipartFormData))
-	return httpClient.Do(req)
+	if ct, err := builder.ContentTypeHeader(httputilmore.ContentTypeMultipartFormData); err != nil {
+		return nil, err
+	} else {
+		req.Header.Set(httputilmore.HeaderContentType, ct)
+		return httpClient.Do(req)
+	}
 }
 
 type FaxCoverPage int

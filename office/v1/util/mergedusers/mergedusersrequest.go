@@ -30,7 +30,7 @@ func NewMergedUsersApiIds(client *http.Client, serverUrl string, userIds []strin
 	if err != nil {
 		return set, err
 	}
-	mr, err := multipartutil.NewMultipartReaderForHTTPResponse(resp)
+	mr, err := multipartutil.NewReaderFromHTTPResponse(resp)
 	if err != nil {
 		return set, err
 	}

@@ -105,7 +105,7 @@ func main() {
 	params.Set("type", "HoldMusic")
 	params.Set("answeringRuleId", "business-hours-rule")
 
-	req, err := multipartutil.NewRequest(
+	req, err := multipartutil.NewHTTPRequest(
 		http.MethodPost,
 		urlutil.JoinAbsolute(ac.OAuth2.ServerURL, ExtensionGreetingURL),
 		params,

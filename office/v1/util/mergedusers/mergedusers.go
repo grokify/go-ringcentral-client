@@ -144,7 +144,7 @@ func NewExtensionInfoFromMimePart(part *multipart.Part) (rc.GetExtensionInfoResp
 }
 
 func AddBatchGlipPersonInfosBodyBoundary(mergedUserSet MergedUserSet, body []byte, boundary string) (MergedUserSet, error) {
-	mr := multipartutil.NewReaderBodyBytes([]byte(body), boundary)
+	mr := multipartutil.NewReaderFromBodyBytes([]byte(body), boundary)
 	return AddBatchGlipPersonInfosMultipartReader(mergedUserSet, mr)
 }
 
@@ -172,7 +172,7 @@ func AddBatchGlipPersonInfosMultipartReader(mergedUserSet MergedUserSet, mr *mul
 }
 
 func AddBatchExtensionInfosHttpResponse(mergedUserSet MergedUserSet, resp *http.Response) (MergedUserSet, error) {
-	mr, err := multipartutil.NewMultipartReaderForHTTPResponse(resp)
+	mr, err := multipartutil.NewReaderFromHTTPResponse(resp)
 	if err != nil {
 		return mergedUserSet, err
 	}
