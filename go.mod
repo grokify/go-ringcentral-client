@@ -7,8 +7,8 @@ require (
 	github.com/caarlos0/env/v6 v6.10.1
 	github.com/getkin/kin-openapi v0.132.0
 	github.com/grokify/go-scim-client v0.1.28
-	github.com/grokify/goauth v0.23.14
-	github.com/grokify/mogo v0.70.4
+	github.com/grokify/goauth v0.23.15
+	github.com/grokify/mogo v0.70.9
 	github.com/grokify/spectrum v1.19.8
 	github.com/jessevdk/go-flags v1.6.1
 	github.com/joho/godotenv v1.5.1
@@ -34,7 +34,7 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.3.6 // indirect
 	github.com/googleapis/gax-go/v2 v2.14.2 // indirect
 	github.com/grokify/base36 v1.0.5 // indirect
-	github.com/grokify/gocharts/v2 v2.24.10 // indirect
+	github.com/grokify/gocharts/v2 v2.24.12 // indirect
 	github.com/huandu/xstrings v1.5.0 // indirect
 	github.com/iancoleman/strcase v0.3.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
@@ -57,7 +57,7 @@ require (
 	github.com/richardlehane/mscfb v1.0.4 // indirect
 	github.com/richardlehane/msoleps v1.0.4 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
-	github.com/tiendc/go-deepcopy v1.6.0 // indirect
+	github.com/tiendc/go-deepcopy v1.6.1 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/quicktemplate v1.8.0 // indirect
 	github.com/xuri/efp v0.0.1 // indirect
@@ -69,13 +69,13 @@ require (
 	go.opentelemetry.io/otel/metric v1.36.0 // indirect
 	go.opentelemetry.io/otel/trace v1.36.0 // indirect
 	golang.org/x/crypto v0.39.0 // indirect
-	golang.org/x/exp v0.0.0-20250606033433-dcc06ee1d476 // indirect
+	golang.org/x/exp v0.0.0-20250620022241-b7579e27df2b // indirect
 	golang.org/x/image v0.28.0 // indirect
 	golang.org/x/net v0.41.0 // indirect
 	golang.org/x/sys v0.33.0 // indirect
 	golang.org/x/text v0.26.0 // indirect
 	gonum.org/v1/gonum v0.16.0 // indirect
-	google.golang.org/api v0.236.0 // indirect
+	google.golang.org/api v0.238.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250603155806-513f23925822 // indirect
 	google.golang.org/grpc v1.73.0 // indirect
 	google.golang.org/protobuf v1.36.6 // indirect
