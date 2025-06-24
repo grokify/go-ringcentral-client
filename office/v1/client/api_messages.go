@@ -657,7 +657,9 @@ func (a *MessagesApiService) SendFaxMessage(ctx context.Context, accountId strin
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
-	localVarFormParams.Add("to", parameterToString(to, "csv"))
+	for _, phone := range to {
+		localVarFormParams.Add("to", phone)
+	}
 	localVarFormFileName = "attachment"
 	var localVarFile *os.File
 	if localVarOptionals != nil && localVarOptionals.Attachment.IsSet() {
