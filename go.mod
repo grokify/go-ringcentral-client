@@ -9,7 +9,7 @@ require (
 	github.com/grokify/go-scim-client v0.1.29
 	github.com/grokify/goauth v0.23.18
 	github.com/grokify/mogo v0.70.15
-	github.com/grokify/spectrum v1.20.1
+	github.com/grokify/spectrum v1.20.2
 	github.com/jessevdk/go-flags v1.6.1
 	github.com/joho/godotenv v1.5.1
 	github.com/nyaruka/phonenumbers v1.6.4
@@ -80,5 +80,5 @@ require (
 	google.golang.org/grpc v1.74.2 // indirect
 	google.golang.org/protobuf v1.36.6 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	sigs.k8s.io/yaml v1.5.0 // indirect
+	sigs.k8s.io/yaml v1.6.0 // indirect
 )
