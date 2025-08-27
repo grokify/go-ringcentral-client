@@ -5,7 +5,7 @@ go 1.23.2
 require (
 	github.com/antihax/optional v1.0.0
 	github.com/caarlos0/env/v11 v11.3.1
-	github.com/getkin/kin-openapi v0.132.0
+	github.com/getkin/kin-openapi v0.133.0
 	github.com/grokify/go-scim-client v0.1.29
 	github.com/grokify/goauth v0.23.18
 	github.com/grokify/mogo v0.70.15
@@ -59,6 +59,7 @@ require (
 	github.com/tiendc/go-deepcopy v1.6.1 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/quicktemplate v1.8.0 // indirect
+	github.com/woodsbury/decimal128 v1.3.0 // indirect
 	github.com/xuri/efp v0.0.1 // indirect
 	github.com/xuri/excelize/v2 v2.9.1 // indirect
 	github.com/xuri/nfp v0.0.1 // indirect
