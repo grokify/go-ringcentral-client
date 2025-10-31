@@ -19,7 +19,7 @@ type EngageCredentials struct {
 
 func NewEngageCredentialsJSON(rcCredentialsJSON []byte) (EngageCredentials, error) {
 	ec := EngageCredentials{}
-	rcCredentials, err := goauth.NewCredentialsJSON(rcCredentialsJSON, nil)
+	rcCredentials, err := goauth.NewCredentialsFromJSON(rcCredentialsJSON, nil)
 	if err != nil {
 		return ec, errorsutil.Wrap(err, "NewEngageCredentialsJSON>>ringcentral.NewCredentialsJSON")
 	}
