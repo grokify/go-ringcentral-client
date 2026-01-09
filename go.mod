@@ -14,7 +14,7 @@ require (
 	github.com/grokify/spectrum v1.20.4
 	github.com/jessevdk/go-flags v1.6.1
 	github.com/joho/godotenv v1.5.1
-	github.com/nyaruka/phonenumbers v1.6.7
+	github.com/nyaruka/phonenumbers v1.6.8
 	github.com/rs/zerolog v1.34.0
 	golang.org/x/oauth2 v0.33.0
 )
@@ -84,7 +84,7 @@ require (
 	google.golang.org/api v0.256.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20251124214823-79d6a2a48846 // indirect
 	google.golang.org/grpc v1.77.0 // indirect
-	google.golang.org/protobuf v1.36.10 // indirect
+	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	sigs.k8s.io/yaml v1.6.0 // indirect
 )
