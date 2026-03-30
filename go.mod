@@ -1,8 +1,6 @@
 module github.com/grokify/go-ringcentral-client
 
-go 1.24.0
-
-toolchain go1.24.5
+go 1.25.0
 
 require (
 	github.com/antihax/optional v1.0.0
@@ -16,7 +14,7 @@ require (
 	github.com/joho/godotenv v1.5.1
 	github.com/nyaruka/phonenumbers v1.6.7
 	github.com/rs/zerolog v1.34.0
-	golang.org/x/oauth2 v0.34.0
+	golang.org/x/oauth2 v0.36.0
 )
 
 require (
