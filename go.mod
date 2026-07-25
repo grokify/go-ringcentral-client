@@ -12,7 +12,7 @@ require (
 	github.com/grokify/spectrum v1.20.6
 	github.com/jessevdk/go-flags v1.6.1
 	github.com/joho/godotenv v1.5.1
-	github.com/nyaruka/phonenumbers v1.8.0
+	github.com/nyaruka/phonenumbers v1.8.1
 	github.com/rs/zerolog v1.35.1
 	golang.org/x/oauth2 v0.36.0
 )
