@@ -52,8 +52,8 @@ github.com/googleapis/gax-go/v2 v2.22.0 h1:PjIWBpgGIVKGoCXuiCoP64altEJCj3/Ei+kSU
 github.com/googleapis/gax-go/v2 v2.22.0/go.mod h1:irWBbALSr0Sk3qlqb9SyJ1h68WjgeFuiOzI4Rqw5+aY=
 github.com/grokify/base36 v1.0.5 h1:iUgnt40hrPtn3M2gjU4Darow5ikf8xWXrTuMWTLziCk=
 github.com/grokify/base36 v1.0.5/go.mod h1:L+1aaUBGfp5Ctar7KCS5G9uPABo1Ccu1Ct2iQAuhOJ4=
-github.com/grokify/go-scim-client v0.1.31 h1:offDkCwCfg5SsJQ4ASf6fqXn5GZgLzNQTVB5Gn/UZ+s=
-github.com/grokify/go-scim-client v0.1.31/go.mod h1:m2PVw2oxXtEviu6Gs42UEPLReM0Ikafi0aVJr77Ii1g=
+github.com/grokify/go-scim-client v0.1.32 h1:z0cE2Q1FT88cHA9ZSODU3LNVRbN0AtXsJBY5UzyPKH4=
+github.com/grokify/go-scim-client v0.1.32/go.mod h1:yiaMuZsNDLk1KEGNWmyMDPvQjA3pteCHWSVSnzjgh8Q=
 github.com/grokify/goauth v0.23.30 h1:hQU5wLwnQcTz5Q2AAsqD9+ubdKJ8hvk2oXMuRErUU0E=
 github.com/grokify/goauth v0.23.30/go.mod h1:CCPrQOi1aE9FElsZiORlIFIW99/CUEh46iwRnm7+hpE=
 github.com/grokify/gocharts/v2 v2.27.0 h1:Ca9dlnd+JakmQZzDrRiRRkvRYotW5VXW/72emOJ3oAA=
