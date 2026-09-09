@@ -8,8 +8,8 @@ require (
 	github.com/getkin/kin-openapi v0.147.0
 	github.com/grokify/go-scim-client v0.1.31
 	github.com/grokify/goauth v0.24.0
-	github.com/grokify/mogo v0.74.7
-	github.com/grokify/spectrum v1.20.7
+	github.com/grokify/mogo v0.74.8
+	github.com/grokify/spectrum v1.21.0
 	github.com/jessevdk/go-flags v1.6.1
 	github.com/joho/godotenv v1.5.1
 	github.com/nyaruka/phonenumbers v1.8.1
@@ -36,7 +36,7 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.3.21 // indirect
 	github.com/googleapis/gax-go/v2 v2.24.0 // indirect
 	github.com/grokify/base36 v1.0.5 // indirect
-	github.com/grokify/gocharts/v2 v2.27.0 // indirect
+	github.com/grokify/gocharts/v2 v2.27.1 // indirect
 	github.com/huandu/xstrings v1.5.0 // indirect
 	github.com/iancoleman/strcase v0.3.0 // indirect
 	github.com/martinlindhe/base36 v1.1.1 // indirect
